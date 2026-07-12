@@ -1,0 +1,16 @@
+.HeaderInfoItem {
+    justify-content: center;
+    align-items: center;
+    gap:5px
+}
+
+.HeaderInfoItem h1 {
+
+    font-size: .8rem;
+}
+
+.headerwrapper h1 {
+
+    color:white
+    
+}
