@@ -117,6 +117,22 @@ const MapsPrev = () => {
             </Flex>
 
         </Flex>
+
+        <Flex
+            className='
+                flex-1
+                bg-green-500
+                justify-center
+                items-center
+            '
+        >
+
+            <h1>
+                map component
+            </h1>
+
+
+        </Flex>
       
     </div>
   )

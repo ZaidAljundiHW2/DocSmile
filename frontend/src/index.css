@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+
+h1 {
+    color: #808080;
+}
+
+.main_header {
+
+}
+
+.secondary_header {
+
+}
+
+.main_text {
+    
+}
+
+.icon {
+
+}
+
+.button {
+
+}
+
+.paddedwrapper {
+    padding:20px
+}
