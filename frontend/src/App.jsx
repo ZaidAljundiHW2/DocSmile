@@ -1,15 +1,13 @@
-import Header from '@/components/CustomComponents/Header/Header'
-import Navbar from '@/components/CustomComponents/Navbar/Navbar'
 import Footer from '@/components/CustomComponents/Footer/Footer'
 import Home from './components/CustomComponents/Home/Home'
+import HeaderFull from './components/CustomComponents/Navbar/HeaderFull'
 
 const App = () => {
   return (
     <div>
 
-      <Header />
+      <HeaderFull />
 
-      <Navbar />
 
       <Home />
 
