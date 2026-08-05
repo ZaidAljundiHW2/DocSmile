@@ -14,9 +14,7 @@ const Doctors = () => {
         slidesPerMove: 1,
         defaultPage: middleDocIndex, 
         onPageChange: (details) => {
-            // details.page is the leftmost visible slide's carousel-index;
-            // center = page + 1, then subtract the filler offset (-1) to get back
-            // to a DoctorsJSON index → net effect: center doctor index = details.page
+            
             const clamped = Math.min(Math.max(details.page, 0), DoctorsJSON.length - 1);
             setMiddleDocIndex(clamped);
         },
@@ -24,7 +22,7 @@ const Doctors = () => {
 
     const goToDoctor = (index) => {
         setMiddleDocIndex(index);
-        carousel.scrollTo(index); // if this errors, try carousel.scrollToIndex(index + 1)
+        carousel.scrollTo(index); 
     };
 
     return (

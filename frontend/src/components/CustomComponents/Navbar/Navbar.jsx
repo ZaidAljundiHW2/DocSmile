@@ -56,35 +56,27 @@ const Navbar = () => {
                 </h1>
 
                 <h1>
-                    About Us
-                </h1>
-
-                <h1>
                     Services
                 </h1>
 
                 <h1>
-                    Dentists
+                    Doctors
                 </h1>
 
                 <h1>
-                    News
+                    About
                 </h1>
 
                 <h1>
-                    Articles
+                    Patient Information
                 </h1>
 
                 <h1>
-                    Reviews
+                    Contact
                 </h1>
 
                 <h1>
-                    Gallery
-                </h1>
-
-                <h1>
-                    Contact Us
+                    Request Appointment
                 </h1>
 
                 <button

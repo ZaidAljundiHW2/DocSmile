@@ -1,0 +1,76 @@
+import React from 'react'
+import { Flex, Box, Image, SimpleGrid } from '@chakra-ui/react'
+import TrustJSON from '@/assets/JSONs/trustcards.json'
+import { resolveImg } from '@/utils/resolveImg'
+
+const Trust = () => {
+  return (
+    <div
+        className='
+            bg-[#CCE0FF]
+        '
+        style={{
+            padding: "20px"
+        }}
+    >
+
+        <SimpleGrid
+            columns={{base:2, md:4}}
+            gap={5}
+        >
+
+            {TrustJSON.map((trust,i) => (
+
+                <Flex
+                    className='
+                        flex-col
+                        rounded-lg
+                        shadow-lg
+                        justify-start
+                        items-center
+                        text-center
+                    '
+
+                    style={{
+                        padding:'20px',
+                        backgroundColor: i % 2 == 0 ? '#071f97' : 'white'
+                    }}
+                >
+
+                    <img 
+                        src={resolveImg(trust.img)}
+                        className='
+                            rounded-full
+                            aspect-square
+                            md:w-[100px]
+                            
+                        '
+
+                        
+                    />
+
+                    <h1 
+                        className='
+                            secondary_header
+                        ' 
+                        style={{
+                            color: i % 2 == 0 ? 'white' : '#071f97',
+                            fontWeight:'bold'
+                        }}
+                    >
+                        {trust.name}
+                    </h1>
+
+                </Flex>
+            ))}
+
+
+        </SimpleGrid>
+
+        
+        
+    </div>
+  )
+}
+
+export default Trust

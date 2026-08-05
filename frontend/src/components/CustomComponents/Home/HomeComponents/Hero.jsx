@@ -29,7 +29,7 @@ const Hero = () => {
                 inset-0
                 h-full
                 w-full
-                bg-[#ccf2ff]/50
+                bg-[#CCE0FF]/50
                 z-1
             '
         
