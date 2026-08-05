@@ -48,7 +48,7 @@ const Doctors = () => {
         <div
             className="
                 bg-white
-                h-[100vh]
+                h-[80vh]
                 items-center
                 flex
                 flex-col
@@ -63,10 +63,11 @@ const Doctors = () => {
                 Our Doctors
             </h1>
 
+
             <div
                 className="
                     h-full
-                    w-full
+                    w-[80%]
                     mask-l-from-90%
                     mask-l-to-100%
                     mask-r-from-90%
@@ -80,6 +81,19 @@ const Doctors = () => {
                 <Carousel.Root
                     slideCount={DoctorsJSON.length + 2}
                     defaultPage={1}
+                    onIndexChange={(details)=>{
+
+                        // Left visible card + 1 = middle card
+                        const middleIndex = details.index + 1
+
+                        if(
+                            middleIndex >= 0 &&
+                            middleIndex < DoctorsJSON.length
+                        ){
+                            setMiddleDocIndex(middleIndex)
+                        }
+
+                    }}
                     className="
                         h-full
                         flex
@@ -96,6 +110,7 @@ const Doctors = () => {
                         "
                     >
 
+                        {/* filler */}
                         <Carousel.Item
                             index={0}
                             className="h-full w-full"
@@ -117,6 +132,7 @@ const Doctors = () => {
                         ))}
 
 
+                        {/* filler */}
                         <Carousel.Item
                             index={DoctorsJSON.length + 1}
                             className="h-full w-full"
@@ -125,6 +141,7 @@ const Doctors = () => {
                                 isFillerCard={true}
                             />
                         </Carousel.Item>
+
 
                     </Carousel.ItemGroup>
 
