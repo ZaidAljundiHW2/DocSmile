@@ -1,48 +1,31 @@
 import React, { useState } from 'react'
-import { Carousel, useCarouselContext } from "@chakra-ui/react"
+import { Carousel, useCarousel } from "@chakra-ui/react"
 import DoctorsJSON from '@/assets/JSONs/doctors.json'
 import DoctorCard from './DoctorCard'
 
-
-const DoctorCarouselItem = ({
-    doctor,
-    index,
-    middleDocIndex,
-    setMiddleDocIndex
-}) => {
-
-    const carousel = useCarouselContext()
-
-    const handleClick = () => {
-        setMiddleDocIndex(index)
-        carousel.scrollTo(index)
-    }
-
-    return (
-        <Carousel.Item
-            index={index + 1}
-            className="
-                h-full
-                items-center
-                flex
-                justify-center
-                w-full
-                cursor-pointer
-            "
-            onClick={handleClick}
-        >
-            <DoctorCard
-                doctor={doctor}
-                isMiddleDoc={index === middleDocIndex}
-            />
-        </Carousel.Item>
-    )
-}
-
-
 const Doctors = () => {
 
-    const [middleDocIndex, setMiddleDocIndex] = useState(1)
+    // index into DoctorsJSON (0 = first doctor). Start on the SECOND doctor.
+    const [middleDocIndex, setMiddleDocIndex] = useState(1);
+
+    const carousel = useCarousel({
+        slideCount: DoctorsJSON.length + 2,
+        slidesPerPage: 3,
+        slidesPerMove: 1,
+        defaultPage: middleDocIndex, 
+        onPageChange: (details) => {
+            // details.page is the leftmost visible slide's carousel-index;
+            // center = page + 1, then subtract the filler offset (-1) to get back
+            // to a DoctorsJSON index → net effect: center doctor index = details.page
+            const clamped = Math.min(Math.max(details.page, 0), DoctorsJSON.length - 1);
+            setMiddleDocIndex(clamped);
+        },
+    });
+
+    const goToDoctor = (index) => {
+        setMiddleDocIndex(index);
+        carousel.scrollTo(index); // if this errors, try carousel.scrollToIndex(index + 1)
+    };
 
     return (
         <div
@@ -55,14 +38,13 @@ const Doctors = () => {
                 gap-5
             "
             style={{
-                padding:'20px'
+                padding: '20px'
             }}
         >
 
             <h1 className="main_header">
                 Our Doctors
             </h1>
-
 
             <div
                 className="
@@ -78,29 +60,13 @@ const Doctors = () => {
                 "
             >
 
-                <Carousel.Root
-                    slideCount={DoctorsJSON.length + 2}
-                    defaultPage={1}
-                    onIndexChange={(details)=>{
-
-                        // Left visible card + 1 = middle card
-                        const middleIndex = details.index + 1
-
-                        if(
-                            middleIndex >= 0 &&
-                            middleIndex < DoctorsJSON.length
-                        ){
-                            setMiddleDocIndex(middleIndex)
-                        }
-
-                    }}
+                <Carousel.RootProvider
+                    value={carousel}
                     className="
                         h-full
                         flex
                         w-full
                     "
-                    slidesPerPage={3}
-                    slidesPerMove={1}
                 >
 
                     <Carousel.ItemGroup
@@ -120,19 +86,21 @@ const Doctors = () => {
                             />
                         </Carousel.Item>
 
-
-                        {DoctorsJSON.map((doctor,index)=>(
-                            <DoctorCarouselItem
+                        {DoctorsJSON.map((doctor, index) => (
+                            <Carousel.Item
                                 key={index}
-                                doctor={doctor}
-                                index={index}
-                                middleDocIndex={middleDocIndex}
-                                setMiddleDocIndex={setMiddleDocIndex}
-                            />
+                                index={index + 1}
+                                className="h-full w-full"
+                                onClick={() => goToDoctor(index)}
+                            >
+                                <DoctorCard
+                                    doctor={doctor}
+                                    index={index}
+                                    isMiddleDoc={middleDocIndex === index}
+                                />
+                            </Carousel.Item>
                         ))}
 
-
-                        {/* filler */}
                         <Carousel.Item
                             index={DoctorsJSON.length + 1}
                             className="h-full w-full"
@@ -142,10 +110,9 @@ const Doctors = () => {
                             />
                         </Carousel.Item>
 
-
                     </Carousel.ItemGroup>
 
-                </Carousel.Root>
+                </Carousel.RootProvider>
 
             </div>
 

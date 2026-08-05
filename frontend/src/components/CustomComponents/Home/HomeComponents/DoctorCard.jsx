@@ -1,38 +1,38 @@
 import React from 'react'
 import { resolveImg } from '@/utils/resolveImg'
-import { Flex, Button } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 
-const DoctorCard = ({doctor={}, isMiddleDoc=false, isFillerCard=false}) => {
-  return (
-    <div
-        className='
-            
-            items-end
-            flex
-            overflow-hidden
-            rounded-lg
-            w-full
-            bg-clip-padding
-        '
-        style={{
-            backgroundImage: isFillerCard ? "" : `url(${resolveImg(doctor.img)})`,
-            backgroundSize:'cover',
-            backgroundPosition:'center',
-            border: isFillerCard ? "" : '5px solid #071f97',
-            height:'100%',
-            scale: isMiddleDoc ? '100%' : '90%'
-        }}
-    >
+const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false }) => {
+    return (
+        <div
+            className='
+                items-end
+                flex
+                overflow-hidden
+                rounded-lg
+                w-full
+                bg-clip-padding
+                transition-transform
+                duration-300
+            '
+            style={{
+                backgroundImage: isFillerCard ? "" : `url(${resolveImg(doctor.img)})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                border: isFillerCard ? "" : '5px solid #071f97',
+                height: '100%',
+                cursor: isFillerCard ? 'default' : 'pointer',
+                transform: isMiddleDoc ? 'scale(1)' : 'scale(0.9)',
+                zIndex: isMiddleDoc ? 10 : 1
+            }}
+        >
 
-        {isFillerCard ? (
+            {isFillerCard ? (
 
                 <div />
 
-            )
+            ) : (
 
-            :
-
-            (
                 <Flex
                     className='
                         bg-[#071f97]
@@ -42,7 +42,7 @@ const DoctorCard = ({doctor={}, isMiddleDoc=false, isFillerCard=false}) => {
                         w-full
                     '
                     style={{
-                        padding:'20px'
+                        padding: '20px'
                     }}
                 >
 
@@ -62,16 +62,12 @@ const DoctorCard = ({doctor={}, isMiddleDoc=false, isFillerCard=false}) => {
                         View More
                     </p>
 
-
                 </Flex>
 
-            )
-        }
-        
+            )}
 
-        
-    </div>
-  )
+        </div>
+    )
 }
 
 export default DoctorCard
