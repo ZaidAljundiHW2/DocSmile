@@ -4,6 +4,7 @@ import UrgentCTA from './HomeComponents/UrgentCTA'
 import Services from './HomeComponents/Services'
 import Doctors from './HomeComponents/Doctors'
 import Trust from './HomeComponents/Trust'
+import Journey from './HomeComponents/Journey'
 
 const Home = () => {
   return (
@@ -18,6 +19,8 @@ const Home = () => {
         <Doctors />
 
         <Trust />
+
+        <Journey />
 
     </div>
   )
