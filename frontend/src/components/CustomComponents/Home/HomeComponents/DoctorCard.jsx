@@ -19,7 +19,8 @@ const DoctorCard = ({doctor={}, isMiddleDoc=false, isFillerCard=false}) => {
             backgroundSize:'cover',
             backgroundPosition:'center',
             border: isFillerCard ? "" : '5px solid #071f97',
-            height: isMiddleDoc ? '100%' : '90%'
+            height:'100%',
+            scale: isMiddleDoc ? '100%' : '90%'
         }}
     >
 
