@@ -63,7 +63,9 @@ const PatientInfo = () => {
                     scale-90
                     hover:scale-100
                     transition-transform
+                    cursor-pointer
                 "
+                key={i}
 
                 style={{
                     borderWidth:'2px',

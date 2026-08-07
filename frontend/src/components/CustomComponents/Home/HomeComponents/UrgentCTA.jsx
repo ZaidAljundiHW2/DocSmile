@@ -3,6 +3,7 @@ import UrgentCTABack from '@/assets/img/Backgrounds/UCTAback.jpg'
 import { Flex, Button } from '@chakra-ui/react'
 import { FaRegClock } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
+import CallButton from '../../Misc/CallButton';
 
 const UrgentCTA = () => {
   return (
@@ -53,10 +54,7 @@ const UrgentCTA = () => {
                 
             </Flex>
 
-            <Button className='button' style={{"--button-bg": "black"}}>
-                Call Us
-                <FaPhoneAlt />
-            </Button>
+            <CallButton />
 
 
 

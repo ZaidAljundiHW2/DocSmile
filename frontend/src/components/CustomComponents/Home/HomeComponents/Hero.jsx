@@ -3,6 +3,8 @@ import { FaCalendar } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import HeroBack from '@/assets/img/Backgrounds/hero_back.jpg'
 import BlueWave from '@/assets/img/Backgrounds/bluewave_w_graphics.webp'
+import CallButton from '../../Misc/CallButton';
+import WhatsappButton from '../../Misc/WhatsappButton';
 
 const Hero = () => {
   return (
@@ -89,10 +91,7 @@ const Hero = () => {
                       
                     </Button>
 
-                    <Button className='button' style={{"--button-bg": "#25D366"}}>
-                        WhatsApp Us
-                        <FaWhatsapp />
-                    </Button>
+                    <WhatsappButton />
 
                 </Flex>
               

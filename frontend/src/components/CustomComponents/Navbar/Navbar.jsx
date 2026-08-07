@@ -75,10 +75,6 @@ const Navbar = () => {
                     Contact
                 </h1>
 
-                <h1>
-                    Request Appointment
-                </h1>
-
                 <button
                     className='
                         rounded-full
@@ -103,7 +99,7 @@ const Navbar = () => {
                         </Box>
 
                         <h1 style={{color:'white'}}>
-                            Book Now
+                            Request Appointment
                         </h1>
                         
                     </Flex>

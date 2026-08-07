@@ -1,5 +1,8 @@
 import { Flex, Box } from "@chakra-ui/react"
 import '../Home.css'
+import { Button } from "@chakra-ui/react"
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Location = () => {
 
@@ -43,7 +46,7 @@ const Location = () => {
             gap-5
             location
             bg-white
-            h-[70vh]
+            min-h-[70vh]
         '
         
         style={{
@@ -118,6 +121,30 @@ const Location = () => {
                     ))}
 
                 </Flex>
+
+                <p>
+                    Parking: parking information.
+                </p>
+                
+                <Flex className="justify-end items-center gap-5">
+
+                    <Button className="button" style={{"--button-bg": "black", padding:'20px'}}>
+                        Call Us
+                        <FaPhoneAlt />
+                    </Button>
+
+                    <Button className="button" style={{"--button-bg": "#25D366", padding:'20px'}}>
+                        WhatsApp Us
+                        <FaWhatsapp />
+                    </Button>
+
+                    
+
+                </Flex>
+
+                
+
+
 
 
             </Flex>
