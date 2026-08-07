@@ -5,6 +5,8 @@ import Services from './HomeComponents/Services'
 import Doctors from './HomeComponents/Doctors'
 import Trust from './HomeComponents/Trust'
 import Journey from './HomeComponents/Journey'
+import PatientInfo from './HomeComponents/PatientInfo'
+import Location from './HomeComponents/Location'
 
 const Home = () => {
   return (
@@ -21,6 +23,10 @@ const Home = () => {
         <Trust />
 
         <Journey />
+
+        <PatientInfo />
+
+        <Location />
 
     </div>
   )

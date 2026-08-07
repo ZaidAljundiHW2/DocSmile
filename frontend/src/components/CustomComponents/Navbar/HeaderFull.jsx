@@ -8,6 +8,7 @@ const HeaderFull = () => {
         className='
             fixed
             z-100
+            w-full
         '
     >
 
