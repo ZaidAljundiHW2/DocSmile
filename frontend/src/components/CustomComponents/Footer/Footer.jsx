@@ -1,4 +1,4 @@
-import React from 'react'
+import FooterBot from './FooterBot'
 import MapsPrev from './MapsPrev'
 
 const Footer = () => {
@@ -6,6 +6,8 @@ const Footer = () => {
     <div>
 
         <MapsPrev />
+
+        <FooterBot />
       
     </div>
   )
