@@ -4,6 +4,7 @@ import CompanyLogo from '@/assets/icons/company-logo.png'
 import CompanyTag from '@/assets/icons/company-tag.png'
 import './Navbar.css'
 import { FaUserDoctor } from "react-icons/fa6";
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -50,14 +51,19 @@ const Navbar = () => {
             
             {/* Navbar */}
             <Flex className='navbaroptions items-center justify-center flex-1'>
-
-                <h1>
-                    Home
-                </h1>
-
-                <h1>
-                    Services
-                </h1>
+                
+                <Link to={'/'}>
+                    <h1>
+                        Home
+                    </h1>
+                </Link>
+                
+                <Link to={'/Services'}>
+                    <h1>
+                        Services
+                    </h1>
+                </Link>
+                
 
                 <h1>
                     Doctors

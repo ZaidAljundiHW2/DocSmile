@@ -6,7 +6,8 @@ const HeaderFull = () => {
   return (
     <div
         className='
-            fixed
+            sticky
+            top-0
             z-100
             w-full
         '

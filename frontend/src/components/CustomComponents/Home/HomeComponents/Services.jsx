@@ -1,4 +1,3 @@
-import React from 'react'
 import ServicesJSON from '@/assets/JSONs/services.json'
 import { SimpleGrid, Flex, Box } from '@chakra-ui/react'
 import { resolveImg } from '@/utils/resolveImg'
