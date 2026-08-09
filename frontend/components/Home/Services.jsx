@@ -45,10 +45,13 @@ const Services = () => {
                         transition-transform
                         duration-300
                         cursor-pointer
+                        text-center
+                        p-4
+                        
                     '
                     style={{
                         backgroundImage: `url(${service.img})`,
-                        backgroundSize: 'cover'
+                        backgroundSize: 'cover',
                     }}
                     key={i}
                 >

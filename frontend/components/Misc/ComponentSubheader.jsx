@@ -1,11 +1,10 @@
 import React from 'react'
-import UCTABack from '/img/Backgrounds/UCTAback.jpg'
 
 const ComponentSubheader = ({heading}) => {
   return (
     <div
         style={{
-            background:`url(${UCTABack})`,
+            background:'url(/img/Backgrounds/UCTAback.jpg)',
             padding:'20px',
             backgroundSize:"100% 100%",
 

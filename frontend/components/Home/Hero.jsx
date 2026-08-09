@@ -50,7 +50,16 @@ const Hero = () => {
         
         />
 
-        <Flex className='flex-col gap-2 w-[50%] z-2'>
+        <div 
+            className='
+                flex
+                flex-col 
+                gap-2 
+                w-[50%] 
+                z-2
+            
+            '
+        >
 
             {/* Name */}
 
@@ -95,7 +104,7 @@ const Hero = () => {
               
             </Flex>
 
-        </Flex>
+        </div>
 
 
     

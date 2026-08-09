@@ -1,12 +1,10 @@
+"use client"
 import { Flex, SimpleGrid, Box } from '@chakra-ui/react'
 import ServicesJSON from '@/assets/JSONs/services.json'
-import { useNavigate } from 'react-router-dom'
-import Image from 'next/image'
 
 
 const ServicesGrid = () => {
 
-    const navigate = useNavigate();
 
   return (
     <div
@@ -39,6 +37,8 @@ const ServicesGrid = () => {
                         transition-transform
                         duration-300
                         cursor-pointer
+                        text-center
+                        p-4
                     '
                     key={i}
 
