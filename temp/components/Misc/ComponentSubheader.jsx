@@ -1,0 +1,35 @@
+import React from 'react'
+import UCTABack from '/img/Backgrounds/UCTAback.jpg'
+
+const ComponentSubheader = ({heading}) => {
+  return (
+    <div
+        style={{
+            background:`url(${UCTABack})`,
+            padding:'20px',
+            backgroundSize:"100% 100%",
+
+        }}
+
+        className='
+            items-center
+        '
+    >
+
+        <h1 
+            className='
+                main_header
+            ' 
+            style={{
+                color:'white',
+                fontSize:'clamp(2rem, 8vw, 10rem)'
+            }}
+        >
+            {heading}
+        </h1>
+        
+    </div>
+  )
+}
+
+export default ComponentSubheader
