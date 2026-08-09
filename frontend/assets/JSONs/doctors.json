@@ -1,7 +1,7 @@
 [
     {
         "name":"hfefqwdo32",
-        "img":"/frontend/src/assets/img/placeholder.jpg",
+        "img":"/img/placeholder.jpg",
         "title":"doctor",
         "specialty":"teeth",
         "languages":"arabic english"
@@ -10,7 +10,7 @@
 
     {
         "name":"433t2",
-        "img":"/frontend/src/assets/img/placeholder.jpg",
+        "img":"/img/placeholder.jpg",
         "title":"doctor",
         "specialty":"teeth",
         "languages":"arabic english"
@@ -19,7 +19,7 @@
 
     {
         "name":"p-kiqwf",
-        "img":"/frontend/src/assets/img/placeholder.jpg",
+        "img":"/img/placeholder.jpg",
         "title":"doctor",
         "specialty":"teeth",
         "languages":"arabic english"
@@ -28,7 +28,7 @@
 
     {
         "name":"cccawqdas",
-        "img":"/frontend/src/assets/img/placeholder.jpg",
+        "img":"/img/placeholder.jpg",
         "title":"doctor",
         "specialty":"teeth",
         "languages":"arabic english"
@@ -37,7 +37,7 @@
 
     {
         "name":"aadkfbqe",
-        "img":"/frontend/src/assets/img/placeholder.jpg",
+        "img":"/img/placeholder.jpg",
         "title":"doctor",
         "specialty":"teeth",
         "languages":"arabic english"
@@ -46,7 +46,7 @@
 
     {
         "name":"ppoprkejrwopef",
-        "img":"/frontend/src/assets/img/placeholder.jpg",
+        "img":"/img/placeholder.jpg",
         "title":"doctor",
         "specialty":"teeth",
         "languages":"arabic english"

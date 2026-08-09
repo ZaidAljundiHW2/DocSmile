@@ -1,8 +1,8 @@
 [
     {
         "name": "Implants",
-        "img": "/frontend/src/assets/img/placeholder.jpg",
-        "banner": "/frontend/src/assets/img/Backgrounds/banner_placeholder.jpg",
+        "img": "/img/placeholder.jpg",
+        "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
             {
                 "section": "About Service",
@@ -13,8 +13,8 @@
                     "Unlike removable dentures, implants look, feel, and function like natural teeth, allowing you to eat, speak, and smile without hesitation."
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -39,8 +39,8 @@
                     }
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -84,31 +84,31 @@
                         "stepnum": 1,
                         "header": "Consultation and Planning",
                         "paragraph": "We evaluate your oral health, take detailed scans, and design a personalized implant plan tailored to your needs.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 2,
                         "header": "Tooth Extraction or Bone Grafting",
                         "paragraph": "If necessary, damaged teeth are removed or bone grafting is performed to build a strong foundation for the implant.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 3,
                         "header": "Implant Placement",
                         "paragraph": "The titanium implant post is surgically placed into the jawbone under local anesthesia for your comfort.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 4,
                         "header": "Healing and Osseointegration",
                         "paragraph": "Over several months, the implant fuses with the surrounding bone, creating a secure and stable base.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 5,
                         "header": "Abutment and Crown Placement",
                         "paragraph": "A custom-made crown is attached to the implant, completing your restoration with a natural-looking result.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     }
                 ]
             }
@@ -116,8 +116,8 @@
     },
     {
         "name": "Teeth Whitening",
-        "img": "/frontend/src/assets/img/placeholder.jpg",
-        "banner": "/frontend/src/assets/img/Backgrounds/banner_placeholder.jpg",
+        "img": "/img/placeholder.jpg",
+        "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
             {
                 "section": "About Service",
@@ -128,8 +128,8 @@
                     "Whether your teeth have been stained by coffee, wine, tobacco, or simply age, our whitening treatments are tailored to your enamel and sensitivity level for comfortable, lasting results."
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -154,8 +154,8 @@
                     }
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -199,31 +199,31 @@
                         "stepnum": 1,
                         "header": "Initial Consultation",
                         "paragraph": "We assess your teeth and gums to confirm you're a good candidate and discuss your whitening goals.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 2,
                         "header": "Shade Matching",
                         "paragraph": "We record your current tooth shade so we can measure and show you your results afterward.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 3,
                         "header": "Protective Preparation",
                         "paragraph": "Gums and soft tissue are shielded to ensure the whitening gel only contacts your teeth.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 4,
                         "header": "Whitening Application",
                         "paragraph": "A professional-strength whitening gel is applied and activated to break down surface stains.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 5,
                         "header": "Final Results and Aftercare",
                         "paragraph": "We review your new shade and provide tips to maintain your brighter smile long-term.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     }
                 ]
             }
@@ -231,8 +231,8 @@
     },
     {
         "name": "Invisalign & Clear Aligners",
-        "img": "/frontend/src/assets/img/placeholder.jpg",
-        "banner": "/frontend/src/assets/img/Backgrounds/banner_placeholder.jpg",
+        "img": "/img/placeholder.jpg",
+        "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
             {
                 "section": "About Service",
@@ -243,8 +243,8 @@
                     "Because the aligners are removable, you can eat, brush, and floss normally, making treatment fit seamlessly into your everyday life."
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -269,8 +269,8 @@
                     }
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -314,31 +314,31 @@
                         "stepnum": 1,
                         "header": "Consultation and Digital Scan",
                         "paragraph": "We take digital impressions of your teeth and evaluate whether aligners are right for you.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 2,
                         "header": "Custom Treatment Plan",
                         "paragraph": "A personalized aligner sequence is designed to map out each stage of your tooth movement.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 3,
                         "header": "Receiving Your Aligners",
                         "paragraph": "You'll receive a series of custom trays along with instructions on wear time and care.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 4,
                         "header": "Progress Check-Ins",
                         "paragraph": "Periodic visits let us monitor your progress and provide your next set of aligners.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 5,
                         "header": "Retention",
                         "paragraph": "Once treatment is complete, a retainer helps keep your new smile in place long-term.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     }
                 ]
             }
@@ -346,8 +346,8 @@
     },
     {
         "name": "Root Canal Therapy",
-        "img": "/frontend/src/assets/img/placeholder.jpg",
-        "banner": "/frontend/src/assets/img/Backgrounds/banner_placeholder.jpg",
+        "img": "/img/placeholder.jpg",
+        "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
             {
                 "section": "About Service",
@@ -358,8 +358,8 @@
                     "With modern techniques and anesthesia, root canal treatment is far more comfortable than its reputation suggests, and it allows you to keep your natural tooth rather than extracting it."
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -384,8 +384,8 @@
                     }
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -429,31 +429,31 @@
                         "stepnum": 1,
                         "header": "Diagnosis and X-Rays",
                         "paragraph": "We examine the tooth and take X-rays to confirm infection and assess the surrounding bone.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 2,
                         "header": "Local Anesthesia",
                         "paragraph": "The area is numbed thoroughly to ensure a comfortable, pain-free procedure.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 3,
                         "header": "Removing the Infected Pulp",
                         "paragraph": "The damaged pulp is carefully removed and the inner chamber is cleaned and shaped.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 4,
                         "header": "Sealing the Tooth",
                         "paragraph": "The cleaned canal is filled and sealed with a biocompatible material to prevent reinfection.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 5,
                         "header": "Placing a Crown",
                         "paragraph": "A custom crown is placed to restore strength and protect the tooth for the long term.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     }
                 ]
             }
@@ -461,8 +461,8 @@
     },
     {
         "name": "Dental Crowns",
-        "img": "/frontend/src/assets/img/placeholder.jpg",
-        "banner": "/frontend/src/assets/img/Backgrounds/banner_placeholder.jpg",
+        "img": "/img/placeholder.jpg",
+        "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
             {
                 "section": "About Service",
@@ -473,8 +473,8 @@
                     "Whether protecting a tooth after a root canal or rebuilding one that's cracked or heavily decayed, crowns provide lasting protection and a natural look."
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -499,8 +499,8 @@
                     }
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -544,31 +544,31 @@
                         "stepnum": 1,
                         "header": "Examination and Planning",
                         "paragraph": "We assess the tooth and determine the best crown material and shape for your needs.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 2,
                         "header": "Tooth Preparation",
                         "paragraph": "The tooth is gently reshaped to make room for the crown to fit securely.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 3,
                         "header": "Digital Impressions",
                         "paragraph": "Precise scans or molds are taken to ensure your crown fits perfectly.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 4,
                         "header": "Temporary Crown Placement",
                         "paragraph": "A temporary crown protects your tooth while your permanent crown is crafted.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 5,
                         "header": "Final Crown Placement",
                         "paragraph": "Your custom crown is checked for fit and bite, then permanently bonded in place.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     }
                 ]
             }
@@ -576,8 +576,8 @@
     },
     {
         "name": "Porcelain Veneers",
-        "img": "/frontend/src/assets/img/placeholder.jpg",
-        "banner": "/frontend/src/assets/img/Backgrounds/banner_placeholder.jpg",
+        "img": "/img/placeholder.jpg",
+        "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
             {
                 "section": "About Service",
@@ -588,8 +588,8 @@
                     "Made from stain-resistant porcelain, veneers mimic the light-reflecting properties of natural enamel, giving you a bright and beautifully uniform smile."
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -614,8 +614,8 @@
                     }
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -659,31 +659,31 @@
                         "stepnum": 1,
                         "header": "Consultation and Smile Design",
                         "paragraph": "We discuss your goals and design a treatment plan tailored to your desired look.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 2,
                         "header": "Tooth Preparation",
                         "paragraph": "A thin layer of enamel is gently removed to prepare the teeth for the veneers.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 3,
                         "header": "Impressions and Custom Fabrication",
                         "paragraph": "Precise impressions are sent to a lab where your veneers are custom-crafted.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 4,
                         "header": "Temporary Veneers",
                         "paragraph": "Temporary veneers protect your teeth and preview your new smile while you wait.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 5,
                         "header": "Final Bonding",
                         "paragraph": "Your custom veneers are checked for fit and color, then permanently bonded in place.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     }
                 ]
             }
@@ -691,8 +691,8 @@
     },
     {
         "name": "Routine Teeth Cleaning",
-        "img": "/frontend/src/assets/img/placeholder.jpg",
-        "banner": "/frontend/src/assets/img/Backgrounds/banner_placeholder.jpg",
+        "img": "/img/placeholder.jpg",
+        "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
             {
                 "section": "About Service",
@@ -703,8 +703,8 @@
                     "Regular cleanings, paired with an exam, help catch small problems before they become costly or painful, keeping your smile healthy for the long run."
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -729,8 +729,8 @@
                     }
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -774,31 +774,31 @@
                         "stepnum": 1,
                         "header": "Oral Health Review",
                         "paragraph": "We review your dental history and discuss any concerns before beginning the cleaning.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 2,
                         "header": "Plaque and Tartar Removal",
                         "paragraph": "Our hygienist carefully removes plaque and tartar from above and below the gumline.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 3,
                         "header": "Teeth Polishing",
                         "paragraph": "A gentle polish removes surface stains and leaves your teeth smooth and bright.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 4,
                         "header": "Flossing and Rinse",
                         "paragraph": "A thorough flossing and rinse clears away any remaining debris between teeth.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 5,
                         "header": "Exam and Recommendations",
                         "paragraph": "The dentist examines your mouth and provides personalized recommendations for care.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     }
                 ]
             }
@@ -806,8 +806,8 @@
     },
     {
         "name": "Emergency Dentistry",
-        "img": "/frontend/src/assets/img/placeholder.jpg",
-        "banner": "/frontend/src/assets/img/Backgrounds/banner_placeholder.jpg",
+        "img": "/img/placeholder.jpg",
+        "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
             {
                 "section": "About Service",
@@ -818,8 +818,8 @@
                     "Whether you're dealing with a broken tooth, severe toothache, or lost filling, we're equipped to diagnose and treat a wide range of urgent dental issues."
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -844,8 +844,8 @@
                     }
                 ],
                 "img": [
-                    "/frontend/src/assets/img/placeholder.jpg",
-                    "/frontend/src/assets/img/placeholder.jpg"
+                    "/img/placeholder.jpg",
+                    "/img/placeholder.jpg"
                 ]
             },
             {
@@ -889,31 +889,31 @@
                         "stepnum": 1,
                         "header": "Emergency Call and Triage",
                         "paragraph": "Call our office and describe your symptoms so we can prioritize your care and schedule you promptly.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 2,
                         "header": "Same-Day Evaluation",
                         "paragraph": "We examine the affected area and take X-rays if needed to determine the cause of your emergency.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 3,
                         "header": "Pain Relief",
                         "paragraph": "Immediate steps are taken to relieve pain and stabilize the affected tooth or area.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 4,
                         "header": "Treatment",
                         "paragraph": "We provide the appropriate treatment, whether it's a repair, extraction, or restorative procedure.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     },
                     {
                         "stepnum": 5,
                         "header": "Follow-Up Care",
                         "paragraph": "We schedule any necessary follow-up visits to ensure full healing and long-term results.",
-                        "img": "/frontend/src/assets/img/placeholder.jpg"
+                        "img": "/img/placeholder.jpg"
                     }
                 ]
             }

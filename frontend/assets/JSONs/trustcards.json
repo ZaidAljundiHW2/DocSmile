@@ -1,21 +1,21 @@
 [
     {
         "name":"Coordinated Team",
-        "img": "/frontend/src/assets/icons/webp.png"
+        "img": "/icons/webp.png"
     },
     
     {
         "name":"Bilingual Communication",
-        "img": "/frontend/src/assets/icons/webp.png"
+        "img": "/icons/webp.png"
     },
 
     {
         "name":"Accessible Location",
-        "img": "/frontend/src/assets/icons/webp.png"
+        "img": "/icons/webp.png"
     },
 
     {
         "name":"Patient-Contact Support",
-        "img": "/frontend/src/assets/icons/webp.png"
+        "img": "/icons/webp.png"
     }
 ]
