@@ -6,6 +6,8 @@ import ServiceProcess from "./ServiceProcess";
 import Doctors from "../Misc/Doctors";
 import ServiceFQAs from "./ServiceFQAs";
 import Contact from "../Misc/Contact";
+import ServiceMiscInfo from "./ServiceMiscInfo";
+import ServiceAlts from "./ServiceAlts";
 
 const ServicesTemplate = ({ service, doctors, FQAs }) => {
 
@@ -22,12 +24,16 @@ const ServicesTemplate = ({ service, doctors, FQAs }) => {
         <ServiceBenefits ServiceBenefitObj={service.content.find(item => item.section === "Benefits")}/>
 
         <ServiceProcess ServiceProcessObj={service.content.find(item => item.section === "Process")}/>
+		
+		<ServiceAlts ServiceAltObj={service.content.find(item => item.section === "Alternatives")}/>
 
         <Doctors doctors={doctors} header={service.name + " Doctors"}/>
 
         <ServiceFQAs FQAObj={FQAs}/>
 
 		<Contact isEnquire={false}/>
+
+		<ServiceMiscInfo doctor={doctors.find(item => item.doctorid === service.doctoridreviewer).name} date={service.lastreviewdate}/>
 
     </div>
   )

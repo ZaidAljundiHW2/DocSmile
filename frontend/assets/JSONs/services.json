@@ -1,6 +1,8 @@
 [
     {
         "name": "Implants",
+        "doctoridreviewer": 1,
+        "lastreviewdate": "Sept. 9, 2025",
         "slug": "implants",
         "serviceid": 1,
         "img": "/img/placeholder.jpg",
@@ -113,11 +115,34 @@
                         "img": "/img/placeholder.jpg"
                     }
                 ]
+            },
+            {
+                "section": "Alternatives",
+                "header": "Other Ways to Replace a Missing Tooth",
+                "alternatives": [
+                    {
+                        "header": "When Bone Density Is Insufficient",
+                        "subheader": "If a bone graft is needed before implant placement, a bridge or partial denture may serve as an interim solution",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "For Patients Not Ready for Surgery",
+                        "subheader": "If you'd prefer to avoid a surgical procedure, a removable partial denture can restore function while you decide",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "When Multiple Teeth Are Missing",
+                        "subheader": "If several teeth in a row are missing, an implant-supported bridge may be recommended instead of individual implants",
+                        "img": "/img/placeholder.jpg"
+                    }
+                ]
             }
         ]
     },
     {
         "name": "Teeth Whitening",
+        "doctoridreviewer": 1,
+        "lastreviewdate": "Sept. 9, 2025",
         "slug": "teeth-whitening",
         "serviceid": 2,
         "img": "/img/placeholder.jpg",
@@ -230,11 +255,34 @@
                         "img": "/img/placeholder.jpg"
                     }
                 ]
+            },
+            {
+                "section": "Alternatives",
+                "header": "Other Ways to Achieve a Brighter Smile",
+                "alternatives": [
+                    {
+                        "header": "If Existing Restorations Won't Whiten",
+                        "subheader": "When crowns, veneers, or fillings won't change shade, replacing them may be discussed alongside whitening",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "For Sensitive Teeth",
+                        "subheader": "If in-office whitening causes discomfort, a gentler custom take-home kit may be recommended instead",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "When Stains Run Deeper Than Enamel",
+                        "subheader": "If discoloration doesn't respond to whitening, porcelain veneers may offer a more consistent long-term result",
+                        "img": "/img/placeholder.jpg"
+                    }
+                ]
             }
         ]
     },
     {
         "name": "Invisalign & Clear Aligners",
+        "doctoridreviewer": 3,
+        "lastreviewdate": "Sept. 9, 2025",
         "slug": "invisalign-&-clear-aligners",
         "serviceid": 3,
         "img": "/img/placeholder.jpg",
@@ -347,11 +395,34 @@
                         "img": "/img/placeholder.jpg"
                     }
                 ]
+            },
+            {
+                "section": "Alternatives",
+                "header": "Other Orthodontic Options to Consider",
+                "alternatives": [
+                    {
+                        "header": "For More Complex Alignment Issues",
+                        "subheader": "If your case involves significant crowding or bite problems, traditional braces may achieve better results",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "If Compliance Is a Concern",
+                        "subheader": "When wearing aligners 20-22 hours a day isn't realistic, fixed braces may be the more dependable option",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "For Patients Seeking Faster Results",
+                        "subheader": "If timeline is a priority, accelerated orthodontic options may be discussed during your consultation",
+                        "img": "/img/placeholder.jpg"
+                    }
+                ]
             }
         ]
     },
     {
         "name": "Root Canal Therapy",
+        "doctoridreviewer": 5,
+        "lastreviewdate": "Sept. 9, 2025",
         "slug": "root-canal-therapy",
         "serviceid": 4,
         "img": "/img/placeholder.jpg",
@@ -464,11 +535,34 @@
                         "img": "/img/placeholder.jpg"
                     }
                 ]
+            },
+            {
+                "section": "Alternatives",
+                "header": "Other Paths to Treating an Infected Tooth",
+                "alternatives": [
+                    {
+                        "header": "When the Tooth Can't Be Saved",
+                        "subheader": "If infection or damage is too extensive, extraction followed by an implant or bridge may be recommended instead",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "For Patients Wanting to Avoid Retreatment",
+                        "subheader": "If a previous root canal has failed, an apicoectomy or extraction may be considered as alternatives",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "When Cost Is a Factor",
+                        "subheader": "If a root canal and crown aren't feasible, extraction with a replacement option may be discussed",
+                        "img": "/img/placeholder.jpg"
+                    }
+                ]
             }
         ]
     },
     {
         "name": "Dental Crowns",
+        "doctoridreviewer": 5,
+        "lastreviewdate": "Sept. 9, 2025",
         "slug": "dental-crowns",
         "serviceid": 5,
         "img": "/img/placeholder.jpg",
@@ -581,11 +675,34 @@
                         "img": "/img/placeholder.jpg"
                     }
                 ]
+            },
+            {
+                "section": "Alternatives",
+                "header": "Other Ways to Restore a Damaged Tooth",
+                "alternatives": [
+                    {
+                        "header": "For Less Extensive Damage",
+                        "subheader": "If the tooth structure is largely intact, a filling or inlay may be sufficient instead of a full crown",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "When a Tooth Is Beyond Repair",
+                        "subheader": "If damage is too severe for a crown to restore, extraction and replacement may be recommended",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "For Cosmetic-Only Concerns",
+                        "subheader": "If the issue is primarily appearance rather than strength, veneers may be a less invasive option",
+                        "img": "/img/placeholder.jpg"
+                    }
+                ]
             }
         ]
     },
     {
         "name": "Porcelain Veneers",
+        "doctoridreviewer": 6,
+        "lastreviewdate": "Sept. 9, 2025",
         "slug": "porcelain-veneers",
         "serviceid": 6,
         "img": "/img/placeholder.jpg",
@@ -698,11 +815,34 @@
                         "img": "/img/placeholder.jpg"
                     }
                 ]
+            },
+            {
+                "section": "Alternatives",
+                "header": "Other Paths to a Cosmetic Smile Makeover",
+                "alternatives": [
+                    {
+                        "header": "For More Significant Misalignment",
+                        "subheader": "If your bite or spacing issues go beyond cosmetics, orthodontic treatment may be recommended first",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "When Enamel Is Limited",
+                        "subheader": "If there isn't enough healthy enamel for veneers, crowns may offer a more durable alternative",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "For a Reversible Option",
+                        "subheader": "If you're not ready for a permanent treatment, whitening or bonding may achieve a similar effect temporarily",
+                        "img": "/img/placeholder.jpg"
+                    }
+                ]
             }
         ]
     },
     {
         "name": "Routine Teeth Cleaning",
+        "doctoridreviewer": 3,
+        "lastreviewdate": "Sept. 9, 2025",
         "slug": "routine-teeth-cleaning",
         "serviceid": 7,
         "img": "/img/placeholder.jpg",
@@ -815,11 +955,34 @@
                         "img": "/img/placeholder.jpg"
                     }
                 ]
+            },
+            {
+                "section": "Alternatives",
+                "header": "Other Paths for Your Oral Health Needs",
+                "alternatives": [
+                    {
+                        "header": "If Gum Disease Is Present",
+                        "subheader": "When early signs of periodontal disease are found, a deep cleaning may be recommended instead of a standard cleaning",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "For Heavy Tartar Buildup",
+                        "subheader": "If plaque and tartar are extensive, additional cleaning sessions may be scheduled to fully address buildup",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "When Sensitivity Is a Concern",
+                        "subheader": "If your gums are especially sensitive, a gentler cleaning approach or desensitizing treatment may be used",
+                        "img": "/img/placeholder.jpg"
+                    }
+                ]
             }
         ]
     },
     {
         "name": "Emergency Dentistry",
+        "doctoridreviewer": 6,
+        "lastreviewdate": "Sept. 9, 2025",
         "slug": "emergency-dentistry",
         "serviceid": 8,
         "img": "/img/placeholder.jpg",
@@ -929,6 +1092,27 @@
                         "stepnum": 5,
                         "header": "Follow-Up Care",
                         "paragraph": "We schedule any necessary follow-up visits to ensure full healing and long-term results.",
+                        "img": "/img/placeholder.jpg"
+                    }
+                ]
+            },
+            {
+                "section": "Alternatives",
+                "header": "Other Paths When Facing a Dental Emergency",
+                "alternatives": [
+                    {
+                        "header": "If the Tooth Can't Be Saved",
+                        "subheader": "When trauma or infection is too severe, extraction may be recommended instead of restorative treatment",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "For Ongoing Pain Management",
+                        "subheader": "If symptoms persist after initial treatment, a root canal or further evaluation may be necessary",
+                        "img": "/img/placeholder.jpg"
+                    },
+                    {
+                        "header": "When Replacement Is Needed",
+                        "subheader": "If a tooth is lost, implants, bridges, or dentures may be discussed as replacement options",
                         "img": "/img/placeholder.jpg"
                     }
                 ]

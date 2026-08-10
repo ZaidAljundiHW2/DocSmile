@@ -8,7 +8,7 @@ import Trust from '../components/Home/Trust'
 import Journey from '../components/Home/Journey'
 import PatientInfo from '../components/Home/PatientInfo'
 import Location from '../components/Home/Location'
-import Contact from '../components/Home/Contact'
+import Contact from '../components/Misc/Contact'
 import DoctorsJSON from '@/assets/JSONs/doctors.json'
 
 export default function Home() {

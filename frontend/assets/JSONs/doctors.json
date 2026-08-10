@@ -1,5 +1,6 @@
 [
     {
+        "doctorid": 1,
         "name": "hfefqwdo32",
         "img": "/img/placeholder.jpg",
         "title": "doctor",
@@ -8,6 +9,7 @@
         "services": [1, 5, 6]
     },
     {
+        "doctorid": 2,
         "name": "433t2",
         "img": "/img/placeholder.jpg",
         "title": "doctor",
@@ -16,6 +18,7 @@
         "services": [2, 3, 7, 8]
     },
     {
+        "doctorid": 3,
         "name": "p-kiqwf",
         "img": "/img/placeholder.jpg",
         "title": "doctor",
@@ -24,6 +27,7 @@
         "services": [4, 1]
     },
     {
+        "doctorid": 4,
         "name": "cccawqdas",
         "img": "/img/placeholder.jpg",
         "title": "doctor",
@@ -32,6 +36,7 @@
         "services": [6, 2, 5, 3]
     },
     {
+        "doctorid": 5,
         "name": "aadkfbqe",
         "img": "/img/placeholder.jpg",
         "title": "doctor",
@@ -40,6 +45,7 @@
         "services": [7, 8, 1]
     },
     {
+        "doctorid": 6,
         "name": "ppoprkejrwopef",
         "img": "/img/placeholder.jpg",
         "title": "doctor",
