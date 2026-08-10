@@ -1,9 +1,9 @@
 import { Flex, Icon } from "@chakra-ui/react"
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
-import { IoDocumentText } from "react-icons/io5";
+import { IoDocumentText, IoCalendar } from "react-icons/io5";
 
-const Contact = () => {
+const Contact = ({ isEnquire = true }) => {
   return (
     <div
         className='
@@ -131,10 +131,10 @@ const Contact = () => {
                     fontSize: "clamp(1.2rem, 1.5vw, 2rem)" 
                 }}
             >
-                Enquire
+                {isEnquire ? "Enquire" : "Book an Appointment"}
             </h2>
 
-            <IoDocumentText size={'32'}/>
+            {isEnquire ? <IoDocumentText size={'32'}/> : <IoCalendar size={'32'}/>}
             
 
         </Flex>

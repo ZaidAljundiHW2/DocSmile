@@ -4,7 +4,7 @@ import { Carousel, useCarousel } from "@chakra-ui/react"
 import DoctorsJSON from '@/assets/JSONs/doctors.json'
 import DoctorCard from './DoctorCard'
 
-const Doctors = () => {
+const Doctors = ({ doctors, header }) => {
 
     
 
@@ -44,7 +44,7 @@ const Doctors = () => {
         >
 
             <h1 className="main_header">
-                Our Doctors
+                {header}
             </h1>
 
             <div
@@ -87,7 +87,7 @@ const Doctors = () => {
                             />
                         </Carousel.Item>
 
-                        {DoctorsJSON.map((doctor, index) => (
+                        {doctors.map((doctor, index) => (
                             <Carousel.Item
                                 key={index}
                                 index={index + 1}

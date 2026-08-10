@@ -1,0 +1,24 @@
+.servicecontainer .absolute-image {
+    position: absolute;
+    
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    max-height: auto;
+    border-radius: .5rem;
+
+}
+
+.servicecontainer p {
+
+    color: black;
+    font-size: clamp(1rem, 1vw, 1.5rem);
+}
+
+.servicecontainer {
+    padding: 10;
+    display: flex;
+    justify-content: center;
+    background: white;
+    
+}

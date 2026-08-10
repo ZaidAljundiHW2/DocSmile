@@ -1,6 +1,8 @@
 [
     {
         "name": "Implants",
+        "slug": "implants",
+        "serviceid": 1,
         "img": "/img/placeholder.jpg",
         "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
@@ -73,7 +75,7 @@
                         "subheader": "Unlike bridges, implants don't require altering neighboring healthy teeth."
                     }
                 ],
-                "video": ""
+                "video": "/videos/implant.mp4"
             },
             {
                 "section": "Process",
@@ -116,6 +118,8 @@
     },
     {
         "name": "Teeth Whitening",
+        "slug": "teeth-whitening",
+        "serviceid": 2,
         "img": "/img/placeholder.jpg",
         "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
@@ -188,7 +192,7 @@
                         "subheader": "With good habits, results can last months to years."
                     }
                 ],
-                "video": ""
+                "video": "/videos/implant.mp4"
             },
             {
                 "section": "Process",
@@ -231,6 +235,8 @@
     },
     {
         "name": "Invisalign & Clear Aligners",
+        "slug": "invisalign-&-clear-aligners",
+        "serviceid": 3,
         "img": "/img/placeholder.jpg",
         "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
@@ -303,7 +309,7 @@
                         "subheader": "Straighter teeth are easier to clean and less prone to decay over time."
                     }
                 ],
-                "video": ""
+                "video": "/videos/implant.mp4"
             },
             {
                 "section": "Process",
@@ -346,6 +352,8 @@
     },
     {
         "name": "Root Canal Therapy",
+        "slug": "root-canal-therapy",
+        "serviceid": 4,
         "img": "/img/placeholder.jpg",
         "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
@@ -418,7 +426,7 @@
                         "subheader": "Saving a tooth is often more economical than extraction and replacement."
                     }
                 ],
-                "video": ""
+                "video": "/videos/implant.mp4"
             },
             {
                 "section": "Process",
@@ -461,6 +469,8 @@
     },
     {
         "name": "Dental Crowns",
+        "slug": "dental-crowns",
+        "serviceid": 5,
         "img": "/img/placeholder.jpg",
         "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
@@ -533,7 +543,7 @@
                         "subheader": "Crowns can restore, protect, or cosmetically enhance a tooth."
                     }
                 ],
-                "video": ""
+                "video": "/videos/implant.mp4"
             },
             {
                 "section": "Process",
@@ -576,6 +586,8 @@
     },
     {
         "name": "Porcelain Veneers",
+        "slug": "porcelain-veneers",
+        "serviceid": 6,
         "img": "/img/placeholder.jpg",
         "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
@@ -648,7 +660,7 @@
                         "subheader": "A beautiful, even smile can improve confidence in every interaction."
                     }
                 ],
-                "video": ""
+                "video": "/videos/implant.mp4"
             },
             {
                 "section": "Process",
@@ -691,6 +703,8 @@
     },
     {
         "name": "Routine Teeth Cleaning",
+        "slug": "routine-teeth-cleaning",
+        "serviceid": 7,
         "img": "/img/placeholder.jpg",
         "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
@@ -763,7 +777,7 @@
                         "subheader": "Good oral hygiene is linked to better overall health outcomes."
                     }
                 ],
-                "video": ""
+                "video": "/videos/implant.mp4"
             },
             {
                 "section": "Process",
@@ -806,6 +820,8 @@
     },
     {
         "name": "Emergency Dentistry",
+        "slug": "emergency-dentistry",
+        "serviceid": 8,
         "img": "/img/placeholder.jpg",
         "banner": "/img/Backgrounds/banner_placeholder.jpg",
         "content": [
@@ -878,7 +894,7 @@
                         "subheader": "Knowing help is available when emergencies strike reduces stress."
                     }
                 ],
-                "video": ""
+                "video": "/videos/implant.mp4"
             },
             {
                 "section": "Process",

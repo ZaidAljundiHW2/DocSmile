@@ -1,5 +1,5 @@
 import { Flex, Box, Button } from '@chakra-ui/react'
-import { FaCalendar } from "react-icons/fa";
+import BookButton from '../Misc/BookButton'
 import WhatsappButton from '../Misc/WhatsappButton';
 import Image from 'next/image';
 
@@ -69,7 +69,7 @@ const Hero = () => {
 
             {/* factual h1 */}
             <h1>
-                Doctor Smile Dental Center is one of Kuwait's finest and most modern private dental care centers, located at the prestigious Laila Tower in Salem Al-Mubarak.
+                Doctor Smile Dental Center is one of Kuwait&apos;s finest and most modern private dental care centers, located at the prestigious Laila Tower in Salem Al-Mubarak.
             </h1>
 
             {/* approved message */}
@@ -86,17 +86,7 @@ const Hero = () => {
 
                 <Flex gap={{base:'5'}}>
 
-                    <Button 
-                        className='button' 
-                        style={{"--button-bg": "#0071e3"}}
-
-                    >
-
-                        Book Online
-
-                        <FaCalendar />
-                      
-                    </Button>
+                    <BookButton />
 
                     <WhatsappButton />
 

@@ -1,6 +1,11 @@
-import Image from "next/image"
+import './Services.css'
+
 
 const ServiceTemplateBanner = ({item}) => {
+
+    
+
+   
   return (
     <div
         style={{
@@ -12,7 +17,9 @@ const ServiceTemplateBanner = ({item}) => {
             items-center
             flex
             relative
-            overflow-hidden
+            justify-center
+            flex-col
+            gap-5
             
         '
     >
@@ -20,7 +27,7 @@ const ServiceTemplateBanner = ({item}) => {
         <img 
             src={item.banner}
             alt={item.name}
-            className='absolute inset-0 z-0'
+            className='absolute inset-0 z-0 absolute-image'
             style={{
             width: '100%',
             height: '100%',
@@ -41,6 +48,10 @@ const ServiceTemplateBanner = ({item}) => {
         >
             {item.name}
         </h1>
+
+        <p className='z-1'>
+            Short approved service introduction.
+        </p>
         
     </div>
   )

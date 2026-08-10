@@ -1,0 +1,194 @@
+[
+    {
+        "id": 1,
+        "serviceid": 1,
+        "question": "How long does the dental implant process take from start to finish?",
+        "answer": "The full process typically takes three to nine months, depending on whether bone grafting is needed and how long osseointegration takes to complete. Straightforward cases with sufficient bone can move faster, while cases requiring grafting take longer to heal before the crown is placed."
+    },
+    {
+        "id": 2,
+        "serviceid": 1,
+        "question": "Is getting a dental implant painful?",
+        "answer": "The procedure itself is performed under local anesthesia, so you shouldn't feel pain during placement. Most patients report mild soreness or swelling for a few days afterward, which is manageable with over-the-counter pain relief."
+    },
+    {
+        "id": 3,
+        "serviceid": 1,
+        "question": "How long do dental implants last?",
+        "answer": "With proper oral hygiene and regular checkups, dental implants can last a lifetime. The crown attached to the implant may need replacement after 10-15 years due to normal wear."
+    },
+    {
+        "id": 4,
+        "serviceid": 1,
+        "question": "Am I too old to get dental implants?",
+        "answer": "There's no upper age limit for implants. What matters most is having healthy gums, adequate bone density, and good overall health to support healing, all of which we assess during your consultation."
+    },
+    {
+        "id": 5,
+        "serviceid": 2,
+        "question": "How long do teeth whitening results last?",
+        "answer": "Results typically last anywhere from several months to a few years, depending on your diet, habits like smoking, and how well you maintain your oral hygiene routine afterward."
+    },
+    {
+        "id": 6,
+        "serviceid": 2,
+        "question": "Will teeth whitening damage my enamel?",
+        "answer": "Professional whitening performed under dental supervision is safe for your enamel when done correctly. We tailor the treatment strength to your sensitivity level to minimize any risk of irritation."
+    },
+    {
+        "id": 7,
+        "serviceid": 2,
+        "question": "Why do my teeth feel sensitive after whitening?",
+        "answer": "Temporary sensitivity is a common side effect as the whitening agent penetrates the enamel. This typically fades within a day or two, and we can recommend desensitizing products if needed."
+    },
+    {
+        "id": 8,
+        "serviceid": 2,
+        "question": "Can crowns or veneers be whitened along with my natural teeth?",
+        "answer": "No, whitening agents only work on natural tooth enamel. Existing crowns, veneers, or fillings won't change shade, so we'll discuss how to keep your smile looking uniform if you have existing dental work."
+    },
+    {
+        "id": 9,
+        "serviceid": 3,
+        "question": "How long does clear aligner treatment take?",
+        "answer": "Treatment length varies by case, but most patients complete their aligner sequence in 6 to 18 months, depending on the complexity of the correction needed."
+    },
+    {
+        "id": 10,
+        "serviceid": 3,
+        "question": "Do I need to wear my aligners all day?",
+        "answer": "Yes, for the best results aligners should be worn 20-22 hours a day, removing them only to eat, drink, brush, and floss."
+    },
+    {
+        "id": 11,
+        "serviceid": 3,
+        "question": "Are clear aligners noticeable when worn?",
+        "answer": "Clear aligners are designed to be nearly invisible. Most people won't notice you're wearing them unless they look closely."
+    },
+    {
+        "id": 12,
+        "serviceid": 3,
+        "question": "Can clear aligners fix severe misalignment?",
+        "answer": "Aligners work best for mild to moderate crowding, spacing, or bite issues. For more severe cases, we may recommend traditional braces or another orthodontic option after your consultation."
+    },
+    {
+        "id": 13,
+        "serviceid": 4,
+        "question": "Is a root canal painful?",
+        "answer": "Modern root canal treatment is performed under local anesthesia and is generally no more uncomfortable than getting a filling. Most patients feel significant relief afterward, since the procedure removes the source of the pain."
+    },
+    {
+        "id": 14,
+        "serviceid": 4,
+        "question": "How do I know if I need a root canal?",
+        "answer": "Common signs include persistent tooth pain, lingering sensitivity to hot or cold, swelling, or a darkening tooth. An exam and X-rays will confirm whether the pulp is infected."
+    },
+    {
+        "id": 15,
+        "serviceid": 4,
+        "question": "Will I need a crown after a root canal?",
+        "answer": "In most cases, yes. A treated tooth can become brittle over time, so a crown is typically placed afterward to protect and strengthen it for the long term."
+    },
+    {
+        "id": 16,
+        "serviceid": 4,
+        "question": "What happens if I don't get a root canal?",
+        "answer": "Leaving an infected tooth untreated can allow the infection to spread to surrounding teeth and tissue, potentially leading to a more serious infection or the loss of the tooth altogether."
+    },
+    {
+        "id": 17,
+        "serviceid": 5,
+        "question": "How long do dental crowns last?",
+        "answer": "High-quality crowns typically last 10-15 years or more with proper care, including good oral hygiene and avoiding excessive strain like chewing ice or hard objects."
+    },
+    {
+        "id": 18,
+        "serviceid": 5,
+        "question": "Will my crown look natural?",
+        "answer": "Yes, crowns are custom-made from materials like porcelain or zirconia and color-matched to blend seamlessly with your existing teeth."
+    },
+    {
+        "id": 19,
+        "serviceid": 5,
+        "question": "Does getting a crown require multiple visits?",
+        "answer": "Typically, yes. Your tooth is prepared and fitted with a temporary crown on the first visit, then your custom permanent crown is bonded in place once it's been fabricated."
+    },
+    {
+        "id": 20,
+        "serviceid": 5,
+        "question": "Can a cracked tooth always be saved with a crown?",
+        "answer": "In many cases, a crown can hold together and protect a cracked tooth. However, if the crack extends below the gumline or into the root, other treatment options may be needed, which we'll assess during your exam."
+    },
+    {
+        "id": 21,
+        "serviceid": 6,
+        "question": "How long do porcelain veneers last?",
+        "answer": "With proper care, porcelain veneers typically last 10-15 years or longer before they may need replacement."
+    },
+    {
+        "id": 22,
+        "serviceid": 6,
+        "question": "Is getting veneers a reversible procedure?",
+        "answer": "No, a small amount of enamel is removed to bond the veneer, which makes the process irreversible. We'll discuss this thoroughly during your consultation to ensure it's the right choice for you."
+    },
+    {
+        "id": 23,
+        "serviceid": 6,
+        "question": "Do veneers stain like natural teeth?",
+        "answer": "Porcelain veneers are highly stain-resistant and hold up well against coffee, wine, and other common staining agents, though good oral hygiene still helps maintain their brightness."
+    },
+    {
+        "id": 24,
+        "serviceid": 6,
+        "question": "Can veneers fix crooked teeth?",
+        "answer": "Veneers can mask minor alignment issues, gaps, and chips, but they aren't a substitute for orthodontic treatment if you have more significant misalignment."
+    },
+    {
+        "id": 25,
+        "serviceid": 7,
+        "question": "How often should I get a routine teeth cleaning?",
+        "answer": "Most patients benefit from a cleaning every six months. Those with a history of gum disease or heavier plaque buildup may be advised to come in more frequently."
+    },
+    {
+        "id": 26,
+        "serviceid": 7,
+        "question": "Does a teeth cleaning hurt?",
+        "answer": "Routine cleanings are generally comfortable. Patients with sensitive gums may feel mild pressure, but the process shouldn't be painful."
+    },
+    {
+        "id": 27,
+        "serviceid": 7,
+        "question": "What's the difference between brushing at home and a professional cleaning?",
+        "answer": "Professional cleanings remove hardened tartar and plaque above and below the gumline that regular brushing and flossing can't fully address, helping prevent cavities and gum disease."
+    },
+    {
+        "id": 28,
+        "serviceid": 7,
+        "question": "Will my teeth look whiter after a cleaning?",
+        "answer": "The polishing step removes surface stains, which often leaves teeth looking noticeably brighter, though it's not the same as a dedicated whitening treatment."
+    },
+    {
+        "id": 29,
+        "serviceid": 8,
+        "question": "What counts as a dental emergency?",
+        "answer": "Severe or sudden tooth pain, a knocked-out or broken tooth, and swelling or facial trauma all warrant urgent evaluation. If you're unsure, call our office and we'll help you determine next steps."
+    },
+    {
+        "id": 30,
+        "serviceid": 8,
+        "question": "Can you see me the same day for a dental emergency?",
+        "answer": "Yes, we prioritize emergency patients and offer same-day appointments whenever possible to relieve pain and address trauma quickly."
+    },
+    {
+        "id": 31,
+        "serviceid": 8,
+        "question": "What should I do if my tooth gets knocked out?",
+        "answer": "Contact our office immediately. Acting quickly greatly improves the chance of saving the tooth, so getting evaluated as soon as possible matters most."
+    },
+    {
+        "id": 32,
+        "serviceid": 8,
+        "question": "Will emergency treatment always mean an extraction?",
+        "answer": "Not necessarily. Depending on the issue, treatment could range from a repair or restoration to, in some cases, an extraction. We'll determine the best option after examining the affected tooth."
+    }
+]
