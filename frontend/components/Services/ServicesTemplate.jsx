@@ -9,7 +9,7 @@ import Contact from "../Misc/Contact";
 import ServiceMiscInfo from "./ServiceMiscInfo";
 import ServiceAlts from "./ServiceAlts";
 
-const ServicesTemplate = ({ service, doctors, FQAs }) => {
+const ServicesTemplate = ({ service, doctors, FQAs, reviewer }) => {
 
   return (
 
@@ -33,7 +33,7 @@ const ServicesTemplate = ({ service, doctors, FQAs }) => {
 
 		<Contact isEnquire={false}/>
 
-		<ServiceMiscInfo doctor={doctors.find(item => item.doctorid === service.doctoridreviewer).name} date={service.lastreviewdate}/>
+		<ServiceMiscInfo doctor={reviewer.name} date={service.lastreviewdate}/>
 
     </div>
   )
