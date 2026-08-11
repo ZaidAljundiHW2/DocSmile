@@ -63,10 +63,11 @@ const Navbar = () => {
                     </h1>
                 </Link>
                 
-
-                <h1>
-                    Doctors
-                </h1>
+                <Link href={'/Doctors'}>
+                    <h1>
+                        Doctors
+                    </h1>
+                </Link>
 
                 <h1>
                     About

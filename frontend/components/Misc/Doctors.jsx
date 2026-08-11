@@ -32,15 +32,13 @@ const Doctors = ({ doctors, header }) => {
         <div
             className="
                 bg-white
-                h-[80vh]
                 items-center
                 flex
                 flex-col
                 gap-5
+                p-10
             "
-            style={{
-                padding: '20px'
-            }}
+            
         >
 
             <h1 className="main_header">
@@ -91,7 +89,7 @@ const Doctors = ({ doctors, header }) => {
                             <Carousel.Item
                                 key={index}
                                 index={index + 1}
-                                className="h-full w-full"
+                                className="h-full w-full py-10"
                                 onClick={() => goToDoctor(index)}
                             >
                                 <DoctorCard

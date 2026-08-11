@@ -7,18 +7,16 @@ const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false }) 
             className='
                 items-end
                 flex
-                overflow-hidden
                 rounded-lg
                 w-full
-                bg-clip-padding
                 transition-transform
                 duration-300
+                
             '
             style={{
-                backgroundImage: isFillerCard ? "" : `url(${doctor.img})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                border: isFillerCard ? "" : '5px solid #071f97',
+                boxShadow: isFillerCard ? '' : '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
                 height: '100%',
                 cursor: isFillerCard ? 'default' : 'pointer',
                 transform: isMiddleDoc ? 'scale(1)' : 'scale(0.9)',
@@ -32,36 +30,50 @@ const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false }) 
 
             ) : (
 
+                
+                
                 <Flex
                     className='
-                        bg-[#071f97]
-                        items-center
-                        justify-center
                         flex-col
-                        w-full
                     '
-                    style={{
-                        padding: '20px'
-                    }}
                 >
+                    <img src={doctor.img}/>
 
-                    <h2 className='secondary_header'>
-                        {doctor.name}
-                    </h2>
+                    <Flex
+                        className='
+                            bg-white
+                            items-center
+                            justify-center
+                            flex-col
+                            w-full
+                            p-5
+                        '
+                        style={{
+                            color:'black'
+                        }}
+                    >
 
-                    <p className='main_text'>
-                        {doctor.title}
-                    </p>
+                        <h2 className='secondary_header' style={{color:'black'}}>
+                            {doctor.name}
+                        </h2>
 
-                    <p className='main_text'>
-                        {doctor.specialty}
-                    </p>
+                        <p className='main_text'>
+                            {doctor.title}
+                        </p>
 
-                    <p className='main_text'>
-                        View More
-                    </p>
+                        <p className='main_text'>
+                            {doctor.specialty}
+                        </p>
+
+                        <p className='main_text'>
+                            View More
+                        </p>
+
+                    </Flex>
 
                 </Flex>
+                    
+                
 
             )}
 
