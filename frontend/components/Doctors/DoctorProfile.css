@@ -1,0 +1,13 @@
+.doctorprofilecontainer {
+
+    display: flex;
+    padding:10;
+    justify-content: center;
+    background: white;
+}
+
+.doctorprofilecontainer p {
+
+    color: black;
+    font-size: clamp(1rem, 1vw, 1.5rem);
+}

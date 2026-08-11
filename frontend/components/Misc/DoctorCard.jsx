@@ -11,6 +11,7 @@ const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false }) 
                 w-full
                 transition-transform
                 duration-300
+                overflow-hidden
                 
             '
             style={{
@@ -35,6 +36,7 @@ const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false }) 
                 <Flex
                     className='
                         flex-col
+                        rounded-lg
                     '
                 >
                     <img src={doctor.img}/>

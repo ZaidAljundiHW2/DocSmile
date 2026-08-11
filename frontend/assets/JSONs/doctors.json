@@ -1,56 +1,242 @@
 [
-    {
-        "doctorid": 1,
-        "name": "hfefqwdo32",
-        "img": "/img/placeholder.jpg",
-        "title": "doctor",
-        "specialty": "teeth",
-        "languages": "arabic english",
-        "services": [1, 5, 6]
-    },
-    {
-        "doctorid": 2,
-        "name": "433t2",
-        "img": "/img/placeholder.jpg",
-        "title": "doctor",
-        "specialty": "teeth",
-        "languages": "arabic english",
-        "services": [2, 3, 7, 8]
-    },
-    {
-        "doctorid": 3,
-        "name": "p-kiqwf",
-        "img": "/img/placeholder.jpg",
-        "title": "doctor",
-        "specialty": "teeth",
-        "languages": "arabic english",
-        "services": [4, 1]
-    },
-    {
-        "doctorid": 4,
-        "name": "cccawqdas",
-        "img": "/img/placeholder.jpg",
-        "title": "doctor",
-        "specialty": "teeth",
-        "languages": "arabic english",
-        "services": [6, 2, 5, 3]
-    },
-    {
-        "doctorid": 5,
-        "name": "aadkfbqe",
-        "img": "/img/placeholder.jpg",
-        "title": "doctor",
-        "specialty": "teeth",
-        "languages": "arabic english",
-        "services": [7, 8, 1]
-    },
-    {
-        "doctorid": 6,
-        "name": "ppoprkejrwopef",
-        "img": "/img/placeholder.jpg",
-        "title": "doctor",
-        "specialty": "teeth",
-        "languages": "arabic english",
-        "services": [3, 4, 6, 2]
-    }
+  {
+    "doctorid": 1,
+    "name": "Dr. Hassan Farouk",
+    "slug": "dr-hassan-farouk",
+    "img": "/img/placeholder.jpg",
+    "title": "General Dentist",
+    "specialty": "Preventive Dentistry",
+    "languages": "Arabic, English",
+    "services": [1, 5, 6],
+    "biography": "Dr. Hassan Farouk is a dedicated General Dentist with a strong focus on preventive and comprehensive dental care.\n\nHe believes that regular dental examinations and good oral hygiene are the foundation of a healthy smile. His approach focuses on helping patients understand their oral health while providing comfortable, personalized treatment.\n\nDr. Farouk works with patients of all ages and is committed to creating a relaxed and welcoming clinical environment.",
+    "qualifications": [
+      "Doctor of Dental Surgery (DDS)",
+      "Member of the International Association for Dental Research",
+      "Certified in Advanced Preventive Dentistry",
+      "Continuing Education in Restorative Dentistry"
+    ],
+    "education": "Doctor of Dental Surgery\nCollege of Dentistry\n\nAdvanced Training in Preventive and Restorative Dentistry\nPostgraduate Continuing Education Program\n\nContinuing Professional Development in Modern Dental Care",
+    "profilereviewer": 4,
+    "reviewdate": "2026-07-15"
+  },
+  {
+    "doctorid": 2,
+    "name": "Dr. Layla Mansour",
+    "slug": "dr-layla-mansour",
+    "img": "/img/placeholder.jpg",
+    "title": "Orthodontist",
+    "specialty": "Braces & Aligners",
+    "languages": "Arabic, English",
+    "services": [2, 3, 7, 8],
+    "biography": "Dr. Layla Mansour is an Orthodontist specializing in braces and clear aligner treatments for children, teenagers, and adults.\n\nShe takes a patient-centered approach to orthodontic care, carefully assessing each patient's dental development and treatment goals before creating an individualized plan.\n\nDr. Mansour is passionate about combining modern orthodontic techniques with clear communication to help patients achieve healthy, confident smiles.",
+    "qualifications": [
+      "Doctor of Dental Surgery (DDS)",
+      "Master's Degree in Orthodontics",
+      "Certified Clear Aligner Provider",
+      "Member of the World Federation of Orthodontists"
+    ],
+    "education": "Doctor of Dental Surgery\nCollege of Dentistry\n\nMaster of Science in Orthodontics\nSchool of Dental Medicine\n\nAdvanced Clinical Training in Clear Aligner Therapy",
+    "profilereviewer": 10,
+    "reviewdate": "2026-07-18"
+  },
+  {
+    "doctorid": 3,
+    "name": "Dr. Peter Kingsley",
+    "slug": "dr-peter-kingsley",
+    "img": "/img/placeholder.jpg",
+    "title": "Endodontist",
+    "specialty": "Root Canal Therapy",
+    "languages": "Arabic, English",
+    "services": [4, 1],
+    "biography": "Dr. Peter Kingsley is an Endodontist with a particular interest in diagnosing and treating conditions affecting the dental pulp and tissues surrounding the tooth.\n\nHe specializes in root canal therapy and focuses on preserving natural teeth whenever possible. His careful and methodical approach helps patients receive effective treatment while maintaining their comfort throughout the process.\n\nDr. Kingsley stays up to date with advances in endodontic techniques and modern dental technology.",
+    "qualifications": [
+      "Doctor of Dental Surgery (DDS)",
+      "Master's Degree in Endodontics",
+      "Advanced Certification in Root Canal Therapy",
+      "Member of the American Association of Endodontists"
+    ],
+    "education": "Doctor of Dental Surgery\nCollege of Dentistry\n\nMaster of Science in Endodontics\nGraduate School of Dental Medicine\n\nAdvanced Training in Microsurgical Endodontics",
+    "profilereviewer": 11,
+    "reviewdate": "2026-07-22"
+  },
+  {
+    "doctorid": 4,
+    "name": "Dr. Camille Achkar",
+    "slug": "dr-camille-achkar",
+    "img": "/img/placeholder.jpg",
+    "title": "Periodontist",
+    "specialty": "Gum Disease Treatment",
+    "languages": "Arabic, English",
+    "services": [6, 2, 5, 3],
+    "biography": "Dr. Camille Achkar is a Periodontist focused on the prevention, diagnosis, and treatment of gum disease and other conditions affecting the supporting structures of the teeth.\n\nShe takes a comprehensive approach to periodontal health, helping patients understand the relationship between healthy gums and overall oral health.\n\nDr. Achkar is committed to providing evidence-based treatment while working closely with patients to establish sustainable oral hygiene habits.",
+    "qualifications": [
+      "Doctor of Dental Surgery (DDS)",
+      "Master's Degree in Periodontology",
+      "Certified in Non-Surgical Periodontal Therapy",
+      "Member of the American Academy of Periodontology"
+    ],
+    "education": "Doctor of Dental Surgery\nCollege of Dentistry\n\nMaster of Science in Periodontology\nSchool of Dental Medicine\n\nAdvanced Training in Periodontal and Implant Therapy",
+    "profilereviewer": 5,
+    "reviewdate": "2026-07-25"
+  },
+  {
+    "doctorid": 5,
+    "name": "Dr. Amira Deeb",
+    "slug": "dr-amira-deeb",
+    "img": "/img/placeholder.jpg",
+    "title": "Prosthodontist",
+    "specialty": "Dental Implants",
+    "languages": "Arabic, English",
+    "services": [7, 8, 1],
+    "biography": "Dr. Amira Deeb is a Prosthodontist specializing in the restoration and replacement of missing or damaged teeth, with a particular interest in dental implant treatment.\n\nShe combines functional and aesthetic considerations when developing treatment plans, with the goal of restoring both oral health and confidence.\n\nDr. Deeb works closely with each patient to explain available treatment options and create a plan suited to their individual needs.",
+    "qualifications": [
+      "Doctor of Dental Surgery (DDS)",
+      "Master's Degree in Prosthodontics",
+      "Advanced Certification in Implant Prosthodontics",
+      "Member of the American College of Prosthodontists"
+    ],
+    "education": "Doctor of Dental Surgery\nCollege of Dentistry\n\nMaster of Science in Prosthodontics\nGraduate School of Dental Medicine\n\nAdvanced Clinical Training in Implant Dentistry and Restorative Rehabilitation",
+    "profilereviewer": 12,
+    "reviewdate": "2026-07-29"
+  },
+  {
+    "doctorid": 6,
+    "name": "Dr. Patrick Okoye",
+    "slug": "dr-patrick-okoye",
+    "img": "/img/placeholder.jpg",
+    "title": "Oral Surgeon",
+    "specialty": "Tooth Extraction",
+    "languages": "Arabic, English",
+    "services": [3, 4, 6, 2],
+    "biography": "Dr. Patrick Okoye is an Oral Surgeon providing surgical dental care with a focus on safe, precise, and patient-centered treatment.\n\nHe has experience managing complex tooth extractions and a range of oral surgical procedures. Dr. Okoye places particular importance on thorough assessment and clear communication before every procedure.\n\nHis goal is to ensure that patients feel informed and comfortable throughout their treatment and recovery.",
+    "qualifications": [
+      "Doctor of Dental Surgery (DDS)",
+      "Master's Degree in Oral and Maxillofacial Surgery",
+      "Advanced Certification in Surgical Dentistry",
+      "Member of the International Association of Oral and Maxillofacial Surgeons"
+    ],
+    "education": "Doctor of Dental Surgery\nCollege of Dentistry\n\nMaster of Science in Oral and Maxillofacial Surgery\nSchool of Dental Medicine\n\nAdvanced Surgical Training in Dental and Oral Procedures",
+    "profilereviewer": 3,
+    "reviewdate": "2026-08-01"
+  },
+  {
+    "doctorid": 7,
+    "name": "Dr. Sarah Whitfield",
+    "slug": "dr-sarah-whitfield",
+    "img": "/img/placeholder.jpg",
+    "title": "Pediatric Dentist",
+    "specialty": "Children's Dentistry",
+    "languages": "Arabic, English",
+    "services": [1, 2, 3],
+    "biography": "Dr. Sarah Whitfield is a Pediatric Dentist dedicated to providing gentle and positive dental experiences for children and young patients.\n\nShe believes that early dental care plays an important role in developing lifelong healthy habits. Her approach focuses on making children feel comfortable while helping families understand the importance of prevention and regular dental visits.\n\nDr. Whitfield creates a friendly clinical environment designed to help young patients build confidence in visiting the dentist.",
+    "qualifications": [
+      "Doctor of Dental Surgery (DDS)",
+      "Master's Degree in Pediatric Dentistry",
+      "Certified in Pediatric Dental Care",
+      "Member of the American Academy of Pediatric Dentistry"
+    ],
+    "education": "Doctor of Dental Surgery\nCollege of Dentistry\n\nMaster of Science in Pediatric Dentistry\nSchool of Dental Medicine\n\nAdvanced Training in Child Behavior Management and Preventive Dentistry",
+    "profilereviewer": 1,
+    "reviewdate": "2026-08-03"
+  },
+  {
+    "doctorid": 8,
+    "name": "Dr. Omar Nassar",
+    "slug": "dr-omar-nassar",
+    "img": "/img/placeholder.jpg",
+    "title": "Cosmetic Dentist",
+    "specialty": "Teeth Whitening & Veneers",
+    "languages": "Arabic, English",
+    "services": [4, 5, 8],
+    "biography": "Dr. Omar Nassar is a Cosmetic Dentist specializing in treatments designed to improve the appearance of smiles while maintaining healthy and functional teeth.\n\nHis areas of interest include professional teeth whitening, veneers, and aesthetic smile enhancement. Dr. Nassar takes time to understand each patient's goals before recommending an appropriate treatment approach.\n\nHe is committed to achieving natural-looking results that complement each patient's individual features.",
+    "qualifications": [
+      "Doctor of Dental Surgery (DDS)",
+      "Advanced Certification in Cosmetic Dentistry",
+      "Certified in Aesthetic Restorative Dentistry",
+      "Member of the American Academy of Cosmetic Dentistry"
+    ],
+    "education": "Doctor of Dental Surgery\nCollege of Dentistry\n\nAdvanced Program in Cosmetic and Aesthetic Dentistry\nPostgraduate Dental Institute\n\nContinuing Education in Veneers, Smile Design, and Restorative Dentistry",
+    "profilereviewer": 5,
+    "reviewdate": "2026-08-05"
+  },
+  {
+    "doctorid": 9,
+    "name": "Dr. Rania Haddad",
+    "slug": "dr-rania-haddad",
+    "img": "/img/placeholder.jpg",
+    "title": "General Dentist",
+    "specialty": "Family Dentistry",
+    "languages": "Arabic, English",
+    "services": [2, 6, 7],
+    "biography": "Dr. Rania Haddad is a General Dentist providing comprehensive dental care for patients and families across different stages of life.\n\nShe focuses on prevention, early diagnosis, and personalized treatment planning to help patients maintain their oral health over the long term.\n\nDr. Haddad believes that effective dental care begins with listening to patients and ensuring they understand their treatment options and recommendations.",
+    "qualifications": [
+      "Doctor of Dental Surgery (DDS)",
+      "Advanced Certification in Comprehensive Dentistry",
+      "Certified in Family and Preventive Dental Care",
+      "Continuing Education in Restorative Dentistry"
+    ],
+    "education": "Doctor of Dental Surgery\nCollege of Dentistry\n\nAdvanced Training in Comprehensive Family Dentistry\nPostgraduate Continuing Education Program\n\nContinuing Professional Development in Preventive and Restorative Care",
+    "profilereviewer": 4,
+    "reviewdate": "2026-08-06"
+  },
+  {
+    "doctorid": 10,
+    "name": "Dr. Jonathan Reeves",
+    "slug": "dr-jonathan-reeves",
+    "img": "/img/placeholder.jpg",
+    "title": "Orthodontist",
+    "specialty": "Invisalign",
+    "languages": "Arabic, English",
+    "services": [1, 3, 5, 6],
+    "biography": "Dr. Jonathan Reeves is an Orthodontist specializing in modern orthodontic treatment, including clear aligner therapy and Invisalign.\n\nHe works with patients to develop individualized treatment plans designed to improve dental alignment, function, and smile aesthetics.\n\nDr. Reeves combines careful treatment planning with modern orthodontic techniques and places strong emphasis on monitoring progress throughout treatment.",
+    "qualifications": [
+      "Doctor of Dental Surgery (DDS)",
+      "Master's Degree in Orthodontics",
+      "Certified Invisalign Provider",
+      "Member of the World Federation of Orthodontists"
+    ],
+    "education": "Doctor of Dental Surgery\nCollege of Dentistry\n\nMaster of Science in Orthodontics\nSchool of Dental Medicine\n\nAdvanced Clinical Training in Clear Aligner and Digital Orthodontic Treatment",
+    "profilereviewer": 2,
+    "reviewdate": "2026-08-07"
+  },
+  {
+    "doctorid": 11,
+    "name": "Dr. Yasmine Fares",
+    "slug": "dr-yasmine-fares",
+    "img": "/img/placeholder.jpg",
+    "title": "Endodontist",
+    "specialty": "Root Canal Retreatment",
+    "languages": "Arabic, English",
+    "services": [4, 7, 8],
+    "biography": "Dr. Yasmine Fares is an Endodontist with a special interest in complex root canal treatment and retreatment.\n\nShe focuses on accurately diagnosing persistent dental pain and infection and developing treatment plans aimed at preserving natural teeth whenever possible.\n\nDr. Fares combines detailed clinical assessment with modern endodontic techniques to provide precise and conservative care.",
+    "qualifications": [
+      "Doctor of Dental Surgery (DDS)",
+      "Master's Degree in Endodontics",
+      "Advanced Certification in Endodontic Retreatment",
+      "Member of the American Association of Endodontists"
+    ],
+    "education": "Doctor of Dental Surgery\nCollege of Dentistry\n\nMaster of Science in Endodontics\nGraduate School of Dental Medicine\n\nAdvanced Training in Endodontic Retreatment and Microsurgical Techniques",
+    "profilereviewer": 3,
+    "reviewdate": "2026-08-08"
+  },
+  {
+    "doctorid": 12,
+    "name": "Dr. Michael Grant",
+    "slug": "dr-michael-grant",
+    "img": "/img/placeholder.jpg",
+    "title": "Prosthodontist",
+    "specialty": "Crowns & Bridges",
+    "languages": "Arabic, English",
+    "services": [2, 3, 6, 8],
+    "biography": "Dr. Michael Grant is a Prosthodontist specializing in the restoration and replacement of damaged or missing teeth, including crowns and bridges.\n\nHe takes a comprehensive approach to restorative treatment, considering both dental function and aesthetics when developing individualized treatment plans.\n\nDr. Grant is committed to helping patients restore comfortable, functional smiles through carefully planned restorative care.",
+    "qualifications": [
+      "Doctor of Dental Surgery (DDS)",
+      "Master's Degree in Prosthodontics",
+      "Advanced Certification in Restorative Dentistry",
+      "Member of the American College of Prosthodontists"
+    ],
+    "education": "Doctor of Dental Surgery\nCollege of Dentistry\n\nMaster of Science in Prosthodontics\nSchool of Dental Medicine\n\nAdvanced Training in Crowns, Bridges, and Comprehensive Restorative Dentistry",
+    "profilereviewer": 5,
+    "reviewdate": "2026-08-10"
+  }
 ]

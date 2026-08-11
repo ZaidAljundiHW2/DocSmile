@@ -9,8 +9,8 @@ const UrgentCTA = () => {
     <div 
         className='
             bg-white
-            min-h-[50vh]
             justify-end
+            p-10
             flex
             relative
             items-center

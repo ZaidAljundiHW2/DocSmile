@@ -2,9 +2,8 @@ import ServicesJSON from '@/assets/JSONs/services.json'
 import { SimpleGrid, Flex, Box } from '@chakra-ui/react'
 import { FaChevronDown } from "react-icons/fa";
 
-const Services = () => {
+const ServicesPrev = ({homeServices, showMore, header}) => {
 
-    const homeServices = ServicesJSON.slice(0,6);
 
   return (
     <div 
@@ -22,7 +21,7 @@ const Services = () => {
     >
 
         <h1 className='main_header'>
-            Our Services
+            {header}
         </h1>
 
         
@@ -30,7 +29,7 @@ const Services = () => {
         <SimpleGrid 
             columns={3} 
             w={{base:'100%', md:'50%'}}
-            spacing={4}   // 👈 consistent gap, both row and column
+            spacing={4}
         >
             {homeServices.map((service, i) => (
                 <Flex 
@@ -49,50 +48,59 @@ const Services = () => {
                         p-4
                         
                     '
-                    style={{
-                        backgroundImage: `url(${service.img})`,
-                        backgroundSize: 'cover',
-                    }}
+                    
                     key={i}
                 >
-                    <Box className='absolute bg-black/70 inset-0 z-0' />
-                    <h2 className='secondary_header z-1' style={{ color: 'white' }}>
+                    <img 
+                        src={service.img}
+                        className='
+                            absolute
+                            inset-0
+                            z-0
+                        '
+                    />
+                    <Box className='absolute bg-black/70 inset-0 z-1' />
+                    <h2 className='secondary_header z-2' style={{ color: 'white' }}>
                         {service.name}
                     </h2>
                 </Flex>
             ))}
         </SimpleGrid>
-
-        <Flex
-            className='
-                flex-col
-                justify-center
-                items-center
-                gap-2
-            '
-        >
-
-            <h2 className='secondary_header'>
-                Other Services
-            </h2>
-
-            <FaChevronDown 
+        
+        {showMore && (
+            <Flex
                 className='
-                    secondary_header
-                    scale-90
-                    hover:scale-100
-                    duration-300
-                    cursor-pointer
+                    flex-col
+                    justify-center
+                    items-center
+                    gap-2
                 '
-                
-            />
-            
+            >
 
-        </Flex>
+                <h2 className='secondary_header'>
+                    Other Services
+                </h2>
+
+                <FaChevronDown 
+                    className='
+                        secondary_header
+                        scale-90
+                        hover:scale-100
+                        duration-300
+                        cursor-pointer
+                    '
+                    
+                />
+                
+
+            </Flex>
+
+        )}
+        
 
         
     </div>
   )
 }
 
-export default Services
+export default ServicesPrev
