@@ -5,7 +5,7 @@ import ServiceBenefits from "./ServiceBenefits";
 import ServiceProcess from "./ServiceProcess";
 import Doctors from "../Misc/Doctors";
 import ServiceFQAs from "./ServiceFQAs";
-import Contact from "../Misc/Contact";
+import Contact from "../Misc/ContactOptions";
 import ServiceMiscInfo from "./ServiceMiscInfo";
 import ServiceAlts from "./ServiceAlts";
 

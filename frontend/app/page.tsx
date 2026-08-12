@@ -8,7 +8,7 @@ import Trust from '../components/Home/Trust'
 import Journey from '../components/Home/Journey'
 import PatientInfo from '../components/Home/PatientInfo'
 import Location from '../components/Home/Location'
-import Contact from '../components/Misc/Contact'
+import Contact from '../components/Misc/ContactOptions'
 import DoctorsJSON from '@/assets/JSONs/doctors.json'
 import ServicesJSON from '@/assets/JSONs/services.json'
 

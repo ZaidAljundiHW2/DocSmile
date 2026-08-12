@@ -2,10 +2,16 @@
 
 @import "tailwindcss";
 
+[data-part="addon"] {
+  background: white !important;
+  color: black !important;
+}
+
 @font-face {
     font-family: CGB;
     src: url('/Century Gothic Bold.ttf');
 }
+
 
 h1 {
     color: #808080;

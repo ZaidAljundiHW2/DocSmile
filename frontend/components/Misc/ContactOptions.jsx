@@ -3,7 +3,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoDocumentText, IoCalendar } from "react-icons/io5";
 
-const Contact = ({ isEnquire = true }) => {
+const ContactOptions = ({ isEnquire = true }) => {
   return (
     <div
         className='
@@ -143,4 +143,4 @@ const Contact = ({ isEnquire = true }) => {
   )
 }
 
-export default Contact
+export default ContactOptions

@@ -68,7 +68,9 @@ const Navbar = () => {
                         Doctors
                     </h1>
                 </Link>
-
+                
+              
+                
                 <h1>
                     About
                 </h1>
@@ -77,9 +79,11 @@ const Navbar = () => {
                     Patient Information
                 </h1>
 
-                <h1>
-                    Contact
-                </h1>
+                <Link href={'/Contact'}>
+                    <h1>
+                        Contact
+                    </h1>
+                </Link>
 
                 <button
                     className='

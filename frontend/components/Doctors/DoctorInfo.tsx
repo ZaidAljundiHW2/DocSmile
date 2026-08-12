@@ -7,23 +7,28 @@ import { RiGraduationCapFill } from "react-icons/ri";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { Flex } from '@chakra-ui/react';
 import { Icon } from '@chakra-ui/react';
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 const DoctorInfo = ({ 
     specialty, 
     languages, 
     biography, 
     qualifications,
-    education
+    education,
+    interests
 } : {
     specialty:string,
-    languages:string,
+    languages:string[],
     biography:string,
     qualifications:string[],
-    education: string
+    education: string,
+    interests: string[]
 }) => {
 
     const biographyBlocks = biography.split('\n');
     const educationBlocks = education.split('\n');
+    const languagesString = languages.join(' - ');
+    const interestsString = interests.join(' - ');
 
     const infoBlocks = [
 
@@ -35,8 +40,14 @@ const DoctorInfo = ({
 
         {
             "header": "Languages",
-            "value": languages,
+            "value": languagesString,
             "icon": FaLanguage
+        },
+
+        {
+            "header": "Clinical Interests",
+            "value": interestsString,
+            "icon": FaMagnifyingGlass
         },
 
         {
@@ -55,7 +66,9 @@ const DoctorInfo = ({
             "header": "Education",
             "value": educationBlocks,
             "icon": RiGraduationCapFill
-        }
+        },
+
+        
 
 
 
@@ -96,16 +109,30 @@ const DoctorInfo = ({
                 >
                     <Flex 
                         className='
-                            items-center
-                            gap-5
+                            items-start
                         '
+                        style={{
+                            flexDirection: item.header === "Clinical Interests" ? 'column' : 'row',
+                            gap: item.header === "Clinical Interests" ? 0 : 20
+                        }}
                     >
-                        <Icon as={item.icon} className='secondary_header'/>
+                        <Flex
+                            className='
+                                gap-5
+                                items-center
+                            '
 
-                        <h2 className='secondary_header'>
-                            {item.header}:
+                            
+                        >
+                            <Icon as={item.icon} className='secondary_header'/>
 
-                        </h2>
+                            <h2 className='secondary_header text-nowrap '>
+                                {item.header}:
+
+                            </h2>
+
+                        </Flex>
+                        
 
                         {item.header !== "Biography" && item.header !== "Qualifications" && item.header !== "Education" && (
                             <h2 className='secondary_header'>
@@ -115,7 +142,7 @@ const DoctorInfo = ({
 
                     </Flex>
 
-                    {item.header !== "Specialty" && item.header !== "Languages" && (
+                    {item.header !== "Specialty" && item.header !== "Languages" && item.header !== "Clinical Interests" && (
                         <Flex
                             className='
                                 px-10

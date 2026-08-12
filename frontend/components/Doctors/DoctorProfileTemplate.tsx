@@ -15,13 +15,14 @@ interface Doctor {
     img:string,
     title:string,
     specialty:string,
-    languages:string,
+    languages:string[],
     services:number[],
     biography:string,
     education:string,
     qualifications:string[],
     profilereviewer:number,
-    reviewdate:string
+    reviewdate:string,
+    clinicalinterests:string[]
 
 }
 
@@ -45,6 +46,7 @@ const DoctorProfileTemplate = ({ doctor }: DoctorProfileTemplateProps) => {
             biography={doctor.biography}
             education={doctor.education}
             qualifications={doctor.qualifications}
+            interests={doctor.clinicalinterests}
 
         />
 
