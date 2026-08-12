@@ -149,7 +149,7 @@ const DoctorInfo = ({
                                 flex-col
                             '
                         >
-                            {item.value.map((item,i) => (
+                            {(item.value as string[]).map((item, i) => (
                                 <p 
                                     key={i}
                                     className='

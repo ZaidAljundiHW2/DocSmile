@@ -59,7 +59,7 @@ const BookingMain = () => {
                         "--button-bg": "#0071e3",
                         alignSelf:'center', 
                         justifySelf:'center'
-                    }}
+                    } as React.CSSProperties}
                 >
                     Get Directions
 

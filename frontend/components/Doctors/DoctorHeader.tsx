@@ -71,7 +71,7 @@ const DoctorHeader = ({img, name, title} : {img:string, name:string, title:strin
                         button
                     '
 
-                    style={{ "--button-bg": "#071f97" }}
+                    style={{ "--button-bg": "#071f97" } as React.CSSProperties}
                 >
                     Ask Question
 
