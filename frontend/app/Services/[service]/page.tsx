@@ -1,6 +1,6 @@
 import ServiceTemplate from '@/components/Services/ServicesTemplate'
 import ServicesJSON from '@/assets/JSONs/services.json'
-import DoctorJSON from '@/assets/JSONS/doctors.json'
+import DoctorJSON from '@/assets/JSONs/doctors.json'
 import FQAsJSON from '@/assets/JSONs/FQAs.json'
 
 const Service = async({ 
