@@ -3,6 +3,7 @@ import miscback from '/img/Backgrounds/miscback.jpg'
 import { Flex, Box } from '@chakra-ui/react'
 import BookButton from '../Misc/BookButton'
 import CallButton from '../Misc/CallButton'
+import { resolveImg } from '@/utils/resolveImg'
 
 const DoctorBook = ({name} : {name:string}) => {
   return (
@@ -31,7 +32,7 @@ const DoctorBook = ({name} : {name:string}) => {
             '
 
             style={{
-                backgroundImage:`url(${'/img/Backgrounds/miscback.jpg'})`,
+                backgroundImage:`url(${resolveImg('/img/Backgrounds/miscback.jpg')})`,
                 backgroundSize:'100% 100%'
             }}
         />

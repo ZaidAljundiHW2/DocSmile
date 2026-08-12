@@ -3,6 +3,7 @@ import { Flex, Button } from '@chakra-ui/react'
 import { FaQuestionCircle } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import BookButton from '../Misc/BookButton';
+import { resolveImg } from '@/utils/resolveImg';
 
 const DoctorHeader = ({img, name, title} : {img:string, name:string, title:string}) => {
 
@@ -23,7 +24,7 @@ const DoctorHeader = ({img, name, title} : {img:string, name:string, title:strin
         >
 
             <img 
-                src={img}
+                src={resolveImg(img)}
                 className='
                     rounded-full
                     w-[200px]

@@ -4,6 +4,7 @@ import './Navbar.css'
 import { FaUserDoctor } from "react-icons/fa6";
 import Link from 'next/link'
 import Image from 'next/image'
+import { resolveImg } from '@/utils/resolveImg';
 
 const Navbar = () => {
   return (
@@ -32,7 +33,7 @@ const Navbar = () => {
             >
 
                 <img 
-                    src={'/icons/company-logo.png'} 
+                    src={resolveImg('/icons/company-logo.png')} 
 
                     alt='doctor smile company logo'
                     style={{

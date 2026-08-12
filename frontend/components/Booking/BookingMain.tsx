@@ -2,6 +2,7 @@ import React from 'react'
 import { Flex, Button } from '@chakra-ui/react'
 import ContactOptions from '../Misc/ContactOptions'
 import BookingForm from './BookingForm'
+import { resolveImg } from '@/utils/resolveImg'
 
 const BookingMain = () => {
   return (
@@ -25,7 +26,7 @@ const BookingMain = () => {
             >
                 <Flex className='flex-1 relative'>
                     <img 
-                        src={'/img/placeholder.jpg'}
+                        src={resolveImg('/img/placeholder.jpg')}
                         className='
                             absolute
                             inset-0

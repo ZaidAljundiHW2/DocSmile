@@ -2,6 +2,7 @@ import { Flex, Box, Button } from '@chakra-ui/react'
 import BookButton from '../Misc/BookButton'
 import WhatsappButton from '../Misc/WhatsappButton';
 import Image from 'next/image';
+import { resolveImg } from '@/utils/resolveImg';
 
 const Hero = () => {
   return (
@@ -16,7 +17,7 @@ const Hero = () => {
       '
 
       style={{
-        backgroundImage:"url(/img/Backgrounds/hero_back.jpg)",
+        backgroundImage:`url(${resolveImg('/img/Backgrounds/hero_back.jpg')})`,
 
       }}
     >
@@ -37,7 +38,7 @@ const Hero = () => {
         {/* blue wave */}
         <img 
 
-            src={'/img/Backgrounds/bluewave_w_graphics.webp'}
+            src={resolveImg('/img/Backgrounds/bluewave_w_graphics.webp')}
             alt='blue wave graphic'
             className='
                 absolute

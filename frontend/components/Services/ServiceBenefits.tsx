@@ -2,6 +2,7 @@ import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import { IoSparklesSharp } from "react-icons/io5";
 import './Services.css'
+import { resolveImg } from '@/utils/resolveImg';
 
 interface BenefitItem {
     header: string,
@@ -115,7 +116,7 @@ const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
                 '
             >
                 <video 
-                    src={ServiceBenefitObj.video}
+                    src={resolveImg(ServiceBenefitObj.video)}
                     autoPlay
                     loop
                     muted

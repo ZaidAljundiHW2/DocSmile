@@ -4,6 +4,7 @@ import './Services.css'
 import BookButton from '../Misc/BookButton'
 import CallButton from '../Misc/CallButton'
 import WhatsappButton from '../Misc/WhatsappButton'
+import { resolveImg } from '@/utils/resolveImg'
 
 interface AboutServiceContent {
   section: string;
@@ -67,7 +68,7 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
 						left-0
 						absolute-image
 					'
-					src={AboutServiceObj.img[0]}
+					src={resolveImg(AboutServiceObj.img[0])}
 				/>
 
 				<img 
@@ -76,7 +77,7 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
 						right-0
 						absolute-image
 					'
-					src={AboutServiceObj.img[1]}
+					src={resolveImg(AboutServiceObj.img[1])}
 				/>
 
             </Flex>

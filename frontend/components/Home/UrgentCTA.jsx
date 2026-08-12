@@ -2,6 +2,7 @@ import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import { FaRegClock } from "react-icons/fa";
 import CallButton from '../Misc/CallButton';
+import { resolveImg } from '@/utils/resolveImg';
 
 const UrgentCTA = () => {
   return (
@@ -28,7 +29,7 @@ const UrgentCTA = () => {
             '
 
             style={{
-                backgroundImage: 'url(/img/Backgrounds/UCTAback.jpg)',
+                backgroundImage: `url(${resolveImg('/img/Backgrounds/UCTAback.jpg')})`,
                 backgroundSize:"100% 100%",
             }}
 

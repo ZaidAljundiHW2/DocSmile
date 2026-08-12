@@ -2,6 +2,7 @@ import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import ContactForm from './ContactForm'
 import ContactOptions from '../Misc/ContactOptions'
+import { resolveImg } from '@/utils/resolveImg'
 
 const ContactMain = () => {
   return (
@@ -20,7 +21,7 @@ const ContactMain = () => {
                 '
             >
                 <img 
-                    src={'/img/placeholder.jpg'}
+                    src={resolveImg('/img/placeholder.jpg')}
                     className='
                         absolute
                         inset-0

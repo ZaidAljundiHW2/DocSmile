@@ -1,6 +1,7 @@
 import ServicesJSON from '@/assets/JSONs/services.json'
 import { SimpleGrid, Flex, Box } from '@chakra-ui/react'
 import { FaChevronDown } from "react-icons/fa";
+import { resolveImg } from '@/utils/resolveImg';
 
 const ServicesPrev = ({homeServices, showMore, header}) => {
 
@@ -52,7 +53,7 @@ const ServicesPrev = ({homeServices, showMore, header}) => {
                     key={i}
                 >
                     <img 
-                        src={service.img}
+                        src={resolveImg(service.img)}
                         className='
                             absolute
                             inset-0

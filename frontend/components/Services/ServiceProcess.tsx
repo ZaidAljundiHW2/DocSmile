@@ -1,5 +1,6 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
+import { resolveImg } from '@/utils/resolveImg'
 
 interface Step {
     stepnum: number,
@@ -72,7 +73,7 @@ const ServiceProcess = ({ ServiceProcessObj } : ServiceProcessProps ) => {
                     >
                         <img 
 
-                            src={item.img}
+                            src={resolveImg(item.img)}
                             className='
                                 w-16
                                 md:w-full
