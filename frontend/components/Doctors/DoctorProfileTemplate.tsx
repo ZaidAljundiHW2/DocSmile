@@ -33,7 +33,9 @@ interface DoctorProfileTemplateProps {
 const DoctorProfileTemplate = ({ doctor }: DoctorProfileTemplateProps) => {
 
     const doctorServices = ServicesJSON.filter(item => doctor.services.includes(item.serviceid));
-    const reviewer = DoctorsJSON.find(item => item.doctorid === doctor.profilereviewer)?.name;
+    const reviewer = DoctorsJSON.find(
+        item => item.doctorid === doctor.profilereviewer
+    )?.name ?? '';
 
   return (
     <div>

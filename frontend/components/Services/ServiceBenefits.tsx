@@ -26,7 +26,7 @@ interface ServiceBenefitsProp {
 const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
 
 
-    const splitArray = (arr) => {
+    const splitArray = (arr: BenefitItem[]) => {
 
         const leftHalf = arr.slice(0, Math.floor(arr.length / 2));
         const rightHalf = arr.slice(Math.floor(arr.length/2));
