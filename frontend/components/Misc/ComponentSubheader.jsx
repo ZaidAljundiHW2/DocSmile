@@ -5,7 +5,7 @@ const ComponentSubheader = ({heading}) => {
   return (
     <div
         style={{
-            ImageBackground:`url(${resolveImg('/img/Backgrounds/UCTAback.jpg')})`,
+            backgroundImage:`url(${resolveImg('/img/Backgrounds/UCTAback.jpg')})`,
             padding:'20px',
             backgroundSize:"100% 100%",
 
