@@ -1,8 +1,7 @@
 import React from 'react'
-import placeholderimg from '/img/placeholder.jpg'
 import { Flex } from '@chakra-ui/react'
 import ContactForm from './ContactForm'
-import Contact from '../Misc/ContactOptions'
+import ContactOptions from '../Misc/ContactOptions'
 
 const ContactMain = () => {
   return (
@@ -61,7 +60,7 @@ const ContactMain = () => {
 
         </Flex>
 
-        <Contact isEnquire={false}/>
+        <ContactOptions isEnquire={false}/>
         
     </div>
   )

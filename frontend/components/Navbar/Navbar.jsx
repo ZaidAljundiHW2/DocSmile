@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Box } from '@chakra-ui/react'
+import { Flex, Box, Button } from '@chakra-ui/react'
 import './Navbar.css'
 import { FaUserDoctor } from "react-icons/fa6";
 import Link from 'next/link'
@@ -84,37 +84,30 @@ const Navbar = () => {
                         Contact
                     </h1>
                 </Link>
+                
+                <Link href={'/Booking'}>
+                    <Button
+                        className='
+                            button
+                        '
+                        style={{
+                            "--button-bg": "#071f97",
+                            fontSize:'1vw'
+                            
+                        }}
+                    >
 
-                <button
-                    className='
-                        rounded-full
-                    '
-                    style={{
+
+                        <FaUserDoctor />
+
                         
-                        background:'#071f97',
-                        padding:'15px'
-                    }}
-                >
+                        Request Appointment
+                            
 
-                    <Flex className='items-center justify-center gap-2'>
-
-                        <Box
-                            style={{
-                                borderRadius:'50%',
-                                padding:'3px',
-                                background:'white'
-                            }}
-                        >
-                            <FaUserDoctor color='#071f97' />
-                        </Box>
-
-                        <h1 style={{color:'white'}}>
-                            Request Appointment
-                        </h1>
-                        
-                    </Flex>
-
-                </button>
+                    </Button>
+                
+                </Link>
+                
 
             </Flex>
 
