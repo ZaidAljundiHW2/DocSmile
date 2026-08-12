@@ -85,7 +85,7 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 						right-0
 						absolute-image
 					'
-					src={ServiceQualificationsObj.img[1]}
+					src={resolveImg(ServiceQualificationsObj.img[1])}
 				/>
 
 			</Flex>

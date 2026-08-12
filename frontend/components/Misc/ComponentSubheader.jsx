@@ -1,10 +1,11 @@
 import React from 'react'
+import { resolveImg } from '@/utils/resolveImg'
 
 const ComponentSubheader = ({heading}) => {
   return (
     <div
         style={{
-            background:'url(/img/Backgrounds/UCTAback.jpg)',
+            ImageBackground:`url(${resolveImg('/img/Backgrounds/UCTAback.jpg')})`,
             padding:'20px',
             backgroundSize:"100% 100%",
 

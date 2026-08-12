@@ -26,7 +26,7 @@ const Header = () => {
         '
 
         style={{
-            backgroundImage: `url(${resolveImg('/img/Backgrounds/headerback.jpg')})`,
+            backgroundImage: `url(${resolveImg('/img/Backgrounds/HeaderBack.jpg')})`,
             backgroundSize:'100% 100%'
         }}
     >
