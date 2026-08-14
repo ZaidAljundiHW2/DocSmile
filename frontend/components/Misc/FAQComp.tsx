@@ -7,14 +7,14 @@ interface FQAItem {
 }
 
 interface FAQCompProps {
-	FQAObj: FQAItem[]
+	FAQObj: FQAItem[]
 }
 
-const FAQComp = ({ FQAObj } : FAQCompProps) => {
+const FAQComp = ({ FAQObj } : FAQCompProps) => {
   return (
     <div className='w-[80%] mx-auto'>
 		<Accordion.Root collapsible defaultValue={["b"]}>
-			{FQAObj.map((item, index) => (
+			{FAQObj.map((item, index) => (
 				<Accordion.Item key={index} value={item.question}>
 					<Accordion.ItemTrigger>
 						<Span flex="1" color={'black'}>{item.question}</Span>

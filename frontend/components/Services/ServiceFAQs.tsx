@@ -7,10 +7,10 @@ interface FQAItem {
 }
 
 interface FAQCompProps {
-	FQAObj: FQAItem[]
+	FAQObj: FQAItem[]
 }
 
-const ServiceFQAs = ({ FQAObj } : FAQCompProps) => {
+const ServiceFQAs = ({ FAQObj } : FAQCompProps) => {
   return (
     <div
         className='
@@ -30,7 +30,7 @@ const ServiceFQAs = ({ FQAObj } : FAQCompProps) => {
         >
             Frequently Asked Questions
         </h1>
-        <FAQComp FQAObj={FQAObj}/>
+        <FAQComp FAQObj={FAQObj}/>
         
     </div>
   )

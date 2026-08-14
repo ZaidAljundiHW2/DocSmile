@@ -1,0 +1,13 @@
+.patientinformationcontainer p {
+
+    color: black;
+    font-size: clamp(1rem, 1vw, 1.5rem);
+}
+
+.patientinformationcontainer {
+    padding: 10;
+    display: flex;
+    justify-content: center;
+    background: white;
+    
+}

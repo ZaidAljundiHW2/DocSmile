@@ -1,7 +1,7 @@
 import ServiceTemplate from '@/components/Services/ServicesTemplate'
 import ServicesJSON from '@/assets/JSONs/services.json'
 import DoctorJSON from '@/assets/JSONs/doctors.json'
-import FQAsJSON from '@/assets/JSONs/FQAs.json'
+import FAQsJSON from '@/assets/JSONs/FAQs.json'
 
 
 export function generateStaticParams() {
@@ -35,8 +35,8 @@ const Service = async ({
         )
         : null
 
-    const FQAs = serviceObj
-        ? FQAsJSON.filter(
+    const FAQs = serviceObj
+        ? FAQsJSON.filter(
             item => item.serviceid === serviceObj.serviceid
         )
         : []
@@ -46,7 +46,7 @@ const Service = async ({
             <ServiceTemplate
                 service={serviceObj}
                 doctors={doctors}
-                FQAs={FQAs}
+                FAQs={FAQs}
                 reviewer={reviewer}
             />
         </div>

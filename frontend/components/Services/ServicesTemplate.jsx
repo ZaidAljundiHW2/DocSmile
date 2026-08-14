@@ -4,12 +4,12 @@ import ServiceQualifications from "./ServiceQualifications";
 import ServiceBenefits from "./ServiceBenefits";
 import ServiceProcess from "./ServiceProcess";
 import Doctors from "../Misc/Doctors";
-import ServiceFQAs from "./ServiceFQAs";
+import ServiceFAQs from "./ServiceFAQs";
 import Contact from "../Misc/ContactOptions";
 import ServiceMiscInfo from "./ServiceMiscInfo";
 import ServiceAlts from "./ServiceAlts";
 
-const ServicesTemplate = ({ service, doctors, FQAs, reviewer }) => {
+const ServicesTemplate = ({ service, doctors, FAQs, reviewer }) => {
 
   return (
 
@@ -29,7 +29,7 @@ const ServicesTemplate = ({ service, doctors, FQAs, reviewer }) => {
 
         <Doctors doctors={doctors} header={service.name + " Doctors"}/>
 
-        <ServiceFQAs FQAObj={FQAs}/>
+        <ServiceFAQs FAQObj={FAQs}/>
 
 		<Contact isEnquire={false}/>
 

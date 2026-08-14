@@ -74,10 +74,13 @@ const Navbar = () => {
                 <h1>
                     About
                 </h1>
-
-                <h1>
-                    Patient Information
-                </h1>
+                
+                <Link href={'Patient-Information'}>
+                
+                    <h1>
+                        Patient Information
+                    </h1>
+                </Link>
 
                 <Link href={'/Contact'}>
                     <h1>
