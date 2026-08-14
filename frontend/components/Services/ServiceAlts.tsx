@@ -1,6 +1,5 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
-import { resolveImg } from '@/utils/resolveImg'
 
 interface ServiceAltItem {
     header:string,
@@ -91,7 +90,7 @@ const ServiceAlts = ({ ServiceAltObj } : ServiceAltProps) => {
                         </Flex>
 
                         <img 
-                            src={resolveImg(item.img)} 
+                            src={item.img} 
                             style={{
                                 order: i % 2 == 0 ? 2 : 1,
                                 width: '100%',

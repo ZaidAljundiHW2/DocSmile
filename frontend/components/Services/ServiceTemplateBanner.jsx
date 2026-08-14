@@ -1,5 +1,4 @@
 import './Services.css'
-import { resolveImg } from '@/utils/resolveImg'
 
 const ServiceTemplateBanner = ({item}) => {
 
@@ -25,7 +24,7 @@ const ServiceTemplateBanner = ({item}) => {
     >
 
         <img 
-            src={resolveImg(item.banner)}
+            src={item.banner}
             alt={item.name}
             className='absolute inset-0 z-0 absolute-image'
             style={{

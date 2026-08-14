@@ -4,7 +4,6 @@ import { IoMdCheckboxOutline } from "react-icons/io";
 import BookButton from '../Misc/BookButton';
 import CallButton from '../Misc/CallButton';
 import WhatsappButton from '../Misc/WhatsappButton';
-import { resolveImg } from '@/utils/resolveImg';
 
 interface ChecklistItem {
 	header:string,
@@ -76,7 +75,7 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 						left-0
 						absolute-image
 					'
-					src={resolveImg(ServiceQualificationsObj.img[0])}
+					src={ServiceQualificationsObj.img[0]}
 				/>
 
 				<img 
@@ -85,7 +84,7 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 						right-0
 						absolute-image
 					'
-					src={resolveImg(ServiceQualificationsObj.img[1])}
+					src={ServiceQualificationsObj.img[1]}
 				/>
 
 			</Flex>

@@ -11,8 +11,6 @@ import { FaYoutube } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaSnapchat } from "react-icons/fa";
 import LanguageSwitch from '../Misc/LanguageSwitch';
-import Image from 'next/image';
-import { resolveImg } from '@/utils/resolveImg';
 
 const MapsPrev = () => {
   return (
@@ -41,7 +39,7 @@ const MapsPrev = () => {
         >
 
             <img 
-                src={resolveImg("/icons/company-logo.png")} 
+                src={"/icons/company-logo.png"} 
                 alt='doctor smile company logo'
                 style={{
                     width:'250px',

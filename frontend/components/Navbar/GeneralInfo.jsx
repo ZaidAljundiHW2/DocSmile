@@ -11,7 +11,6 @@ import { FaYoutube } from "react-icons/fa";
 import { FaSnapchat } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { TbView360Number } from "react-icons/tb";
-import { resolveImg } from '@/utils/resolveImg';
 
 const Header = () => {
   return (
@@ -26,7 +25,7 @@ const Header = () => {
         '
 
         style={{
-            backgroundImage: `url(${resolveImg('/img/Backgrounds/HeaderBack.jpg')})`,
+            backgroundImage: `url(${'/img/Backgrounds/HeaderBack.jpg'})`,
             backgroundSize:'100% 100%'
         }}
     >

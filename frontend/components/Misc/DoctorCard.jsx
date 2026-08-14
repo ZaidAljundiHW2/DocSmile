@@ -1,6 +1,5 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
-import { resolveImg } from '@/utils/resolveImg'
 
 const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false }) => {
     return (
@@ -40,7 +39,7 @@ const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false }) 
                         rounded-lg
                     '
                 >
-                    <img src={resolveImg(doctor.img)}/>
+                    <img src={doctor.img}/>
 
                     <Flex
                         className='

@@ -2,7 +2,6 @@
 import { Flex, SimpleGrid, Box } from '@chakra-ui/react'
 import ServicesJSON from '@/assets/JSONs/services.json'
 import Link from 'next/link'
-import { resolveImg } from '@/utils/resolveImg'
 
 const ServicesGrid = () => {
 
@@ -47,7 +46,7 @@ const ServicesGrid = () => {
                         '
                     >
                         <img 
-                            src={resolveImg(item.img)}
+                            src={(item.img)}
                             alt={item.name}
                             className='
                                 absolute

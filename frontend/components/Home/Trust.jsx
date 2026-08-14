@@ -2,7 +2,6 @@ import React from 'react'
 import { Flex, SimpleGrid } from '@chakra-ui/react'
 import TrustJSON from '@/assets/JSONs/trustcards.json'
 import Image from 'next/image'
-import { resolveImg } from '@/utils/resolveImg'
 
 const Trust = () => {
   return (
@@ -40,7 +39,7 @@ const Trust = () => {
                 >
 
                     <img 
-                        src={resolveImg(trust.img)}
+                        src={trust.img}
                         alt={trust.name}
                         className='
                             rounded-full
