@@ -9,9 +9,19 @@
     src: url('/Century Gothic Bold.ttf');
 }
 
+@font-face {
+    font-family: HelveticaNeue;
+    src: url('/HelveticaNeueLight.otf');
+}
+
+body {
+  padding-top: var(--header-height, 0px);
+}
 
 h1 {
     color: #808080;
+    font-family: HelveticaNeue;
+
 }
 
 .main_header {
@@ -27,19 +37,31 @@ h1 {
 
     font-size: clamp(1.2rem, 2vw, 2.5rem);
     color: #808080;
+    font-family: HelveticaNeue;
+    
+
 
 }
 
 .main_text {
-    color:'white'
+    color:'white';
+    font-family: HelveticaNeue;
+
 }
 
 .secondary_text {
-    color:#808080
+    color:#808080;
+    font-family: HelveticaNeue;
+
 }
 
 .icon {
 
+}
+
+p {
+    
+    font-family: HelveticaNeue;
 }
 
 .button {

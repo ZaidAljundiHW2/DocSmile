@@ -55,7 +55,16 @@ const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false }) 
                         }}
                     >
 
-                        <h2 className='secondary_header' style={{color:'black'}}>
+                        <h2 
+                            className='
+                                secondary_header
+                            ' 
+                            style={{
+                                color:'black', 
+                                fontWeight:'bold',
+                                
+                            }}
+                        >
                             {doctor.name}
                         </h2>
 

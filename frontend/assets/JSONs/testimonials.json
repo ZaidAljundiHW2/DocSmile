@@ -1,0 +1,182 @@
+[
+  {
+    "testimonialid": 1,
+    "slug": "sarah-ahmed",
+    "name": "Sarah Ahmed",
+    "date": "2026-07-12",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "I had an excellent experience from my first appointment to my final treatment. The entire team was professional, friendly, and made me feel completely comfortable."
+  },
+  {
+    "testimonialid": 2,
+    "slug": "omar-hassan",
+    "name": "Omar Hassan",
+    "date": "2026-06-28",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "The staff were incredibly welcoming and explained every step of my treatment clearly. I am very happy with the results and would definitely recommend the clinic."
+  },
+  {
+    "testimonialid": 3,
+    "slug": "mariam-ali",
+    "name": "Mariam Ali",
+    "date": "2026-06-15",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "I was nervous about my dental treatment, but the team made the whole process much easier than I expected. Everyone was kind, patient, and professional."
+  },
+  {
+    "testimonialid": 4,
+    "slug": "ahmed-khalid",
+    "name": "Ahmed Khalid",
+    "date": "2026-05-30",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "The clinic is modern, clean, and very well organised. My dentist took the time to answer all of my questions and I was very pleased with the final result."
+  },
+  {
+    "testimonialid": 5,
+    "slug": "layla-mohammed",
+    "name": "Layla Mohammed",
+    "date": "2026-05-18",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "From reception to treatment, everyone was extremely helpful. I felt comfortable throughout my appointments and the results have made a huge difference to my confidence."
+  },
+  {
+    "testimonialid": 6,
+    "slug": "yousef-ibrahim",
+    "name": "Yousef Ibrahim",
+    "date": "2026-04-27",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "I appreciated how thoroughly everything was explained before starting treatment. The staff were professional and the whole experience was smooth and stress-free."
+  },
+  {
+    "testimonialid": 7,
+    "slug": "noura-saleh",
+    "name": "Noura Saleh",
+    "date": "2026-04-10",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "A wonderful experience with a very caring team. They paid attention to every detail and made sure I was comfortable during every visit."
+  },
+  {
+    "testimonialid": 8,
+    "slug": "khaled-abdullah",
+    "name": "Khaled Abdullah",
+    "date": "2026-03-22",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "I am very impressed with the quality of care I received. The clinic uses modern equipment and the staff were knowledgeable, friendly, and reassuring."
+  },
+  {
+    "testimonialid": 9,
+    "slug": "fatima-hassan",
+    "name": "Fatima Hassan",
+    "date": "2026-03-05",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "The team was fantastic throughout my treatment. They were always happy to answer questions and made every appointment feel comfortable and straightforward."
+  },
+  {
+    "testimonialid": 10,
+    "slug": "abdulrahman-ali",
+    "name": "Abdulrahman Ali",
+    "date": "2026-02-17",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "I had been putting off my dental treatment for a long time, but I am glad I finally came here. The staff made me feel at ease and the results exceeded my expectations."
+  },
+  {
+    "testimonialid": 11,
+    "slug": "reem-ahmad",
+    "name": "Reem Ahmad",
+    "date": "2026-02-02",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "Everyone at the clinic was kind and professional. My appointments were handled efficiently and I always felt that my concerns were being listened to."
+  },
+  {
+    "testimonialid": 12,
+    "slug": "fahad-mahmoud",
+    "name": "Fahad Mahmoud",
+    "date": "2026-01-19",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "The attention to detail was excellent. My dentist explained my options clearly and helped me choose a treatment plan that I was comfortable with."
+  },
+  {
+    "testimonialid": 13,
+    "slug": "huda-yassin",
+    "name": "Huda Yassin",
+    "date": "2025-12-21",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "I had a very positive experience at the clinic. The environment was welcoming, the staff were friendly, and my treatment was carried out with great care."
+  },
+  {
+    "testimonialid": 14,
+    "slug": "saad-faris",
+    "name": "Saad Faris",
+    "date": "2025-12-08",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "The service was excellent from beginning to end. I was kept informed throughout the process and felt confident that I was in good hands."
+  },
+  {
+    "testimonialid": 15,
+    "slug": "aisha-rahman",
+    "name": "Aisha Rahman",
+    "date": "2025-11-16",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "I am extremely happy with my experience. The clinic is beautiful and modern, and the entire team went above and beyond to make me feel comfortable."
+  },
+  {
+    "testimonialid": 16,
+    "slug": "tariq-nasser",
+    "name": "Tariq Nasser",
+    "date": "2025-10-29",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "The treatment process was much easier than I anticipated. The dentist was knowledgeable and patient, and I am very pleased with the outcome."
+  },
+  {
+    "testimonialid": 17,
+    "slug": "noor-khalil",
+    "name": "Noor Khalil",
+    "date": "2025-10-11",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "I would highly recommend this clinic. The staff are welcoming and professional, and they genuinely take the time to make sure their patients are comfortable."
+  },
+  {
+    "testimonialid": 18,
+    "slug": "hassan-jaber",
+    "name": "Hassan Jaber",
+    "date": "2025-09-24",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "My experience was excellent. Everything was explained clearly and the treatment was carried out carefully. I am very satisfied with the results."
+  },
+  {
+    "testimonialid": 19,
+    "slug": "dana-mustafa",
+    "name": "Dana Mustafa",
+    "date": "2025-09-07",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "The whole team was incredibly friendly and professional. I felt welcomed from the moment I arrived and was very happy with the care I received."
+  },
+  {
+    "testimonialid": 20,
+    "slug": "rami-saeed",
+    "name": "Rami Saeed",
+    "date": "2025-08-19",
+    "profileimg": "/img/placeholder.jpg",
+    "testimonialimg": "/img/placeholder.jpg",
+    "testimonial": "I am very pleased with my treatment and the level of service at the clinic. The team made sure I understood everything and felt comfortable throughout the process."
+  }
+]

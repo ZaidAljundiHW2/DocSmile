@@ -4,6 +4,8 @@ import './Navbar.css'
 import { FaUserDoctor } from "react-icons/fa6";
 import Link from 'next/link'
 import Image from 'next/image'
+import { Menu, Portal } from "@chakra-ui/react"
+import { FaCaretDown } from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -49,7 +51,7 @@ const Navbar = () => {
             </Box>
             
             {/* Navbar */}
-            <Flex className='navbaroptions items-center justify-center flex-1'>
+            <Flex className='navbaroptions gap-5 items-center justify-center flex-1'>
                 
                 <Link href={'/'}>
                     <h1>
@@ -70,10 +72,66 @@ const Navbar = () => {
                 </Link>
                 
               
-                
-                <h1>
-                    About
-                </h1>
+                <Menu.Root>
+                    <Menu.Trigger asChild>
+                        <Button as={'h1'}>
+                            About
+
+                            <FaCaretDown />
+
+                        </Button>
+                    </Menu.Trigger>
+
+                    <Portal >
+                        <Menu.Positioner>
+                        <Menu.Content
+                            className="bg-white"
+                            css={{
+                                "& [data-highlighted]": {
+                                    background: "transparent",
+                                },
+                                "& [data-highlighted]:hover": {
+                                    background: "transparent",
+                                    cursor:'pointer'
+                                },
+                            }}
+                        >
+
+                            <Link href={'/About/Doctor-Smile'}>
+                                <Menu.Item 
+                                    value="About Us" 
+                                    as={'h1'}
+                                
+
+                                >
+                                    About Us
+                                </Menu.Item>
+                            </Link>
+                            
+                            <Link href={'/About/Patient-Experience'}>
+                                <Menu.Item 
+                                    value="Patient Experience" 
+                                    as={'h1'}
+                                
+                                >
+                                    Patient Experience
+                                </Menu.Item>
+                            </Link>
+
+                            <Link href={'/About/Laboratory'}>
+                                <Menu.Item 
+                                    value="Our Laboratory" 
+                                    as={'h1'}
+                                    
+                                >
+                                    Our Laboratory
+                                </Menu.Item>
+                            </Link>
+                            
+                        </Menu.Content>
+                        </Menu.Positioner>
+                    </Portal>
+                </Menu.Root>
                 
                 <Link href={'Patient-Information'}>
                 
