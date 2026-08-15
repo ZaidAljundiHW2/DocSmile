@@ -133,7 +133,7 @@ const Navbar = () => {
                     </Portal>
                 </Menu.Root>
                 
-                <Link href={'Patient-Information'}>
+                <Link href={'/Patient-Information'}>
                 
                     <h1>
                         Patient Information
