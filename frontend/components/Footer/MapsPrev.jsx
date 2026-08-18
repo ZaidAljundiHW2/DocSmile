@@ -16,26 +16,31 @@ const MapsPrev = () => {
   return (
     <div
         className='
-            min-h-[70vh]
             bg-[#fafcfc]
             flex
+            md:py-10
+            
+            md:flex-row
+            flex-col
+            
         '
-        style={{
-            padding:'20px 0 20px 0'
-        }}
+        
     >
 
         <Flex 
             className='
-                w-[60%] 
+                md:w-[60%]
+                w-full 
                 h-full
                 flex-col
                 gap-5
+                
+                md:pl-20
+                px-10
+                pb-5
+                md:pb-0
             '
 
-            style={{
-                padding:'20px 20px 20px 10%'
-            }}
         >
 
             <img 
@@ -43,7 +48,7 @@ const MapsPrev = () => {
                 alt='doctor smile company logo'
                 style={{
                     width:'250px',
-                    height:'auto'
+                    height:'auto',
                 }}
             />
 
@@ -144,16 +149,26 @@ const MapsPrev = () => {
 
                 
             </Flex>
+            
+            <Flex 
+                flexDir={{base:'row', md:'column'}} 
+                gap={{base:'2', md:'5'}} 
+                
+            >
+                <Flex className='items-center gap-4'>
+                    <RiInstagramFill size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
+                    <FaFacebook size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
+                    <FaYoutube size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
+                    <FaSquareXTwitter size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
+                    <FaSnapchat size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
+                </Flex>
 
-            <Flex className='items-center gap-4 mt-auto'>
-                <RiInstagramFill size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
-                <FaFacebook size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
-                <FaYoutube size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
-                <FaSquareXTwitter size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
-                <FaSnapchat size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
+                <div className='ml-auto md:ml-0'>
+                    <LanguageSwitch />
+                </div>
+
             </Flex>
-
-            <LanguageSwitch />
+            
 
         </Flex>
 

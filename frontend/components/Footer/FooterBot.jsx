@@ -3,57 +3,64 @@ import { Flex, Box } from "@chakra-ui/react"
 const FooterBot = () => {
   return (
     <div
-		className='
-			bg-white
-			flex
-		'
-
-		style={{
-			padding:"20px 20px 20px 20px"
-		}}
+        className='
+            bg-white
+            flex
+            flex-col
+            md:flex-row
+            items-center
+            gap-4
+            md:gap-0
+            p-6
+            md:p-10
+            text-center
+        '
     >
 
-		<Flex
-			className="
-				flex-1
-				justify-center
-				items-center
-			"
-		>
-			<h1>
-				@ 2026 Doctor Smile Dental Center. All Rights Reserved
-			</h1>
-		</Flex>
+        <Flex
+            className="
+                md:flex-1
+                justify-center
+                items-center
+            "
+        >
+            <h1 className="text-sm md:text-base">
+                &copy; 2026 Doctor Smile Dental Center. All Rights Reserved
+            </h1>
+        </Flex>
 
-		<Box className="w-[1px] bg-gray-500 opacity-25" style={{margin: "0 20px"}}/>
+        <Box className="hidden md:block w-[1px] self-stretch bg-gray-500 opacity-25" style={{margin: "0 20px"}}/>
 
+        <Flex
+            className="
+                md:flex-1
+                flex-col
+                sm:flex-row
+                items-center
+                gap-2
+                sm:gap-0
+            "
+            justify={{ base: 'center', md: 'end' }}
+        >
 
-		<Flex
-			className="
-				flex-1
-			"
+            <h1 className="text-sm md:text-base">
+                Terms of Service
+            </h1>
 
-			justify={'end'}
-		>
+            <Box className="hidden sm:block w-[1px] bg-gray-500 opacity-25" style={{margin: "0 20px"}}/>
 
-			<h1>
-				Terms of Service
-			</h1>
+            <h1 className="text-sm md:text-base">
+                Privacy Policy
+            </h1>
 
-			<Box className="w-[1px] bg-gray-500 opacity-25" style={{margin: "0 20px"}}/>
+            <Box className="hidden sm:block w-[1px] bg-gray-500 opacity-25" style={{margin: "0 20px"}}/>
 
-			<h1>
-				Privacy Policy
-			</h1>
+            <h1 className="text-sm md:text-base">
+                Cookie Policy
+            </h1>
 
-			<Box className="w-[1px] bg-gray-500 opacity-25" style={{margin: "0 20px"}}/>
+        </Flex>
 
-			<h1>
-				Cookie Policy
-			</h1>
-
-		</Flex>
-      
     </div>
   )
 }

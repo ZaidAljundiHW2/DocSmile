@@ -46,15 +46,13 @@ const Location = () => {
             gap-5
             location
             bg-white
-            min-h-[70vh]
+            
         '
         
-        style={{
-            padding:'20px'
-        }}
+        
     >
 
-        <Flex className="items-center gap-5 w-full">
+        <Flex className="items-center gap-5 w-full px-10">
             <h1 className="main_header">
                 Our Location
             </h1>
@@ -63,14 +61,16 @@ const Location = () => {
 
         </Flex>
         
-        <Flex className="w-full h-full gap-5">
+        <Flex className="w-full h-full flex-col md:flex-row gap-5">
 
             <Flex
                 className="
-                    w-[40%]
+                    md:w-[40%]
+                    w-full
                     flex-col
                     h-full
                     gap-2
+                    px-10
                 "   
             >
 
@@ -93,10 +93,9 @@ const Location = () => {
                 <Flex 
                     className="
                         flex-col 
+                        ml-5
                     "
-                    style={{
-                        marginLeft:'5%'
-                    }}
+                    
                     
                 >
 
@@ -126,7 +125,7 @@ const Location = () => {
                     Parking: parking information.
                 </p>
                 
-                <Flex className="justify-end items-center gap-5">
+                <Flex className="md:justify-end justify-center items-center gap-5">
 
                     <Button className="button" style={{"--button-bg": "black", padding:'20px'}}>
                         Call Us
@@ -151,7 +150,8 @@ const Location = () => {
 
             <Flex
                 className="
-                    w-[60%]
+                    md:w-[60%]
+                    w-full
                     items-center
                     justify-center
                     h-full
