@@ -20,7 +20,13 @@ const UrgentCTA = () => {
 
         <div
             className='
-                mask-r-from-0% mask-r-to-50%
+                
+                mask-t-from-0% mask-t-to-70%
+                mask-r-from-100% mask-r-to-100%
+
+                md:mask-t-from-100% md:mask-t-to-100%
+                md:mask-r-from-0% md:mask-r-to-50%
+
                 absolute
                 inset-0
                 w-full
@@ -37,10 +43,10 @@ const UrgentCTA = () => {
 
        
 
-        <Flex className='w-1/2 flex-col gap-5'>
+        <Flex className='md:w-1/2 w-full flex-col gap-5'>
 
             <h1 className='main_header'>
-                APPROVED URGENT-CONCERN HEADING
+                APPROVED URGENT CONCERN HEADING
             </h1>
 
             <Flex className='items-center gap-5'>

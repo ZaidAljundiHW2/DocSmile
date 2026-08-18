@@ -47,7 +47,15 @@ const HeaderFull = () => {
 
   return (
     <div ref={headerRef} className="fixed top-0 z-[100] w-full">
-      <GeneralInfo />
+      <div
+        className='
+          hidden
+          md:block
+        '
+      >
+        <GeneralInfo />
+      </div>
+      
       <Navbar />
     </div>
   )

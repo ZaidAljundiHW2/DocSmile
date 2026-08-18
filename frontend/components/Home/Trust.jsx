@@ -8,15 +8,14 @@ const Trust = () => {
     <div
         className='
             bg-[#CCE0FF]
+            p-5
         '
-        style={{
-            padding: "20px"
-        }}
+        
     >
 
         <SimpleGrid
             columns={{base:2, md:4}}
-            gap={5}
+            gap={{base:2, md:5}}
         >
 
             {TrustJSON.map((trust,i) => (
@@ -45,6 +44,7 @@ const Trust = () => {
                             rounded-full
                             aspect-square
                             md:w-[100px]
+                            w-[50px]
                             
                         '
 

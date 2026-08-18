@@ -2,24 +2,38 @@ import { Flex, Box, Button } from '@chakra-ui/react'
 import BookButton from '../Misc/BookButton'
 import WhatsappButton from '../Misc/WhatsappButton';
 import Image from 'next/image';
+import CallButton from '../Misc/CallButton';
 
 const Hero = () => {
   return (
     <div
       className='
-        h-[100vh]
-        bg-red-500
+        md:h-[100vh]
+        min-h-[50vh]
         justify-center
         items-center
         flex
         relative
+        w-full
+        md:text-start
+        text-center
+        p-10
       '
 
-      style={{
-        backgroundImage:`url(${'/img/Backgrounds/hero_back.jpg'})`,
-
-      }}
+      
     >
+
+        <img 
+            src={'/img/Backgrounds/hero_back.jpg'}
+            className='
+                absolute
+                inset-0     
+                w-full
+                h-full           
+                object-cover
+            '
+            alt='Doctor Smile Hero Image'
+        />
 
         {/* Transparent layer */}
         <Box
@@ -28,7 +42,7 @@ const Hero = () => {
                 inset-0
                 h-full
                 w-full
-                bg-[#CCE0FF]/50
+                bg-[#CCE0FF]/75
                 z-1
             '
         
@@ -52,11 +66,36 @@ const Hero = () => {
 
         <div 
             className='
+                w-full 
+                h-full
+                absolute
+                inset-0
+                z-2
+                md:hidden
+            '
+        >
+            <Box 
+                className='
+                    w-full
+                    h-full
+                    bg-white
+                    mask-t-from-0%
+                    mask-t-to-20%
+                '
+            
+            />
+
+        </div>
+        
+
+        <div 
+            className='
                 flex
                 flex-col 
                 gap-2 
-                w-[50%] 
-                z-2
+                md:w-[50%] 
+                w-full
+                z-3
             
             '
         >
@@ -84,11 +123,13 @@ const Hero = () => {
 
                 <h1 className='secondary_header'>Book your appointment now</h1>
 
-                <Flex gap={{base:'5'}}>
+                <Flex gap={{base:'5'}} className='md:flex-row flex-col'>
 
                     <BookButton />
 
                     <WhatsappButton />
+
+                    <CallButton />
 
                 </Flex>
               

@@ -16,6 +16,8 @@
 
 body {
   padding-top: var(--header-height, 0px);
+  overflow-x: hidden;
+  background-color: white;
 }
 
 h1 {
@@ -62,6 +64,7 @@ h1 {
 p {
     
     font-family: HelveticaNeue;
+    font-size: clamp(.8rem, 1vw, 1.2rem);
 }
 
 .button {

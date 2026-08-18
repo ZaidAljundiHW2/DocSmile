@@ -35,7 +35,7 @@ export default function Home() {
 
         <Location />
 
-        <Contact />
+        {/* <Contact /> */}
 
     </div>
   );

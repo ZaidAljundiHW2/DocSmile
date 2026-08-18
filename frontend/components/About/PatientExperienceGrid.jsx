@@ -66,7 +66,7 @@ const PatientExperienceGrid = () => {
                 borderColor:'#071f97'
             }}
         >
-            Dentists
+            Patient Testimonials
         </h2>
 
         <Flex

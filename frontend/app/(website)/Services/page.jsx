@@ -1,5 +1,5 @@
-import ComponentSubheader from '../../components/Misc/ComponentSubheader'
-import ServicesGrid from '../../components/Services/ServicesGrid'
+import ComponentSubheader from '@/components/Misc/ComponentSubheader'
+import ServicesGrid from '@/components/Services/ServicesGrid'
 // import { useState } from 'react'
 // import Breadcrumbs from '../../components/Misc/Breadcrumbs'
 
