@@ -43,7 +43,6 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
             {/* images */}
             <Flex
 				className='
-					md:w-1/2
 					md:flex-1
 					w-full
 					md:h-auto

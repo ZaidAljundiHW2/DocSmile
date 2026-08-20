@@ -130,9 +130,8 @@ const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
                         w-[65%]
                         max-w-[280px]
                         mx-auto
-                        md:w-auto
-                        md:max-w-none
-                        md:max-h-full
+                        md:w-full
+                        md:max-w-[75%]
                         object-cover
                     '
                 />
