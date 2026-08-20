@@ -12,7 +12,7 @@ const BookingMain = () => {
             bg-white
         '
     >
-        <Flex className='pt-10 pl-10 pb-10 gap-5'>
+        <Flex className='md:p-10 p-5 gap-5 md:flex-row flex-col'>
             <Flex
                 className='
                     flex-1
@@ -23,14 +23,17 @@ const BookingMain = () => {
                     text-center
                 '
             >
-                <Flex className='flex-1 relative  aspect-[4/3] md:aspect-auto'>
+                <Flex className='flex-1 relative aspect-[4/3] md:aspect-auto'>
                     <img 
                         src={'/img/placeholder.jpg'}
+                        alt='Clinic location'
+                        loading='lazy'
                         className='
                             absolute
                             inset-0
                             h-full
                             w-full
+                            object-cover
                             rounded-l-full
                             
                         '
@@ -53,7 +56,8 @@ const BookingMain = () => {
                 <Button
                     className='
                         button
-                        w-2/3
+                        w-full
+                        md:w-2/3
                     '
                     style={{
                         "--button-bg": "#0071e3",
