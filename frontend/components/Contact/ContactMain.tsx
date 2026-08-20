@@ -12,21 +12,37 @@ const ContactMain = () => {
             bg-white
         '
     >
-        <Flex>
+        <Flex
+            className='
+                md:flex-row
+                flex-col
+                gap-5
+            '
+        >
             <Flex
                 className='
-                    flex-1
                     relative
+                    w-full
+                    md:w-1/2
+                    aspect-[4/3]
+                    md:aspect-auto
+                    md:order-1
+                    order-2
                 '
             >
                 <img 
                     src={'/img/placeholder.jpg'}
+                    alt='Contact us'
+                    loading='lazy'
                     className='
                         absolute
                         inset-0
                         h-full
                         w-full
-                        rounded-r-full
+                        object-cover
+                        md:rounded-r-full
+                        md:rounded-t-none
+                        rounded-t-full
                     '
                 />
 
@@ -36,7 +52,10 @@ const ContactMain = () => {
                 className='
                     flex-1
                     flex-col
-                    p-10
+                    md:p-10
+                    p-5
+                    md:order-2
+                    order-1
                 '
 
 

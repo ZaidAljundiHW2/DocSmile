@@ -23,7 +23,7 @@ const BookingMain = () => {
                     text-center
                 '
             >
-                <Flex className='flex-1 relative'>
+                <Flex className='flex-1 relative  aspect-[4/3] md:aspect-auto'>
                     <img 
                         src={'/img/placeholder.jpg'}
                         className='
