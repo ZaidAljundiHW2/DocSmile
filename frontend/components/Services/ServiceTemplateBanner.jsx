@@ -7,10 +7,7 @@ const ServiceTemplateBanner = ({item}) => {
    
   return (
     <div
-        style={{
-            padding:'20px',
-
-        }}
+        
 
         className='
             items-center
@@ -19,6 +16,8 @@ const ServiceTemplateBanner = ({item}) => {
             justify-center
             flex-col
             gap-5
+            md:p-10
+            p-5
             
         '
     >

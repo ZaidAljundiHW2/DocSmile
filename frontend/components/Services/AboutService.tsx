@@ -21,9 +21,11 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
   return (
     <div
         className='
-            p-10
+            md:p-10
+			p-5
             servicecontainer
-			
+			md:text-start
+			text-center
         '
     >
         <Flex
@@ -31,8 +33,8 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
                 w-full
                 h-full
 				p-5
-				
-				
+				md:flex-row
+				flex-col
             '
 
 			gap={{base:5, md:20}}
@@ -40,13 +42,17 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
 
             {/* images */}
             <Flex
-              className='
-                flex-1
-				items-center
-				relative
-				justify-center
-				
-              '
+				className='
+					md:w-1/2
+					md:flex-1
+					w-full
+					md:h-auto
+					aspect-square
+					md:aspect-auto
+					items-center
+					relative
+					justify-center
+				'
             >
 
 				<Box 
@@ -65,18 +71,30 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
 					className='
 						top-0
 						left-0
-						absolute-image
+						md:max-w-[300px]
+						max-w-[45%]
+						h-auto
+						rounded-xl
+						absolute
 					'
 					src={AboutServiceObj.img[0]}
+					alt={`${AboutServiceObj.section} illustration 1`}
+					loading='lazy'
 				/>
 
 				<img 
 					className='
 						bottom-0
 						right-0
-						absolute-image
+						md:max-w-[300px]
+						max-w-[45%]
+						h-auto
+						rounded-xl
+						absolute
 					'
 					src={AboutServiceObj.img[1]}
+					alt={`${AboutServiceObj.section} illustration 2`}
+					loading='lazy'
 				/>
 
             </Flex>
@@ -106,7 +124,7 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
 					</p>
 				))}
 
-				<Flex gap={{base:2, md:5}}>
+				<Flex gap={{base:2, md:5}} className='md:flex-row flex-col'>
 					<BookButton />
 					
 					<CallButton />

@@ -12,7 +12,7 @@ const FooterBot = () => {
             gap-4
             md:gap-0
             p-6
-            md:p-10
+            md:p-5
             text-center
         '
     >

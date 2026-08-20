@@ -12,7 +12,7 @@ interface FAQCompProps {
 
 const FAQComp = ({ FAQObj } : FAQCompProps) => {
   return (
-    <div className='w-[80%] mx-auto'>
+    <div className='md:w-[80%] w-full mx-auto'>
 		<Accordion.Root collapsible defaultValue={["b"]}>
 			{FAQObj.map((item, index) => (
 				<Accordion.Item key={index} value={item.question}>

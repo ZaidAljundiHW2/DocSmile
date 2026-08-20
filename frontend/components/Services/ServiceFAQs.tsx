@@ -15,7 +15,8 @@ const ServiceFQAs = ({ FAQObj } : FAQCompProps) => {
     <div
         className='
             servicecontainer
-            p-10
+            md:p-10
+            p-5
             flex-col
             gap-10
         '

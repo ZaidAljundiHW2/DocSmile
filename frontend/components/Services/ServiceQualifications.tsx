@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Box, Checkbox } from '@chakra-ui/react'
+import { Flex, Box } from '@chakra-ui/react'
 import { IoMdCheckboxOutline } from "react-icons/io";
 import BookButton from '../Misc/BookButton';
 import CallButton from '../Misc/CallButton';
@@ -29,7 +29,8 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
   return (
     <div
 		className='
-			p-10
+			md:p-10
+			p-5
 			servicecontainer
 		'
 	>
@@ -38,8 +39,8 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 				w-full
 				h-full
 				p-5
-				
-				
+				md:flex-row
+				flex-col
 			'
 
 			gap={{base:5, md:20}}
@@ -48,12 +49,16 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 			{/* images */}
 			<Flex
 				className='
-					flex-1
+					md:w-1/2
+					md:flex-1
+					w-full
+					md:h-auto
+					aspect-square
+					md:aspect-auto
 					items-center
 					relative
 					justify-center
 					order-2
-
 				'
 			>
 
@@ -73,18 +78,30 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 					className='
 						bottom-0
 						left-0
-						absolute-image
+						md:max-w-[300px]
+						max-w-[45%]
+						h-auto
+						rounded-xl
+						absolute
 					'
 					src={ServiceQualificationsObj.img[0]}
+					alt={`${ServiceQualificationsObj.section} illustration 1`}
+					loading='lazy'
 				/>
 
 				<img 
 					className='
 						top-0
 						right-0
-						absolute-image
+						md:max-w-[300px]
+						max-w-[45%]
+						h-auto
+						rounded-xl
+						absolute
 					'
 					src={ServiceQualificationsObj.img[1]}
+					alt={`${ServiceQualificationsObj.section} illustration 2`}
+					loading='lazy'
 				/>
 
 			</Flex>
@@ -97,7 +114,6 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 					flex-1
 					flex-col
 					order-1
-
 				'
 
 				gap={{base:2, md:5}}
@@ -118,7 +134,8 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 							items-center
 							w-full
 							gap-5
-							ml-10
+							md:ml-10
+							ml-0
 						'
 					>
 						<IoMdCheckboxOutline size={32} color='black'/>
@@ -145,7 +162,7 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 					</p>
 				))}
 
-				<Flex gap={{base:2, md:5}}>
+				<Flex gap={{base:2, md:5}} className='md:flex-row flex-col'>
 					<BookButton />
 					
 					<CallButton />

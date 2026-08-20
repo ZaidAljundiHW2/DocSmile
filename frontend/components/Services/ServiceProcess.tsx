@@ -27,7 +27,10 @@ const ServiceProcess = ({ ServiceProcessObj } : ServiceProcessProps ) => {
     <div
         className='
             servicecontainer
-            p-20
+            md:p-10
+            p-5
+            md:text-start
+            text-center
             flex-col
             gap-10
             
@@ -74,10 +77,11 @@ const ServiceProcess = ({ ServiceProcessObj } : ServiceProcessProps ) => {
 
                             src={item.img}
                             className='
-                                w-16
+                                w-40
                                 md:w-full
                                 aspect-square
-                                rounded-lg
+                                md:rounded-lg
+                                rounded-full
                                 object-cover
                             '
                         />

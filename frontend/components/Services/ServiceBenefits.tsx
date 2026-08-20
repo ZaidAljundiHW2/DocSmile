@@ -40,12 +40,14 @@ const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
     <div
         className='
             servicecontainer
-            p-20
+            md:p-10
+            p-5
             gap-10
             flex-col
-            h-[60vh]
-            
-            
+            md:h-[60vh]
+            h-auto
+            md:text-start
+            text-center
         '
 
       
@@ -62,7 +64,7 @@ const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
         </Flex>
         
 
-        <div className='w-full h-full flex gap-5'>
+        <div className='w-full h-full flex md:flex-row flex-col gap-10 md:gap-5'>
             {/* left half */}
             <Flex 
                 className='
@@ -112,6 +114,8 @@ const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
                     flex-1
                     items-center
                     justify-center
+                    order-first
+                    md:order-none
                 '
             >
                 <video 
@@ -123,8 +127,12 @@ const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
                     className='
                         rounded-full
                         aspect-square
-                        max-h-full
-                        w-auto
+                        w-[65%]
+                        max-w-[280px]
+                        mx-auto
+                        md:w-auto
+                        md:max-w-none
+                        md:max-h-full
                         object-cover
                     '
                 />

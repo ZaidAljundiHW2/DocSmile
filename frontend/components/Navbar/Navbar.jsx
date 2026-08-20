@@ -98,7 +98,7 @@ const Navbar = () => {
     <>
         <div
             className='
-                h-[12vh]
+                h-[10vh]
                 bg-white
                 w-full
                 flex
@@ -121,7 +121,7 @@ const Navbar = () => {
                 {/* Logo */}
                 <Box
                     className='
-                        w-[20%]
+                        w-[250px]
                         h-fill
                         flex
                     '
@@ -274,7 +274,7 @@ const Navbar = () => {
 
         <div
             className={`
-                h-[12vh]
+                h-[10vh]
                 w-full
                 flex
                 items-center
@@ -349,7 +349,7 @@ const Navbar = () => {
                         className='
                             inset-0
                             fixed
-                            bg-[#809BCE]/95
+                            bg-[#124ddc]/95
                             p-10
                             
                         '

@@ -22,9 +22,12 @@ const ServiceAlts = ({ ServiceAltObj } : ServiceAltProps) => {
     <div
         className='
             servicecontainer
-            p-10
+            md:p-10
+			p-5
             flex-col
             gap-5
+            md:text-start
+            text-center
         '
     >
         <Flex className='flex-col'>
@@ -50,7 +53,7 @@ const ServiceAlts = ({ ServiceAltObj } : ServiceAltProps) => {
         </Flex>
         
         <Flex className='w-full justify-center items-center'>
-            <Flex className='flex-col w-2/3 gap-5'>
+            <Flex className='flex-col w-full md:w-2/3 gap-8 md:gap-5'>
 
                 {ServiceAltObj.alternatives.map((item,i) => (
 
@@ -59,16 +62,20 @@ const ServiceAlts = ({ ServiceAltObj } : ServiceAltProps) => {
                         className='
                             items-center
                             justify-center
+                            flex-col
+                            md:flex-row
                             gap-5
                         '
                     >
 
                         <Flex
-                            className='
+                            className={`
                                 flex-col
-                            '
-
-                            order={i % 2 == 0 ? 1 : 2}
+                                flex-1
+                                min-w-0
+                                order-2
+                                ${i % 2 == 0 ? 'md:order-1' : 'md:order-2'}
+                            `}
                         >
                             <h2
                                 className='
@@ -91,15 +98,16 @@ const ServiceAlts = ({ ServiceAltObj } : ServiceAltProps) => {
 
                         <img 
                             src={item.img} 
-                            style={{
-                                order: i % 2 == 0 ? 2 : 1,
-                                width: '100%',
-                                maxWidth: '250px',
-                                height: 'auto',
-                            }}
-                            className='
+                            alt={item.header}
+                            loading='lazy'
+                            className={`
                                 rounded-lg
-                            '
+                                w-full
+                                max-w-[250px]
+                                h-auto
+                                order-1
+                                ${i % 2 == 0 ? 'md:order-2' : 'md:order-1'}
+                            `}
                         />
 
                     </Flex>
