@@ -8,7 +8,8 @@ const DoctorHero = () => {
     <div
         className='
             w-full
-            h-[100vh]
+            md:h-[100vh]
+            h-[50vh]
             flex
             relative
             p-10

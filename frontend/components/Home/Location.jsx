@@ -47,12 +47,13 @@ const Location = () => {
             location
             bg-white
             
+            
         '
         
         
     >
 
-        <Flex className="items-center gap-5 w-full px-10">
+        <Flex className="items-center gap-5 w-full md:p-10 p-5">
             <h1 className="main_header">
                 Our Location
             </h1>

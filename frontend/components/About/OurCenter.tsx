@@ -44,6 +44,7 @@ const OurCenter = () => {
 			bg-white
 			gap-5
 			flex-col
+			text-center
 
       	'
     >
@@ -79,6 +80,10 @@ const OurCenter = () => {
 				backgroundImage:`url(${'/img/Backgrounds/banner_placeholder.jpg'})`,
 				backgroundSize:'cover'
 			}}
+
+			className='
+				items-center
+			'
 		>
 			
 

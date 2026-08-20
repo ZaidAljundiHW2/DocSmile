@@ -26,8 +26,11 @@ const TestimonialTemplate = ({ test, collection } : TestimonialTemplateProps) =>
     <div
         className='
             bg-white
-            p-10
+            md:p-10
+            p-5
             flex
+            md:flex-row
+            flex-col
             gap-5
             
         '
@@ -35,11 +38,14 @@ const TestimonialTemplate = ({ test, collection } : TestimonialTemplateProps) =>
 
         <Flex
             className='
-                w-2/3
+                md:w-2/3
+                w-full
+                
                 flex-col
+                gap-5
             '
         >
-            <Flex className='w-full'>
+            <Flex className='w-full items-center'>
 
             
                 <h1
@@ -59,12 +65,19 @@ const TestimonialTemplate = ({ test, collection } : TestimonialTemplateProps) =>
                         rounded-full
                         ml-auto
                         h-[100px]
+                        rounded-full
                     '
                 />
             </Flex>
             
             <Flex
                 gap={5}
+                direction={{
+                    base:'column',
+                    md:'row'
+                }}
+                    
+                
             >
                 <img 
                     src={test.testimonialimg}
@@ -100,7 +113,7 @@ const TestimonialTemplate = ({ test, collection } : TestimonialTemplateProps) =>
         </Flex>
         
         {/* select */}
-        <Flex className='divide-y-2 divide-gray-200 flex-col ml-auto'>
+        <Flex className='divide-y-2 divide-gray-200 flex-col md:ml-auto md:h-full h-[150px] overflow-y-scroll'>
 
             {collectionTests.map((item,i) => (
                 

@@ -7,7 +7,10 @@ const OurLaboratory = () => {
         className='
             bg-white
             flex
-            p-10
+            md:flex-row
+            flex-col
+            md:p-10
+            p-5
             gap-5
         '
     >
@@ -16,7 +19,8 @@ const OurLaboratory = () => {
             className='
                 flex-col
                 gap-5
-                w-2/3
+                md:w-2/3
+                w-full
             '
         >
             <h1
@@ -59,7 +63,7 @@ const OurLaboratory = () => {
 
         </Flex>
         
-        <Flex className='w-1/3'>
+        <Flex className='md:w-1/3 w-full'>
             <img 
                 src={'/img/placeholder.jpg'}
                 className='object-cover'

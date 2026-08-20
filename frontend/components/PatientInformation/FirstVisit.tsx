@@ -7,13 +7,19 @@ const FirstVisit = () => {
     <div
         className='
             patientinformationcontainer
-            p-10
+            
+            md:p-10
+            p-5
+            md:text-start
+            text-center
         '
     >
 
         <Flex
             className='
                 gap-5
+                md:flex-row
+                flex-col
             '
         >
 
@@ -60,7 +66,14 @@ const FirstVisit = () => {
             {/* image */}
             <Flex
                 className='
-                    w-1/3
+                    md:w-1/3
+                    w-full
+                    max-w-[250px]
+                    mx-auto
+                    md:max-w-none
+                    md:mx-0
+                    aspect-square
+                    md:self-start
                     relative
                     items-center
                     justify-center
@@ -68,13 +81,15 @@ const FirstVisit = () => {
             >
                 <img 
                     src={'/img/dentistandpatient.avif'}
+                    alt='Dentist with patient'
+                    loading='lazy'
                     className='
                         absolute
                         inset-0
                         h-full
                         w-full
+                        object-cover
                         rounded-full
-                        aspect-square
                     '
                 />
 
