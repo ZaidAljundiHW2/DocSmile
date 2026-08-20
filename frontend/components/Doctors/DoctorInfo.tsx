@@ -80,7 +80,8 @@ const DoctorInfo = ({
     <div
         className='
             doctorprofilecontainer
-            p-10
+            md:p-10
+            p-2
             flex-col
             bg-[#f2eeee]
             gap-5
@@ -145,7 +146,8 @@ const DoctorInfo = ({
                     {item.header !== "Specialty" && item.header !== "Languages" && item.header !== "Clinical Interests" && (
                         <Flex
                             className='
-                                px-10
+                                md:pl-10
+                                pl-5
                                 flex-col
                             '
                         >
@@ -153,7 +155,8 @@ const DoctorInfo = ({
                                 <p 
                                     key={i}
                                     className='
-                                        ml-10
+                                        md:ml-10
+                                        ml-5
                                     '
                                 >
                                     {item}

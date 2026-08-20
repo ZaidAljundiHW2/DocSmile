@@ -71,13 +71,14 @@ const DoctorGrid = () => {
 
         <Flex
             className='
-                w-[80%]
+                md:w-[80%]
+                w-full
                 flex-col
                 items-center
 
             '
         >
-            <SimpleGrid columns={3}>
+            <SimpleGrid columns={{base:2, md:3}}>
 
                 {allCollections[currIndex].map((item,i) => (
                     <Link href={`/Doctors/${item.slug}`} key={i}>

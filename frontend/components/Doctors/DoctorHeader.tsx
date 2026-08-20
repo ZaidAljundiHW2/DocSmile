@@ -10,7 +10,8 @@ const DoctorHeader = ({img, name, title} : {img:string, name:string, title:strin
     <div
         className='
             doctorprofilecontainer
-            p-10
+            md:p-10
+            p-5
         '
     >
         <Flex
@@ -19,51 +20,67 @@ const DoctorHeader = ({img, name, title} : {img:string, name:string, title:strin
                 items-center
                 justify-center
                 w-full
+                md:flex-row
+                flex-col
             '
         >
-
-            <img 
-                src={img}
-                className='
-                    rounded-full
-                    w-[200px]
-                    h-auto
-                '
-
-            />
-
+            
             <Flex
                 className='
-                    flex-col
+                    gap-5
+                    items-center
+                    
                 '
             >
-                <h1
+
+                <img 
+                    src={img}
                     className='
-                        main_header
+                        rounded-full
+                        md:w-[200px]
+                        w-[100px]
+                        h-auto
                     '
-                    style={{
-                        color:'black'
-                    }}
-                >
-                    {name}
 
-                </h1>
+                />
 
-                <h2
+                <Flex
                     className='
-                        secondary_header
+                        flex-col
                     '
                 >
-                    {title}
+                    <h1
+                        className='
+                            main_header
+                        '
+                        style={{
+                            color:'black'
+                        }}
+                    >
+                        {name}
 
-                </h2>
+                    </h1>
+
+                    <h2
+                        className='
+                            secondary_header
+                        '
+                    >
+                        {title}
+
+                    </h2>
+
+                </Flex>
 
             </Flex>
+            
 
             <Flex
                 className='
                     ml-auto
-                    gap-5
+                    md:gap-5
+                    gap-2
+                    
                 '
             >
                 <Button
