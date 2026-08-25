@@ -3,7 +3,7 @@ import { Flex, SimpleGrid, Box } from '@chakra-ui/react'
 import ServicesJSON from '@/assets/JSONs/services.json'
 import Link from 'next/link'
 
-const ServicesGrid = () => {
+const ServicesGrid = ({ services }) => {
 
 
   return (
@@ -24,7 +24,7 @@ const ServicesGrid = () => {
             columns={{base:2, md:3}}
             className='w-full'
         >
-            {ServicesJSON.map((item,i) => (
+            {services.map((item,i) => (
 
                 <Link 
                     key={i}
@@ -46,7 +46,7 @@ const ServicesGrid = () => {
                         '
                     >
                         <img 
-                            src={(item.img)}
+                            src={(item.image.url)}
                             alt={item.name}
                             className='
                                 absolute

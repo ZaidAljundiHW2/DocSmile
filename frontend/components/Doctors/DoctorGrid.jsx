@@ -8,12 +8,12 @@ import { LuChevronLeft, LuChevronRight } from "react-icons/lu"
 import { useState } from 'react'
 import Link from 'next/link'
 
-const DoctorGrid = () => {
+const DoctorGrid = ({ doctors }) => {
 
     const [allCollections, setAllCollections] = useState([]);
     const [currIndex, setCurrIndex] = useState(0);
     const DoctorsPerPage = 6;
-    const Doctors = DoctorsJSON;
+    const Doctors = doctors;
 
     const [loading, setLoading] = useState(true); 
 

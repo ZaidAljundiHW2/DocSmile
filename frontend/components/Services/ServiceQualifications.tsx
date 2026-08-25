@@ -39,7 +39,7 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 				w-full
 				h-full
 				p-5
-				md:flex-row
+				lg:flex-row
 				flex-col
 			'
 
@@ -49,16 +49,12 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 			{/* images */}
 			<Flex
 				className='
-					md:w-1/2
 					md:flex-1
-					w-full
-					md:h-auto
+					
 					aspect-square
-					md:aspect-auto
 					items-center
 					relative
 					justify-center
-					order-2
 				'
 			>
 
@@ -78,8 +74,7 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 					className='
 						bottom-0
 						left-0
-						md:max-w-[300px]
-						max-w-[45%]
+						w-[45%]
 						h-auto
 						rounded-xl
 						absolute
@@ -93,8 +88,7 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 					className='
 						top-0
 						right-0
-						md:max-w-[300px]
-						max-w-[45%]
+						w-[45%]
 						h-auto
 						rounded-xl
 						absolute

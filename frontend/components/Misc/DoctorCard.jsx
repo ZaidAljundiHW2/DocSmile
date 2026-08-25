@@ -42,7 +42,7 @@ const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false }) 
                         rounded-lg
                     '
                 >
-                    <img src={doctor.img}/>
+                    <img src={doctor.photo.url}/>
 
                     <Flex
                         className='
@@ -69,7 +69,7 @@ const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false }) 
                                 
                             }}
                         >
-                            {doctor.name}
+                            {doctor.prefix} {doctor.fullName}
                         </h2>
 
                         <p className='main_text'>

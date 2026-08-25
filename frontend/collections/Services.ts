@@ -7,9 +7,14 @@ export const Services: CollectionConfig = {
     useAsTitle: 'name',
   },
 
+  access: {
+    read:() => true
+  },
+
   fields: [
 
     {
+        label:'Image',
         name:'image',
         type:'upload',
         relationTo:'media'
@@ -17,6 +22,7 @@ export const Services: CollectionConfig = {
     },
 
     {
+        label:'Banner',
         name:'banner',
         type:'upload',
         relationTo:'media'
@@ -24,13 +30,21 @@ export const Services: CollectionConfig = {
     },
 
     {
+        label:'Name',
         name:'name',
         type:'text'
     },
 
-    slugField(),
+    {
+        label:'Short Introduction',
+        name:'introduction',
+        type:'text'
+    },
+
+    slugField({ useAsSlug:'name' }),
 
     {
+        label:'Content',
         name:'content',
         type:'group',
         fields: [
@@ -41,16 +55,19 @@ export const Services: CollectionConfig = {
                 fields: [
                     
                     {
-                        name:'about_header',
+                        label:'About Header',
+                        name:'aboutHeader',
                         type:'text'
                     },
 
                     {
-                        name:'about_paragraphs',
+                        label:'About Paragraphs',
+                        name:'aboutParagraphs',
                         type:'array',
                         maxRows:3,
                         fields: [
                             {
+                                label:'Paragraph',
                                 name:'paragraph',
                                 type: 'textarea'
                             }
@@ -58,10 +75,13 @@ export const Services: CollectionConfig = {
                     },
 
                     {
-                        name:'about_images',
+                        label:'About Images',
+                        name:'aboutImages',
                         type: 'array',
+                        maxRows:2,
                         fields: [
                             {
+                                label:'Image',
                                 name:'image',
                                 type:'upload',
                                 relationTo:'media'
@@ -76,16 +96,19 @@ export const Services: CollectionConfig = {
                 type:'collapsible',
                 fields: [
                     {
-                        name:'qualifications_header',
+                        label:'Qualifications Header',
+                        name:'qualificationsHeader',
                         type:'text'
                     },
 
                     {
-                        name:'qualifications_paragraphs',
+                        label:'Qualifications',
+                        name:'qualificationsParagraphs',
                         type:'array',
-                        maxRows:3,
+                        maxRows:2,
                         fields: [
                             {
+                                label:'Paragraph',
                                 name:'paragraph',
                                 type: 'textarea'
                             }
@@ -93,10 +116,33 @@ export const Services: CollectionConfig = {
                     },
 
                     {
-                        name:'qualifications_images',
-                        type: 'array',
+                        label:'Qualifiers',
+                        name:'qualifiers',
+                        type:'array',
+                        maxRows:3,
                         fields: [
                             {
+                                label:'Header',
+                                name:'header',
+                                type:'text'
+                            },
+
+                            {
+                                label:'Qualifier',
+                                name:'qualifier',
+                                type:'text'
+                            }
+                        ]
+                    },
+
+                    {
+                        label:'Qualifications Images',
+                        name:'qualificationsImages',
+                        type: 'array',
+                        maxRows:2,
+                        fields: [
+                            {
+                                label:'Image',
                                 name:'image',
                                 type:'upload',
                                 relationTo:'media'
@@ -111,22 +157,26 @@ export const Services: CollectionConfig = {
                 type:'collapsible',
                 fields: [
                     {
-                        name:'benefits_header',
+                        label:'Benefits Header',
+                        name:'benefitsHeader',
                         type:'text'
                     },
 
                     {
+                        label:'Benefits',
                         name:'benefits',
                         type:'array',
                         maxRows:6,
                         fields: [
                             {
+                                label:'Header',
                                 name:'header',
                                 type: 'text',
                                 required:true
                             },
 
                             {
+                                label:'Benefit',
                                 name:'benefit',
                                 type:'text',
                                 required:true
@@ -148,28 +198,33 @@ export const Services: CollectionConfig = {
                 type:'collapsible',
                 fields: [
                     {
-                        name:'process_header',
+                        label:'Process Header',
+                        name:'processHeader',
                         type:'text'
                     },
 
                     {
+                        label:'Steps',
                         name:'steps',
                         type:'array',
                         maxRows:5,
                         fields: [
                             {
+                                label:'Header',
                                 name:'header',
                                 type: 'text',
                                 required:true
                             },
 
                             {
+                                label:'Step',
                                 name:'step',
                                 type:'text',
                                 required:true
                             },
 
                             {
+                                label:'Image',
                                 name:'image',
                                 type:'upload',
                                 relationTo:'media'
@@ -186,28 +241,33 @@ export const Services: CollectionConfig = {
                 type:'collapsible',
                 fields: [
                     {
-                        name:'alt_header',
+                        label:'Alternative Treatments Header',
+                        name:'altHeader',
                         type:'text'
                     },
 
                     {
+                        label:'Treatments',
                         name:'treatments',
                         type:'array',
                         maxRows:3,
                         fields: [
                             {
+                                label:'Header',
                                 name:'header',
                                 type: 'text',
                                 required:true
                             },
 
                             {
-                                name:'step',
+                                label:'Treatment',
+                                name:'treatment',
                                 type:'text',
                                 required:true
                             },
 
                             {
+                                label:'Image',
                                 name:'image',
                                 type:'upload',
                                 relationTo:'media'
@@ -224,14 +284,25 @@ export const Services: CollectionConfig = {
     },
 
     {
+        label:'Relevant Doctors',
+        name:'relevantDoctors',
+        type:'relationship',
+        hasMany:true,
+        relationTo:'doctors'
+    },
+
+    {
+        label:'Reviewer',
         name:'reviewer',
         type:'relationship',
         relationTo:'doctors'
     },
 
     {
-        name:'last review date',
+        label:'Last Review Date',
+        name:'lastReviewDate',
         type:'date'
+
     }
 
 

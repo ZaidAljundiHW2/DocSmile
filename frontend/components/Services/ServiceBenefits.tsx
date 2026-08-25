@@ -42,9 +42,9 @@ const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
             servicecontainer
             md:p-10
             p-5
-            gap-10
+            md:gap-10
+            gap-5
             flex-col
-            md:h-[60vh]
             h-auto
             md:text-start
             text-center
@@ -64,7 +64,7 @@ const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
         </Flex>
         
 
-        <div className='w-full h-full flex md:flex-row flex-col gap-10 md:gap-5'>
+        <div className='w-full flex md:flex-row flex-col gap-10 md:gap-5'>
             {/* left half */}
             <Flex 
                 className='

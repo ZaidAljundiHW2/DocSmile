@@ -27,7 +27,7 @@ const ServicesTemplate = ({ service, doctors, FAQs, reviewer }) => {
 		
 		<ServiceAlts ServiceAltObj={service.content.find(item => item.section === "Alternatives")}/>
 
-        <Doctors doctors={doctors} header={service.name + " Doctors"}/>
+        {/* <Doctors doctors={doctors} header={service.name + " Doctors"}/> */}
 
         <ServiceFAQs FAQObj={FAQs}/>
 

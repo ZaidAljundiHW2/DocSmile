@@ -5,26 +5,34 @@ import { slugField } from 'payload'
 export const Doctors: CollectionConfig = {
   slug: 'doctors',
   admin: {
-    useAsTitle: 'Full Name',
+    useAsTitle: 'fullName',
+  },
+
+  access: {
+    read: () => true
+
   },
 
   fields: [
     
     {
-        name:'Photo',
+        label:'Photo',
+        name:'photo',
         type:'upload',
         relationTo:'media'
     },
 
     {
-        name:'Full Name',
+        label:'Full Name',
+        name:'fullName',
         type:'text'
     },
 
-    slugField({ useAsSlug:'Full Name' }),
+    slugField({ useAsSlug:'fullName' }),
 
     {
-        name:'Prefix',
+        label:'Prefix',
+        name:'prefix',
         type:'select',
         options: [
             {
@@ -55,21 +63,25 @@ export const Doctors: CollectionConfig = {
     },
 
     {
-        name:'Title',
+        label:'Title',
+        name:'title',
         type:'text'
     },
 
     {
-        name:'Specialty',
+        label:'Specialty',
+        name:'specialty',
         type:'text'
     },
 
     {
-        name:'Languages',
+        label:'Languages',
+        name:'languages',
         type:'array',
         fields: [
             {
-                name:'Language',
+                label:'Language',
+                name:'language',
                 type:'text'
             }
         ]
@@ -77,29 +89,31 @@ export const Doctors: CollectionConfig = {
 
 
     {
-        name:'Biography',
+        name:'biography',
         type:'array',
         labels: {
-            singular: 'Paragraph',
+            singular:'Paragraphs',
             plural: 'Paragraphs',
         },
         fields: [
             {
-                name:'Paragraph',
+                label:'Paragraph',
+                name:'paragraph',
                 type:'textarea'
             }
         ]
     },
 
     {
-        name:'Education',
+        label:'Education',
+        name:'education',
         type:'text'
     },
 
     {
-        name:'Qualifications',
+        name:'qualifications',
         label: {
-            singular:'Qualification',
+            singular:'Qualifications',
             plural:'Qualifications'
         },
         type:'array',
@@ -114,29 +128,32 @@ export const Doctors: CollectionConfig = {
     
 
     {
-        name:'Clinical Interests',
+        name:'clinicalInterests',
         type:'array',
         label: {
-            singular:'Clinical Interest',
+            singular:'Clinical Interests',
             plural:'Clinical Interests'
         },
         fields: [
             {
-                name:'Clinical Interest',
+                label:'Clinical Interest',
+                name:'clinicalInterest',
                 type:'text'
             }
         ]
     },
 
     {
-        name:'Services',
+        label:'Services',
+        name:'services',
         type:'relationship',
         relationTo:'services',
         hasMany:true
     },
 
     {
-        name:'Profile Reviewer',
+        label:'Profile Reviewer',
+        name:'profileReviewer',
         type:'relationship',
         relationTo:'doctors'
     },
@@ -144,9 +161,45 @@ export const Doctors: CollectionConfig = {
     
 
     {
-        name:'Review Date',
+        label:'Review Date',
+        name:'reviewDate',
         type:'date'
 
     },
   ],
+
+//   endpoints: [
+
+//     {
+//         path:'/doctor/:slug',
+//         method:'get',
+//         handler: async (req) => {
+            
+//             const doctor_slug = req.routeParams.slug;
+
+//             if (!doctor_slug) {
+//                 return Response.json({ error: 'not found' }, { status: 404 })
+//             }
+
+//             const result = await req.payload.find({
+//                 collection: 'doctors',
+//                 where: {
+//                     slug: {
+//                         equals: doctor_slug,
+//                     },
+//                 },
+//                 depth: 2,
+//                 limit: 1,
+//             });
+
+//             const doctor = result.docs[0];
+
+//             if (!doctor) {
+//                 return Response.json({ error: 'not found' }, { status: 404 })
+//             }
+
+//             return Response.json(doctor);
+//         }
+//     }
+//   ]
 }

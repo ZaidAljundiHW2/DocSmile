@@ -9,6 +9,10 @@ import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Doctors } from './collections/Doctors'
 import { Services } from './collections/Services'
+import { SocialMedia } from "./collections/SocialMedia";
+import { PhoneNumber } from "./collections/Globals";
+import { Address } from "./collections/Globals";
+
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -20,7 +24,8 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Doctors, Services],
+  collections: [Users, Media, Doctors, Services, SocialMedia],
+  globals: [PhoneNumber, Address],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

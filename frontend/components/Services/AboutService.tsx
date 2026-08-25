@@ -33,7 +33,7 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
                 w-full
                 h-full
 				p-5
-				md:flex-row
+				lg:flex-row
 				flex-col
             '
 
@@ -44,10 +44,8 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
             <Flex
 				className='
 					md:flex-1
-					w-full
-					md:h-auto
+					
 					aspect-square
-					md:aspect-auto
 					items-center
 					relative
 					justify-center
@@ -70,8 +68,8 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
 					className='
 						top-0
 						left-0
-						md:max-w-[300px]
-						max-w-[45%]
+						w-[45%]
+
 						h-auto
 						rounded-xl
 						absolute
@@ -85,8 +83,9 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
 					className='
 						bottom-0
 						right-0
-						md:max-w-[300px]
-						max-w-[45%]
+						w-[45%]
+
+
 						h-auto
 						rounded-xl
 						absolute

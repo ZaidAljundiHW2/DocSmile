@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import React from 'react'
 import Hero from '@/components/Home/Hero'
@@ -11,10 +12,54 @@ import Location from '@/components/Home/Location'
 import Contact from '@/components/Misc/ContactOptions'
 import DoctorsJSON from '@/assets/JSONs/doctors.json'
 import ServicesJSON from '@/assets/JSONs/services.json'
+import { useState, useEffect } from "react";
 
 export default function Home() {
   
   const homeServices = ServicesJSON.slice(0,6);
+
+  const [doctors, setDoctors] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const getDoctors = async() => {
+
+    try {
+
+      const res = await fetch('/api/doctors');
+
+      if (!res.ok) {
+
+        throw new Error('Could not fetch doctors');
+
+      }
+
+      const jsonData = await res.json();
+      console.log(jsonData.docs);
+      setDoctors(jsonData.docs);
+      
+
+
+    
+    } catch (error) {
+    console.error(error);
+    }
+  }
+
+  useEffect(() => {
+
+    const load = async() => {
+
+      await getDoctors();
+      setLoading(false);
+
+
+    }
+
+    load();
+
+  },[]);
+
+  if (loading) return <p style={{color:'black'}}>loading...</p>
 
   return (
     <div>
@@ -25,7 +70,7 @@ export default function Home() {
 
         <Services homeServices={homeServices} header={"Our Services"} showMore={true}/>
 
-        <Doctors doctors={DoctorsJSON} header={'Our Doctors'}/>
+        <Doctors doctors={doctors} header={'Our Doctors'}/>
 
         <Trust />
 
@@ -35,7 +80,7 @@ export default function Home() {
 
         <Location />
 
-        {/* <Contact /> */}
+        <Contact />
 
     </div>
   );
