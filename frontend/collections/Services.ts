@@ -284,6 +284,26 @@ export const Services: CollectionConfig = {
     },
 
     {
+        label:'FAQs',
+        name:'FAQs',
+        type:'array',
+        fields: [
+            {
+                label:'Question',
+                name:'question',
+                type:'text'
+            },
+
+            {
+                label:'Answer',
+                name:'answer',
+                type:'text'
+            }
+        ]
+
+    },
+
+    {
         label:'Relevant Doctors',
         name:'relevantDoctors',
         type:'relationship',

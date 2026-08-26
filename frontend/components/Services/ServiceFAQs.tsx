@@ -2,6 +2,7 @@ import React from 'react'
 import FAQComp from '../Misc/FAQComp'
 
 interface FQAItem {
+    id:string,
   	question: string,
 	answer: string
 }
@@ -18,7 +19,10 @@ const ServiceFQAs = ({ FAQObj } : FAQCompProps) => {
             md:p-10
             p-5
             flex-col
-            gap-10
+            md:gap-10
+            gap-5
+            md:text-start
+            text-center
         '
     >
         <h1
@@ -31,6 +35,7 @@ const ServiceFQAs = ({ FAQObj } : FAQCompProps) => {
         >
             Frequently Asked Questions
         </h1>
+
         <FAQComp FAQObj={FAQObj}/>
         
     </div>

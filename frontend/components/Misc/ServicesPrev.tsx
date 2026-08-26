@@ -1,8 +1,8 @@
-import ServicesJSON from '@/assets/JSONs/services.json'
 import { SimpleGrid, Flex, Box } from '@chakra-ui/react'
 import { FaChevronDown } from "react-icons/fa";
+import { Service } from '@/payload-types';
 
-const ServicesPrev = ({homeServices, showMore, header}) => {
+const ServicesPrev = ({services, showMore, header} : {services : Service[], showMore : boolean, header : string}) => {
 
 
   return (
@@ -31,7 +31,7 @@ const ServicesPrev = ({homeServices, showMore, header}) => {
             w={{base:'100%', md:'50%'}}
             spacing={4}
         >
-            {homeServices.map((service, i) => (
+            {services.map((service, i) => (
                 <Flex 
                     className='
                         justify-center 
@@ -52,10 +52,12 @@ const ServicesPrev = ({homeServices, showMore, header}) => {
                     key={i}
                 >
                     <img 
-                        src={service.img}
+                        src={service.image.url}
                         className='
                             absolute
                             inset-0
+                            w-full
+                            h-full
                             z-0
                         '
                     />

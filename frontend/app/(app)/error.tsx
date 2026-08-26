@@ -11,6 +11,8 @@ const error = () => {
             z-9999
             p-20
             flex
+            md:flex-row
+            flex-col
             items-center
             justify-center
             absolute
@@ -22,6 +24,9 @@ const error = () => {
         <Flex
             className='
                 flex-col
+                md:order-none
+                order-2
+                gap-5
             '
         >
 
@@ -55,7 +60,12 @@ const error = () => {
 
         </Flex>
 
-        <Flex>
+        <Flex
+            className='
+                md:order-none
+                order-1
+            '
+        >
             <img src={'/icons/company-logo.png'}/>
         </Flex>
     </div>

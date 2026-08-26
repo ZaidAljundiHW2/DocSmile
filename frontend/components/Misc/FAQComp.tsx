@@ -2,6 +2,7 @@ import React from 'react'
 import { Accordion, Span } from "@chakra-ui/react"
 
 interface FQAItem {
+	id:string,
   	question: string,
 	answer: string
 }

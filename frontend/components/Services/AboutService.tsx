@@ -4,20 +4,11 @@ import './Services.css'
 import BookButton from '../Misc/BookButton'
 import CallButton from '../Misc/CallButton'
 import WhatsappButton from '../Misc/WhatsappButton'
-
-interface AboutServiceContent {
-  section: string;
-  header: string;
-  paragraphs: string[];
-  img: string[];
-}
-
-interface AboutServiceProps {
-  AboutServiceObj: AboutServiceContent;
-}
+import { Service } from '@/payload-types'
 
 
-const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
+
+const AboutService = ({ service } : {service : Service}) => {
   return (
     <div
         className='
@@ -74,8 +65,7 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
 						rounded-xl
 						absolute
 					'
-					src={AboutServiceObj.img[0]}
-					alt={`${AboutServiceObj.section} illustration 1`}
+					src={service.content.aboutImages[0].image.url}
 					loading='lazy'
 				/>
 
@@ -90,8 +80,7 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
 						rounded-xl
 						absolute
 					'
-					src={AboutServiceObj.img[1]}
-					alt={`${AboutServiceObj.section} illustration 2`}
+					src={service.content.aboutImages[1].image.url}
 					loading='lazy'
 				/>
 
@@ -109,16 +98,16 @@ const AboutService = ({ AboutServiceObj } : AboutServiceProps) => {
 			  gap={{base:2, md:5}}
             >
 				<h2 className='secondary_header'>
-					{AboutServiceObj.section}
+					About Service
 				</h2>
 
 				<h1 className='main_header' style={{color:'black'}}>
-					{AboutServiceObj.header}
+					{service.content.aboutHeader}
 				</h1>
 
-				{AboutServiceObj.paragraphs.map((paragraph,i) => (
+				{service.content.aboutParagraphs.map((item,i) => (
 					<p key={i}>
-						{paragraph}
+						{item.paragraph}
 					</p>
 				))}
 

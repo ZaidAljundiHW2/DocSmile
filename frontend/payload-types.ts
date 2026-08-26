@@ -69,6 +69,9 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    doctors: Doctor;
+    services: Service;
+    'social-media': SocialMedia;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,17 +81,26 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    doctors: DoctorsSelect<false> | DoctorsSelect<true>;
+    services: ServicesSelect<false> | ServicesSelect<true>;
+    'social-media': SocialMediaSelect<false> | SocialMediaSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
   };
   db: {
-    defaultIDType: string;
+    defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    phone_number: PhoneNumber;
+    address: Address;
+  };
+  globalsSelect: {
+    phone_number: PhoneNumberSelect<false> | PhoneNumberSelect<true>;
+    address: AddressSelect<false> | AddressSelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -122,7 +134,7 @@ export interface UserAuthOperations {
  * via the `definition` "users".
  */
 export interface User {
-  id: string;
+  id: number;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -147,7 +159,7 @@ export interface User {
  * via the `definition` "media".
  */
 export interface Media {
-  id: string;
+  id: number;
   alt: string;
   updatedAt: string;
   createdAt: string;
@@ -163,10 +175,159 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "doctors".
+ */
+export interface Doctor {
+  id: number;
+  photo?: (number | null) | Media;
+  fullName?: string | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  prefix?: ('Dr.' | 'Mr.' | 'Ms.' | 'Mrs.' | 'Nurse') | null;
+  title?: string | null;
+  specialty?: string | null;
+  languages?:
+    | {
+        language?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  biography?:
+    | {
+        paragraph?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  education?: string | null;
+  qualifications?:
+    | {
+        Qualification?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  clinicalInterests?:
+    | {
+        clinicalInterest?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  services?: (number | Service)[] | null;
+  profileReviewer?: (number | null) | Doctor;
+  reviewDate?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services".
+ */
+export interface Service {
+  id: number;
+  image?: (number | null) | Media;
+  banner?: (number | null) | Media;
+  name?: string | null;
+  introduction?: string | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  content?: {
+    aboutHeader?: string | null;
+    aboutParagraphs?:
+      | {
+          paragraph?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    aboutImages?:
+      | {
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[]
+      | null;
+    qualificationsHeader?: string | null;
+    qualificationsParagraphs?:
+      | {
+          paragraph?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    qualifiers?:
+      | {
+          header?: string | null;
+          qualifier?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    qualificationsImages?:
+      | {
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[]
+      | null;
+    benefitsHeader?: string | null;
+    benefits?:
+      | {
+          header: string;
+          benefit: string;
+          id?: string | null;
+        }[]
+      | null;
+    video?: (number | null) | Media;
+    processHeader?: string | null;
+    steps?:
+      | {
+          header: string;
+          step: string;
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[]
+      | null;
+    altHeader?: string | null;
+    treatments?:
+      | {
+          header: string;
+          treatment: string;
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  FAQs?:
+    | {
+        question?: string | null;
+        answer?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  relevantDoctors?: (number | Doctor)[] | null;
+  reviewer?: (number | null) | Doctor;
+  lastReviewDate?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "social-media".
+ */
+export interface SocialMedia {
+  id: number;
+  'Social Media'?: string | null;
+  Link?: string | null;
+  Status?: ('Disabled' | 'Enabled') | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
-  id: string;
+  id: number;
   key: string;
   data:
     | {
@@ -183,20 +344,32 @@ export interface PayloadKv {
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-  id: string;
+  id: number;
   document?:
     | ({
         relationTo: 'users';
-        value: string | User;
+        value: number | User;
       } | null)
     | ({
         relationTo: 'media';
-        value: string | Media;
+        value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'doctors';
+        value: number | Doctor;
+      } | null)
+    | ({
+        relationTo: 'services';
+        value: number | Service;
+      } | null)
+    | ({
+        relationTo: 'social-media';
+        value: number | SocialMedia;
       } | null);
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   updatedAt: string;
   createdAt: string;
@@ -206,10 +379,10 @@ export interface PayloadLockedDocument {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: string;
+  id: number;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   key?: string | null;
   value?:
@@ -229,7 +402,7 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: string;
+  id: number;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
@@ -277,6 +450,148 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "doctors_select".
+ */
+export interface DoctorsSelect<T extends boolean = true> {
+  photo?: T;
+  fullName?: T;
+  generateSlug?: T;
+  slug?: T;
+  prefix?: T;
+  title?: T;
+  specialty?: T;
+  languages?:
+    | T
+    | {
+        language?: T;
+        id?: T;
+      };
+  biography?:
+    | T
+    | {
+        paragraph?: T;
+        id?: T;
+      };
+  education?: T;
+  qualifications?:
+    | T
+    | {
+        Qualification?: T;
+        id?: T;
+      };
+  clinicalInterests?:
+    | T
+    | {
+        clinicalInterest?: T;
+        id?: T;
+      };
+  services?: T;
+  profileReviewer?: T;
+  reviewDate?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services_select".
+ */
+export interface ServicesSelect<T extends boolean = true> {
+  image?: T;
+  banner?: T;
+  name?: T;
+  introduction?: T;
+  generateSlug?: T;
+  slug?: T;
+  content?:
+    | T
+    | {
+        aboutHeader?: T;
+        aboutParagraphs?:
+          | T
+          | {
+              paragraph?: T;
+              id?: T;
+            };
+        aboutImages?:
+          | T
+          | {
+              image?: T;
+              id?: T;
+            };
+        qualificationsHeader?: T;
+        qualificationsParagraphs?:
+          | T
+          | {
+              paragraph?: T;
+              id?: T;
+            };
+        qualifiers?:
+          | T
+          | {
+              header?: T;
+              qualifier?: T;
+              id?: T;
+            };
+        qualificationsImages?:
+          | T
+          | {
+              image?: T;
+              id?: T;
+            };
+        benefitsHeader?: T;
+        benefits?:
+          | T
+          | {
+              header?: T;
+              benefit?: T;
+              id?: T;
+            };
+        video?: T;
+        processHeader?: T;
+        steps?:
+          | T
+          | {
+              header?: T;
+              step?: T;
+              image?: T;
+              id?: T;
+            };
+        altHeader?: T;
+        treatments?:
+          | T
+          | {
+              header?: T;
+              treatment?: T;
+              image?: T;
+              id?: T;
+            };
+      };
+  FAQs?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
+  relevantDoctors?: T;
+  reviewer?: T;
+  lastReviewDate?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "social-media_select".
+ */
+export interface SocialMediaSelect<T extends boolean = true> {
+  'Social Media'?: T;
+  Link?: T;
+  Status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -314,6 +629,46 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "phone_number".
+ */
+export interface PhoneNumber {
+  id: number;
+  'main clinic phone number'?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "address".
+ */
+export interface Address {
+  id: number;
+  'main clinic address'?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "phone_number_select".
+ */
+export interface PhoneNumberSelect<T extends boolean = true> {
+  'main clinic phone number'?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "address_select".
+ */
+export interface AddressSelect<T extends boolean = true> {
+  'main clinic address'?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

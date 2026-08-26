@@ -19,6 +19,7 @@ export default function Home() {
   const homeServices = ServicesJSON.slice(0,6);
 
   const [doctors, setDoctors] = useState([]);
+  const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getDoctors = async() => {
@@ -45,11 +46,32 @@ export default function Home() {
     }
   }
 
+  const getServices = async() => {
+
+    try {
+
+      const res = await fetch('/api/services');
+
+      if (!res.ok) {
+
+        throw new Error("Could not fetch services");
+      }
+
+      const jsonData = await res.json();
+      setServices(jsonData.docs);
+
+      
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   useEffect(() => {
 
     const load = async() => {
 
       await getDoctors();
+      await getServices();
       setLoading(false);
 
 
@@ -68,7 +90,7 @@ export default function Home() {
 
         <UrgentCTA />
 
-        <Services homeServices={homeServices} header={"Our Services"} showMore={true}/>
+        <Services services={services} header={"Our Services"} showMore={true}/>
 
         <Doctors doctors={doctors} header={'Our Doctors'}/>
 

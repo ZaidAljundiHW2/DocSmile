@@ -2,7 +2,8 @@ import ServiceTemplate from '@/components/Services/ServicesTemplate'
 import ServicesJSON from '@/assets/JSONs/services.json'
 import DoctorJSON from '@/assets/JSONs/doctors.json'
 import FAQsJSON from '@/assets/JSONs/FAQs.json'
-
+import { getPayload } from 'payload'
+import config from '@payload-config'
 
 export function generateStaticParams() {
     return ServicesJSON.map((service) => ({
@@ -19,35 +20,31 @@ const Service = async ({
 
     const serviceSlug = decodeURIComponent((await params).service)
 
-    const serviceObj = ServicesJSON.find(
-        item => item.slug === serviceSlug
-    )
+    const payload = await getPayload({ config });
 
-    const doctors = serviceObj
-        ? DoctorJSON.filter(
-            item => item.services.includes(serviceObj.serviceid)
-        )
-        : []
+    const result = await payload.find({
+        collection:'services',
+        where: {
 
-    const reviewer = serviceObj
-        ? DoctorJSON.find(
-            item => item.doctorid === serviceObj.doctoridreviewer
-        )
-        : null
+            slug: {
 
-    const FAQs = serviceObj
-        ? FAQsJSON.filter(
-            item => item.serviceid === serviceObj.serviceid
-        )
-        : []
+                equals:serviceSlug
+            }
+        },
+
+        limit:1,
+        depth:2
+
+    })
+
+    console.log(result)
+
 
     return (
         <div>
             <ServiceTemplate
-                service={serviceObj}
-                doctors={doctors}
-                FAQs={FAQs}
-                reviewer={reviewer}
+                service={result.docs[0]}
+                
             />
         </div>
     )

@@ -1,28 +1,9 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
-
-interface Step {
-    stepnum: number,
-    header: string,
-    paragraph: string,
-    img: string
-
-}
-
-interface ServiceProcessContent {
-
-    section: string,
-    header: string,
-    subheader: string
-    steps: Step[]
-}
-
-interface ServiceProcessProps {
-    ServiceProcessObj: ServiceProcessContent
-}
+import { Service } from '@/payload-types'
 
 
-const ServiceProcess = ({ ServiceProcessObj } : ServiceProcessProps ) => {
+const ServiceProcess = ({ service } : { service : Service} ) => {
   return (
     <div
         className='
@@ -39,11 +20,11 @@ const ServiceProcess = ({ ServiceProcessObj } : ServiceProcessProps ) => {
 
         <Flex className='flex-col'>
             <h2 className='secondary_header'>
-                {ServiceProcessObj.section}
+                Process
             </h2>
 
             <h1 className='main_header' style={{color:'black'}}>
-                {ServiceProcessObj.header}
+                {service.content?.processHeader}
             </h1>
 
         </Flex>
@@ -58,7 +39,7 @@ const ServiceProcess = ({ ServiceProcessObj } : ServiceProcessProps ) => {
             '
         >
 
-            {ServiceProcessObj.steps.map((item,i) => (
+            {service.content?.steps.map((item,i) => (
 
                 <React.Fragment
                     key={i}
@@ -75,7 +56,7 @@ const ServiceProcess = ({ ServiceProcessObj } : ServiceProcessProps ) => {
                     >
                         <img 
 
-                            src={item.img}
+                            src={item.image.url}
                             className='
                                 w-40
                                 md:w-full
@@ -101,7 +82,7 @@ const ServiceProcess = ({ ServiceProcessObj } : ServiceProcessProps ) => {
                         </h3>
 
                         <p>
-                            {item.paragraph}
+                            {item.step}
                         </p>
                         
                     </Flex>

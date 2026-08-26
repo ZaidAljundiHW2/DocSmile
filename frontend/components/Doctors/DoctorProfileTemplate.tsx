@@ -7,56 +7,22 @@ import ServicesPrev from '../Misc/ServicesPrev'
 import DoctorBook from './DoctorBook'
 import DoctorsJSON from '@/assets/JSONs/doctors.json'
 import DoctorMiscInfo from './DoctorMiscInfo'
+import { Doctor } from '@/payload-types'
 
-interface Doctor {
-    doctorid: number,
-    name:string,
-    slug:string,
-    img:string,
-    title:string,
-    specialty:string,
-    languages:string[],
-    services:number[],
-    biography:string,
-    education:string,
-    qualifications:string[],
-    profilereviewer:number,
-    reviewdate:string,
-    clinicalinterests:string[]
-
-}
-
-interface DoctorProfileTemplateProps {
-    doctor: Doctor
-}
-
-const DoctorProfileTemplate = ({ doctor }: DoctorProfileTemplateProps) => {
-
-    const doctorServices = ServicesJSON.filter(item => doctor.services.includes(item.serviceid));
-    const reviewer = DoctorsJSON.find(
-        item => item.doctorid === doctor.profilereviewer
-    )?.name ?? '';
+const DoctorProfileTemplate = ({ doctor } : { doctor : Doctor}) => {
 
   return (
     <div>
 
-        <DoctorHeader name={doctor.name} title={doctor.title} img={doctor.img}/>
+        <DoctorHeader name={doctor.fullName} title={doctor.title} img={doctor.photo.url}/>
 
-        <DoctorInfo 
-            specialty={doctor.specialty} 
-            languages={doctor.languages} 
-            biography={doctor.biography}
-            education={doctor.education}
-            qualifications={doctor.qualifications}
-            interests={doctor.clinicalinterests}
+        <DoctorInfo doctor={doctor}/>
 
-        />
-
-        <ServicesPrev homeServices={doctorServices} header={"Relevant Doctor's Services"} showMore={false}/>
+        <ServicesPrev services={doctor.services} header={"Relevant Doctor's Services"} showMore={false}/>
         
-        <DoctorBook name={doctor.name}/>
+        <DoctorBook name={doctor.fullName}/>
 
-        <DoctorMiscInfo doctor={reviewer} date={doctor.reviewdate}/>
+        <DoctorMiscInfo doctor={doctor.profileReviewer.fullName} date={doctor.reviewDate}/>
         
     </div>
   )

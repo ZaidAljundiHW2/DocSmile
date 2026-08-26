@@ -1,23 +1,8 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
+import { Service } from '@/payload-types'
 
-interface ServiceAltItem {
-    header:string,
-    subheader:string,
-    img:string
-}
-
-interface ServiceAltContent {
-    section:string,
-    header:string,
-    alternatives: ServiceAltItem[]
-}
-
-interface ServiceAltProps {
-    ServiceAltObj: ServiceAltContent
-}
-
-const ServiceAlts = ({ ServiceAltObj } : ServiceAltProps) => {
+const ServiceAlts = ({ service } : { service : Service}) => {
   return (
     <div
         className='
@@ -36,7 +21,7 @@ const ServiceAlts = ({ ServiceAltObj } : ServiceAltProps) => {
                     secondary_header
                 '
             >
-                {ServiceAltObj.section}
+                Alternative Treatments
 
             </h2>
             <h1
@@ -47,7 +32,7 @@ const ServiceAlts = ({ ServiceAltObj } : ServiceAltProps) => {
                     color:'black'
                 }}
             >
-                {ServiceAltObj.header}
+                {service.content?.altHeader}
             </h1>
 
         </Flex>
@@ -55,7 +40,7 @@ const ServiceAlts = ({ ServiceAltObj } : ServiceAltProps) => {
         <Flex className='w-full justify-center items-center'>
             <Flex className='flex-col w-full md:w-2/3 gap-8 md:gap-5'>
 
-                {ServiceAltObj.alternatives.map((item,i) => (
+                {service.content?.treatments.map((item,i) => (
 
                     <Flex
                         key={i}
@@ -91,13 +76,13 @@ const ServiceAlts = ({ ServiceAltObj } : ServiceAltProps) => {
                             </h2>
 
                             <p>
-                                {item.subheader}
+                                {item.treatment}
                             </p>
 
                         </Flex>
 
                         <img 
-                            src={item.img} 
+                            src={item.image.url} 
                             alt={item.header}
                             loading='lazy'
                             className={`

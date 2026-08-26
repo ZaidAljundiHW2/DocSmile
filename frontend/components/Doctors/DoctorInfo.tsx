@@ -8,33 +8,21 @@ import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { Flex } from '@chakra-ui/react';
 import { Icon } from '@chakra-ui/react';
 import { FaMagnifyingGlass } from "react-icons/fa6";
+import { Doctor } from '@/payload-types';
 
-const DoctorInfo = ({ 
-    specialty, 
-    languages, 
-    biography, 
-    qualifications,
-    education,
-    interests
-} : {
-    specialty:string,
-    languages:string[],
-    biography:string,
-    qualifications:string[],
-    education: string,
-    interests: string[]
-}) => {
+const DoctorInfo = ({doctor} : { doctor : Doctor}) => {
 
-    const biographyBlocks = biography.split('\n');
-    const educationBlocks = education.split('\n');
-    const languagesString = languages.join(' - ');
-    const interestsString = interests.join(' - ');
+    const biographyBlocks = doctor.biography.map((item) => item.paragraph);
+    const qualifications = doctor.qualifications.map((item) => item.Qualification);
+    const educationBlocks = doctor.education?.split(',');
+    const languagesString = doctor.languages.map((item) => item.language).join(" ");
+    const interestsString = doctor.clinicalInterests.map((item) => item.clinicalInterest).join(' - ');
 
     const infoBlocks = [
 
         {
             "header": "Specialty",
-            "value": specialty,
+            "value": doctor.specialty,
             "icon": GrUserExpert
         },
 

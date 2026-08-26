@@ -6,11 +6,6 @@ import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
-export function generateStaticParams() {
-    return DoctorsJSON.map((doctor) => ({
-        doctor: doctor.slug,
-    }))
-}
 
 
 const Doctor = async ({
@@ -20,9 +15,8 @@ const Doctor = async ({
 }) => {
 
     const doctorslug = decodeURIComponent((await params).doctor)
-    const doctor = DoctorsJSON.find(item => item.slug === doctorslug);
 
-    const payload = await getPayload({config })
+    const payload = await getPayload({ config })
 
     const result = await payload.find({
 
@@ -35,18 +29,16 @@ const Doctor = async ({
         },
         
         limit:1,
-        depth:1
+        depth:2
     })
 
     console.log(result);
 
-    if (!doctor) notFound()
-
     return (
         <div>
-            <ComponentSubheader heading={doctor.name} />
+            <ComponentSubheader heading={result.docs[0].fullName} />
 
-            <DoctorProfileTemplate doctor={doctor} />
+            <DoctorProfileTemplate doctor={result.docs[0]} />
         </div>
     )
 }

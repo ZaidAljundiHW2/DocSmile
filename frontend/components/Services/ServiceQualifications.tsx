@@ -4,34 +4,18 @@ import { IoMdCheckboxOutline } from "react-icons/io";
 import BookButton from '../Misc/BookButton';
 import CallButton from '../Misc/CallButton';
 import WhatsappButton from '../Misc/WhatsappButton';
-
-interface ChecklistItem {
-	header:string,
-	subheader:string
-}
-
-interface ServiceQualificationsContent {
-
-	section: string,
-	header: string,
-	paragraphs: string[],
-	img: string[],
-	checklist: ChecklistItem[],
-
-}
-
-interface ServiceQualificationsProp {
-	ServiceQualificationsObj: ServiceQualificationsContent
-}
+import { Service } from '@/payload-types'
 
 
-const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificationsProp) => {
+const ServiceQualifications = ({ service } : {service : Service}) => {
   return (
     <div
 		className='
 			md:p-10
 			p-5
 			servicecontainer
+			md:text-start
+			text-center
 		'
 	>
 		<Flex
@@ -79,8 +63,8 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 						rounded-xl
 						absolute
 					'
-					src={ServiceQualificationsObj.img[0]}
-					alt={`${ServiceQualificationsObj.section} illustration 1`}
+					src={service.content?.qualificationsImages[0].image.url}
+					// alt={`${ServiceQualificationsObj.section} illustration 1`}
 					loading='lazy'
 				/>
 
@@ -93,8 +77,8 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 						rounded-xl
 						absolute
 					'
-					src={ServiceQualificationsObj.img[1]}
-					alt={`${ServiceQualificationsObj.section} illustration 2`}
+					src={service.content?.qualificationsImages[1].image.url}
+					// alt={`${ServiceQualificationsObj.section} illustration 2`}
 					loading='lazy'
 				/>
 
@@ -113,14 +97,14 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 				gap={{base:2, md:5}}
 			>
 				<h2 className='secondary_header'>
-					{ServiceQualificationsObj.section}
+					Qualification Requirements
 				</h2>
 
 				<h1 className='main_header' style={{color:'black'}}>
-					{ServiceQualificationsObj.header}
+					{service.content?.qualificationsHeader}
 				</h1>
 
-				{ServiceQualificationsObj.checklist.map((item,i) => (
+				{service.content?.qualifiers.map((item,i) => (
 
 					<Flex 
 						key={i}
@@ -140,7 +124,7 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 							</h3>
 
 							<p>
-								{item.subheader}
+								{item.qualifier}
 							</p>
 						</Flex>
 
@@ -150,9 +134,9 @@ const ServiceQualifications = ({ ServiceQualificationsObj } : ServiceQualificati
 				))}
 
 
-				{ServiceQualificationsObj.paragraphs.map((paragraph,i) => (
+				{service.content?.qualificationsParagraphs.map((item,i) => (
 					<p key={i}>
-						{paragraph}
+						{item.paragraph}
 					</p>
 				))}
 

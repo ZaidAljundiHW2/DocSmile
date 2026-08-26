@@ -1,6 +1,9 @@
 import './Services.css'
 
-const ServiceTemplateBanner = ({item}) => {
+
+
+
+const ServiceTemplateBanner = ({ bannerurl, name } : {bannerurl : string, name : string}) => {
 
     
 
@@ -23,8 +26,8 @@ const ServiceTemplateBanner = ({item}) => {
     >
 
         <img 
-            src={item.banner}
-            alt={item.name}
+            src={bannerurl}
+            alt={name}
             className='absolute inset-0 z-0 absolute-image'
             style={{
             width: '100%',
@@ -44,7 +47,7 @@ const ServiceTemplateBanner = ({item}) => {
                 fontSize:'clamp(2rem, 8vw, 10rem)'
             }}
         >
-            {item.name}
+            {name}
         </h1>
 
         <p className='z-1'>

@@ -2,28 +2,17 @@ import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import { IoSparklesSharp } from "react-icons/io5";
 import './Services.css'
+import { Service } from '@/payload-types'
+
 
 interface BenefitItem {
-    header: string,
-    subheader: string
+
+    header:string,
+    benefit:string,
+    id:string
 }
 
-interface ServiceBenefitsContent {
-
-    section: string,
-	header: string,
-	paragraphs: string[],
-    benefits: BenefitItem[],
-    video: string
-
-}
-
-interface ServiceBenefitsProp {
-
-    ServiceBenefitObj: ServiceBenefitsContent
-}
-
-const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
+const ServiceBenefits = ({ service } : {service : Service }) => {
 
 
     const splitArray = (arr: BenefitItem[]) => {
@@ -34,7 +23,7 @@ const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
         return [leftHalf, rightHalf];
     }
 
-    const [leftHalf, rightHalf] = splitArray(ServiceBenefitObj.benefits);
+    const [leftHalf, rightHalf] = splitArray(service.content?.benefits);
 
   return (
     <div
@@ -54,11 +43,11 @@ const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
     >
         <Flex className='flex-col'>
             <h2 className='secondary_header'>
-                {ServiceBenefitObj.section}
+                Benefits
             </h2>
 
             <h1 className='main_header' style={{color:'black'}}>
-                {ServiceBenefitObj.header}
+                {service.content?.benefitsHeader}
             </h1>
 
         </Flex>
@@ -91,7 +80,7 @@ const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
                             </h3>
 
                             <p>
-                                {item.subheader}
+                                {item.benefit}
                             </p>
                         </Flex>
 
@@ -119,7 +108,7 @@ const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
                 '
             >
                 <video 
-                    src={ServiceBenefitObj.video}
+                    src={service.content?.video?.url}
                     autoPlay
                     loop
                     muted
@@ -166,7 +155,7 @@ const ServiceBenefits = ({ ServiceBenefitObj } : ServiceBenefitsProp) => {
                             </h3>
 
                             <p>
-                                {item.subheader}
+                                {item.benefit}
                             </p>
                         </Flex>
 
