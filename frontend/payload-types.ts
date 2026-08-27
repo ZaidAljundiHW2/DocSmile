@@ -71,7 +71,6 @@ export interface Config {
     media: Media;
     doctors: Doctor;
     services: Service;
-    'social-media': SocialMedia;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -83,7 +82,6 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     doctors: DoctorsSelect<false> | DoctorsSelect<true>;
     services: ServicesSelect<false> | ServicesSelect<true>;
-    'social-media': SocialMediaSelect<false> | SocialMediaSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -94,12 +92,18 @@ export interface Config {
   };
   fallbackLocale: null;
   globals: {
-    phone_number: PhoneNumber;
-    address: Address;
+    'clinic-general-information': ClinicGeneralInformation;
+    social: Social;
+    legal: Legal;
+    about: About;
+    'patient-information': PatientInformation;
   };
   globalsSelect: {
-    phone_number: PhoneNumberSelect<false> | PhoneNumberSelect<true>;
-    address: AddressSelect<false> | AddressSelect<true>;
+    'clinic-general-information': ClinicGeneralInformationSelect<false> | ClinicGeneralInformationSelect<true>;
+    social: SocialSelect<false> | SocialSelect<true>;
+    legal: LegalSelect<false> | LegalSelect<true>;
+    about: AboutSelect<false> | AboutSelect<true>;
+    'patient-information': PatientInformationSelect<false> | PatientInformationSelect<true>;
   };
   locale: null;
   widgets: {
@@ -312,18 +316,6 @@ export interface Service {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "social-media".
- */
-export interface SocialMedia {
-  id: number;
-  'Social Media'?: string | null;
-  Link?: string | null;
-  Status?: ('Disabled' | 'Enabled') | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -361,10 +353,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'services';
         value: number | Service;
-      } | null)
-    | ({
-        relationTo: 'social-media';
-        value: number | SocialMedia;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -581,17 +569,6 @@ export interface ServicesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "social-media_select".
- */
-export interface SocialMediaSelect<T extends boolean = true> {
-  'Social Media'?: T;
-  Link?: T;
-  Status?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -632,40 +609,240 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "phone_number".
+ * via the `definition` "clinic-general-information".
  */
-export interface PhoneNumber {
+export interface ClinicGeneralInformation {
   id: number;
-  'main clinic phone number'?: string | null;
+  address?: string | null;
+  mapsLink?: string | null;
+  phoneNumber?: string | null;
+  email?: string | null;
+  parkingInformation?: string | null;
+  operationHours?: {
+    sunday?: {
+      openTime?: string | null;
+      closeTime?: string | null;
+    };
+    monday?: {
+      openTime?: string | null;
+      closeTime?: string | null;
+    };
+    tuesday?: {
+      openTime?: string | null;
+      closeTime?: string | null;
+    };
+    wednesday?: {
+      openTime?: string | null;
+      closeTime?: string | null;
+    };
+    thursday?: {
+      openTime?: string | null;
+      closeTime?: string | null;
+    };
+    friday?: {
+      openTime?: string | null;
+      closeTime?: string | null;
+    };
+    saturday?: {
+      openTime?: string | null;
+      closeTime?: string | null;
+    };
+  };
+  footerHours?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "address".
+ * via the `definition` "social".
  */
-export interface Address {
+export interface Social {
   id: number;
-  'main clinic address'?: string | null;
+  instagram?: string | null;
+  facebook?: string | null;
+  youtube?: string | null;
+  snapchat?: string | null;
+  x?: string | null;
+  whatsapp?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "phone_number_select".
+ * via the `definition` "legal".
  */
-export interface PhoneNumberSelect<T extends boolean = true> {
-  'main clinic phone number'?: T;
+export interface Legal {
+  id: number;
+  privacyPolicy?: string | null;
+  tos?: string | null;
+  cookiePolicy?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about".
+ */
+export interface About {
+  id: number;
+  missionStatement?: string | null;
+  ourCenter?: string | null;
+  visitors?: number | null;
+  expYears?: number | null;
+  testimonials?:
+    | {
+        name?: string | null;
+        testimonial?: string | null;
+        date?: string | null;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  laboratory?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "patient-information".
+ */
+export interface PatientInformation {
+  id: number;
+  firstVisit?: string | null;
+  FAQs?:
+    | {
+        question?: string | null;
+        answer?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clinic-general-information_select".
+ */
+export interface ClinicGeneralInformationSelect<T extends boolean = true> {
+  address?: T;
+  mapsLink?: T;
+  phoneNumber?: T;
+  email?: T;
+  parkingInformation?: T;
+  operationHours?:
+    | T
+    | {
+        sunday?:
+          | T
+          | {
+              openTime?: T;
+              closeTime?: T;
+            };
+        monday?:
+          | T
+          | {
+              openTime?: T;
+              closeTime?: T;
+            };
+        tuesday?:
+          | T
+          | {
+              openTime?: T;
+              closeTime?: T;
+            };
+        wednesday?:
+          | T
+          | {
+              openTime?: T;
+              closeTime?: T;
+            };
+        thursday?:
+          | T
+          | {
+              openTime?: T;
+              closeTime?: T;
+            };
+        friday?:
+          | T
+          | {
+              openTime?: T;
+              closeTime?: T;
+            };
+        saturday?:
+          | T
+          | {
+              openTime?: T;
+              closeTime?: T;
+            };
+      };
+  footerHours?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "address_select".
+ * via the `definition` "social_select".
  */
-export interface AddressSelect<T extends boolean = true> {
-  'main clinic address'?: T;
+export interface SocialSelect<T extends boolean = true> {
+  instagram?: T;
+  facebook?: T;
+  youtube?: T;
+  snapchat?: T;
+  x?: T;
+  whatsapp?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "legal_select".
+ */
+export interface LegalSelect<T extends boolean = true> {
+  privacyPolicy?: T;
+  tos?: T;
+  cookiePolicy?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about_select".
+ */
+export interface AboutSelect<T extends boolean = true> {
+  missionStatement?: T;
+  ourCenter?: T;
+  visitors?: T;
+  expYears?: T;
+  testimonials?:
+    | T
+    | {
+        name?: T;
+        testimonial?: T;
+        date?: T;
+        image?: T;
+        id?: T;
+      };
+  laboratory?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "patient-information_select".
+ */
+export interface PatientInformationSelect<T extends boolean = true> {
+  firstVisit?: T;
+  FAQs?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

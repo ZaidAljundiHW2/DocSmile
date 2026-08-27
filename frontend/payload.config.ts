@@ -9,10 +9,11 @@ import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Doctors } from './collections/Doctors'
 import { Services } from './collections/Services'
-import { SocialMedia } from "./collections/SocialMedia";
-import { PhoneNumber } from "./collections/Globals";
-import { Address } from "./collections/Globals";
-
+import { ClinicGeneralInformation } from "./collections/Globals";
+import { Social } from "./collections/Globals";
+import { Legal } from "./collections/Globals";
+import { About } from "./collections/Globals";
+import { PatientInformation } from "./collections/Globals";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -24,8 +25,8 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Doctors, Services, SocialMedia],
-  globals: [PhoneNumber, Address],
+  collections: [Users, Media, Doctors, Services],
+  globals: [ClinicGeneralInformation, Social, Legal, About, PatientInformation],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
