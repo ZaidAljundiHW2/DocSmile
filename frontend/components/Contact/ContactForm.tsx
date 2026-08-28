@@ -89,20 +89,20 @@ const ContactForm = () => {
             hasError = true;
         } else setNameError(false);
 
-        if (email.trim().length === 0) {
-            setEmailError(true);
-            hasError = true;
-        } else setEmailError(false);
+        // if (email.trim().length === 0) {
+        //     setEmailError(true);
+        //     hasError = true;
+        // } else setEmailError(false);
 
         if (number.trim().length === 0) {
             setNumberError(true);
             hasError = true;
         } else setNumberError(false);
 
-        if (contact.trim().length === 0) {
-            setContactError(true);
-            hasError = true;
-        } else setContactError(false);
+        // if (contact.trim().length === 0) {
+        //     setContactError(true);
+        //     hasError = true;
+        // } else setContactError(false);
 
         if (message.trim().length === 0) {
             setMessageError(true);
@@ -117,9 +117,9 @@ const ContactForm = () => {
   return (
     <div className='flex flex-col gap-3'>
         <InputTag inputObj={nameInput}/>
-        <InputTag inputObj={emailInput}/>
+        {/* <InputTag inputObj={emailInput}/> */}
         <InputTag inputObj={numberInput}/>
-        <SelectTag selectObj={contactSelect}/>
+        {/* <SelectTag selectObj={contactSelect}/> */}
         <SelectTag selectObj={doctorSelect}/>
 
         <Field.Root invalid={messageError} required className='w-full' color={'black'}>

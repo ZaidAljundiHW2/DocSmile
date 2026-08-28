@@ -143,49 +143,55 @@ const BookingForm = () => {
 
     // short non-clinical note (optional)
     const [note, setNote] = useState("");
+    const [noteError, setNoteError] = useState(false);
 
     const handleSubmit = () => {
         let hasError = false;
 
-        if (language.trim().length === 0) {
-            setLanguageError(true);
-            hasError = true;
-        } else setLanguageError(false);
+        // if (language.trim().length === 0) {
+        //     setLanguageError(true);
+        //     hasError = true;
+        // } else setLanguageError(false);
 
         if (name.trim().length === 0) {
             setNameError(true);
             hasError = true;
         } else setNameError(false);
 
-        if (email.trim().length === 0) {
-            setEmailError(true);
-            hasError = true;
-        } else setEmailError(false);
+        // if (email.trim().length === 0) {
+        //     setEmailError(true);
+        //     hasError = true;
+        // } else setEmailError(false);
 
         if (number.trim().length === 0) {
             setNumberError(true);
             hasError = true;
         } else setNumberError(false);
 
-        if (patientType.trim().length === 0) {
-            setPatientTypeError(true);
-            hasError = true;
-        } else setPatientTypeError(false);
+        // if (patientType.trim().length === 0) {
+        //     setPatientTypeError(true);
+        //     hasError = true;
+        // } else setPatientTypeError(false);
 
-        if (department.trim().length === 0) {
-            setDepartmentError(true);
-            hasError = true;
-        } else setDepartmentError(false);
+        // if (department.trim().length === 0) {
+        //     setDepartmentError(true);
+        //     hasError = true;
+        // } else setDepartmentError(false);
 
-        if (contact.trim().length === 0) {
-            setContactError(true);
-            hasError = true;
-        } else setContactError(false);
+        // if (contact.trim().length === 0) {
+        //     setContactError(true);
+        //     hasError = true;
+        // } else setContactError(false);
 
-        if (!consent) {
-            setConsentError(true);
+        // if (!consent) {
+        //     setConsentError(true);
+        //     hasError = true;
+        // } else setConsentError(false);
+
+        if (note.trim().length === 0) {
+            setNoteError(true);
             hasError = true;
-        } else setConsentError(false);
+        } else setNoteError(false);
 
         if (hasError) return;
 
@@ -196,22 +202,24 @@ const BookingForm = () => {
     <div className='flex flex-col gap-3'>
         <InputTag inputObj={nameInput}/>
 
-        <Flex className='gap-5'>
+        {/* <Flex className='gap-5'>
             <InputTag inputObj={emailInput}/>
             <InputTag inputObj={numberInput}/>
-        </Flex>
+        </Flex> */}
 
-        <Flex className='gap-5'>
+        <InputTag inputObj={numberInput}/>
+
+        {/* <Flex className='gap-5'>
             <SelectTag selectObj={languageSelect}/>
             <SelectTag selectObj={patientTypeSelect}/>
-        </Flex>
+        </Flex> */}
         
-        <SelectTag selectObj={departmentSelect}/>
-        <SelectTag selectObj={contactSelect}/>
+        {/* <SelectTag selectObj={departmentSelect}/>
+        <SelectTag selectObj={contactSelect}/> */}
 
         <SelectTag selectObj={doctorSelect}/>
 
-        <Flex className='gap-5'>
+        {/* <Flex className='gap-5'>
             <Field.Root color={'black'}>
                 <Field.Label>Preferred Day</Field.Label>
                 <Input
@@ -225,11 +233,11 @@ const BookingForm = () => {
 
             <SelectTag selectObj={timePeriodSelect}/>
 
-        </Flex>
+        </Flex> */}
         
 
         <Field.Root color={'black'}>
-            <Field.Label>Note</Field.Label>
+            <Field.Label>Reason for Visit</Field.Label>
             <Textarea
                 value={note}
                 onChange={(e) => setNote(e.currentTarget.value.slice(0, 500))}
@@ -240,7 +248,7 @@ const BookingForm = () => {
             />
         </Field.Root>
 
-        <Field.Root invalid={consentError} required color={'black'}>
+        {/* <Field.Root invalid={consentError} required color={'black'}>
             <Checkbox.Root
                 checked={consent}
                 onCheckedChange={(e) => setConsent(!!e.checked)}
@@ -253,7 +261,7 @@ const BookingForm = () => {
             </Checkbox.Root>
 
             <Field.ErrorText>You must consent to be contacted</Field.ErrorText>
-        </Field.Root>
+        </Field.Root> */}
 
         <Button bg={'#0071e3'} color={'white'} onClick={handleSubmit}>
             Submit
