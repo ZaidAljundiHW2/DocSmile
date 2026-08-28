@@ -2,6 +2,11 @@ import type { GlobalConfig } from 'payload'
 
 export const ClinicGeneralInformation: GlobalConfig = {
   slug: 'clinic-general-information',
+
+  access: {
+    read:() => true
+  },
+
   fields: [
     {
       label:'Address',
@@ -20,6 +25,12 @@ export const ClinicGeneralInformation: GlobalConfig = {
       name:'phoneNumber',
       type:'text',
 
+    },
+
+    {
+      label:'WhatsApp Number',
+      name:'whatsapp',
+      type:'text'
     },
 
     {
@@ -51,7 +62,8 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
             },
@@ -62,9 +74,16 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
+            },
+
+            {
+              label:'Closed?',
+              name:'closed',
+              type:'checkbox'
             }
           ]
         },
@@ -80,7 +99,8 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
             },
@@ -91,9 +111,16 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
+            },
+
+            {
+              label:'Closed?',
+              name:'closed',
+              type:'checkbox'
             }
           ]
         },
@@ -109,7 +136,8 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
             },
@@ -120,9 +148,16 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
+            },
+
+            {
+              label:'Closed?',
+              name:'closed',
+              type:'checkbox'
             }
           ]
         },
@@ -138,7 +173,8 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
             },
@@ -149,9 +185,16 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
+            },
+
+            {
+              label:'Closed?',
+              name:'closed',
+              type:'checkbox'
             }
           ]
         },
@@ -167,7 +210,8 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
             },
@@ -178,9 +222,16 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
+            },
+
+            {
+              label:'Closed?',
+              name:'closed',
+              type:'checkbox'
             }
           ]
         },
@@ -196,7 +247,8 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
             },
@@ -207,9 +259,16 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
+            },
+
+            {
+              label:'Closed?',
+              name:'closed',
+              type:'checkbox'
             }
           ]
         },
@@ -225,7 +284,8 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
             },
@@ -236,9 +296,16 @@ export const ClinicGeneralInformation: GlobalConfig = {
               type:'date',
               admin: {
                 date: {
-                  pickerAppearance:'timeOnly'
+                  pickerAppearance:'timeOnly',
+                  displayFormat:'h:mm'
                 }
               }
+            },
+
+            {
+              label:'Closed?',
+              name:'closed',
+              type:'checkbox'
             }
           ]
         }
@@ -276,12 +343,56 @@ export const Legal: GlobalConfig = {
       name:'cookiePolicy',
       type:'textarea'
     }
+  ],
+
+  endpoints: [
+
+    {
+      method:'get',
+      path:'/tos',
+      handler: async (req) => {
+        const legal = await req.payload.findGlobal({
+          slug: 'legal',
+        })
+
+        return Response.json({ tos: legal.tos })
+      }
+
+    },
+
+    {
+      method:'get',
+      path:'/pp',
+      handler: async(req) => {
+        const legal = await req.payload.findGlobal({
+          slug:'legal'
+        })
+
+        return Response.json({ pp: legal.privacyPolicy })
+      }
+    },
+
+    {
+      method:'get',
+      path:'/cookies',
+      handler: async(req) => {
+        const legal = await req.payload.findGlobal({
+          slug:'legal'
+        })
+
+        return Response.json({ cookies: legal.cookiePolicy })
+      }
+    }
   ]
 }
 
 export const Social: GlobalConfig = {
 
   slug:'social',
+
+  access: {
+    read: () => true
+  },
 
   fields: [
 
@@ -315,11 +426,7 @@ export const Social: GlobalConfig = {
       type:'text'
     },
 
-    {
-      label:'WhatsApp',
-      name:'whatsapp',
-      type:'text'
-    }
+    
   ]
 }
 

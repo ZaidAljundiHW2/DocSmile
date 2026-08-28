@@ -31,8 +31,6 @@ const Navbar = () => {
 
             const currScrollY = window.scrollY;
 
-            console.log('A');
-
             if (currScrollY > 100) {
                 setIsVisible(true);
             }

@@ -4,38 +4,29 @@ import { Button } from "@chakra-ui/react"
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 
-const Location = () => {
+const Location = ({ genDetails }) => {
+
+    const formatTime = (iso) => {
+        if (!iso) return '';
+        return new Date(iso).toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZone: 'Asia/Kuwait' // pin to clinic's timezone, not the visitor's
+        })
+    }
 
     const operationHours = [
-        {
-            "day":"Sunday",
-            "time":"09:00 - 17:00"
-        },
-        {
-            "day":"Monday",
-            "time":"09:00 - 17:00"
-        },
-        {
-            "day":"Tuesday",
-            "time":"09:00 - 17:00"
-        },
-        {
-            "day":"Wednesday",
-            "time":"09:00 - 17:00"
-        },
-        {
-            "day":"Thursday",
-            "time":"09:00 - 17:00"
-        },
-        {
-            "day":"Friday",
-            "time":"Closed"
-        },
-        {
-            "day":"Saturday",
-            "time":"Closed"
-        }
-    ]
+        { day: 'Sunday', ...genDetails.operationHours.sunday },
+        { day: 'Monday', ...genDetails.operationHours.monday },
+        { day: 'Tuesday', ...genDetails.operationHours.tuesday },
+        { day: 'Wednesday', ...genDetails.operationHours.wednesday },
+        { day: 'Thursday', ...genDetails.operationHours.thursday },
+        { day: 'Friday', ...genDetails.operationHours.friday },
+        { day: 'Saturday', ...genDetails.operationHours.saturday },
+    ].map(d => ({
+        day: d.day,
+        time: d.closed ? 'Closed' : `${formatTime(d.openTime)} - ${formatTime(d.closeTime)}`
+    }))
 
   return (
     <div
@@ -46,6 +37,7 @@ const Location = () => {
             gap-5
             location
             bg-white
+            py-5
             
             
         '
@@ -76,11 +68,11 @@ const Location = () => {
             >
 
                 <p>
-                    Address: Laila Tower, Salem Al Mubarak St، Al Salmiya
+                    Address: {genDetails.address}
                 </p>
 
                 <p>
-                    Telephone: +965 93109453
+                    Telephone: +965 {genDetails.phoneNumber}
                 </p>
 
                 <p
@@ -123,7 +115,7 @@ const Location = () => {
                 </Flex>
 
                 <p>
-                    Parking: parking information.
+                    Parking: {genDetails.parkingInformation}
                 </p>
                 
                 <Flex className="md:justify-end justify-center items-center gap-5">

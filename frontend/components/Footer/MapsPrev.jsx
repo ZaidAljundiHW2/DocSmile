@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, { useEffect } from 'react'
 import { Flex } from '@chakra-ui/react'
 import './MapsPrev.css'
 import { FaLocationArrow } from "react-icons/fa";
@@ -12,7 +13,11 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaSnapchat } from "react-icons/fa";
 import LanguageSwitch from '../Misc/LanguageSwitch';
 
-const MapsPrev = () => {
+const MapsPrev = ({ socials, genDetails }) => {
+
+
+    
+
   return (
     <div
         className='
@@ -73,7 +78,7 @@ const MapsPrev = () => {
                         </h1>
 
                         <h1>
-                            Floor 9, Laila Tower, Salem Al Mubarak Street, Salmiya
+                            {genDetails.address}
                         </h1>
 
                     </Flex>
@@ -94,7 +99,7 @@ const MapsPrev = () => {
                         </h1>
 
                         <h1>
-                            Saturday - Thursday 9:00 AM - 9:00 PM , Friday Closed
+                            {genDetails.footerHours}
                         </h1>
 
                     </Flex>
@@ -116,7 +121,7 @@ const MapsPrev = () => {
                         </h1>
 
                         <h1>
-                            info@doctorsmilekw.com
+                            {genDetails.email}
                         </h1>
 
                     </Flex>
@@ -138,7 +143,7 @@ const MapsPrev = () => {
                         </h1>
 
                         <h1>
-                            123456789
+                            {genDetails.phoneNumber}
                         </h1>
 
                     </Flex>
@@ -156,11 +161,25 @@ const MapsPrev = () => {
                 
             >
                 <Flex className='items-center gap-4'>
-                    <RiInstagramFill size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
-                    <FaFacebook size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
-                    <FaYoutube size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
-                    <FaSquareXTwitter size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
-                    <FaSnapchat size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
+                    <a href={socials.instagram}>
+                        <RiInstagramFill size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
+                    </a>
+
+                    <a href={socials.facebook}>
+                        <FaFacebook size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
+                    </a>
+
+                    <a href={socials.youtube}>
+                        <FaYoutube size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
+                    </a>
+
+                    <a href={socials.x}>
+                        <FaSquareXTwitter size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
+                    </a>
+
+                    <a href={socials.snapchat}>
+                        <FaSnapchat size={'1.5rem'} color='#071f97' className='cursor-pointer'/>
+                    </a>
                 </Flex>
 
                 <div className='ml-auto md:ml-0'>

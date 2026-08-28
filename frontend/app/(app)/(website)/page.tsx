@@ -16,72 +16,96 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   
-  const homeServices = ServicesJSON.slice(0,6);
+	const homeServices = ServicesJSON.slice(0,6);
 
-  const [doctors, setDoctors] = useState([]);
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
+	const [doctors, setDoctors] = useState([]);
+	const [services, setServices] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [genDetails, setGenDetails] = useState();
 
-  const getDoctors = async() => {
+	const getDoctors = async() => {
 
-    try {
+		try {
 
-      const res = await fetch('/api/doctors');
+			const req = await fetch('/api/doctors');
 
-      if (!res.ok) {
+			if (!req.ok) {
 
-        throw new Error('Could not fetch doctors');
+				throw new Error('Could not fetch doctors');
 
-      }
+			}
 
-      const jsonData = await res.json();
-      console.log(jsonData.docs);
-      setDoctors(jsonData.docs);
-      
-
-
-    
-    } catch (error) {
-    console.error(error);
-    }
-  }
-
-  const getServices = async() => {
-
-    try {
-
-      const res = await fetch('/api/services');
-
-      if (!res.ok) {
-
-        throw new Error("Could not fetch services");
-      }
-
-      const jsonData = await res.json();
-      setServices(jsonData.docs);
-
-      
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  useEffect(() => {
-
-    const load = async() => {
-
-      await getDoctors();
-      await getServices();
-      setLoading(false);
+			const jsonData = await req.json();
+			setDoctors(jsonData.docs);
+		
 
 
-    }
+		
+		} catch (error) {
+			console.error(error);
+		}
+	}
 
-    load();
+	const getServices = async() => {
 
-  },[]);
+		try {
 
-  if (loading) return <p style={{color:'black'}}>loading...</p>
+			const req = await fetch('/api/services');
+
+			if (!req.ok) {
+
+				throw new Error("Could not fetch services");
+			}
+
+			const jsonData = await req.json();
+			setServices(jsonData.docs);
+
+		
+		} catch (error) {
+			console.error(error);
+		}
+	}
+
+	const getGenDetails = async() => {
+		try {
+			
+			const req = await fetch('/api/globals/clinic-general-information');
+
+			if (!req.ok) {
+				throw new Error("Unable to fetch socials");
+			}
+
+			const jsonData = await req.json();
+			console.log(jsonData);
+			setGenDetails(jsonData);
+
+
+		} catch (error) {
+			console.error(error);
+		}
+	}
+
+
+	useEffect(() => {
+
+		const load = async() => {
+			await getDoctors();
+			await getServices();
+			await getGenDetails();
+			setLoading(false);
+
+
+		}
+
+		load();
+
+	},[]);
+
+  	
+
+	
+
+  	if (loading) return <p style={{color:'black'}}>loading...</p>
 
   return (
     <div>
@@ -100,7 +124,7 @@ export default function Home() {
 
         <PatientInfo />
 
-        <Location />
+        <Location genDetails={genDetails}/>
 
         <Contact />
 

@@ -1,4 +1,5 @@
 import { Flex, Box } from "@chakra-ui/react"
+import Link from "next/link"
 
 const FooterBot = () => {
   return (
@@ -43,21 +44,30 @@ const FooterBot = () => {
             justify={{ base: 'center', md: 'end' }}
         >
 
-            <h1 className="text-sm md:text-base">
-                Terms of Service
-            </h1>
+            <Link href={'/Legal/TOS'}>
+                <h1 className="text-sm md:text-base">
+                    Terms of Service
+                </h1>
+            </Link>
+            
 
             <Box className="hidden sm:block w-[1px] bg-gray-500 opacity-25" style={{margin: "0 20px"}}/>
 
-            <h1 className="text-sm md:text-base">
-                Privacy Policy
-            </h1>
+            <Link href={'/Legal/PrivacyPolicy'}>
+                <h1 className="text-sm md:text-base">
+                    Privacy Policy
+                </h1>
+            </Link>
+            
 
             <Box className="hidden sm:block w-[1px] bg-gray-500 opacity-25" style={{margin: "0 20px"}}/>
 
-            <h1 className="text-sm md:text-base">
-                Cookie Policy
-            </h1>
+            <Link href={'/Legal/CookiePolicy'}>
+                <h1 className="text-sm md:text-base">
+                    Cookie Policy
+                </h1>
+            </Link>
+            
 
         </Flex>
 

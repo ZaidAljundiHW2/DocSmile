@@ -616,36 +616,44 @@ export interface ClinicGeneralInformation {
   address?: string | null;
   mapsLink?: string | null;
   phoneNumber?: string | null;
+  whatsapp?: string | null;
   email?: string | null;
   parkingInformation?: string | null;
   operationHours?: {
     sunday?: {
       openTime?: string | null;
       closeTime?: string | null;
+      closed?: boolean | null;
     };
     monday?: {
       openTime?: string | null;
       closeTime?: string | null;
+      closed?: boolean | null;
     };
     tuesday?: {
       openTime?: string | null;
       closeTime?: string | null;
+      closed?: boolean | null;
     };
     wednesday?: {
       openTime?: string | null;
       closeTime?: string | null;
+      closed?: boolean | null;
     };
     thursday?: {
       openTime?: string | null;
       closeTime?: string | null;
+      closed?: boolean | null;
     };
     friday?: {
       openTime?: string | null;
       closeTime?: string | null;
+      closed?: boolean | null;
     };
     saturday?: {
       openTime?: string | null;
       closeTime?: string | null;
+      closed?: boolean | null;
     };
   };
   footerHours?: string | null;
@@ -663,7 +671,6 @@ export interface Social {
   youtube?: string | null;
   snapchat?: string | null;
   x?: string | null;
-  whatsapp?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -727,6 +734,7 @@ export interface ClinicGeneralInformationSelect<T extends boolean = true> {
   address?: T;
   mapsLink?: T;
   phoneNumber?: T;
+  whatsapp?: T;
   email?: T;
   parkingInformation?: T;
   operationHours?:
@@ -737,42 +745,49 @@ export interface ClinicGeneralInformationSelect<T extends boolean = true> {
           | {
               openTime?: T;
               closeTime?: T;
+              closed?: T;
             };
         monday?:
           | T
           | {
               openTime?: T;
               closeTime?: T;
+              closed?: T;
             };
         tuesday?:
           | T
           | {
               openTime?: T;
               closeTime?: T;
+              closed?: T;
             };
         wednesday?:
           | T
           | {
               openTime?: T;
               closeTime?: T;
+              closed?: T;
             };
         thursday?:
           | T
           | {
               openTime?: T;
               closeTime?: T;
+              closed?: T;
             };
         friday?:
           | T
           | {
               openTime?: T;
               closeTime?: T;
+              closed?: T;
             };
         saturday?:
           | T
           | {
               openTime?: T;
               closeTime?: T;
+              closed?: T;
             };
       };
   footerHours?: T;
@@ -790,7 +805,6 @@ export interface SocialSelect<T extends boolean = true> {
   youtube?: T;
   snapchat?: T;
   x?: T;
-  whatsapp?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

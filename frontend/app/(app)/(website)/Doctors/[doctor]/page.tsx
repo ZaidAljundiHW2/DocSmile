@@ -7,7 +7,6 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 
 
-
 const Doctor = async ({
     params,
 }: {
@@ -33,6 +32,8 @@ const Doctor = async ({
     })
 
     console.log(result);
+
+     
 
     return (
         <div>

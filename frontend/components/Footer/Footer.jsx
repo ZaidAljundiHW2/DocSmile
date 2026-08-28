@@ -1,11 +1,11 @@
 import FooterBot from './FooterBot'
 import MapsPrev from './MapsPrev'
 
-const Footer = () => {
+const Footer = ({ socials, genDetails }) => {
   return (
     <div>
 
-        <MapsPrev />
+        <MapsPrev socials={socials} genDetails={genDetails}/>
 
         <FooterBot />
       
