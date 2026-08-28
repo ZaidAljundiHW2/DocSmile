@@ -19,6 +19,19 @@ const ServicesGrid = ({ services }) => {
         style={{padding:'20px'}}
     >
 
+        <h2
+            className='
+                secondary_header
+            '
+            style={{
+                color:'black',
+                borderWidth:'0px 0px 5px 0px',
+                borderColor:'#071f97'
+            }}
+        >
+            Services
+        </h2>
+
 
         <SimpleGrid
             columns={{base:2, md:3}}

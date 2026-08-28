@@ -10,8 +10,50 @@ import { FaCaretDown } from "react-icons/fa";
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { FaCaretRight } from "react-icons/fa";
+import { useRef, useLayoutEffect } from 'react';
 
 const Navbar = () => {
+
+    const headerRef = useRef(null)
+
+    useLayoutEffect(() => {
+        const node = headerRef.current
+        if (!node) return
+
+        const setVar = (px) => {
+        document.documentElement.style.setProperty('--header-height', `${px}px`)
+        }
+
+        const observer = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+            const height = entry.borderBoxSize?.[0]?.blockSize ?? entry.target.offsetHeight
+            setVar(height)
+        }
+        })
+
+        observer.observe(node, { box: 'border-box' })
+
+        const recheck = () => setVar(node.offsetHeight)
+
+        const images = node.querySelectorAll('img')
+        images.forEach((img) => {
+        if (!img.complete) {
+            img.addEventListener('load', recheck, { once: true })
+        }
+        })
+
+        if (document.fonts?.ready) {
+        document.fonts.ready.then(recheck)
+        }
+
+        window.addEventListener('resize', recheck)
+
+        return () => {
+        observer.disconnect()
+        window.removeEventListener('resize', recheck)
+        images.forEach((img) => img.removeEventListener('load', recheck))
+        }
+    }, [])
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [openIndex, setOpenIndex] = useState(null);
@@ -148,12 +190,8 @@ const Navbar = () => {
                 z-999
             
             `}
-                
-                
-
-                
-                
             
+            ref={headerRef}
 
         >
 
@@ -170,7 +208,7 @@ const Navbar = () => {
                 <Box
                     className={`
                         h-[75px]
-                        opacity-${isVisible ? '100' : '0'}
+                        ${isVisible ? 'opacity-100' : 'opacity-0'}
                         transition-opacity
                         duration-300
 

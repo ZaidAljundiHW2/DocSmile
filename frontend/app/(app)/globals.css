@@ -19,7 +19,6 @@ html {
 }
 
 body {
-  /* padding-top: var(--header-height, 0px); */
   overflow-x: hidden;
   background-color: white;
 }
@@ -27,6 +26,11 @@ body {
 h1 {
     color: #808080;
     font-family: HelveticaNeue;
+
+}
+
+.nonhero {
+  padding-top: var(--header-height, 0px);
 
 }
 

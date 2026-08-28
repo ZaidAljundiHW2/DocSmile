@@ -5,13 +5,13 @@ const ComponentSubheader = ({heading}) => {
     <div
         style={{
             backgroundImage:`url(${'/img/Backgrounds/UCTAback.jpg'})`,
-            padding:'20px',
             backgroundSize:"100% 100%",
 
         }}
 
         className='
             items-center
+            nonhero
         '
     >
 
