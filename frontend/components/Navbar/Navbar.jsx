@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { Flex, Box, Button } from '@chakra-ui/react'
 import './Navbar.css'
@@ -13,12 +14,49 @@ import { FaCaretRight } from "react-icons/fa";
 const Navbar = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
-    const [openIndex, setOpenIndex] = useState(null)
+    const [openIndex, setOpenIndex] = useState(null);
 
-    const pathname = usePathname()
+    const pathname = usePathname();
+
+
+    const [isVisible, setIsVisible] = useState(false);
+    const [isMobileOpen, setIsMobileOpen] = useState(false);
+    const pathName = usePathname();
+
+    useEffect(() => {
+
+        
+
+        const handleScroll = () => {
+
+            const currScrollY = window.scrollY;
+
+            console.log('A');
+
+            if (currScrollY > 100) {
+                setIsVisible(true);
+            }
+
+            else {
+                setIsVisible(false);
+            }
+
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => window.removeEventListener('scroll', handleScroll);
+        
+
+
+
+    },[])
+
+    
 
     useEffect(() => {
         setMenuOpen(false)
+        
 
 
     }, [pathname])
@@ -97,81 +135,146 @@ const Navbar = () => {
   return (
     <>
         <div
-            className='
-                h-[10vh]
-                bg-white
+            className={`
+
+                bg-${isVisible ? 'white' : 'transparent'}
+                transition-color
+                duration-300
+                shadow-${isVisible ? 'shadow' : 'none'}
                 w-full
                 flex
                 items-center
-                justify-center
                 hidden
                 md:flex
-            '
+                fixed
+                z-999
+            
+            `}
+                
+                
+
+                
+                
+            
 
         >
 
             <Flex
                 className='
-                    w-[70%]
-                    
+                    gap-5
+                    px-20
+                    w-full
                 '
 
                 
             >
-                {/* Logo */}
-                <Box
-                    className='
-                        w-[250px]
-                        h-fill
-                        flex
-                    '
-                >
 
+                <Box
+                    className={`
+                        h-[75px]
+                        opacity-${isVisible ? '100' : '0'}
+                        transition-opacity
+                        duration-300
+
+
+                    `}
+                >
                     <img 
                         src={'/icons/company-logo.png'} 
 
                         alt='doctor smile company logo'
-                        style={{
-                            width:'auto',
-                            height:'auto',
+                        className={`
                             
-                            transform:'scale(.6)'
-                        }}
+
+                            h-full
+                            w-full
+                            
+                        `}
+                        
                     
                     />
 
-                    
-
                 </Box>
                 
+
+                    
+
+                
                 {/* Navbar */}
-                <Flex className='navbaroptions gap-5 items-center justify-center flex-1'>
+                <Flex 
+                    className='
+                        navbaroptions 
+                        gap-5 
+                        items-center 
+                        justify-center 
+                        
+                        ml-auto
+                    '
+                >
                     
-                    <Link href={'/'}>
-                        <h1>
-                            Home
-                        </h1>
+                    <Link 
+                        href={'/'}
+                        className={`
+                            ${isVisible ? 'text-[#808080]' : 'text-white'}
+                            transition-color
+                            duration-300
+                        `}
+                    >
+                        
+                        Home
+                        
                     </Link>
                     
-                    <Link href={'/Services'}>
-                        <h1>
-                            Services
-                        </h1>
+                    <Link 
+                        href={'/Services'}
+                        className={`
+                            ${isVisible ? 'text-[#808080]' : 'text-white'}
+                            transition-color
+                            duration-300
+                        `}
+                    >
+                        Services
                     </Link>
                     
-                    <Link href={'/Doctors'}>
-                        <h1>
-                            Doctors
-                        </h1>
+                    <Link 
+                        href={'/Doctors'}
+                        className={`
+                            ${isVisible ? 'text-[#808080]' : 'text-white'}
+                            transition-color
+                            duration-300
+                        `}
+                    >
+                        Doctors
                     </Link>
                     
                 
                     <Menu.Root>
                         <Menu.Trigger asChild>
-                            <Button as={'h1'}>
-                                About
+                            <Button 
+                                className='
+                                    bg-transparent
+                                '                                
+                            
+                            >
+                                <div
+                                    className={`
+                                        bg-transparent
+                                        ${isVisible ? 'text-[#808080]' : 'text-white'}
+                                        transition-color
+                                        duration-300
+                                    `}
+                                >
+                                    About
+                                </div>
+                                
 
-                                <FaCaretDown />
+                                <FaCaretDown 
+                                    className={`
+                                        ${isVisible ? 'text-[#808080]' : 'text-white'}
+                                        transition-color
+                                        duration-300
+                                    `}
+                                />
 
                             </Button>
                         </Menu.Trigger>
@@ -227,29 +330,42 @@ const Navbar = () => {
                         </Portal>
                     </Menu.Root>
                     
-                    <Link href={'/Patient-Information'}>
+                    <Link 
+                        href={'/Patient-Information'}
+                        className={`
+                            ${isVisible ? 'text-[#808080]' : 'text-white'}
+                            transition-color
+                            duration-300
+                        `}
+                    >
                     
-                        <h1>
-                            Patient Information
-                        </h1>
+                        Patient Information
                     </Link>
 
-                    <Link href={'/Contact'}>
-                        <h1>
+                    <Link 
+                        href={'/Contact'}
+                        className={`
+                            ${isVisible ? 'text-[#808080]' : 'text-white'}
+                            transition-color
+                            duration-300
+                        `}
+                    >
                             Contact
-                        </h1>
                     </Link>
                     
                     <Link href={'/Booking'}>
                         <Button
                             className='
-                                button
+                                rounded-full
+                                bg-[#071f97]
+                                text-white
+                                border-[2px]
+                                border-white
+                                hover:border-[#071f97]
+                                hover:text-[#071f97]
+                                hover:bg-white
                             '
-                            style={{
-                                "--button-bg": "#071f97",
-                                fontSize:'1vw'
-                                
-                            }}
+                           
                         >
 
 
@@ -274,7 +390,6 @@ const Navbar = () => {
 
         <div
             className={`
-                h-[10vh]
                 w-full
                 flex
                 items-center
