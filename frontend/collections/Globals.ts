@@ -449,13 +449,13 @@ export const About: GlobalConfig = {
     {
       label:'Visitors',
       name:'visitors',
-      type:'number'
+      type:'text'
     },
 
     {
       label:'Experience Years',
       name:'expYears',
-      type:'number'
+      type:'text'
     },
 
     {
@@ -502,6 +502,31 @@ export const About: GlobalConfig = {
       label:'Our Laboratory',
       name:'laboratory',
       type:'textarea'
+    }
+  ],
+
+  endpoints: [
+
+    {
+      method:'get',
+      path:'/AboutUs',
+      handler: async(req) => {
+        
+        const aboutUs = await req.payload.findGlobal({
+          
+          slug:'about'
+        });
+
+        return Response.json({
+          mission: aboutUs.missionStatement,
+          center: aboutUs.ourCenter,
+          visitors: aboutUs.visitors,
+          exp: aboutUs.expYears
+        })
+
+      }
+
+      
     }
   ]
 }

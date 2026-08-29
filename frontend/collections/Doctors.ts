@@ -168,38 +168,63 @@ export const Doctors: CollectionConfig = {
     },
   ],
 
-//   endpoints: [
+  endpoints: [
 
-//     {
-//         path:'/doctor/:slug',
-//         method:'get',
-//         handler: async (req) => {
+    {
+        path:'/doctor/:slug',
+        method:'get',
+        handler: async (req) => {
             
-//             const doctor_slug = req.routeParams.slug;
+            const doctor_slug = req.routeParams.slug;
 
-//             if (!doctor_slug) {
-//                 return Response.json({ error: 'not found' }, { status: 404 })
-//             }
+            if (!doctor_slug) {
+                return Response.json({ error: 'not found' }, { status: 404 })
+            }
 
-//             const result = await req.payload.find({
-//                 collection: 'doctors',
-//                 where: {
-//                     slug: {
-//                         equals: doctor_slug,
-//                     },
-//                 },
-//                 depth: 2,
-//                 limit: 1,
-//             });
+            const result = await req.payload.find({
+                collection: 'doctors',
+                where: {
+                    slug: {
+                        equals: doctor_slug,
+                    },
+                },
+                depth: 2,
+                limit: 1,
+            });
 
-//             const doctor = result.docs[0];
+            const doctor = result.docs[0];
 
-//             if (!doctor) {
-//                 return Response.json({ error: 'not found' }, { status: 404 })
-//             }
+            if (!doctor) {
+                return Response.json({ error: 'not found' }, { status: 404 })
+            }
 
-//             return Response.json(doctor);
-//         }
-//     }
-//   ]
+            return Response.json(doctor);
+        },
+
+        
+    },
+
+    {
+        path:'/numDoctors',
+        method:'get',
+
+        handler: async(req) => {
+
+
+            const result = await req.payload.find({
+                collection:'doctors',
+                depth:2,
+            });
+
+            const doctors = result.docs;
+
+            if (!doctors) {
+                return Response.json({ error: 'not found' }, { status: 404 })
+            }
+
+            return Response.json(doctors.length);
+
+        }
+    }
+  ]
 }

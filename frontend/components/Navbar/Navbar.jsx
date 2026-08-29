@@ -138,7 +138,7 @@ const Navbar = () => {
             "children": [
                 {
                     "name": "About Us",
-                    "link": "/About/Doctor-Smile"
+                    "link": "/About/AboutUs"
                 },
                 {
                     "name": "Patient Experience",
@@ -330,7 +330,7 @@ const Navbar = () => {
                                 }}
                             >
 
-                                <Link href={'/About/Doctor-Smile'}>
+                                <Link href={'/About/AboutUs'}>
                                     <Menu.Item 
                                         value="About Us" 
                                         as={'h1'}

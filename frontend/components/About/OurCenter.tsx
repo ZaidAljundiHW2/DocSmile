@@ -1,37 +1,50 @@
 'use client'
 import React from 'react'
-import { Flex, Icon, SimpleGrid } from '@chakra-ui/react'
+import { Flex, Icon } from '@chakra-ui/react'
 import { FaUserDoctor } from "react-icons/fa6";
 import { FaRegSmile } from "react-icons/fa";
 import { FaHospital } from "react-icons/fa";
 import { FaRegThumbsUp } from "react-icons/fa";
 
-const OurCenter = () => {
+const OurCenter = ({ 
+	doctors, 
+	ser, 
+	center, 
+	exp, 
+	visitors 
+} : 
+{ 
+	doctors : number, 
+	ser : number,
+	center : string,
+	exp : string,
+	visitors : string  
+}) => {
 
 	const centerstats = [
 
 		{
 			"key": "Doctors",
-			"val": "50",
+			"val": doctors,
 			"icon": FaUserDoctor
 		},
 
 		{
 			"key": "Visitors",
-			"val": "10,000",
+			"val": visitors,
 			"icon":FaRegSmile
 
 		},
 
 		{
 			"key": "Services",
-			"val": "12",
+			"val": ser,
 			"icon": FaHospital
 		},
 
 		{
 			"key": "Experience Years",
-			"val":"84",
+			"val":exp,
 			"icon":FaRegThumbsUp
 		}
 		
@@ -69,7 +82,7 @@ const OurCenter = () => {
 			</h1>
 
 			<p className='secondary_text'>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+				{center}
 			</p>
 
 		</Flex>

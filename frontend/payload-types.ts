@@ -694,8 +694,8 @@ export interface About {
   id: number;
   missionStatement?: string | null;
   ourCenter?: string | null;
-  visitors?: number | null;
-  expYears?: number | null;
+  visitors?: string | null;
+  expYears?: string | null;
   testimonials?:
     | {
         name?: string | null;

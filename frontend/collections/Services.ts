@@ -330,4 +330,30 @@ export const Services: CollectionConfig = {
 
 
   ],
+
+  endpoints: [
+
+    {
+        path:'/numServices',
+        method:'get',
+
+        handler: async(req) => {
+
+            const result = await req.payload.find({
+                collection:'services',
+                depth:2,
+            });
+
+            if (!result) {
+                return Response.json({ error: 'not found' }, { status: 404 })
+            }
+
+            const services = result.docs;
+
+            return Response.json(services.length);
+
+
+        }
+    }
+  ]
 }
