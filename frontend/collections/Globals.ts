@@ -510,6 +510,10 @@ export const PatientInformation: GlobalConfig = {
 
   slug:'patient-information',
 
+  access: {
+    read: () => true
+  },
+
   fields: [
 
     {

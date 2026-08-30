@@ -76,7 +76,6 @@ export default function Home() {
 			}
 
 			const jsonData = await req.json();
-			console.log(jsonData);
 			setGenDetails(jsonData);
 
 

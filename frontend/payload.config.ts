@@ -15,6 +15,7 @@ import { Legal } from "./collections/Globals";
 import { About } from "./collections/Globals";
 import { PatientInformation } from "./collections/Globals";
 import { Testimonials } from "./collections/Testimonials";
+import { ContactQueries } from "./collections/ContactQueries";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -26,7 +27,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Doctors, Services, Testimonials],
+  collections: [Users, Media, Doctors, Services, Testimonials, ContactQueries],
   globals: [ClinicGeneralInformation, Social, Legal, About, PatientInformation],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",

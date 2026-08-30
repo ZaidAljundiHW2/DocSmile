@@ -72,6 +72,7 @@ export interface Config {
     doctors: Doctor;
     services: Service;
     testimonials: Testimonial;
+    'contact-queries': ContactQuery;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +85,7 @@ export interface Config {
     doctors: DoctorsSelect<false> | DoctorsSelect<true>;
     services: ServicesSelect<false> | ServicesSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
+    'contact-queries': ContactQueriesSelect<false> | ContactQueriesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -337,6 +339,24 @@ export interface Testimonial {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-queries".
+ */
+export interface ContactQuery {
+  id: number;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  name?: string | null;
+  phoneNumber?: string | null;
+  relevantDoctor?: string | null;
+  message?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -378,6 +398,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'testimonials';
         value: number | Testimonial;
+      } | null)
+    | ({
+        relationTo: 'contact-queries';
+        value: number | ContactQuery;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -604,6 +628,20 @@ export interface TestimonialsSelect<T extends boolean = true> {
   name?: T;
   testimonial?: T;
   date?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-queries_select".
+ */
+export interface ContactQueriesSelect<T extends boolean = true> {
+  generateSlug?: T;
+  slug?: T;
+  name?: T;
+  phoneNumber?: T;
+  relevantDoctor?: T;
+  message?: T;
   updatedAt?: T;
   createdAt?: T;
 }

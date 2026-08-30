@@ -4,6 +4,7 @@ import { Field, Textarea, Button } from "@chakra-ui/react"
 import InputTag from '../Misc/InputTag';
 import SelectTag from '../Misc/SelectTag';
 import DoctorsJSON from '@/assets/JSONs/doctors.json'
+import { redirect, RedirectType } from 'next/navigation'
 
 const ContactForm = () => {
 
@@ -81,37 +82,76 @@ const ContactForm = () => {
     const [message, setMessage] = useState("");
     const [messageError, setMessageError] = useState(false);
 
-    const handleSubmit = () => {
-        let hasError = false;
+    const handleSubmit = async() => {
 
-        if (name.trim().length === 0) {
-            setNameError(true);
-            hasError = true;
-        } else setNameError(false);
+        try {
 
-        // if (email.trim().length === 0) {
-        //     setEmailError(true);
-        //     hasError = true;
-        // } else setEmailError(false);
+            let hasError = false;
 
-        if (number.trim().length === 0) {
-            setNumberError(true);
-            hasError = true;
-        } else setNumberError(false);
+            if (name.trim().length === 0) {
+                setNameError(true);
+                hasError = true;
+            } else setNameError(false);
 
-        // if (contact.trim().length === 0) {
-        //     setContactError(true);
-        //     hasError = true;
-        // } else setContactError(false);
+            // if (email.trim().length === 0) {
+            //     setEmailError(true);
+            //     hasError = true;
+            // } else setEmailError(false);
 
-        if (message.trim().length === 0) {
-            setMessageError(true);
-            hasError = true;
-        } else setMessageError(false);
+            if (number.trim().length === 0) {
+                setNumberError(true);
+                hasError = true;
+            } else setNumberError(false);
 
-        if (hasError) return;
+            // if (contact.trim().length === 0) {
+            //     setContactError(true);
+            //     hasError = true;
+            // } else setContactError(false);
 
-        // submit logic goes here
+            if (message.trim().length === 0) {
+                setMessageError(true);
+                hasError = true;
+            } else setMessageError(false);
+
+            if (hasError) return;
+
+            // submit logic goes here
+
+            const data = {
+
+                "name": name,
+                "phoneNumber": number,
+                "relevantDoctor": doctor,
+                "message": message
+            };
+
+            const res = await fetch('/api/contact-queries/add-contact', {
+
+                method:'post',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+
+            });
+
+            if (!res.ok) {
+                throw new Error('could not post contact query');
+            }
+
+
+            console.log('FFF')
+            
+            
+        } catch (error) {
+            console.error(error)
+        }
+
+        redirect('/thank-you', RedirectType.replace);
+
+        
+
+
     }
 
   return (
