@@ -84,6 +84,8 @@ const ContactForm = () => {
 
     const handleSubmit = async() => {
 
+        let redr = true;
+
         try {
 
             let hasError = false;
@@ -136,18 +138,17 @@ const ContactForm = () => {
             });
 
             if (!res.ok) {
+                redr = false;
                 throw new Error('could not post contact query');
             }
 
-
-            console.log('FFF')
             
             
         } catch (error) {
             console.error(error)
         }
 
-        redirect('/thank-you', RedirectType.replace);
+        if (redr) redirect('/thank-you', RedirectType.replace);
 
         
 

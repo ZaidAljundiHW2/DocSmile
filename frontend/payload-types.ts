@@ -73,6 +73,7 @@ export interface Config {
     services: Service;
     testimonials: Testimonial;
     'contact-queries': ContactQuery;
+    'appointment-requests': AppointmentRequest;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -86,6 +87,7 @@ export interface Config {
     services: ServicesSelect<false> | ServicesSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     'contact-queries': ContactQueriesSelect<false> | ContactQueriesSelect<true>;
+    'appointment-requests': AppointmentRequestsSelect<false> | AppointmentRequestsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -357,6 +359,24 @@ export interface ContactQuery {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "appointment-requests".
+ */
+export interface AppointmentRequest {
+  id: number;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  name?: string | null;
+  phoneNumber?: string | null;
+  preferredDoctor?: string | null;
+  reason?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -402,6 +422,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'contact-queries';
         value: number | ContactQuery;
+      } | null)
+    | ({
+        relationTo: 'appointment-requests';
+        value: number | AppointmentRequest;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -642,6 +666,20 @@ export interface ContactQueriesSelect<T extends boolean = true> {
   phoneNumber?: T;
   relevantDoctor?: T;
   message?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "appointment-requests_select".
+ */
+export interface AppointmentRequestsSelect<T extends boolean = true> {
+  generateSlug?: T;
+  slug?: T;
+  name?: T;
+  phoneNumber?: T;
+  preferredDoctor?: T;
+  reason?: T;
   updatedAt?: T;
   createdAt?: T;
 }

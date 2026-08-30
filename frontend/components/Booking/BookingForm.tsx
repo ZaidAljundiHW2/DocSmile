@@ -5,6 +5,7 @@ import InputTag from '../Misc/InputTag';
 import SelectTag from '../Misc/SelectTag';
 import DoctorsJSON from '@/assets/JSONs/doctors.json'
 import ServicesJSON from '@/assets/JSONs/services.json'
+import { redirect, RedirectType } from 'next/navigation'
 
 
 const BookingForm = () => {
@@ -145,57 +146,95 @@ const BookingForm = () => {
     const [note, setNote] = useState("");
     const [noteError, setNoteError] = useState(false);
 
-    const handleSubmit = () => {
-        let hasError = false;
+    const handleSubmit = async() => {
 
-        // if (language.trim().length === 0) {
-        //     setLanguageError(true);
-        //     hasError = true;
-        // } else setLanguageError(false);
+        let redr = true;
 
-        if (name.trim().length === 0) {
-            setNameError(true);
-            hasError = true;
-        } else setNameError(false);
+        try {
 
-        // if (email.trim().length === 0) {
-        //     setEmailError(true);
-        //     hasError = true;
-        // } else setEmailError(false);
+            let hasError = false;
 
-        if (number.trim().length === 0) {
-            setNumberError(true);
-            hasError = true;
-        } else setNumberError(false);
+            // if (language.trim().length === 0) {
+            //     setLanguageError(true);
+            //     hasError = true;
+            // } else setLanguageError(false);
 
-        // if (patientType.trim().length === 0) {
-        //     setPatientTypeError(true);
-        //     hasError = true;
-        // } else setPatientTypeError(false);
+            if (name.trim().length === 0) {
+                setNameError(true);
+                hasError = true;
+            } else setNameError(false);
 
-        // if (department.trim().length === 0) {
-        //     setDepartmentError(true);
-        //     hasError = true;
-        // } else setDepartmentError(false);
+            // if (email.trim().length === 0) {
+            //     setEmailError(true);
+            //     hasError = true;
+            // } else setEmailError(false);
 
-        // if (contact.trim().length === 0) {
-        //     setContactError(true);
-        //     hasError = true;
-        // } else setContactError(false);
+            if (number.trim().length === 0) {
+                setNumberError(true);
+                hasError = true;
+            } else setNumberError(false);
 
-        // if (!consent) {
-        //     setConsentError(true);
-        //     hasError = true;
-        // } else setConsentError(false);
+            // if (patientType.trim().length === 0) {
+            //     setPatientTypeError(true);
+            //     hasError = true;
+            // } else setPatientTypeError(false);
 
-        if (note.trim().length === 0) {
-            setNoteError(true);
-            hasError = true;
-        } else setNoteError(false);
+            // if (department.trim().length === 0) {
+            //     setDepartmentError(true);
+            //     hasError = true;
+            // } else setDepartmentError(false);
 
-        if (hasError) return;
+            // if (contact.trim().length === 0) {
+            //     setContactError(true);
+            //     hasError = true;
+            // } else setContactError(false);
 
-        // submit logic goes here
+            // if (!consent) {
+            //     setConsentError(true);
+            //     hasError = true;
+            // } else setConsentError(false);
+
+            if (note.trim().length === 0) {
+                setNoteError(true);
+                hasError = true;
+            } else setNoteError(false);
+
+            if (hasError) return;
+
+            const data = {
+                "name":name,
+                "phoneNumber": number,
+                "preferredDoctor": doctor,
+                "reason": note
+            }
+
+            const res = await fetch('/api/appointment-requests/add-appointment-request', {
+                method:'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (!res.ok) {
+                redr = false;
+                throw new Error('could not post appointment request');
+            }
+
+            
+        } catch (error) {
+            console.error(error);
+        }
+
+        if (redr) redirect('/thank-you', RedirectType.replace);
+
+        
+
+        
+
+
+
+
     }
 
   return (

@@ -1,17 +1,14 @@
 import type { CollectionConfig } from 'payload'
 import { slugField } from 'payload'
 
-export const ContactQueries: CollectionConfig = {
+export const AppointmentRequests: CollectionConfig = {
 
-    slug:'contact-queries',
+    slug:'appointment-requests',
 
-    access: {
-        'create': () => true
-    },
-    
     fields: [
 
-        slugField({ useAsSlug:'name' }),
+
+        slugField({ useAsSlug: 'name' }),
 
         {
             label:'Submitter Name',
@@ -26,14 +23,14 @@ export const ContactQueries: CollectionConfig = {
         },
 
         {
-            label:'Relevant Doctor',
-            name:'relevantDoctor',
+            label:'Preferred Doctor',
+            name:'preferredDoctor',
             type:'text'
         },
 
         {
-            label:'Message',
-            name:'message',
+            label:'Reason for Visit',
+            name:'reason',
             type:'textarea'
         }
     ],
@@ -42,7 +39,7 @@ export const ContactQueries: CollectionConfig = {
 
         {
             method:'post',
-            path:'/add-contact',
+            path:'/add-appointment-request',
             
             handler: async(req) => {
                 
@@ -50,23 +47,22 @@ export const ContactQueries: CollectionConfig = {
                 console.log(data);
 
                 await req.payload.create({
-                    collection:'contact-queries',
+                    collection:'appointment-requests',
 
                     data: {
 
                         "name":data.name,
                         "phoneNumber":data.phoneNumber,
-                        "relevantDoctor":data.relevantDoctor,
-                        "message":data.message
+                        "preferredDoctor":data.preferredDoctor,
+                        "reason":data.reason
 
                     }
                 });
 
-                return Response.json('Contact query added successfully');
+                return Response.json('Appointment request added successfully');
 
             }
         }
     ]
-
 
 }
