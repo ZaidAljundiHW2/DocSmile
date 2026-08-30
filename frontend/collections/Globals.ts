@@ -458,45 +458,7 @@ export const About: GlobalConfig = {
       type:'text'
     },
 
-    {
-      label:'Testimonials',
-      name:'testimonials',
-      type:'array',
-      fields: [
-        {
-          label:'Name',
-          name:'name',
-          type:'text'
-        },
-
-        {
-          label:'Testimonial',
-          name:'testimonial',
-          type:'textarea'
-        },
-
-        {
-          label:'Date',
-          name:'date',
-          type:'date',
-
-          admin: {
-
-            date: {
-
-              pickerAppearance:'dayOnly'
-            }
-          }
-        },
-
-        {
-          label:'Image',
-          name:'image',
-          type:'upload',
-          relationTo:'media'
-        }
-      ]
-    },
+  
 
     {
       label:'Our Laboratory',
@@ -527,6 +489,19 @@ export const About: GlobalConfig = {
       }
 
       
+    },
+
+    {
+      method:'get',
+      path:'/lab',
+      handler: async(req) => {
+
+        const ourLab = await req.payload.findGlobal({
+          slug:'about'
+        });
+
+        return Response.json({ text: ourLab.laboratory });
+      }
     }
   ]
 }

@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     doctors: Doctor;
     services: Service;
+    testimonials: Testimonial;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +83,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     doctors: DoctorsSelect<false> | DoctorsSelect<true>;
     services: ServicesSelect<false> | ServicesSelect<true>;
+    testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -316,6 +318,25 @@ export interface Service {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: number;
+  testimonialImage?: (number | null) | Media;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  profileImage?: (number | null) | Media;
+  name?: string | null;
+  testimonial?: string | null;
+  date?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -353,6 +374,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'services';
         value: number | Service;
+      } | null)
+    | ({
+        relationTo: 'testimonials';
+        value: number | Testimonial;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -569,6 +594,21 @@ export interface ServicesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials_select".
+ */
+export interface TestimonialsSelect<T extends boolean = true> {
+  testimonialImage?: T;
+  generateSlug?: T;
+  slug?: T;
+  profileImage?: T;
+  name?: T;
+  testimonial?: T;
+  date?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -696,15 +736,6 @@ export interface About {
   ourCenter?: string | null;
   visitors?: string | null;
   expYears?: string | null;
-  testimonials?:
-    | {
-        name?: string | null;
-        testimonial?: string | null;
-        date?: string | null;
-        image?: (number | null) | Media;
-        id?: string | null;
-      }[]
-    | null;
   laboratory?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -830,15 +861,6 @@ export interface AboutSelect<T extends boolean = true> {
   ourCenter?: T;
   visitors?: T;
   expYears?: T;
-  testimonials?:
-    | T
-    | {
-        name?: T;
-        testimonial?: T;
-        date?: T;
-        image?: T;
-        id?: T;
-      };
   laboratory?: T;
   updatedAt?: T;
   createdAt?: T;

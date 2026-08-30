@@ -1,8 +1,12 @@
+
 import React from 'react'
 import TestimonialsJSON from '@/assets/JSONs/testimonials.json'
 import ComponentSubheader from '@/components/Misc/ComponentSubheader';
 import { notFound } from 'next/navigation';
 import TestimonialTemplate from '@/components/About/TestimonialTemplate';
+import { getPayload } from 'payload'
+import config from '@payload-config'
+
 
 const PatientsPerPage = 6;
 
@@ -15,24 +19,86 @@ export function generateStaticParams() {
 const PatientExperiencePage = async({ params } : { params: Promise<{ patient: string }> }) => {
 
     const patientslug = decodeURIComponent((await params).patient);
-    const patientIndex = TestimonialsJSON.findIndex(item => item.slug === patientslug);
+    
+    const payload = await getPayload({ config });
 
-    if (patientIndex === -1) notFound()
+    const res = await payload.find({
 
-    const patient = TestimonialsJSON[patientIndex];
+        collection:'testimonials',
 
-    // which page of 6 this testimonial belongs to, and that page's ids
-    const pageStart = Math.floor(patientIndex / PatientsPerPage) * PatientsPerPage;
-    const collectionIds = TestimonialsJSON
-        .slice(pageStart, pageStart + PatientsPerPage)
-        .map(t => t.testimonialid);
+        
+    })
+
+    const testRes = await payload.find({
+        collection:'testimonials',
+
+        where: {
+
+            slug: {
+
+                equals: patientslug
+            },
+
+            
+        },
+        
+        limit:1,
+        depth:2
+    });
+
+    const test = testRes.docs[0];
+    console.log("V")
+    console.log(test);
+
+    const allTests = res.docs;
+    const testsPerPage = 6;
+
+    const splitTestimonials = async() => {
+
+        const collections = [];
+
+        for (let i = 0; i < allTests.length; i+=testsPerPage) {
+
+            collections.push(allTests.slice(i, i + testsPerPage));
+
+        }
+
+        return collections;
+
+
+    }
+
+    const collections = await splitTestimonials();
+
+    let currIndex = 0;
+
+    for (const collection of collections) {
+
+        const comps = collection.filter(test => test.slug === patientslug);
+
+        if (comps.length > 0) {
+            break;
+        }
+
+        currIndex++;
+
+
+
+    }
+
+    const currCollection = collections[currIndex].filter(item => item.slug != patientslug);
+    console.log('A');
+    console.log(currCollection);
+
+    
+    
 
   return (
     <div>
 
-        <ComponentSubheader heading={patient.name}/>
+        <ComponentSubheader heading={test.name}/>
 
-        <TestimonialTemplate test={patient} collection={collectionIds}/> 
+        <TestimonialTemplate test={test} collection={currCollection}/> 
 
         
     </div>

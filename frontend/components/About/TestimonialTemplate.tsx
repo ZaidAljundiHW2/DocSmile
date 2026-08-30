@@ -1,26 +1,10 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
-import TestimonialJSON from '@/assets/JSONs/testimonials.json'
 import Link from 'next/link'
+import { Testimonial } from '@/payload-types'
 
-interface TestimonialContent {
-    testimonialid: number,
-    slug: string,
-    name: string,
-    date: string,
-    profileimg: string,
-    testimonialimg: string,
-    testimonial: string,
-}
+const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collection : Testimonial[]}) => {
 
-interface TestimonialTemplateProps {
-    test: TestimonialContent,
-    collection: number[]
-}
-
-const TestimonialTemplate = ({ test, collection } : TestimonialTemplateProps) => {
-
-    const collectionTests = TestimonialJSON.filter(item => item.testimonialid in collection);
 
   return (
     <div
@@ -58,16 +42,20 @@ const TestimonialTemplate = ({ test, collection } : TestimonialTemplateProps) =>
                 >
                     {test.name}
                 </h1>
+                
+                {test.profileImage.url && (
+                    <img 
+                        src={test.profileImage.url}
+                        className='
+                            rounded-full
+                            ml-auto
+                            h-[100px]
+                            rounded-full
+                        '
+                    />
 
-                <img 
-                    src={test.profileimg}
-                    className='
-                        rounded-full
-                        ml-auto
-                        h-[100px]
-                        rounded-full
-                    '
-                />
+                )}
+                
             </Flex>
             
             <Flex
@@ -80,7 +68,7 @@ const TestimonialTemplate = ({ test, collection } : TestimonialTemplateProps) =>
                 
             >
                 <img 
-                    src={test.testimonialimg}
+                    src={test.testimonialImage.url}
                     className='
                         w-[400px]
                         h-auto
@@ -115,7 +103,7 @@ const TestimonialTemplate = ({ test, collection } : TestimonialTemplateProps) =>
         {/* select */}
         <Flex className='divide-y-2 divide-gray-200 flex-col md:ml-auto md:h-full h-[150px] overflow-y-scroll'>
 
-            {collectionTests.map((item,i) => (
+            {collection.map((item,i) => (
                 
                 <Link
                     key={i}
@@ -131,7 +119,7 @@ const TestimonialTemplate = ({ test, collection } : TestimonialTemplateProps) =>
                         '
                     >
                         <img 
-                            src={item.testimonialimg}
+                            src={item.testimonialImage.url}
                             className='
                                 h-[100px]
                                 w-[100px]

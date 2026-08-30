@@ -27,7 +27,7 @@ const TestimonialCard = ({ test = {} }) => {
                 direction={{ base: 'column', md: 'row' }}
             >
                 <img
-                    src={test.testimonialimg}
+                    src={test.testimonialImage.url}
                     alt={test.name || 'Testimonial'}
                     className='
                         w-full

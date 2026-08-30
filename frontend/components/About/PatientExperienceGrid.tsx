@@ -7,23 +7,24 @@ import { LuChevronLeft, LuChevronRight } from "react-icons/lu"
 import { useState } from 'react'
 import Link from 'next/link'
 import TestimonialCard from './TestimonialCard'
+import { Testimonials } from '@/payload-types'
 
-const PatientExperienceGrid = () => {
+const PatientExperienceGrid = ({ testimonialsObj } : { testimonialsObj : Testimonials[] }) => {
 
     const [allCollections, setAllCollections] = useState([]);
     const [currIndex, setCurrIndex] = useState(0);
-    const DoctorsPerPage = 6;
-    const testimonials = TestimonialsJSON;
+    const testsPerPage = 6;
+    const testimonials = testimonialsObj;
 
     const [loading, setLoading] = useState(true); 
 
-    const splitDoctors = async() => {
+    const splitTestimonials = async() => {
 
         const collections = [];
 
-        for (let i = 0; i < testimonials.length; i+=DoctorsPerPage) {
+        for (let i = 0; i < testimonials.length; i+=testsPerPage) {
 
-            collections.push(testimonials.slice(i, i + DoctorsPerPage));
+            collections.push(testimonials.slice(i, i + testsPerPage));
 
         }
 
@@ -34,7 +35,7 @@ const PatientExperienceGrid = () => {
     useEffect(() => {
         const load = async() => {
 
-            await splitDoctors();
+            await splitTestimonials();
             setLoading(false);
         }
 

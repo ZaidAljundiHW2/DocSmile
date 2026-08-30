@@ -44,7 +44,6 @@ export default function WebsiteLayout({
 			}
 
 			const jsonData = await req.json();
-			console.log(jsonData);
 			setGenDetails(jsonData);
 
 
