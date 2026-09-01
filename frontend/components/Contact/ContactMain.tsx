@@ -2,8 +2,9 @@ import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import ContactForm from './ContactForm'
 import ContactOptions from '../Misc/ContactOptions'
+import { Doctor } from '@/payload-types'
 
-const ContactMain = () => {
+const ContactMain = ({ doctors } : { doctors : Doctor[]}) => {
   return (
     <div
         className='
@@ -73,7 +74,7 @@ const ContactMain = () => {
                     Contact Us
                 </h2>
 
-                <ContactForm />
+                <ContactForm doctors={doctors}/>
 
             </Flex>
 

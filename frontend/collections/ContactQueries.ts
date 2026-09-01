@@ -3,62 +3,71 @@ import { slugField } from 'payload'
 
 export const ContactQueries: CollectionConfig = {
 
-    slug:'contact-queries',
+    slug: 'contact-queries',
 
     access: {
         'create': () => true
     },
-    
+
     fields: [
 
-        slugField({ useAsSlug:'name' }),
+        slugField({ useAsSlug: 'name' }),
 
         {
-            label:'Submitter Name',
-            name:'name',
-            type:'text'
+            label: 'Submitter Name',
+            name: 'name',
+            type: 'text'
         },
 
         {
             label: 'Submitter Phone Number',
-            name:'phoneNumber',
-            type:'text'
+            name: 'phoneNumber',
+            type: 'text'
         },
 
         {
-            label:'Relevant Doctor',
-            name:'relevantDoctor',
-            type:'text'
+            label: 'Relevant Doctor',
+            name: 'relevantDoctor',
+            type: 'relationship',
+            relationTo: 'doctors'
         },
 
         {
-            label:'Message',
-            name:'message',
-            type:'textarea'
+            label: 'Message',
+            name: 'message',
+            type: 'textarea'
         }
     ],
 
     endpoints: [
 
         {
-            method:'post',
-            path:'/add-contact',
-            
-            handler: async(req) => {
-                
+            method: 'post',
+            path: '/add-contact',
+
+            handler: async (req) => {
+
                 const data = await req.json();
-                console.log(data);
+
+                let relevantDoctorId: string | null = null;
+
+                if (data.relevantDoctor) {
+                    const match = await req.payload.find({
+                        collection: 'doctors',
+                        where: { slug: { equals: data.relevantDoctor } },
+                        limit: 1,
+                    });
+                    relevantDoctorId = match.docs[0]?.id ?? null;
+                }
 
                 await req.payload.create({
-                    collection:'contact-queries',
+                    collection: 'contact-queries',
 
                     data: {
-
-                        "name":data.name,
-                        "phoneNumber":data.phoneNumber,
-                        "relevantDoctor":data.relevantDoctor,
-                        "message":data.message
-
+                        "name": data.name,
+                        "phoneNumber": data.phoneNumber,
+                        "relevantDoctor": relevantDoctorId,
+                        "message": data.message
                     }
                 });
 
@@ -67,6 +76,5 @@ export const ContactQueries: CollectionConfig = {
             }
         }
     ]
-
 
 }

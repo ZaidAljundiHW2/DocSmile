@@ -5,8 +5,9 @@ import InputTag from '../Misc/InputTag';
 import SelectTag from '../Misc/SelectTag';
 import DoctorsJSON from '@/assets/JSONs/doctors.json'
 import { redirect, RedirectType } from 'next/navigation'
+import { Doctor } from '@/payload-types';
 
-const ContactForm = () => {
+const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
 
     // name
     const [name, setName] = useState("");
@@ -23,18 +24,18 @@ const ContactForm = () => {
     }
 
     // email
-    const [email, setEmail] = useState("");
-    const [emailError, setEmailError] = useState(false);
+    // const [email, setEmail] = useState("");
+    // const [emailError, setEmailError] = useState(false);
 
-    const emailInput = {
-        placeholder: "Enter Email",
-        value: email,
-        setInput: setEmail,
-        required: true,
-        isError: emailError,
-        label: "Email",
-        disabled: false,
-    }
+    // const emailInput = {
+    //     placeholder: "Enter Email",
+    //     value: email,
+    //     setInput: setEmail,
+    //     required: true,
+    //     isError: emailError,
+    //     label: "Email",
+    //     disabled: false,
+    // }
 
     // number
     const [number, setNumber] = useState("");
@@ -52,18 +53,18 @@ const ContactForm = () => {
     }
 
     // preferred contact method
-    const [contact, setContact] = useState("");
-    const [contactError, setContactError] = useState(false);
+    // const [contact, setContact] = useState("");
+    // const [contactError, setContactError] = useState(false);
 
-    const contactSelect = {
-        label: "Enter Preferred Contact Method",
-        value: contact,
-        setSelect: setContact,
-        required: true,
-        isError: contactError,
-        disabled: false,
-        options: ['Phone Number', 'Email']
-    }
+    // const contactSelect = {
+    //     label: "Enter Preferred Contact Method",
+    //     value: contact,
+    //     setSelect: setContact,
+    //     required: true,
+    //     isError: contactError,
+    //     disabled: false,
+    //     options: ['Phone Number', 'Email']
+    // }
 
     // related doctor (not required)
     const [doctor, setDoctor] = useState("");
@@ -75,7 +76,7 @@ const ContactForm = () => {
         required: false,
         isError: false,
         disabled: false,
-        options: DoctorsJSON.map((d) => d.name)
+        options: doctors.map(item => item.fullName)
     }
 
     // message
@@ -119,11 +120,13 @@ const ContactForm = () => {
 
             // submit logic goes here
 
-            const data = {
+            const selectedDoctor = doctors.find((d) => d.fullName === doctor);
+            
 
+            const data = {
                 "name": name,
                 "phoneNumber": number,
-                "relevantDoctor": doctor,
+                "relevantDoctor": selectedDoctor?.slug ?? null, 
                 "message": message
             };
 

@@ -2,8 +2,9 @@ import React from 'react'
 import { Flex, Button } from '@chakra-ui/react'
 import ContactOptions from '../Misc/ContactOptions'
 import BookingForm from './BookingForm'
+import { Doctor } from '@/payload-types'
 
-const BookingMain = () => {
+const BookingMain = ({ doctors } : { doctors : Doctor[] }) => {
   return (
     <div
         className='
@@ -94,7 +95,7 @@ const BookingMain = () => {
                     Book an Appointment
                 </h2>
                 
-                <BookingForm />
+                <BookingForm doctors={doctors} />
                 
 
             </Flex>
