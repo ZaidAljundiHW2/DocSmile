@@ -244,12 +244,7 @@ export interface Service {
   slug: string;
   content?: {
     aboutHeader?: string | null;
-    aboutParagraphs?:
-      | {
-          paragraph?: string | null;
-          id?: string | null;
-        }[]
-      | null;
+    aboutParagraphs?: string | null;
     aboutImages?:
       | {
           image?: (number | null) | Media;
@@ -257,12 +252,7 @@ export interface Service {
         }[]
       | null;
     qualificationsHeader?: string | null;
-    qualificationsParagraphs?:
-      | {
-          paragraph?: string | null;
-          id?: string | null;
-        }[]
-      | null;
+    qualificationsParagraphs?: string | null;
     qualifiers?:
       | {
           header?: string | null;
@@ -583,12 +573,7 @@ export interface ServicesSelect<T extends boolean = true> {
     | T
     | {
         aboutHeader?: T;
-        aboutParagraphs?:
-          | T
-          | {
-              paragraph?: T;
-              id?: T;
-            };
+        aboutParagraphs?: T;
         aboutImages?:
           | T
           | {
@@ -596,12 +581,7 @@ export interface ServicesSelect<T extends boolean = true> {
               id?: T;
             };
         qualificationsHeader?: T;
-        qualificationsParagraphs?:
-          | T
-          | {
-              paragraph?: T;
-              id?: T;
-            };
+        qualificationsParagraphs?: T;
         qualifiers?:
           | T
           | {

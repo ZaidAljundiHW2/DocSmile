@@ -8,6 +8,9 @@ import { Service } from '@/payload-types'
 
 
 const ServiceQualifications = ({ service } : {service : Service}) => {
+
+	const qualBlocks = service.content?.qualificationsParagraphs.split('\n');
+
   return (
     <div
 		className='
@@ -134,9 +137,9 @@ const ServiceQualifications = ({ service } : {service : Service}) => {
 				))}
 
 
-				{service.content?.qualificationsParagraphs.map((item,i) => (
+				{qualBlocks.map((item,i) => (
 					<p key={i}>
-						{item.paragraph}
+						{item}
 					</p>
 				))}
 

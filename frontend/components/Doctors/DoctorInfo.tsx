@@ -12,7 +12,7 @@ import { Doctor } from '@/payload-types';
 
 const DoctorInfo = ({doctor} : { doctor : Doctor}) => {
 
-    const biographyBlocks = doctor.biography.map((item) => item.paragraph);
+    const biographyBlocks = doctor.biography.split('\n');
     const qualifications = doctor.qualifications.map((item) => item.Qualification);
     const educationBlocks = doctor.education?.split(',');
     const languagesString = doctor.languages.map((item) => item.language).join(" ");

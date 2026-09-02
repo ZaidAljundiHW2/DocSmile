@@ -466,7 +466,6 @@ export const About: GlobalConfig = {
       label:'Visitors',
       name:'visitors',
       type:'text',
-      localized:true
       // localize if this is prose like "10,000+ happy patients"; drop localized if it's just a raw number
     },
 
@@ -474,7 +473,6 @@ export const About: GlobalConfig = {
       label:'Experience Years',
       name:'expYears',
       type:'text',
-      localized:true
       // same caveat — localize only if it includes translatable words, not just a digit
     },
 

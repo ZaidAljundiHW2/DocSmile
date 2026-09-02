@@ -9,6 +9,9 @@ import { Service } from '@/payload-types'
 
 
 const AboutService = ({ service } : {service : Service}) => {
+
+	const aboutBlocks = service.content?.aboutParagraphs.split('\n');
+	
   return (
     <div
         className='
@@ -105,11 +108,15 @@ const AboutService = ({ service } : {service : Service}) => {
 					{service.content.aboutHeader}
 				</h1>
 
-				{service.content.aboutParagraphs.map((item,i) => (
+				{aboutBlocks.map((item,i) => (
 					<p key={i}>
-						{item.paragraph}
+						{item}
 					</p>
 				))}
+
+				{/* <p>
+					{service.content?.aboutParagraphs}
+				</p> */}
 
 				<Flex gap={{base:2, md:5}} className='md:flex-row flex-col'>
 					<BookButton />

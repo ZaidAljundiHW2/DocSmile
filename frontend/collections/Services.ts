@@ -67,16 +67,8 @@ export const Services: CollectionConfig = {
                     {
                         label:'About Paragraphs',
                         name:'aboutParagraphs',
-                        type:'array',
-                        maxRows:3,
-                        fields: [
-                            {
-                                label:'Paragraph',
-                                name:'paragraph',
-                                type: 'textarea',
-                                localized:true
-                            }
-                        ]
+                        type: 'textarea',
+                        localized:true
                     },
 
                     {
@@ -111,16 +103,8 @@ export const Services: CollectionConfig = {
                     {
                         label:'Qualifications',
                         name:'qualificationsParagraphs',
-                        type:'array',
-                        maxRows:2,
-                        fields: [
-                            {
-                                label:'Paragraph',
-                                name:'paragraph',
-                                type: 'textarea',
-                                localized:true
-                            }
-                        ]
+                        type: 'textarea',
+                        localized:true
                     },
 
                     {
