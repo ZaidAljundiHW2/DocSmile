@@ -29,6 +29,10 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
+  localization: {
+    locales: ['en', 'ar'],
+    defaultLocale: 'en'
+  },
   collections: [Users, Media, Doctors, Services, Testimonials, ContactQueries, AppointmentRequests, Appointments],
   globals: [ClinicGeneralInformation, Social, Legal, About, PatientInformation],
   editor: lexicalEditor(),

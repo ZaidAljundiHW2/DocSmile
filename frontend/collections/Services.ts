@@ -8,7 +8,7 @@ export const Services: CollectionConfig = {
   },
 
   access: {
-    read:() => true
+    read: () => true
   },
 
   fields: [
@@ -18,7 +18,7 @@ export const Services: CollectionConfig = {
         name:'image',
         type:'upload',
         relationTo:'media'
-
+        // not localized — same asset across locales
     },
 
     {
@@ -26,22 +26,25 @@ export const Services: CollectionConfig = {
         name:'banner',
         type:'upload',
         relationTo:'media'
-
+        // not localized
     },
 
     {
         label:'Name',
         name:'name',
-        type:'text'
+        type:'text',
+        localized:true
     },
 
     {
         label:'Short Introduction',
         name:'introduction',
-        type:'text'
+        type:'text',
+        localized:true
     },
 
     slugField({ useAsSlug:'name' }),
+    // see note below re: whether this should be localized
 
     {
         label:'Content',
@@ -53,11 +56,12 @@ export const Services: CollectionConfig = {
                 label:'About',
                 type:'collapsible',
                 fields: [
-                    
+
                     {
                         label:'About Header',
                         name:'aboutHeader',
-                        type:'text'
+                        type:'text',
+                        localized:true
                     },
 
                     {
@@ -69,7 +73,8 @@ export const Services: CollectionConfig = {
                             {
                                 label:'Paragraph',
                                 name:'paragraph',
-                                type: 'textarea'
+                                type: 'textarea',
+                                localized:true
                             }
                         ]
                     },
@@ -85,6 +90,7 @@ export const Services: CollectionConfig = {
                                 name:'image',
                                 type:'upload',
                                 relationTo:'media'
+                                // not localized
                             }
                         ]
                     }
@@ -98,7 +104,8 @@ export const Services: CollectionConfig = {
                     {
                         label:'Qualifications Header',
                         name:'qualificationsHeader',
-                        type:'text'
+                        type:'text',
+                        localized:true
                     },
 
                     {
@@ -110,7 +117,8 @@ export const Services: CollectionConfig = {
                             {
                                 label:'Paragraph',
                                 name:'paragraph',
-                                type: 'textarea'
+                                type: 'textarea',
+                                localized:true
                             }
                         ]
                     },
@@ -124,13 +132,15 @@ export const Services: CollectionConfig = {
                             {
                                 label:'Header',
                                 name:'header',
-                                type:'text'
+                                type:'text',
+                                localized:true
                             },
 
                             {
                                 label:'Qualifier',
                                 name:'qualifier',
-                                type:'text'
+                                type:'text',
+                                localized:true
                             }
                         ]
                     },
@@ -146,6 +156,7 @@ export const Services: CollectionConfig = {
                                 name:'image',
                                 type:'upload',
                                 relationTo:'media'
+                                // not localized
                             }
                         ]
                     }
@@ -159,7 +170,8 @@ export const Services: CollectionConfig = {
                     {
                         label:'Benefits Header',
                         name:'benefitsHeader',
-                        type:'text'
+                        type:'text',
+                        localized:true
                     },
 
                     {
@@ -172,14 +184,16 @@ export const Services: CollectionConfig = {
                                 label:'Header',
                                 name:'header',
                                 type: 'text',
-                                required:true
+                                required:true,
+                                localized:true
                             },
 
                             {
                                 label:'Benefit',
                                 name:'benefit',
                                 type:'text',
-                                required:true
+                                required:true,
+                                localized:true
                             }
                         ]
                     },
@@ -189,6 +203,7 @@ export const Services: CollectionConfig = {
                         label:'Benefits Video',
                         type: 'upload',
                         relationTo:'media'
+                        // not localized
                     }
                 ]
             },
@@ -200,7 +215,8 @@ export const Services: CollectionConfig = {
                     {
                         label:'Process Header',
                         name:'processHeader',
-                        type:'text'
+                        type:'text',
+                        localized:true
                     },
 
                     {
@@ -213,14 +229,16 @@ export const Services: CollectionConfig = {
                                 label:'Header',
                                 name:'header',
                                 type: 'text',
-                                required:true
+                                required:true,
+                                localized:true
                             },
 
                             {
                                 label:'Step',
                                 name:'step',
                                 type:'text',
-                                required:true
+                                required:true,
+                                localized:true
                             },
 
                             {
@@ -228,11 +246,11 @@ export const Services: CollectionConfig = {
                                 name:'image',
                                 type:'upload',
                                 relationTo:'media'
+                                // not localized
                             }
                         ]
                     },
 
-                    
                 ]
             },
 
@@ -243,7 +261,8 @@ export const Services: CollectionConfig = {
                     {
                         label:'Alternative Treatments Header',
                         name:'altHeader',
-                        type:'text'
+                        type:'text',
+                        localized:true
                     },
 
                     {
@@ -256,14 +275,16 @@ export const Services: CollectionConfig = {
                                 label:'Header',
                                 name:'header',
                                 type: 'text',
-                                required:true
+                                required:true,
+                                localized:true
                             },
 
                             {
                                 label:'Treatment',
                                 name:'treatment',
                                 type:'text',
-                                required:true
+                                required:true,
+                                localized:true
                             },
 
                             {
@@ -271,15 +292,14 @@ export const Services: CollectionConfig = {
                                 name:'image',
                                 type:'upload',
                                 relationTo:'media'
+                                // not localized
                             }
                         ]
                     },
 
-                    
                 ]
             },
 
-            
         ]
     },
 
@@ -291,13 +311,15 @@ export const Services: CollectionConfig = {
             {
                 label:'Question',
                 name:'question',
-                type:'text'
+                type:'text',
+                localized:true
             },
 
             {
                 label:'Answer',
                 name:'answer',
-                type:'text'
+                type:'text',
+                localized:true
             }
         ]
 
@@ -309,6 +331,7 @@ export const Services: CollectionConfig = {
         type:'relationship',
         hasMany:true,
         relationTo:'doctors'
+        // not localized — same doctors regardless of language
     },
 
     {
@@ -316,18 +339,15 @@ export const Services: CollectionConfig = {
         name:'reviewer',
         type:'relationship',
         relationTo:'doctors'
+        // not localized
     },
 
     {
         label:'Last Review Date',
         name:'lastReviewDate',
         type:'date'
-
+        // not localized
     }
-
-
-    
-
 
   ],
 
@@ -351,7 +371,6 @@ export const Services: CollectionConfig = {
             const services = result.docs;
 
             return Response.json(services.length);
-
 
         }
     }

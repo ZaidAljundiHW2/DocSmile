@@ -11,38 +11,44 @@ export const ClinicGeneralInformation: GlobalConfig = {
     {
       label:'Address',
       name: 'address',
-      type:'text'
+      type:'text',
+      localized:true
+      // street/area names are typically transliterated per language
     },
 
     {
       label:'Google Maps Link',
       name:'mapsLink',
       type:'text'
+      // not localized — same URL
     },
 
     {
       label:'Phone Number',
       name:'phoneNumber',
       type:'text',
-
+      // not localized — same number
     },
 
     {
       label:'WhatsApp Number',
       name:'whatsapp',
       type:'text'
+      // not localized
     },
 
     {
       label:'Email',
       name:'email',
       type:'text'
+      // not localized
     },
 
     {
       label:'Parking Information',
       name:'parkingInformation',
-      type:'text'
+      type:'text',
+      localized:true
     },
 
     {
@@ -60,6 +66,7 @@ export const ClinicGeneralInformation: GlobalConfig = {
               label:'Open Time',
               name:'openTime',
               type:'date',
+              // not localized — the clock time doesn't change per language
               admin: {
                 date: {
                   pickerAppearance:'timeOnly',
@@ -72,6 +79,7 @@ export const ClinicGeneralInformation: GlobalConfig = {
               label:'Close Time',
               name:'closeTime',
               type:'date',
+              // not localized
               admin: {
                 date: {
                   pickerAppearance:'timeOnly',
@@ -84,6 +92,7 @@ export const ClinicGeneralInformation: GlobalConfig = {
               label:'Closed?',
               name:'closed',
               type:'checkbox'
+              // not localized
             }
           ]
         },
@@ -310,14 +319,15 @@ export const ClinicGeneralInformation: GlobalConfig = {
           ]
         }
 
-        
       ]
     },
 
     {
       label:'Footer operation details',
       name:'footerHours',
-      type:'text'
+      type:'text',
+      localized:true
+      // free text like "Open daily 9am–6pm" needs translating
     },
   ],
 }
@@ -329,19 +339,22 @@ export const Legal: GlobalConfig = {
     {
       label:'Privacy Policy',
       name:'privacyPolicy',
-      type:'textarea'
+      type:'textarea',
+      localized:true
     },
 
     {
       label:'Terms of Service',
       name:'tos',
-      type:'textarea'
+      type:'textarea',
+      localized:true
     },
 
     {
       label:'Cookie Policy',
       name:'cookiePolicy',
-      type:'textarea'
+      type:'textarea',
+      localized:true
     }
   ],
 
@@ -400,6 +413,7 @@ export const Social: GlobalConfig = {
       label:'Instagram',
       name:'instagram',
       type:'text'
+      // not localized — same URL/handle
     },
 
     {
@@ -426,7 +440,7 @@ export const Social: GlobalConfig = {
       type:'text'
     },
 
-    
+
   ]
 }
 
@@ -437,33 +451,40 @@ export const About: GlobalConfig = {
     {
       label:'Mission Statement',
       name:'missionStatement',
-      type:'textarea'
+      type:'textarea',
+      localized:true
     },
 
     {
       label:'Our Center',
       name:'ourCenter',
-      type:'textarea'
+      type:'textarea',
+      localized:true
     },
 
     {
       label:'Visitors',
       name:'visitors',
-      type:'text'
+      type:'text',
+      localized:true
+      // localize if this is prose like "10,000+ happy patients"; drop localized if it's just a raw number
     },
 
     {
       label:'Experience Years',
       name:'expYears',
-      type:'text'
+      type:'text',
+      localized:true
+      // same caveat — localize only if it includes translatable words, not just a digit
     },
 
-  
+
 
     {
       label:'Our Laboratory',
       name:'laboratory',
-      type:'textarea'
+      type:'textarea',
+      localized:true
     }
   ],
 
@@ -473,9 +494,9 @@ export const About: GlobalConfig = {
       method:'get',
       path:'/AboutUs',
       handler: async(req) => {
-        
+
         const aboutUs = await req.payload.findGlobal({
-          
+
           slug:'about'
         });
 
@@ -488,7 +509,7 @@ export const About: GlobalConfig = {
 
       }
 
-      
+
     },
 
     {
@@ -519,7 +540,8 @@ export const PatientInformation: GlobalConfig = {
     {
       label:'Your First Visit',
       name:'firstVisit',
-      type:'textarea'
+      type:'textarea',
+      localized:true
     },
 
     {
@@ -530,13 +552,15 @@ export const PatientInformation: GlobalConfig = {
             {
                 label:'Question',
                 name:'question',
-                type:'text'
+                type:'text',
+                localized:true
             },
 
             {
                 label:'Answer',
                 name:'answer',
-                type:'text'
+                type:'text',
+                localized:true
             }
         ]
 

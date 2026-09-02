@@ -31,19 +31,21 @@ export const Testimonials : CollectionConfig = {
         {
             label:'Patient Name',
             name:'name',
-            type:'text'
+            type:'text',
+            localized:true
         },
 
         {
             label:'Testimonial',
             name:'testimonial',
-            type:'textarea'
+            type:'textarea',
+            localized:true
         },
 
         {
             label:'Date',
             name:'date',
-            type:'date'
+            type:'date',
         }
     ],
 

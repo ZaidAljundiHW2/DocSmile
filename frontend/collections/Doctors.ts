@@ -19,59 +19,50 @@ export const Doctors: CollectionConfig = {
         label:'Photo',
         name:'photo',
         type:'upload',
-        relationTo:'media'
+        relationTo:'media',
+        
     },
 
     {
         label:'Full Name',
         name:'fullName',
-        type:'text'
+        type:'text',
+        localized:true
     },
 
     slugField({ useAsSlug:'fullName' }),
 
     {
-        label:'Prefix',
-        name:'prefix',
-        type:'select',
+        label: 'Prefix',
+        name: 'prefix',
+        type: 'select',
+        localized: true,
         options: [
-            {
-                label:'Dr.',
-                value:'Dr.'
+            { label: 'Dr.', value: 'Dr.' },
+            { label: 'Mr.', value: 'Mr.' },
+            { label: 'Ms.', value: 'Ms.' },
+            { label: 'Mrs.', value: 'Mrs.' },
+            { label: 'Nurse', value: 'Nurse' },
+        ], // still needed as fallback/for validation & type-gen
+        admin: {
+            components: {
+                Field: '/fields/PrefixField#PrefixField',
             },
-
-            {
-                label:'Mr.',
-                value:'Mr.'
-            },
-
-            {
-                label:'Ms.',
-                value:'Ms.'
-            },
-
-            {
-                label:'Mrs.',
-                value:'Mrs.'
-            },
-
-            {
-                label:'Nurse',
-                value:'Nurse'
-            },
-        ]
+        },
     },
 
     {
         label:'Title',
         name:'title',
-        type:'text'
+        type:'text',
+        localized:true
     },
 
     {
         label:'Specialty',
         name:'specialty',
-        type:'text'
+        type:'text',
+        localized:true
     },
 
     {
@@ -84,30 +75,23 @@ export const Doctors: CollectionConfig = {
                 name:'language',
                 type:'text'
             }
-        ]
+        ],
+        localized:true
     },
 
 
     {
+        label:'Biography',
         name:'biography',
-        type:'array',
-        labels: {
-            singular:'Paragraphs',
-            plural: 'Paragraphs',
-        },
-        fields: [
-            {
-                label:'Paragraph',
-                name:'paragraph',
-                type:'textarea'
-            }
-        ]
+        type:'textarea',
+        localized:true
     },
 
     {
         label:'Education',
         name:'education',
-        type:'text'
+        type:'text',
+        localized:true
     },
 
     {
@@ -122,7 +106,8 @@ export const Doctors: CollectionConfig = {
                 name:'Qualification',
                 type:'text'
             }
-        ]
+        ],
+        localized:true
     },
 
     
@@ -140,7 +125,8 @@ export const Doctors: CollectionConfig = {
                 name:'clinicalInterest',
                 type:'text'
             }
-        ]
+        ],
+        localized:true
     },
 
     {
@@ -163,7 +149,7 @@ export const Doctors: CollectionConfig = {
     {
         label:'Review Date',
         name:'reviewDate',
-        type:'date'
+        type:'date',
 
     },
   ],

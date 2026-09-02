@@ -98,7 +98,7 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  fallbackLocale: null;
+  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'ar') | ('en' | 'ar')[];
   globals: {
     'clinic-general-information': ClinicGeneralInformation;
     social: Social;
@@ -113,7 +113,7 @@ export interface Config {
     about: AboutSelect<false> | AboutSelect<true>;
     'patient-information': PatientInformationSelect<false> | PatientInformationSelect<true>;
   };
-  locale: null;
+  locale: 'en' | 'ar';
   widgets: {
     collections: CollectionsWidget;
   };
@@ -207,12 +207,7 @@ export interface Doctor {
         id?: string | null;
       }[]
     | null;
-  biography?:
-    | {
-        paragraph?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  biography?: string | null;
   education?: string | null;
   qualifications?:
     | {
@@ -553,12 +548,7 @@ export interface DoctorsSelect<T extends boolean = true> {
         language?: T;
         id?: T;
       };
-  biography?:
-    | T
-    | {
-        paragraph?: T;
-        id?: T;
-      };
+  biography?: T;
   education?: T;
   qualifications?:
     | T
