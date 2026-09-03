@@ -3,7 +3,7 @@ import './Services.css'
 
 
 
-const ServiceTemplateBanner = ({ bannerurl, name } : {bannerurl : string, name : string}) => {
+const ServiceTemplateBanner = ({ bannerurl, name, intro } : {bannerurl : string, name : string, intro : string}) => {
 
     
 
@@ -51,7 +51,7 @@ const ServiceTemplateBanner = ({ bannerurl, name } : {bannerurl : string, name :
         </h1>
 
         <p className='z-1'>
-            Short approved service introduction.
+            {intro}
         </p>
         
     </div>

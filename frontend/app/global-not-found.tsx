@@ -1,7 +1,7 @@
 // app/global-not-found.tsx
-import NotFound from '@/app/(app)/not-found'
+import NotFound from '@/app/[locale]/not-found'
 import { Provider } from '@/components/ui/provider'
-import './(app)/globals.css'
+import './[locale]/globals.css'
 
 export default function GlobalNotFound() {
   return (

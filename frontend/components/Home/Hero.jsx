@@ -5,6 +5,9 @@ import Image from 'next/image';
 import CallButton from '../Misc/CallButton';
 
 const Hero = () => {
+
+   
+
   return (
     <div
       className='

@@ -1,0 +1,392 @@
+{
+    "buttons": {
+
+        "whatsapp": "Whatsapp",
+        "call": "Call Us",
+        "book": "Request Appointment",
+        "askQuestion": "Ask Question",
+        "home": "Home"
+
+    },
+
+    "home": {
+
+        "hero": {
+            "header": "Doctor Smile Dental Center",
+            "h1": "Doctor Smile Dental Center is one of Kuwait's finest and most modern private dental care centers, located at the prestigious Laila Tower in Salem Al-Mubarak.",
+            "approvedMessage": "Short approved message"
+        },
+
+        "journey": {
+
+            "header": "Your Journey With Us",
+
+            "steps": [
+                {
+                    "title": "Contact Doctor Smile",
+                    "desc": "Request a Suitable Appointment"
+                },
+
+                {
+                    "title": "Request a Suitable Appointment",
+                    "desc": "We'll find a time that works around your schedule."
+                },
+
+                {
+                    "title": "Attend an Assessment",
+                    "desc": "Meet your clinician for a full evaluation of your needs."
+                },
+
+                {
+                    "title": "Receive an Individualized Treatment Plan",
+                    "desc": "Where indicated, we'll outline a plan tailored to you."
+                },
+
+                {
+                    "title": "Decide on the Next Step",
+                    "desc": "Discuss options with the clinical team and choose your path forward."
+                }
+            ]
+
+        },
+
+        "location": {
+            "header": "Our Location",
+            "address": "Address",
+            "number": "Telephone",
+            "hop": "Hours of Operation",
+            "parking": "Parking"
+
+        },
+
+        "PatientInfo": {
+            "firstVisit": "First Visit",
+            "faqs": "FAQs",
+            "urgentConcerns": "Urgent Concerns",
+            "lph": "Location, Parking, and Hours"
+        },
+
+        "Trust": [
+            {
+                "name": "Coordinated Team"
+            },
+
+            {
+                "name": "Bilingual Communication"
+            },
+
+            {
+                "name": "Accessible Location"
+            },
+
+            {
+                "name": "Patient-Contact Support"
+            }
+        ],
+
+        "UrgentCTA": {
+            "header": "APPROVED URGENT CONCERN HEADING"
+        }
+
+
+
+    },
+
+
+    "doctors": {
+
+        "hero": {
+            "header": "Meet Our Team",
+            "h1": "Our Dentists"
+        },
+
+        "doctorGrid": {
+            "header": "Dentists"
+        },
+
+        "doctorTemplate": {
+
+            "doctorInfo": {
+
+                "headers": [
+                    "Specialty",
+                    "Languages",
+                    "Clinical Interests",
+                    "Biography",
+                    "Qualifications",
+                    "Education"
+                ]
+            },
+
+            "servicesPreview": {
+                "header": "Related Services"
+            },
+
+            "doctorBook": {
+                "header": "Book an appointment with"
+
+            },
+
+            "doctorMiscInfo": {
+                "reviewer": "Reviewer",
+                "lrd": "Last Review Date"
+            }
+
+        }
+    },
+
+    "services": {
+
+        "header": "Our Services",
+
+        "servicesGrid": {
+            "header": "Services"
+        },
+
+        "serviceTemplate": {
+
+            "aboutService": {
+                "header": "About Service"
+            },
+
+            "serviceQualifications": {
+                "header": "Service Qualifications"
+            },
+
+            "benefits": {
+                "header": "Benefits"
+            },
+
+            "process": {
+                "header": "Process"
+            },
+
+            "alt": {
+                "header": "Alternative Treatments"
+            },
+
+            "doctors": {
+                "header": "Doctors"
+            },
+
+            "FAQs": {
+                "header": "Frequently Asked Questions"
+            },
+
+            "miscInfo": {
+                "clinicalAssessmentExplanation": "Explanation that clinical assessment is required.",
+                "medicalDisclaimer": "Medical-information disclaimer.",
+                "reviewer": "Reviewer",
+                "lrd": "Last Review Date"
+            }
+        }
+
+    },
+
+    "about": {
+
+        "hero": {
+            "header": "About Us",
+            "subheader": "Who are Doctor Smile?"
+        },
+
+        "ourCenter": {
+            "header": "Our Center",
+            "stats": [
+                "Doctors",
+                "Visitors",
+                "Services",
+                "Experience Years"
+            ]
+        },
+
+        "OurLaboratory": {
+            "header": "Our Laboratory"
+        },
+
+        "OurMission": {
+            "header": "Our Mission"
+        },
+
+        "patientExperience": {
+
+            "header": "Patient Testimonials"
+
+        }
+
+    },
+
+    "booking": {
+
+        "header": "Book an Appointment",
+        "dirHeader": "Get Directions",
+
+        "bookingForm": {
+
+            "fullName": {
+                "label": "Full Name",
+                "placeholder": "Enter Full Name"
+            },
+
+            "mobileNumber": {
+                "label": "Kuwait Mobile Number",
+                "placeholder": "Enter Mobile Number"
+            },
+
+            "preferredDoctor": {
+                "label": "Preferred Doctor"
+            },
+
+            "reasonForVisit": {
+                "label": "Reason for Visit"
+            },
+
+            "submit": "Submit"
+
+        }
+
+    },
+
+    "contact": {
+        "header": "Contact Us",
+        "contactForm": {
+
+            "name": {
+                "label": "Name",
+                "placeholder": "Enter Name"
+            },
+
+            "phoneNumber": {
+                "label": "Phone Number",
+                "placeholder": "Enter Number"
+            },
+
+            "relatedDoctor": {
+                "label": "Related Doctor"
+            },
+
+            "message": {
+                "label": "Message",
+                "errorText": "This field is required"
+            },
+
+            "submit": "Submit"
+
+        }
+    },
+
+    "patientInformation": {
+
+        "firstVisit": {
+            "header": "Your First Visit"
+            
+        },
+
+        "FAQs": {
+            "header": "Frequently Asked Questions by New Patients"
+        }
+
+    },
+
+
+    "legal": {
+
+        "pp": {
+            "header": "Our Privacy Policy"
+        },
+
+        "tos": {
+            "header": "Our Terms of Service"
+        },
+
+        "cookie": {
+            "header": "Our Cookie Policy"
+        }
+    },
+
+    "navbar": {
+
+        "navOptions": [
+            
+            {
+                "name":"Home"
+            },
+
+            {
+                "name":"Services"
+            },
+
+            {
+                "name":"Doctors"
+            },
+
+            {
+                "name": "About",
+                "children": [
+                    {
+                        "name":"About Us"
+                    },
+
+                    {
+                        "name": "Patient Experience"
+                    },
+
+                    {
+                        "name": "Our Laboratory"
+                    }
+                ]
+            },
+
+            {
+                "name": "Patient Information"
+            },
+
+            {
+                "name": "Contact"
+            },
+
+            {
+                "name": "Book Appointment"
+            }
+        ]
+    },
+
+    "footer": {
+
+        "footerMain": {
+
+            "address": "Our Address",
+            "workingHours": "Working Hours",
+            "emai": "Email Address",
+            "number": "Phone Number"
+        },
+
+        "footerBot": {
+
+            "copyright": "&copy; 2026 Doctor Smile Dental Center. All Rights Reserved",
+            "tos": "Terms of Service",
+            "pp": "Privacy Policy",
+            "cp": "Cookie Policy"
+        }
+    },
+
+    "thankYou": {
+
+        "header": "Thank You!",
+        "subheader": "We will get in touch with you soon."
+
+    },
+
+    "notfound": {
+        "header": "404 Error. Page Not Found",
+        "subheader": "The page you have requested does not exist. Please continue to our home page to continue using our services."
+    },
+
+    "error": {
+        "header": "Something went wrong. Please try again later or head back to our home page."
+    }
+
+    
+
+
+}

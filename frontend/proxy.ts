@@ -1,26 +1,41 @@
 // proxy.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import createMiddleware from "next-intl/middleware";
+import { locales } from "./config";
 
-export const config = { matcher: '/thank-you' };
+const intlMiddleware = createMiddleware({
+  locales,
+  defaultLocale: "en",
+});
 
-export function proxy(request: NextRequest) {
-  const referer = request.headers.get("referer");
-  console.log("referer:", referer, "| url:", request.url);
+export default function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  const segments = pathname.split("/").filter(Boolean);
+  const isThankYouPage = segments[segments.length - 1] === "thank-you";
 
-  try {
-    const requestURL = new URL(request.url);
-    if (!referer) throw new Error("no referer");
-    const refererURL = new URL(referer);
+  if (isThankYouPage) {
+    const referer = request.headers.get("referer");
+    let blocked = true;
 
-    if (refererURL.origin !== requestURL.origin) {
-      throw new Error("origin mismatch");
+    if (referer) {
+      try {
+        if (new URL(referer).origin === request.nextUrl.origin) {
+          blocked = false;
+        }
+      } catch {
+        blocked = true;
+      }
     }
-  } catch (err) {
-    console.log("redirecting because:", err);
-    return NextResponse.redirect(new URL('/', request.url));
+
+    if (blocked) {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
   }
 
-  console.log("passed referer check, letting it through");
-  return NextResponse.next();
+  return intlMiddleware(request);
 }
+
+export const config = {
+  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+};

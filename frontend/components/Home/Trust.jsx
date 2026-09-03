@@ -1,9 +1,31 @@
 import React from 'react'
 import { Flex, SimpleGrid } from '@chakra-ui/react'
-import TrustJSON from '@/assets/JSONs/trustcards.json'
 import Image from 'next/image'
 
 const Trust = () => {
+
+    const TrustJSON = [
+        {
+            "name":"Coordinated Team",
+            "img": "/icons/webp.png"
+        },
+        
+        {
+            "name":"Bilingual Communication",
+            "img": "/icons/webp.png"
+        },
+
+        {
+            "name":"Accessible Location",
+            "img": "/icons/webp.png"
+        },
+
+        {
+            "name":"Patient-Contact Support",
+            "img": "/icons/webp.png"
+        }
+    ]
+    
   return (
     <div
         className='

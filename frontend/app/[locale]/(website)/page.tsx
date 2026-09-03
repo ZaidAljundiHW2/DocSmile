@@ -111,7 +111,7 @@ export default function Home() {
         
         <Hero />
 
-        <UrgentCTA />
+        <UrgentCTA footerHours={genDetails.footerHours}/>
 
         <Services services={services} header={"Our Services"} showMore={true}/>
 

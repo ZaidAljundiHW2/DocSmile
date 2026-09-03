@@ -4,7 +4,7 @@ import ContactOptions from '../Misc/ContactOptions'
 import BookingForm from './BookingForm'
 import { Doctor } from '@/payload-types'
 
-const BookingMain = ({ doctors } : { doctors : Doctor[] }) => {
+const BookingMain = ({ doctors, address } : { doctors : Doctor[], address : string }) => {
   return (
     <div
         className='
@@ -51,7 +51,7 @@ const BookingMain = ({ doctors } : { doctors : Doctor[] }) => {
                         justifySelf:'center'
                     }}
                 >
-                    Floor 9, Laila Tower, Salem Al Mubarak Street, Salmiya
+                    {address}
                 </h1>
 
                 <Button

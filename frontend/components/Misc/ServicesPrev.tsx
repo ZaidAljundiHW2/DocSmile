@@ -80,7 +80,7 @@ const ServicesPrev = ({services, showMore, header} : {services : Service[], show
             >
 
                 <h2 className='secondary_header'>
-                    Other Services
+                    Related Services
                 </h2>
 
                 <FaChevronDown 

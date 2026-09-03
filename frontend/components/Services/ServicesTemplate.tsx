@@ -19,7 +19,7 @@ const ServicesTemplate = ({ service } : { service : Service }) => {
 
     <div>
 
-        <ServiceTemplateBanner bannerurl={service.banner.url} name={service.name}/>
+        <ServiceTemplateBanner bannerurl={service.banner.url} name={service.name} intro={service.introduction}/>
 
         <AboutService service={service}/>
         

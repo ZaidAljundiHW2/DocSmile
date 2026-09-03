@@ -3,7 +3,7 @@ import { Flex } from '@chakra-ui/react'
 import { FaRegClock } from "react-icons/fa";
 import CallButton from '../Misc/CallButton';
 
-const UrgentCTA = () => {
+const UrgentCTA = ({ footerHours }) => {
   return (
 
     <div 
@@ -53,7 +53,7 @@ const UrgentCTA = () => {
                 <FaRegClock color='#071f97' className='secondary_header'/>
 
                 <h2 className='secondary_header'>
-                    Working Hours: 9:00 AM - 11:00 PM
+                    {footerHours}
                 </h2>
                 
             </Flex>
