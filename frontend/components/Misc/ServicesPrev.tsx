@@ -1,8 +1,11 @@
 import { SimpleGrid, Flex, Box } from '@chakra-ui/react'
 import { FaChevronDown } from "react-icons/fa";
 import { Service } from '@/payload-types';
+import { getTranslations } from 'next-intl/server';
 
-const ServicesPrev = ({services, showMore, header} : {services : Service[], showMore : boolean, header : string}) => {
+const ServicesPrev = async({services, showMore, header} : {services : Service[], showMore : boolean, header : string }) => {
+
+    const t = await getTranslations('home.servicesPreview');
 
 
   return (
@@ -80,7 +83,7 @@ const ServicesPrev = ({services, showMore, header} : {services : Service[], show
             >
 
                 <h2 className='secondary_header'>
-                    Related Services
+                    {t('header')}
                 </h2>
 
                 <FaChevronDown 

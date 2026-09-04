@@ -1,8 +1,13 @@
 import React from 'react'
 import { Button } from "@chakra-ui/react"
 import { FaCalendar } from "react-icons/fa";
+import { getTranslations } from 'next-intl/server';
 
-const BookButton = () => {
+const BookButton = async() => {
+
+  const t = await getTranslations('buttons');
+
+
   return (
     <div>
         
@@ -12,7 +17,7 @@ const BookButton = () => {
 
         >
 
-            Book Online
+            {t('book')}
 
             <FaCalendar />
             

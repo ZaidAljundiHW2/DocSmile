@@ -1,11 +1,14 @@
-import { Flex, Box, Button } from '@chakra-ui/react'
+import { Flex, Box } from '@chakra-ui/react'
 import BookButton from '../Misc/BookButton'
 import WhatsappButton from '../Misc/WhatsappButton';
 import Image from 'next/image';
 import CallButton from '../Misc/CallButton';
+import { getTranslations } from 'next-intl/server';
 
-const Hero = () => {
+const Hero = async() => {
 
+    const t = await getTranslations('home');
+    
    
 
   return (
@@ -106,17 +109,17 @@ const Hero = () => {
             {/* Name */}
 
             <h1 className='main_header'>
-                Doctor Smile Dental Center
+                {t('hero.header')}
             </h1>
 
             {/* factual h1 */}
             <h1>
-                Doctor Smile Dental Center is one of Kuwait&apos;s finest and most modern private dental care centers, located at the prestigious Laila Tower in Salem Al-Mubarak.
+                {t('hero.h1')}
             </h1>
 
             {/* approved message */}
             <h2 className='secondary_header'>
-                Short approved message
+                {t('hero.approvedMessage')}
 
             </h2>
 
@@ -124,7 +127,9 @@ const Hero = () => {
 
             <Flex className='flex-col' gap={{base:'5'}}>
 
-                <h1 className='secondary_header'>Book your appointment now</h1>
+                <h1 className='secondary_header'>
+                    {t('hero.book')}
+                </h1>
 
                 <Flex gap={{base:'5'}} className='md:flex-row flex-col'>
 

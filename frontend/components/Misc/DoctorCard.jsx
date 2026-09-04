@@ -1,7 +1,11 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
+import { useTranslations } from 'next-intl';
 
 const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false }) => {
+
+    const t = useTranslations("misc");
+
     return (
         <div
             className='
@@ -81,7 +85,7 @@ const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false }) 
                         </p>
 
                         <p className='main_text'>
-                            View More
+                            {t("viewMore")}
                         </p>
 
                     </Flex>

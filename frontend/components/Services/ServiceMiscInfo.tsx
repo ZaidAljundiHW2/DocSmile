@@ -1,6 +1,10 @@
 import React from 'react'
+import { getTranslations } from 'next-intl/server'
 
-const ServiceMiscInfo = ({ doctor, date } : {doctor: string, date: string}) => {
+const ServiceMiscInfo = async({ doctor, date } : {doctor: string, date: string}) => {
+
+    const t = await getTranslations('services.serviceTemplate.miscInfo');
+
   return (
     <div
         className='
@@ -19,7 +23,7 @@ const ServiceMiscInfo = ({ doctor, date } : {doctor: string, date: string}) => {
                 color:'#808080'
             }}
         >
-            Explanation that clinical assessment is required.
+            {t('clinicalAssessmentExplanation')}
         </p>
         
         {/* Medical-information disclaimer. */}
@@ -28,7 +32,7 @@ const ServiceMiscInfo = ({ doctor, date } : {doctor: string, date: string}) => {
                 secondary_header
             '
         >
-            Medical-information disclaimer.
+            {t('medicalDisclaimer')}
         </h2>
 
         {/* Reviewer and review date */}
@@ -37,7 +41,7 @@ const ServiceMiscInfo = ({ doctor, date } : {doctor: string, date: string}) => {
                 color:'#808080'
             }}
         >
-            Reviewer: {doctor}, Last Review Date: {date}
+            {t('reviewer')}: {doctor}, {t('lrd')}: {date}
         </p>
         
     </div>

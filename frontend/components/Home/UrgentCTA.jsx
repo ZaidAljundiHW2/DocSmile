@@ -2,8 +2,12 @@ import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import { FaRegClock } from "react-icons/fa";
 import CallButton from '../Misc/CallButton';
+import { getTranslations } from 'next-intl/server';
 
-const UrgentCTA = ({ footerHours }) => {
+const UrgentCTA = async({ footerHours }) => {
+
+    const t = await getTranslations('home');
+
   return (
 
     <div 
@@ -46,7 +50,7 @@ const UrgentCTA = ({ footerHours }) => {
         <Flex className='md:w-1/2 w-full flex-col gap-5'>
 
             <h1 className='main_header'>
-                APPROVED URGENT CONCERN HEADING
+                {t('urgentCTA.header')}
             </h1>
 
             <Flex className='items-center gap-5'>

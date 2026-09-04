@@ -2,8 +2,12 @@ import { Flex } from "@chakra-ui/react"
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoDocumentText, IoCalendar } from "react-icons/io5";
+import { getTranslations } from "next-intl/server";
 
-const ContactOptions = ({ isEnquire = true }) => {
+const ContactOptions = async({ isEnquire = true }) => {
+
+    const t = await getTranslations('misc.contact');
+
   return (
     <div
         className='
@@ -49,7 +53,7 @@ const ContactOptions = ({ isEnquire = true }) => {
                     fontSize: "clamp(0.75rem, 2.5vw, 2rem)" 
                 }}
             >
-                Call Us
+                {t('call')}
             </h2>
 
             <FaPhoneAlt className="w-4 h-4 md:w-8 md:h-8" />
@@ -89,7 +93,7 @@ const ContactOptions = ({ isEnquire = true }) => {
                     fontSize: "clamp(0.75rem, 2.5vw, 2rem)" 
                 }}
             >
-                WhatsApp Us
+                {t('whatsapp')}
             </h2>
 
             <FaWhatsapp className="w-4 h-4 md:w-8 md:h-8" />
@@ -129,7 +133,7 @@ const ContactOptions = ({ isEnquire = true }) => {
                     fontSize: "clamp(0.75rem, 2.5vw, 2rem)" 
                 }}
             >
-                {isEnquire ? "Enquire" : "Book an Appointment"}
+                {isEnquire ? t('enquire') : t('book')}
             </h2>
 
             {isEnquire ? <IoDocumentText className="w-4 h-4 md:w-8 md:h-8" /> : <IoCalendar className="w-4 h-4 md:w-8 md:h-8" />}

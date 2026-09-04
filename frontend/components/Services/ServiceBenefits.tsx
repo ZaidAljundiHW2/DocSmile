@@ -3,7 +3,7 @@ import { Flex } from '@chakra-ui/react'
 import { IoSparklesSharp } from "react-icons/io5";
 import './Services.css'
 import { Service } from '@/payload-types'
-
+import { getTranslations } from 'next-intl/server';
 
 interface BenefitItem {
 
@@ -12,10 +12,10 @@ interface BenefitItem {
     id:string
 }
 
-const ServiceBenefits = ({ service } : {service : Service }) => {
+const ServiceBenefits = async({ service } : {service : Service }) => {
 
 
-    const splitArray = (arr: BenefitItem[]) => {
+    const splitArray = async(arr: BenefitItem[]) => {
 
         const leftHalf = arr.slice(0, Math.floor(arr.length / 2));
         const rightHalf = arr.slice(Math.floor(arr.length/2));
@@ -23,7 +23,9 @@ const ServiceBenefits = ({ service } : {service : Service }) => {
         return [leftHalf, rightHalf];
     }
 
-    const [leftHalf, rightHalf] = splitArray(service.content?.benefits);
+    const [leftHalf, rightHalf] = await splitArray(service.content?.benefits);
+
+    const t = await getTranslations('services.serviceTemplate.benefits');
 
   return (
     <div
@@ -43,7 +45,7 @@ const ServiceBenefits = ({ service } : {service : Service }) => {
     >
         <Flex className='flex-col'>
             <h2 className='secondary_header'>
-                Benefits
+                {t('header')}
             </h2>
 
             <h1 className='main_header' style={{color:'black'}}>

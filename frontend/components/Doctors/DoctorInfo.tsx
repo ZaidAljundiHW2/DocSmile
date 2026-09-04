@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 import { GrUserExpert } from "react-icons/gr";
 import { FaLanguage } from "react-icons/fa";
@@ -6,11 +5,11 @@ import { BsBook } from "react-icons/bs";
 import { RiGraduationCapFill } from "react-icons/ri";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { Flex } from '@chakra-ui/react';
-import { Icon } from '@chakra-ui/react';
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { Doctor } from '@/payload-types';
+import { getTranslations } from 'next-intl/server';
 
-const DoctorInfo = ({doctor} : { doctor : Doctor}) => {
+const DoctorInfo = async({doctor} : { doctor : Doctor}) => {
 
     const biographyBlocks = doctor.biography.split('\n');
     const qualifications = doctor.qualifications.map((item) => item.Qualification);
@@ -18,40 +17,44 @@ const DoctorInfo = ({doctor} : { doctor : Doctor}) => {
     const languagesString = doctor.languages.map((item) => item.language).join(" ");
     const interestsString = doctor.clinicalInterests.map((item) => item.clinicalInterest).join(' - ');
 
+    const t = await getTranslations('doctors.doctorTemplate');
+
+    const doctorInfo = t.raw('doctorInfo.headers');
+
     const infoBlocks = [
 
         {
-            "header": "Specialty",
+            "header": doctorInfo[0],
             "value": doctor.specialty,
             "icon": GrUserExpert
         },
 
         {
-            "header": "Languages",
+            "header": doctorInfo[1],
             "value": languagesString,
             "icon": FaLanguage
         },
 
         {
-            "header": "Clinical Interests",
+            "header": doctorInfo[2],
             "value": interestsString,
             "icon": FaMagnifyingGlass
         },
 
         {
-            "header": "Biography",
+            "header": doctorInfo[3],
             "value": biographyBlocks,
             "icon": BsBook
         },
 
         {
-            "header": "Qualifications",
+            "header": doctorInfo[4],
             "value": qualifications,
             "icon": RiVerifiedBadgeFill
         },
 
         {
-            "header": "Education",
+            "header": doctorInfo[5],
             "value": educationBlocks,
             "icon": RiGraduationCapFill
         },
@@ -113,7 +116,7 @@ const DoctorInfo = ({doctor} : { doctor : Doctor}) => {
 
                             
                         >
-                            <Icon as={item.icon} className='secondary_header'/>
+                            <item.icon className='secondary_header'/>
 
                             <h2 className='secondary_header text-nowrap '>
                                 {item.header}:

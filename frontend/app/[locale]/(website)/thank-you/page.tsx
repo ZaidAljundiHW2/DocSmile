@@ -1,8 +1,13 @@
 import React from 'react'
 import { Flex, Button } from '@chakra-ui/react'
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server';
 
-const ThankYouPage = () => {
+const ThankYouPage = async () => {
+
+  const t = await getTranslations('thankYou');
+  const tButtons = await getTranslations('buttons');
+
   return (
     <div
         className='
@@ -33,7 +38,7 @@ const ThankYouPage = () => {
                     main_header
                 '
             >
-                Thank You!
+                {t('header')}
             </h1>
 
             <h2
@@ -41,7 +46,7 @@ const ThankYouPage = () => {
                     secondary_header
                 '
             >
-                We will get in touch with you soon.
+                {t('subheader')}
             </h2>
 
             <Link href={'/'}>
@@ -52,7 +57,7 @@ const ThankYouPage = () => {
                         "--button-bg": "#071f97",
                     } as React.CSSProperties}
                 >
-                    Home
+                    {tButtons('home')}
                 </Button>
             </Link>
 

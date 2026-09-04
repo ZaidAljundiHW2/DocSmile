@@ -1,30 +1,37 @@
 import React from 'react'
 import { Flex, Box } from '@chakra-ui/react'
+import { getTranslations } from 'next-intl/server'
 
-const journeySteps = [
-    {
-        title: "Contact Doctor Smile",
-        description: "Reach out to our team by phone, WhatsApp, or online form to get started."
-    },
-    {
-        title: "Request a Suitable Appointment",
-        description: "We'll find a time that works around your schedule."
-    },
-    {
-        title: "Attend an Assessment",
-        description: "Meet your clinician for a full evaluation of your needs."
-    },
-    {
-        title: "Receive an Individualized Treatment Plan",
-        description: "Where indicated, we'll outline a plan tailored to you."
-    },
-    {
-        title: "Decide on the Next Step",
-        description: "Discuss options with the clinical team and choose your path forward."
-    },
-]
 
-const Journey = () => {
+
+const Journey = async() => {
+
+    const t = await getTranslations('home');
+    const stepsJSON = t.raw('journey.steps');
+
+    const journeySteps = [
+        {
+            title: stepsJSON[0].title,
+            description: stepsJSON[0].desc
+        },
+        {
+            title: stepsJSON[1].title,
+            description: stepsJSON[1].desc
+        },
+        {
+            title: stepsJSON[2].title,
+            description: stepsJSON[2].desc
+        },
+        {
+            title: stepsJSON[3].title,
+            description: stepsJSON[3].desc
+        },
+        {
+            title: stepsJSON[4].title,
+            description: stepsJSON[4].desc
+        },
+    ]
+    
     return (
         <div
             className='
@@ -40,7 +47,7 @@ const Journey = () => {
         >
 
             <h1 className='main_header'>
-                Your Journey With Us
+                {t('journey.header')}
             </h1>
 
             {/* steps container */}

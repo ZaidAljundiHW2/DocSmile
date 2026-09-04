@@ -1,6 +1,7 @@
 import ComponentSubheader from '@/components/Misc/ComponentSubheader'
 import ServicesGrid from '@/components/Services/ServicesGrid'
 // import Breadcrumbs from '../../components/Misc/Breadcrumbs'
+import { getTranslations } from 'next-intl/server';
 
 async function getServices() {
 
@@ -30,13 +31,13 @@ const Services = async() => {
 
   
 
-
+	const t = await getTranslations('services');
   
   const services = await getServices();
 
   return (
     <div>
-        <ComponentSubheader heading={"Services"}/>
+        <ComponentSubheader heading={t('header')}/>
 		{/* <Breadcrumbs pages={routes}/> */}
 		
         <ServicesGrid services={services} />

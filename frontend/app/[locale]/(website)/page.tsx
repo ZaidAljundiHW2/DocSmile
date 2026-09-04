@@ -9,7 +9,7 @@ import Journey from '@/components/Home/Journey'
 import PatientInfo from '@/components/Home/PatientInfo'
 import Location from '@/components/Home/Location'
 import Contact from '@/components/Misc/ContactOptions'
-
+import { getTranslations } from "next-intl/server";
 
 async function getDoctors() {
 
@@ -91,7 +91,9 @@ export default async function Home() {
 		getDoctors(),
 		getServices(),
 		getGenDetails()
-	])
+	]);
+
+	const t = await getTranslations('home');
 
 
   return (
@@ -101,9 +103,9 @@ export default async function Home() {
 
         <UrgentCTA footerHours={genDetails.footerHours}/>
 
-        <Services services={services} header={"Our Services"} showMore={true}/>
+        <Services services={services} header={t('servicesPreview.header')} showMore={true}/>
 
-        <Doctors doctors={doctors} header={'Our Doctors'}/>
+        <Doctors doctors={doctors} header={t('doctors.header')}/>
 
         <Trust />
 

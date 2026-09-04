@@ -1,8 +1,13 @@
 'use client'
 import { Flex, Button } from '@chakra-ui/react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl';
 
-const error = () => {
+const ErrorPage = () => {
+
+  const t = useTranslations('error');
+  const tButtons = useTranslations('buttons');
+
   return (
     <div
         className='
@@ -34,7 +39,7 @@ const error = () => {
                     main_header
                 '
             >
-                Error
+                {t('title')}
             </h1>
 
             <h2
@@ -42,7 +47,7 @@ const error = () => {
                     secondary_header
                 '
             >
-                Something went wrong. Please try again later or head back to our home page.
+                {t('header')}
             </h2>
 
             <Link href={'/'}>
@@ -53,7 +58,7 @@ const error = () => {
                         "--button-bg": "#071f97",
                     } as React.CSSProperties}
                 >
-                    Home
+                    {tButtons('home')}
                 </Button>
             </Link>
 
@@ -71,4 +76,4 @@ const error = () => {
   )
 }
 
-export default error
+export default ErrorPage

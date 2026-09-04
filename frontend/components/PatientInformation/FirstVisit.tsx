@@ -1,8 +1,11 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import './PatientInformation.css'
+import { getTranslations } from 'next-intl/server'
 
-const FirstVisit = ({ text } : { text : string }) => {
+const FirstVisit = async({ text } : { text : string }) => {
+
+    const t = await getTranslations('patientInformation.firstVisit');
 
     const paragraphs = text.split('\n');
 
@@ -42,7 +45,7 @@ const FirstVisit = ({ text } : { text : string }) => {
                         color:'black'
                     }}
                 >
-                    Your First Visit
+                    {t('header')}
                 </h1>
                 
                 <Flex

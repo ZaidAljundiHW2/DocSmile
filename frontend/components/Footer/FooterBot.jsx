@@ -1,7 +1,11 @@
 import { Flex, Box } from "@chakra-ui/react"
 import Link from "next/link"
+import { getTranslations } from 'next-intl/server';
 
-const FooterBot = () => {
+const FooterBot = async () => {
+
+  const t = await getTranslations('footer.footerBot');
+
   return (
     <div
         className='
@@ -26,7 +30,7 @@ const FooterBot = () => {
             "
         >
             <h1 className="text-sm md:text-base">
-                &copy; 2026 Doctor Smile Dental Center. All Rights Reserved
+                {t('copyright')}
             </h1>
         </Flex>
 
@@ -46,7 +50,7 @@ const FooterBot = () => {
 
             <Link href={'/Legal/TOS'}>
                 <h1 className="text-sm md:text-base">
-                    Terms of Service
+                    {t('tos')}
                 </h1>
             </Link>
             
@@ -55,7 +59,7 @@ const FooterBot = () => {
 
             <Link href={'/Legal/PrivacyPolicy'}>
                 <h1 className="text-sm md:text-base">
-                    Privacy Policy
+                    {t('pp')}
                 </h1>
             </Link>
             
@@ -64,7 +68,7 @@ const FooterBot = () => {
 
             <Link href={'/Legal/CookiePolicy'}>
                 <h1 className="text-sm md:text-base">
-                    Cookie Policy
+                    {t('cp')}
                 </h1>
             </Link>
             

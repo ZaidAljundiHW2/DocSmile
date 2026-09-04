@@ -1,27 +1,31 @@
 import React from 'react'
 import { Flex, SimpleGrid } from '@chakra-ui/react'
 import Image from 'next/image'
+import { getTranslations } from 'next-intl/server'
 
-const Trust = () => {
+const Trust = async() => {
+
+    const t = await getTranslations('home');
+    const trustJSON = t.raw('trust');
 
     const TrustJSON = [
         {
-            "name":"Coordinated Team",
+            "name":trustJSON[0].name,
             "img": "/icons/webp.png"
         },
         
         {
-            "name":"Bilingual Communication",
+            "name":trustJSON[1].name,
             "img": "/icons/webp.png"
         },
 
         {
-            "name":"Accessible Location",
+            "name":trustJSON[2].name,
             "img": "/icons/webp.png"
         },
 
         {
-            "name":"Patient-Contact Support",
+            "name":trustJSON[3].name,
             "img": "/icons/webp.png"
         }
     ]
@@ -32,7 +36,7 @@ const Trust = () => {
             bg-[#CCE0FF]
             p-5
         '
-        
+    
     >
 
         <SimpleGrid

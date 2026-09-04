@@ -5,11 +5,12 @@ import BookButton from '../Misc/BookButton';
 import CallButton from '../Misc/CallButton';
 import WhatsappButton from '../Misc/WhatsappButton';
 import { Service } from '@/payload-types'
+import { getTranslations } from 'next-intl/server';
 
-
-const ServiceQualifications = ({ service } : {service : Service}) => {
+const ServiceQualifications = async({ service } : {service : Service}) => {
 
 	const qualBlocks = service.content?.qualificationsParagraphs.split('\n');
+	const t = await getTranslations('services.serviceTemplate.serviceQualifications');
 
   return (
     <div
@@ -100,7 +101,7 @@ const ServiceQualifications = ({ service } : {service : Service}) => {
 				gap={{base:2, md:5}}
 			>
 				<h2 className='secondary_header'>
-					Qualification Requirements
+					{t('header')}
 				</h2>
 
 				<h1 className='main_header' style={{color:'black'}}>

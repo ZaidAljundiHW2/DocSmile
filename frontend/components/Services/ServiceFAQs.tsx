@@ -1,5 +1,6 @@
 import React from 'react'
 import FAQComp from '../Misc/FAQComp'
+import { getTranslations } from 'next-intl/server'
 
 interface FQAItem {
     id:string,
@@ -11,7 +12,10 @@ interface FAQCompProps {
 	FAQObj: FQAItem[]
 }
 
-const ServiceFQAs = ({ FAQObj } : FAQCompProps) => {
+const ServiceFQAs = async({ FAQObj } : FAQCompProps) => {
+
+    const t = await getTranslations('services.serviceTemplate.FAQs');
+
   return (
     <div
         className='
@@ -33,7 +37,7 @@ const ServiceFQAs = ({ FAQObj } : FAQCompProps) => {
                 color:'black'
             }}
         >
-            Frequently Asked Questions
+            {t('header')}
         </h1>
 
         <FAQComp FAQObj={FAQObj}/>

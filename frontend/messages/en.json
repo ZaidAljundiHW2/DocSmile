@@ -14,7 +14,16 @@
         "hero": {
             "header": "Doctor Smile Dental Center",
             "h1": "Doctor Smile Dental Center is one of Kuwait's finest and most modern private dental care centers, located at the prestigious Laila Tower in Salem Al-Mubarak.",
-            "approvedMessage": "Short approved message"
+            "approvedMessage": "Short approved message",
+            "book":"Book your appointment now"
+        },
+
+        "servicesPreview": {
+            "header":"Our Services"
+        },
+
+        "doctors": {
+            "header":"Our Doctors"
         },
 
         "journey": {
@@ -59,14 +68,14 @@
 
         },
 
-        "PatientInfo": {
+        "patientInfo": {
             "firstVisit": "First Visit",
             "faqs": "FAQs",
             "urgentConcerns": "Urgent Concerns",
             "lph": "Location, Parking, and Hours"
         },
 
-        "Trust": [
+        "trust": [
             {
                 "name": "Coordinated Team"
             },
@@ -84,7 +93,7 @@
             }
         ],
 
-        "UrgentCTA": {
+        "urgentCTA": {
             "header": "APPROVED URGENT CONCERN HEADING"
         }
 
@@ -119,7 +128,7 @@
             },
 
             "servicesPreview": {
-                "header": "Related Services"
+                "header": "Relevant Doctor's Services"
             },
 
             "doctorBook": {
@@ -266,8 +275,7 @@
             },
 
             "message": {
-                "label": "Message",
-                "errorText": "This field is required"
+                "label": "Message"
             },
 
             "submit": "Submit"
@@ -276,6 +284,8 @@
     },
 
     "patientInformation": {
+
+        "header": "Patient Information",
 
         "firstVisit": {
             "header": "Your First Visit"
@@ -353,6 +363,8 @@
 
     "footer": {
 
+        "footerMsg": "Doctor Smile Dental Center is one of Kuwait's finest and most modern private dental care centers, located at the prestigious Laila Tower in Salem Al-Mubarak Street.",
+
         "footerMain": {
 
             "address": "Our Address",
@@ -363,7 +375,7 @@
 
         "footerBot": {
 
-            "copyright": "&copy; 2026 Doctor Smile Dental Center. All Rights Reserved",
+            "copyright": "© 2026 Doctor Smile Dental Center. All Rights Reserved",
             "tos": "Terms of Service",
             "pp": "Privacy Policy",
             "cp": "Cookie Policy"
@@ -383,7 +395,22 @@
     },
 
     "error": {
+        "title": "Error",
         "header": "Something went wrong. Please try again later or head back to our home page."
+    },
+
+    "misc": {
+
+        "errorText": "This field is required",
+
+        "contact": {
+            "call": "Call Us",
+            "whatsapp": "Whatsapp",
+            "enquire": "Enquire",
+            "book":"Book an Appointment" 
+        },
+
+        "viewMore": "View More"
     }
 
     

@@ -1,6 +1,6 @@
 import React from 'react'
 import LegalPage from '@/components/Legal/LegalPage'
-import type { Config } from '@/payload-types'
+import { getTranslations } from 'next-intl/server';
 
 async function getTOS() {
 
@@ -21,10 +21,12 @@ const TOS = async() => {
     
     const tos = await getTOS();
 
+    const t = await getTranslations('legal.tos');
+
   return (
     <div>
 
-        <LegalPage heading={'Our Terms of Service'} text={tos.tos}/>
+        <LegalPage heading={t('header')} text={tos.tos}/>
       
     </div>
   )

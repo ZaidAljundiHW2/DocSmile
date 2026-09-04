@@ -1,6 +1,10 @@
 import React from 'react'
+import { getTranslations } from 'next-intl/server'
 
-const DoctorMiscInfo = ({ doctor, date } : {doctor: string, date: string}) => {
+const DoctorMiscInfo = async({ doctor, date } : {doctor: string, date: string}) => {
+
+    const t = await getTranslations('doctors.doctorTemplate.doctorMiscInfo');
+
   return (
     <div
         className='
@@ -21,7 +25,7 @@ const DoctorMiscInfo = ({ doctor, date } : {doctor: string, date: string}) => {
                 color:'#808080'
             }}
         >
-            Reviewer: {doctor}, Last Review Date: {date}
+            {t('reviewer')}: {doctor}, {t('lrd')}: {date}
         </p>
         
     </div>

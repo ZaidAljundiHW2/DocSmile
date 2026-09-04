@@ -4,7 +4,7 @@ import FirstVisit from '@/components/PatientInformation/FirstVisit'
 import PatientFAQs from '@/components/PatientInformation/PatientFAQs'
 import UrgentCTA from '@/components/Home/UrgentCTA'
 import Location from '@/components/Home/Location'
-
+import { getTranslations } from 'next-intl/server'
 
 async function getGenDetails() {
 
@@ -30,6 +30,7 @@ async function getGenDetails() {
 
 
 async function getPatientInfo() {
+  
 
 	try {
 
@@ -51,6 +52,8 @@ async function getPatientInfo() {
 
 const PatientInformation = async() => {
 
+  const t = await getTranslations('patientInformation')
+
   const [genDetails, patientInfo] = await Promise.all([
     getGenDetails(),
     getPatientInfo()
@@ -59,7 +62,7 @@ const PatientInformation = async() => {
 
   return (
     <div>
-        <ComponentSubheader heading={'Patient Information'}/>
+        <ComponentSubheader heading={t('header')}/>
 
         <FirstVisit text={patientInfo.firstVisit}/>
 

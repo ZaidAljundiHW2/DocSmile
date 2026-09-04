@@ -1,12 +1,12 @@
-'use client'
 import React from 'react'
 import { Flex, Icon } from '@chakra-ui/react'
 import { FaUserDoctor } from "react-icons/fa6";
 import { FaRegSmile } from "react-icons/fa";
 import { FaHospital } from "react-icons/fa";
 import { FaRegThumbsUp } from "react-icons/fa";
+import { getTranslations } from 'next-intl/server';
 
-const OurCenter = ({ 
+const OurCenter = async({ 
 	doctors, 
 	ser, 
 	center, 
@@ -21,29 +21,33 @@ const OurCenter = ({
 	visitors : string  
 }) => {
 
+
+	const t = await getTranslations('about.ourCenter');
+	const stats = await t.raw('stats');
+
 	const centerstats = [
 
 		{
-			"key": "Doctors",
+			"key": stats[0],
 			"val": doctors,
 			"icon": FaUserDoctor
 		},
 
 		{
-			"key": "Visitors",
+			"key": stats[1],
 			"val": visitors,
 			"icon":FaRegSmile
 
 		},
 
 		{
-			"key": "Services",
+			"key": stats[2],
 			"val": ser,
 			"icon": FaHospital
 		},
 
 		{
-			"key": "Experience Years",
+			"key": stats[3],
 			"val":exp,
 			"icon":FaRegThumbsUp
 		}
@@ -77,7 +81,7 @@ const OurCenter = ({
 					color:'black'
 				}}
 			>
-				Our Center
+				{t('header')}
 
 			</h1>
 
@@ -111,12 +115,7 @@ const OurCenter = ({
 					'
 					key={i}
 				>
-					<Icon 
-						as={item.icon}
-						className='secondary_header'
-						color={'white'}
-						
-					/>
+					<item.icon className='secondary_header' color='white'/>
 
 					<h2 
 						className='

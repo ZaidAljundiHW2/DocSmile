@@ -3,33 +3,36 @@ import { FaQuestion } from "react-icons/fa";
 import { TbUrgent } from "react-icons/tb";
 import { FaLocationArrow } from "react-icons/fa";
 import { Flex, SimpleGrid } from '@chakra-ui/react';
+import { getTranslations } from "next-intl/server";
 
-const PatientInfo = () => {
+const PatientInfo = async() => {
+
+    const t = await getTranslations('home');
 
     const pfblock = [
         {
-            "name": "First Visit",
+            "name": t("patientInfo.firstVisit"),
             "icon": FaUserDoctor,
             "link": "",
             "bg":'red'
         },
 
         {
-            "name": "FAQs",
+            "name": t("patientInfo.faqs"),
             "icon": FaQuestion,
             "link": "",
             "bg":"yellow"
         },
 
         {
-            "name": "Urgent Concerns",
+            "name": t("patientInfo.urgentConcerns"),
             "icon": TbUrgent,
             "link":"",
             "bg":"red"
         },
 
         {
-            "name":"Location, Parking, Hours",
+            "name":t("patientInfo.lph"),
             "icon": FaLocationArrow,
             "link":"",
             "bg":"yellow"

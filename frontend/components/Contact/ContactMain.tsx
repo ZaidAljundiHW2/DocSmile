@@ -3,8 +3,12 @@ import { Flex } from '@chakra-ui/react'
 import ContactForm from './ContactForm'
 import ContactOptions from '../Misc/ContactOptions'
 import { Doctor } from '@/payload-types'
+import { getTranslations } from 'next-intl/server'
 
-const ContactMain = ({ doctors } : { doctors : Doctor[]}) => {
+const ContactMain = async({ doctors } : { doctors : Doctor[]}) => {
+
+    const t = await getTranslations('contact');
+
   return (
     <div
         className='
@@ -71,7 +75,7 @@ const ContactMain = ({ doctors } : { doctors : Doctor[]}) => {
                         fontWeight:'bold'
                     }}
                 >
-                    Contact Us
+                    {t('header')}
                 </h2>
 
                 <ContactForm doctors={doctors}/>

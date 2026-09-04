@@ -1,10 +1,14 @@
 import React from 'react'
-import miscback from '/img/Backgrounds/miscback.jpg'
 import { Flex, Box } from '@chakra-ui/react'
 import BookButton from '../Misc/BookButton'
 import CallButton from '../Misc/CallButton'
+import { getTranslations } from 'next-intl/server'
 
-const DoctorBook = ({name} : {name:string}) => {
+const DoctorBook = async({name} : {name:string}) => {
+
+    const t = await getTranslations('doctors.doctorTemplate.doctorBook');
+
+
   return (
     <div
         className='
@@ -57,7 +61,7 @@ const DoctorBook = ({name} : {name:string}) => {
                     color:'black'
                 }}
             >
-                Book an appointment with {name}
+                {t('header')} {name}
 
             </h1>
 

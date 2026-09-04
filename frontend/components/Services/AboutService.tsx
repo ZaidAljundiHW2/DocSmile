@@ -5,12 +5,14 @@ import BookButton from '../Misc/BookButton'
 import CallButton from '../Misc/CallButton'
 import WhatsappButton from '../Misc/WhatsappButton'
 import { Service } from '@/payload-types'
+import { getTranslations } from 'next-intl/server'
 
 
-
-const AboutService = ({ service } : {service : Service}) => {
+const AboutService = async({ service } : {service : Service}) => {
 
 	const aboutBlocks = service.content?.aboutParagraphs.split('\n');
+
+	const t = await getTranslations('services.serviceTemplate.aboutService');
 	
   return (
     <div
@@ -101,7 +103,7 @@ const AboutService = ({ service } : {service : Service}) => {
 			  gap={{base:2, md:5}}
             >
 				<h2 className='secondary_header'>
-					About Service
+					{t('header')}
 				</h2>
 
 				<h1 className='main_header' style={{color:'black'}}>

@@ -1,9 +1,12 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import { Service } from '@/payload-types'
+import { getTranslations } from 'next-intl/server'
 
+const ServiceProcess = async({ service } : { service : Service} ) => {
 
-const ServiceProcess = ({ service } : { service : Service} ) => {
+    const t = await getTranslations('services.serviceTemplate.process');
+
   return (
     <div
         className='
@@ -20,7 +23,7 @@ const ServiceProcess = ({ service } : { service : Service} ) => {
 
         <Flex className='flex-col'>
             <h2 className='secondary_header'>
-                Process
+                {t('header')}
             </h2>
 
             <h1 className='main_header' style={{color:'black'}}>

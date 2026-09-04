@@ -1,8 +1,8 @@
 import React from 'react'
 import { Flex, Button } from '@chakra-ui/react'
 import { FaQuestionCircle } from "react-icons/fa";
-import { FaCalendarAlt } from "react-icons/fa";
 import BookButton from '../Misc/BookButton';
+import AskQuestionButton from '../Misc/AskQuestionButton';
 
 const DoctorHeader = ({img, name, title} : {img:string, name:string, title:string}) => {
 
@@ -83,18 +83,8 @@ const DoctorHeader = ({img, name, title} : {img:string, name:string, title:strin
                     
                 '
             >
-                <Button
-                    className='
-                        button
-                    '
-
-                    style={{ "--button-bg": "#071f97" } as React.CSSProperties}
-                >
-                    Ask Question
-
-                    <FaQuestionCircle />
-
-                </Button>
+                
+                <AskQuestionButton />
 
                 <BookButton />
 

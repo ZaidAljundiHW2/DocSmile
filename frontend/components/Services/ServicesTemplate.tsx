@@ -9,11 +9,13 @@ import Contact from "../Misc/ContactOptions";
 import ServiceMiscInfo from "./ServiceMiscInfo";
 import ServiceAlts from "./ServiceAlts";
 import { Service } from '@/payload-types'
+import { getTranslations } from "next-intl/server";
 
 
 
-
-const ServicesTemplate = ({ service } : { service : Service }) => {
+const ServicesTemplate = async({ service } : { service : Service }) => {
+  
+  const t = await getTranslations('services.serviceTemplate.doctors')
 
   return (
 
@@ -31,7 +33,7 @@ const ServicesTemplate = ({ service } : { service : Service }) => {
 		
 		    <ServiceAlts service={service}/>
 
-        <Doctors doctors={service.relevantDoctors} header={service.name + " Doctors"}/>
+        <Doctors doctors={service.relevantDoctors} header={service.name + " " + t('header')}/>
 
         <ServiceFAQs FAQObj={service.FAQs}/>
 

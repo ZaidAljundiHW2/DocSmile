@@ -1,8 +1,12 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import { Service } from '@/payload-types'
+import { getTranslations } from 'next-intl/server'
 
-const ServiceAlts = ({ service } : { service : Service}) => {
+const ServiceAlts = async({ service } : { service : Service}) => {
+
+    const t = await getTranslations('services.serviceTemplate.alt');
+
   return (
     <div
         className='
@@ -21,7 +25,7 @@ const ServiceAlts = ({ service } : { service : Service}) => {
                     secondary_header
                 '
             >
-                Alternative Treatments
+                {t('header')}
 
             </h2>
             <h1

@@ -1,12 +1,12 @@
 "use client"
 import React, { useEffect } from 'react'
-import { Flex, Box, SimpleGrid } from '@chakra-ui/react'
-import DoctorsJSON from '@/assets/JSONs/doctors.json'
+import { Flex, SimpleGrid } from '@chakra-ui/react'
 import DoctorCard from '../Misc/DoctorCard'
 import { ButtonGroup, IconButton, Pagination } from "@chakra-ui/react"
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu"
 import { useState } from 'react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 const DoctorGrid = ({ doctors }) => {
 
@@ -41,7 +41,11 @@ const DoctorGrid = ({ doctors }) => {
         load();
     }, []);
 
+    const t = useTranslations('doctors.doctorGrid')
+
     if (loading) return <div>Loading doctors...</div>;
+
+    
 
 
   return (
@@ -66,7 +70,7 @@ const DoctorGrid = ({ doctors }) => {
                 borderColor:'#071f97'
             }}
         >
-            Dentists
+            {t('header')}
         </h2>
 
         <Flex

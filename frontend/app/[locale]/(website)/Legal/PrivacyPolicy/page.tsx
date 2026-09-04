@@ -1,5 +1,6 @@
 import React from 'react'
 import LegalPage from '@/components/Legal/LegalPage'
+import { getTranslations } from 'next-intl/server';
 
 async function getPP() {
 
@@ -20,13 +21,15 @@ const PrivacyPolicy = async() => {
     
     const pp = await getPP();
 
+    const t = await getTranslations('legal.pp');
+
 
 
 
 return (
     <div>
 
-        <LegalPage heading={'Our Privacy Policy'} text={pp.pp}/>
+        <LegalPage heading={t('header')} text={pp.pp}/>
     
     </div>
   )

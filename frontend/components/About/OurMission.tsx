@@ -1,6 +1,9 @@
-import React from 'react'
+import { getTranslations } from "next-intl/server"
 
-const OurMission = ({ mission } : { mission : string }) => {
+const OurMission = async({ mission } : { mission : string }) => {
+
+    const t = await getTranslations('about.OurMission');
+
   return (
     <div
         className='
@@ -23,7 +26,7 @@ const OurMission = ({ mission } : { mission : string }) => {
                 color:'black'
             }}
         >
-            Our Mission
+            {t('header')}
         </h1>
 
         <h2

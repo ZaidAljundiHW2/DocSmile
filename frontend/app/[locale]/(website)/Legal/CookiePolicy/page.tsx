@@ -1,6 +1,6 @@
 import React from 'react'
 import LegalPage from '@/components/Legal/LegalPage'
-
+import { getTranslations } from 'next-intl/server';
 
 async function getCookiesPolicy() {
 
@@ -19,7 +19,7 @@ async function getCookiesPolicy() {
 
 const CookiePolicy = async() => {
 	
-
+	const t = await getTranslations('legal.cookie')
 	const cookies = await getCookiesPolicy();
 
 
@@ -27,7 +27,7 @@ const CookiePolicy = async() => {
 	return (
 		<div>
 
-			<LegalPage heading={'Our Cookie Policy'} text={cookies.cookies}/>
+			<LegalPage heading={t('header')} text={cookies.cookies}/>
 		
 		</div>
 	)

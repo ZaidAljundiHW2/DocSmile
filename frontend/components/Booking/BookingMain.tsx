@@ -3,8 +3,12 @@ import { Flex, Button } from '@chakra-ui/react'
 import ContactOptions from '../Misc/ContactOptions'
 import BookingForm from './BookingForm'
 import { Doctor } from '@/payload-types'
+import { getTranslations } from 'next-intl/server'
 
-const BookingMain = ({ doctors, address } : { doctors : Doctor[], address : string }) => {
+const BookingMain = async({ doctors, address } : { doctors : Doctor[], address : string }) => {
+
+    const t = await getTranslations('booking');
+
   return (
     <div
         className='
@@ -66,7 +70,7 @@ const BookingMain = ({ doctors, address } : { doctors : Doctor[], address : stri
                         justifySelf:'center'
                     } as React.CSSProperties}
                 >
-                    Get Directions
+                    {t('dirHeader')}
 
                 </Button>
                 
@@ -92,7 +96,7 @@ const BookingMain = ({ doctors, address } : { doctors : Doctor[], address : stri
                         fontWeight:'bold',
                     }}
                 >
-                    Book an Appointment
+                    {t('header')}
                 </h2>
                 
                 <BookingForm doctors={doctors} />

@@ -2,8 +2,13 @@
 import React from 'react'
 import { Flex, Button } from '@chakra-ui/react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl';
 
 const NotFound = () => {
+
+	const t = useTranslations('notfound');
+	const tButtons = useTranslations('buttons');
+
   return (
     <div
 		className='
@@ -34,7 +39,7 @@ const NotFound = () => {
 					main_header
 				'
 			>
-				404 Error. Page Not Found
+				{t('header')}
 			</h1>
 
 			<h2
@@ -42,7 +47,7 @@ const NotFound = () => {
 					secondary_header
 				'
 			>
-				The page you have requested does not exist. Please continue to our home page to continue using our services.
+				{t('subheader')}
 			</h2>
 
 			<Link href={'/'}>
@@ -53,7 +58,7 @@ const NotFound = () => {
 						"--button-bg": "#071f97",
 					} as React.CSSProperties}
 				>
-					Home
+					{tButtons('home')}
 				</Button>
 			</Link>
 

@@ -1,7 +1,10 @@
 import React from 'react'
 import FAQComp from '../Misc/FAQComp'
+import { getTranslations } from 'next-intl/server'
 
-const PatientFAQs = ({FAQs}) => {
+const PatientFAQs = async({FAQs}) => {
+
+	const t = await getTranslations('patientInformation.FAQs');
 
     
     
@@ -24,7 +27,7 @@ const PatientFAQs = ({FAQs}) => {
 				color:'black'
 			}}
 		>
-			Frequently Asked Questions by New Patients
+			{t('header')}
 		</h1>
 
 		<div className='w-full h-full mt-10'>

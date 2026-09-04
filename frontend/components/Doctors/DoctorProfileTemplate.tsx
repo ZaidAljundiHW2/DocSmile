@@ -2,14 +2,15 @@ import React from 'react'
 import './DoctorProfile.css'
 import DoctorHeader from './DoctorHeader'
 import DoctorInfo from './DoctorInfo'
-import ServicesJSON from '@/assets/JSONs/services.json'
 import ServicesPrev from '../Misc/ServicesPrev'
 import DoctorBook from './DoctorBook'
-import DoctorsJSON from '@/assets/JSONs/doctors.json'
 import DoctorMiscInfo from './DoctorMiscInfo'
 import { Doctor } from '@/payload-types'
+import { getTranslations } from 'next-intl/server'
 
-const DoctorProfileTemplate = ({ doctor } : { doctor : Doctor}) => {
+const DoctorProfileTemplate = async({ doctor } : { doctor : Doctor}) => {
+
+  const t = await getTranslations('doctors.doctorTemplate.servicesPreview')
 
   return (
     <div>
@@ -18,7 +19,7 @@ const DoctorProfileTemplate = ({ doctor } : { doctor : Doctor}) => {
 
         <DoctorInfo doctor={doctor}/>
 
-        <ServicesPrev services={doctor.services} header={"Relevant Doctor's Services"} showMore={false}/>
+        <ServicesPrev services={doctor.services} header={t('header')} showMore={false}/>
         
         <DoctorBook name={doctor.fullName}/>
 

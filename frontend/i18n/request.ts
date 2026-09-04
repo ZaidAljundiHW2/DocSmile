@@ -1,11 +1,10 @@
 // i18n/request.ts
-import { locale as getRootLocale } from "next/root-params";
 import { notFound } from "next/navigation";
 import { getRequestConfig } from "next-intl/server";
 import { locales } from "../config";
 
-export default getRequestConfig(async () => {
-  const locale = await getRootLocale();
+export default getRequestConfig(async ({ requestLocale }) => {
+  const locale = await requestLocale;
 
   if (!locale || !locales.includes(locale as any)) {
     notFound();

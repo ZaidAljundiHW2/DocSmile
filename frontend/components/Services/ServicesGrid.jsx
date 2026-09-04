@@ -1,9 +1,11 @@
 "use client"
 import { Flex, SimpleGrid, Box } from '@chakra-ui/react'
-import ServicesJSON from '@/assets/JSONs/services.json'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 const ServicesGrid = ({ services }) => {
+
+    const t = useTranslations('services.servicesGrid');
 
 
   return (
@@ -29,7 +31,7 @@ const ServicesGrid = ({ services }) => {
                 borderColor:'#071f97'
             }}
         >
-            Services
+            {t('header')}
         </h2>
 
 

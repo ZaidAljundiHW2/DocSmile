@@ -1,10 +1,10 @@
 import { Flex, Box } from "@chakra-ui/react"
 import './Home.css'
-import { Button } from "@chakra-ui/react"
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa";
+import { getTranslations } from "next-intl/server";
+import WhatsappButton from "../Misc/WhatsappButton";
+import CallButton from "../Misc/CallButton";
 
-const Location = ({ genDetails }) => {
+const Location = async({ genDetails }) => {
 
     const formatTime = (iso) => {
         if (!iso) return '';
@@ -28,6 +28,10 @@ const Location = ({ genDetails }) => {
         time: d.closed ? 'Closed' : `${formatTime(d.openTime)} - ${formatTime(d.closeTime)}`
     }))
 
+    const t = await getTranslations('home');
+
+
+
   return (
     <div
         className='
@@ -47,7 +51,7 @@ const Location = ({ genDetails }) => {
 
         <Flex className="items-center gap-5 w-full md:p-10 p-5">
             <h1 className="main_header">
-                Our Location
+                {t('location.header')}
             </h1>
 
             <Box className="flex-1 h-[5px] bg-[#071f97]"/>
@@ -68,11 +72,11 @@ const Location = ({ genDetails }) => {
             >
 
                 <p>
-                    Address: {genDetails.address}
+                    {t('location.address')}: {genDetails.address}
                 </p>
 
                 <p>
-                    Telephone: +965 {genDetails.phoneNumber}
+                    {t('location.number')}: +965 {genDetails.phoneNumber}
                 </p>
 
                 <p
@@ -80,7 +84,7 @@ const Location = ({ genDetails }) => {
                         fontWeight:'bold'
                     }}
                 >
-                    Hours of Operation:
+                    {t('location.hop')}:
                 </p>
 
                 <Flex 
@@ -115,20 +119,14 @@ const Location = ({ genDetails }) => {
                 </Flex>
 
                 <p>
-                    Parking: {genDetails.parkingInformation}
+                    {t('location.parking')}: {genDetails.parkingInformation}
                 </p>
                 
                 <Flex className="md:justify-end justify-center items-center gap-5">
 
-                    <Button className="button" style={{"--button-bg": "black", padding:'20px'}}>
-                        Call Us
-                        <FaPhoneAlt />
-                    </Button>
+                    <CallButton />
 
-                    <Button className="button" style={{"--button-bg": "#25D366", padding:'20px'}}>
-                        WhatsApp Us
-                        <FaWhatsapp />
-                    </Button>
+                    <WhatsappButton />
 
                     
 

@@ -1,15 +1,17 @@
 "use client"
 import React, { useEffect } from 'react'
-import { Flex, Box, SimpleGrid } from '@chakra-ui/react'
-import TestimonialsJSON from '@/assets/JSONs/testimonials.json'
+import { Flex, SimpleGrid } from '@chakra-ui/react'
 import { ButtonGroup, IconButton, Pagination } from "@chakra-ui/react"
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu"
 import { useState } from 'react'
 import Link from 'next/link'
 import TestimonialCard from './TestimonialCard'
-import { Testimonials } from '@/payload-types'
+import { Testimonial } from '@/payload-types'
+import { useTranslations } from 'next-intl'
 
-const PatientExperienceGrid = ({ testimonialsObj } : { testimonialsObj : Testimonials[] }) => {
+const PatientExperienceGrid = ({ testimonialsObj } : { testimonialsObj : Testimonial[] }) => {
+
+    const t = useTranslations('about.patientExperience');
 
     const [allCollections, setAllCollections] = useState([]);
     const [currIndex, setCurrIndex] = useState(0);
@@ -67,7 +69,7 @@ const PatientExperienceGrid = ({ testimonialsObj } : { testimonialsObj : Testimo
                 borderColor:'#071f97'
             }}
         >
-            Patient Testimonials
+            {t('header')}
         </h2>
 
         <Flex

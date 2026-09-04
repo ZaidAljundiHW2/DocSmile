@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { FaCaretRight } from "react-icons/fa";
 import { useRef, useLayoutEffect } from 'react';
+import { useTranslations } from 'next-intl';
 
 const Navbar = () => {
 
@@ -54,6 +55,9 @@ const Navbar = () => {
         images.forEach((img) => img.removeEventListener('load', recheck))
         }
     }, [])
+
+    const t = useTranslations('navbar');
+    const tButtons = useTranslations('buttons');
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [openIndex, setOpenIndex] = useState(null);
@@ -113,62 +117,37 @@ const Navbar = () => {
         }
     }, [menuOpen])
 
-    const options = [
+    // Route metadata for each nav item, in the same order as navbar.navOptions
+    // in en.json / ar.json. Only the display "name" comes from translations —
+    // links aren't locale-specific so they stay defined here.
+    const navMeta = [
+        { hasChildren: false, link: "/" },
+        { hasChildren: false, link: "/Services" },
+        { hasChildren: false, link: "/Doctors" },
         {
-            "name": "Home",
-            "hasChildren": false,
-            "link": "/"
-        },
-
-        {
-            "name": "Services",
-            "hasChildren": false,
-            "link": "/Services"
-        },
-
-        {
-            "name": "Doctors",
-            "hasChildren": false,
-            "link": "/Doctors"
-        },
-
-        {
-            "name": "About",
-            "hasChildren": true,
-            "children": [
-                {
-                    "name": "About Us",
-                    "link": "/About/AboutUs"
-                },
-                {
-                    "name": "Patient Experience",
-                    "link": "/About/Patient-Experience"
-                },
-                {
-                    "name": "Our Laboratory",
-                    "link": "/About/Laboratory"
-                }
+            hasChildren: true,
+            children: [
+                { link: "/About/AboutUs" },
+                { link: "/About/Patient-Experience" },
+                { link: "/About/Laboratory" }
             ]
         },
+        { hasChildren: false, link: "/Patient-Information" },
+        { hasChildren: false, link: "/Contact" },
+        { hasChildren: false, link: "/Booking" }
+    ];
 
-        {
-            "name": "Patient Information",
-            "hasChildren": false,
-            "link": "/Patient-Information"
-        },
+    const navOptionsRaw = t.raw('navOptions');
 
-        {
-            "name": "Contact",
-            "hasChildren": false,
-            "link": "/Contact"
-        },
-
-        {
-            "name": "Book Appointment",
-            "hasChildren": false,
-            "link": "/Booking"
-        }
-    ]
+    const options = navOptionsRaw.map((opt, i) => ({
+        name: opt.name,
+        hasChildren: navMeta[i].hasChildren,
+        link: navMeta[i].link,
+        children: opt.children?.map((child, j) => ({
+            name: child.name,
+            link: navMeta[i].children[j].link
+        }))
+    }));
 
     
 
@@ -249,7 +228,7 @@ const Navbar = () => {
                 >
                     
                     <Link 
-                        href={'/'}
+                        href={options[0].link}
                         className={`
                             ${isVisible ? 'text-[#808080]' : 'text-white'}
                             transition-color
@@ -257,30 +236,30 @@ const Navbar = () => {
                         `}
                     >
                         
-                        Home
+                        {options[0].name}
                         
                     </Link>
                     
                     <Link 
-                        href={'/Services'}
+                        href={options[1].link}
                         className={`
                             ${isVisible ? 'text-[#808080]' : 'text-white'}
                             transition-color
                             duration-300
                         `}
                     >
-                        Services
+                        {options[1].name}
                     </Link>
                     
                     <Link 
-                        href={'/Doctors'}
+                        href={options[2].link}
                         className={`
                             ${isVisible ? 'text-[#808080]' : 'text-white'}
                             transition-color
                             duration-300
                         `}
                     >
-                        Doctors
+                        {options[2].name}
                     </Link>
                     
                 
@@ -300,7 +279,7 @@ const Navbar = () => {
                                         duration-300
                                     `}
                                 >
-                                    About
+                                    {options[3].name}
                                 </div>
                                 
 
@@ -330,34 +309,34 @@ const Navbar = () => {
                                 }}
                             >
 
-                                <Link href={'/About/AboutUs'}>
+                                <Link href={options[3].children[0].link}>
                                     <Menu.Item 
                                         value="About Us" 
                                         as={'h1'}
                                     
 
                                     >
-                                        About Us
+                                        {options[3].children[0].name}
                                     </Menu.Item>
                                 </Link>
                                 
-                                <Link href={'/About/Patient-Experience'}>
+                                <Link href={options[3].children[1].link}>
                                     <Menu.Item 
                                         value="Patient Experience" 
                                         as={'h1'}
                                     
                                     >
-                                        Patient Experience
+                                        {options[3].children[1].name}
                                     </Menu.Item>
                                 </Link>
 
-                                <Link href={'/About/Laboratory'}>
+                                <Link href={options[3].children[2].link}>
                                     <Menu.Item 
                                         value="Our Laboratory" 
                                         as={'h1'}
                                         
                                     >
-                                        Our Laboratory
+                                        {options[3].children[2].name}
                                     </Menu.Item>
                                 </Link>
                                 
@@ -367,7 +346,7 @@ const Navbar = () => {
                     </Menu.Root>
                     
                     <Link 
-                        href={'/Patient-Information'}
+                        href={options[4].link}
                         className={`
                             ${isVisible ? 'text-[#808080]' : 'text-white'}
                             transition-color
@@ -375,21 +354,21 @@ const Navbar = () => {
                         `}
                     >
                     
-                        Patient Information
+                        {options[4].name}
                     </Link>
 
                     <Link 
-                        href={'/Contact'}
+                        href={options[5].link}
                         className={`
                             ${isVisible ? 'text-[#808080]' : 'text-white'}
                             transition-color
                             duration-300
                         `}
                     >
-                            Contact
+                            {options[5].name}
                     </Link>
                     
-                    <Link href={'/Booking'}>
+                    <Link href={options[6].link}>
                         <Button
                             className='
                                 rounded-full
@@ -408,7 +387,7 @@ const Navbar = () => {
                             <FaUserDoctor />
 
                             
-                            Request Appointment
+                            {tButtons('book')}
                                 
 
                         </Button>

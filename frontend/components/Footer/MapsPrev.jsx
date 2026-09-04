@@ -12,9 +12,11 @@ import { FaYoutube } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaSnapchat } from "react-icons/fa";
 import LanguageSwitch from '../Misc/LanguageSwitch';
+import { useTranslations } from 'next-intl';
 
 const MapsPrev = ({ socials, genDetails }) => {
 
+    const t = useTranslations('footer');
 
     
 
@@ -58,7 +60,7 @@ const MapsPrev = ({ socials, genDetails }) => {
             />
 
             <h1>
-                Doctor Smile Dental Center is one of Kuwait&apos;s finest and most modern private dental care centers, located at the prestigious Laila Tower in Salem Al-Mubarak Street.
+                {t('footerMsg')}
             </h1>
 
 
@@ -74,7 +76,7 @@ const MapsPrev = ({ socials, genDetails }) => {
                         '
                     >
                         <h1>
-                            Our address
+                            {t('footerMain.address')}
                         </h1>
 
                         <h1>
@@ -95,7 +97,7 @@ const MapsPrev = ({ socials, genDetails }) => {
                         '
                     >
                         <h1>
-                            Working Hours
+                            {t('footerMain.workingHours')}
                         </h1>
 
                         <h1>
@@ -117,7 +119,7 @@ const MapsPrev = ({ socials, genDetails }) => {
                         '
                     >
                         <h1>
-                            Email address
+                            {t('footerMain.emai')}
                         </h1>
 
                         <h1>
@@ -139,7 +141,7 @@ const MapsPrev = ({ socials, genDetails }) => {
                         '
                     >
                         <h1>
-                            Phone Number
+                            {t('footerMain.number')}
                         </h1>
 
                         <h1>

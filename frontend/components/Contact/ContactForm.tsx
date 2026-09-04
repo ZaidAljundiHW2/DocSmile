@@ -3,23 +3,27 @@ import React, { useState } from 'react'
 import { Field, Textarea, Button } from "@chakra-ui/react"
 import InputTag from '../Misc/InputTag';
 import SelectTag from '../Misc/SelectTag';
-import DoctorsJSON from '@/assets/JSONs/doctors.json'
 import { redirect, RedirectType } from 'next/navigation'
 import { Doctor } from '@/payload-types';
+import { useTranslations } from 'next-intl';
 
 const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
+
+    const t = useTranslations('contact.contactForm');
+    const tMisc = useTranslations('misc');
 
     // name
     const [name, setName] = useState("");
     const [nameError, setNameError] = useState(false);
 
     const nameInput = {
-        placeholder: "Enter Name",
+        placeholder: t('name.placeholder'),
         value: name,
         setInput: setName,
         required: true,
         isError: nameError,
-        label: "Name",
+        errorText: tMisc('errorText'),
+        label: t('name.label'),
         disabled: false,
     }
 
@@ -42,12 +46,13 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
     const [numberError, setNumberError] = useState(false);
 
     const numberInput = {
-        placeholder: "Enter Number",
+        placeholder: t('phoneNumber.placeholder'),
         value: number,
         setInput: setNumber,
         required: true,
         isError: numberError,
-        label: "Phone Number",
+        errorText: tMisc('errorText'),
+        label: t('phoneNumber.label'),
         disabled: false,
         number: true,
     }
@@ -70,7 +75,7 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
     const [doctor, setDoctor] = useState("");
 
     const doctorSelect = {
-        label: "Related Doctor",
+        label: t('relatedDoctor.label'),
         value: doctor,
         setSelect: setDoctor,
         required: false,
@@ -168,7 +173,7 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
 
         <Field.Root invalid={messageError} required className='w-full' color={'black'}>
             <Field.Label>
-                Message <Field.RequiredIndicator />
+                {t('message.label')} <Field.RequiredIndicator />
             </Field.Label>
 
             <Textarea
@@ -180,11 +185,11 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
                 style={{ height: '100px' }}
             />
 
-            <Field.ErrorText>This field is required</Field.ErrorText>
+            <Field.ErrorText>{tMisc('errorText')}</Field.ErrorText>
         </Field.Root>
 
         <Button bg={'#0071e3'} color={'white'} onClick={handleSubmit}>
-            Submit
+            {t('submit')}
         </Button>
     </div>
   )

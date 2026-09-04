@@ -1,11 +1,11 @@
 "use client"
 import React, { useState } from 'react'
-import { Field, Textarea, Button, Checkbox, Input, Flex } from "@chakra-ui/react"
+import { Field, Textarea, Button } from "@chakra-ui/react"
 import InputTag from '../Misc/InputTag';
 import SelectTag from '../Misc/SelectTag';
-import DoctorsJSON from '@/assets/JSONs/doctors.json'
 import { redirect, RedirectType } from 'next/navigation'
 import { Doctor } from '@/payload-types';
+import { useTranslations } from 'next-intl';
 
 const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
 
@@ -23,17 +23,21 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
     //     options: ['English', 'Arabic']
     // }
 
+    const t = useTranslations('booking.bookingForm');
+    const tMisc = useTranslations('misc');
+
     // full name
     const [name, setName] = useState("");
     const [nameError, setNameError] = useState(false);
 
     const nameInput = {
-        placeholder: "Enter Full Name",
+        placeholder: t("fullName.placeholder"),
         value: name,
         setInput: setName,
         required: true,
         isError: nameError,
-        label: "Full Name",
+        errorText: tMisc('errorText'),
+        label: t("fullName.label"),
         disabled: false,
     }
 
@@ -56,12 +60,13 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
     const [numberError, setNumberError] = useState(false);
 
     const numberInput = {
-        placeholder: "Enter Mobile Number",
+        placeholder: t("mobileNumber.placeholder"),
         value: number,
         setInput: setNumber,
         required: true,
         isError: numberError,
-        label: "Kuwait Mobile Number",
+        errorText: tMisc('errorText'),
+        label: t("mobileNumber.label"),
         disabled: false,
         number: true,
     }
@@ -116,7 +121,7 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
     const [doctor, setDoctor] = useState("");
 
     const doctorSelect = {
-        label: "Preferred Doctor",
+        label: t("preferredDoctor.label"),
         value: doctor,
         setSelect: setDoctor,
         required: false,
@@ -202,8 +207,8 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
             <InputTag inputObj={numberInput} />
             <SelectTag selectObj={doctorSelect} />
 
-            <Field.Root color={'black'}>
-                <Field.Label>Reason for Visit</Field.Label>
+            <Field.Root invalid={noteError} color={'black'}>
+                <Field.Label> {t('reasonForVisit.label')} <Field.RequiredIndicator /> </Field.Label>
                 <Textarea
                     value={note}
                     onChange={(e) => setNote(e.currentTarget.value.slice(0, 500))}
@@ -212,10 +217,14 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
                     maxLength={500}
                     style={{ height: '80px' }}
                 />
+
+                <Field.ErrorText>
+                    {tMisc('errorText')}
+                </Field.ErrorText>
             </Field.Root>
 
             <Button bg={'#0071e3'} color={'white'} onClick={handleSubmit}>
-                Submit
+                {t('submit')}
             </Button>
         </div>
     )

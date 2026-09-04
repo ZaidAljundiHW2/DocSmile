@@ -2,8 +2,12 @@ import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import CallButton from '../Misc/CallButton'
 import BookButton from '../Misc/BookButton'
+import { getTranslations } from 'next-intl/server'
 
-const AboutHero = () => {
+const AboutHero = async() => {
+
+    const t = await getTranslations('about.hero');
+
   return (
     <div
         className='
@@ -59,7 +63,7 @@ const AboutHero = () => {
                     color:'white'
                 }}
             >
-                About Us
+                {t('header')}
             </h1>
 
             <h2
@@ -72,7 +76,7 @@ const AboutHero = () => {
                     fontWeight:'bold'
                 }}
             >
-                Who are Doctor Smile?
+                {t('subheader')}
 
             </h2>
 

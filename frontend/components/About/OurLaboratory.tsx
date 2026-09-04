@@ -1,9 +1,13 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
+import { getTranslations } from 'next-intl/server';
 
-const OurLaboratory = ({ text } : { text : string }) => {
+
+const OurLaboratory = async({ text } : { text : string }) => {
 
     const paragraphs = text.split('\n');
+
+    const t = await getTranslations('about.OurLaboratory');
 
   return (
     <div
@@ -32,7 +36,7 @@ const OurLaboratory = ({ text } : { text : string }) => {
                     color:'black'
                 }}
             >
-                Our Laboratory
+                {t('header')}
             </h1>
 
             <Flex
