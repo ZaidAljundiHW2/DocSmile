@@ -1,5 +1,4 @@
-"use client"
-import React from 'react'
+'use client'
 import { Flex, Button } from '@chakra-ui/react'
 import Link from 'next/link'
 

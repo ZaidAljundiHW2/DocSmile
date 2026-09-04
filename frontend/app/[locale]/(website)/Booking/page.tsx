@@ -1,68 +1,62 @@
-"use client"
 import React from 'react'
 import ComponentSubheader from '@/components/Misc/ComponentSubheader'
 import BookingMain from '@/components/Booking/BookingMain'
-import { useState, useEffect } from 'react'
 
-const Booking = () => {
+async function getDoctors() {
 
-	const [doctors, setDoctors] = useState([]);
-  const [genDetails, setGenDetails] = useState();
-	const [loading, setLoading] = useState(true);
+	try {
 
-  const getGenDetails = async() => {
-		try {
-			
-			const req = await fetch('/api/globals/clinic-general-information');
+		const req = await fetch(`${process.env.API_URL}/api/doctors`);
 
-			if (!req.ok) {
-				throw new Error("Unable to fetch socials");
-			}
+		if (!req.ok) {
 
-			const jsonData = await req.json();
-			setGenDetails(jsonData);
+			throw new Error('Could not fetch doctors');
 
-
-		} catch (error) {
-			console.error(error);
 		}
+
+		const jsonData = await req.json();
+		
+		return jsonData.docs;
+	
+
+
+	
+	} catch (error) {
+		console.error(error);
 	}
 
-  const getDoctors = async() => {
 
-    try {
-		
-		const res = await fetch('/api/doctors');
+}
 
-		if (!res.ok) {
-			throw new Error('could not fetch doctors');
+async function getGenDetails() {
+
+	try {
+			
+		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information`);
+
+		if (!req.ok) {
+			throw new Error("Unable to fetch socials");
 		}
 
-		const jsonData = await res.json();
-		setDoctors(jsonData.docs);
+		const jsonData = await req.json();
+		
+		return jsonData;
 
 
-          
-    } catch (error) {
-      	console.error(error);
-    }
-  }
-
-  useEffect(() => {
-
-    const load = async() => {
-
-      await getDoctors();
-      await getGenDetails();
-      setLoading(false);
-    }
-
-    load();
-
-  },[])
+	} catch (error) {
+		console.error(error);
+	}
 
 
-  if (loading) return <p>Loading...</p>
+}
+
+const Booking = async() => {
+
+	
+  const [doctors, genDetails] = await Promise.all([
+    getDoctors(),
+    getGenDetails(),
+  ]);
 
   return (
     <div>

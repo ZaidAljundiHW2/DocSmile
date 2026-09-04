@@ -1,20 +1,13 @@
 
 import React from 'react'
-import TestimonialsJSON from '@/assets/JSONs/testimonials.json'
 import ComponentSubheader from '@/components/Misc/ComponentSubheader';
-import { notFound } from 'next/navigation';
 import TestimonialTemplate from '@/components/About/TestimonialTemplate';
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
 
-const PatientsPerPage = 6;
 
-export function generateStaticParams() {
-    return TestimonialsJSON.map((testimonial) => ({
-        patient: testimonial.slug,
-    }))
-}
+
 
 const PatientExperiencePage = async({ params } : { params: Promise<{ patient: string }> }) => {
 
@@ -47,8 +40,7 @@ const PatientExperiencePage = async({ params } : { params: Promise<{ patient: st
     });
 
     const test = testRes.docs[0];
-    console.log("V")
-    console.log(test);
+    
 
     const allTests = res.docs;
     const testsPerPage = 6;
@@ -87,8 +79,7 @@ const PatientExperiencePage = async({ params } : { params: Promise<{ patient: st
     }
 
     const currCollection = collections[currIndex].filter(item => item.slug != patientslug);
-    console.log('A');
-    console.log(currCollection);
+   
 
     
     

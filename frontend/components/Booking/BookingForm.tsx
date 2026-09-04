@@ -178,7 +178,7 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
                 "reason": note
             }
 
-            const res = await fetch('/api/appointment-requests/add-appointment-request', {
+            const res = await fetch(`${process.env.API_URL}/api/appointment-requests/add-appointment-request`, {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)

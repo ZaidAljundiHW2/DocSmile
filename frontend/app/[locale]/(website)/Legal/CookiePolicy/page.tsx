@@ -1,38 +1,26 @@
-"use client"
 import React from 'react'
-import { useState, useEffect } from 'react';
 import LegalPage from '@/components/Legal/LegalPage'
 
-const CookiePolicy = () => {
-	const [cookies, setCookies] = useState();
-	const [loading, setLoading] = useState(true);
 
-	const getCookiesPolicy = async() => {
-		try {
+async function getCookiesPolicy() {
 
-			const req = await fetch('/api/globals/legal/cookies');
-			const jsonData = await req.json();
+	try {
 
-			setCookies(jsonData);
-			
-		} catch (error) {
-			console.error(error);
-		}
+		const req = await fetch(`${process.env.API_URL}/api/globals/legal/cookies`);
+		const jsonData = await req.json();
+
+		return jsonData;
+		
+	} catch (error) {
+		console.error(error);
 	}
 
-	useEffect(() => {
+}
 
-		const load = async() => {
-			await getCookiesPolicy();
-			setLoading(false);
-		}
+const CookiePolicy = async() => {
+	
 
-		load();
-
-	},[]);
-
-	if (loading) return <p style={{color:'black'}}>Loading...</p>
-
+	const cookies = await getCookiesPolicy();
 
 
 

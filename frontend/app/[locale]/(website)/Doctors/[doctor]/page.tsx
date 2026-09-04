@@ -1,8 +1,6 @@
 import React from 'react'
 import ComponentSubheader from '@/components/Misc/ComponentSubheader'
-import DoctorsJSON from '@/assets/JSONs/doctors.json'
 import DoctorProfileTemplate from '@/components/Doctors/DoctorProfileTemplate'
-import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
@@ -30,9 +28,6 @@ const Doctor = async ({
         limit:1,
         depth:2
     })
-
-    console.log(result);
-
      
 
     return (

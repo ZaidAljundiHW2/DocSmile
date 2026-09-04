@@ -1,77 +1,60 @@
-"use client"
 import React from 'react'
 import ComponentSubheader from '@/components/Misc/ComponentSubheader'
 import FirstVisit from '@/components/PatientInformation/FirstVisit'
 import PatientFAQs from '@/components/PatientInformation/PatientFAQs'
 import UrgentCTA from '@/components/Home/UrgentCTA'
 import Location from '@/components/Home/Location'
-import { useState, useEffect } from 'react'
 
-const PatientInformation = () => {
 
-  const [loading, setLoading] = useState(true);
-  const [genDetails, setGenDetails] = useState();
-  const [patientInfo, setPatientInfo] = useState();
+async function getGenDetails() {
 
-  const getGenDetails = async() => {
-		try {
+	try {
 			
-			const req = await fetch('/api/globals/clinic-general-information');
+		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information`);
 
-			if (!req.ok) {
-				throw new Error("Unable to fetch socials");
-			}
-
-			const jsonData = await req.json();
-			console.log(jsonData);
-			setGenDetails(jsonData);
-
-
-		} catch (error) {
-			console.error(error);
+		if (!req.ok) {
+			throw new Error("Unable to fetch socials");
 		}
+
+		const jsonData = await req.json();
+		
+		return jsonData;
+
+
+	} catch (error) {
+		console.error(error);
 	}
 
-  const getPatientInfo = async() => {
 
-    try {
+}
 
-      const res = await fetch('/api/globals/patient-information');
+
+async function getPatientInfo() {
+
+	try {
+
+      const res = await fetch(`${process.env.API_URL}/api/globals/patient-information`);
 
       if (!res.ok) {
         throw new Error('could not fetch patient information');
       }
 
       const jsonData = await res.json();
-      console.log('V');
-      console.log(jsonData);
-      setPatientInfo(jsonData);
+      return jsonData;
       
     } catch (error) {
       console.error(error);
     }
-  }
-
-  useEffect(() => {
-  
-    const load = async() => {
-
-      await getGenDetails();
-      await getPatientInfo();
-      setLoading(false);
 
 
-    }
+}
 
-    load();
+const PatientInformation = async() => {
 
-  },[]);
-
-  
-  
-
-  if (loading) return <p>Loading...</p>
-
+  const [genDetails, patientInfo] = await Promise.all([
+    getGenDetails(),
+    getPatientInfo()
+  ])
   
 
   return (
@@ -82,7 +65,7 @@ const PatientInformation = () => {
 
         <PatientFAQs FAQs={patientInfo.FAQs} />
 
-        <UrgentCTA />
+        <UrgentCTA footerHours={genDetails.footerHours} />
 
         <Location genDetails={genDetails}/>
         

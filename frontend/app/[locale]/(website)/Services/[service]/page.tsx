@@ -1,15 +1,7 @@
 import ServiceTemplate from '@/components/Services/ServicesTemplate'
-import ServicesJSON from '@/assets/JSONs/services.json'
-import DoctorJSON from '@/assets/JSONs/doctors.json'
-import FAQsJSON from '@/assets/JSONs/FAQs.json'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
-export function generateStaticParams() {
-    return ServicesJSON.map((service) => ({
-        service: service.slug,
-    }))
-}
 
 
 const Service = async ({

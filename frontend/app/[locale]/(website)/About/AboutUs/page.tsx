@@ -1,65 +1,54 @@
-"use client"
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import AboutHero from '@/components/About/AboutHero'
 import OurMission from '@/components/About/OurMission'
 import OurCenter from '@/components/About/OurCenter'
 
 
-const AboutUs = () => {
+async function getNumDocs() {
 
-
-  const [aboutUsBlock, setAboutUsBlock] = useState();
-  const [numDocs, setNumDocs] = useState();
-  const [numSer, setNumSer] = useState();
-  const [loading, setLoading] = useState(true);
-
-  const getNumDocs = async() => {
-    try {
+  try {
       
-      const req = await fetch('/api/doctors/numDoctors');
+    const req = await fetch(`${process.env.API_URL}/api/doctors/numDoctors`);
 
-      if (!req.ok) {
-        throw new Error('could not fetch number of doctors');
-      }
+    if (!req.ok) {
+      throw new Error('could not fetch number of doctors');
+    }
 
-      const jsonData = await req.json();
+    const jsonData = await req.json();
 
-      setNumDocs(jsonData);
-
-      
-
-
+    return jsonData;
     } catch (error) {
       console.error(error);
     }
-  }
 
-  const getNumSers = async() => {
-    try {
-      
-      const req = await fetch('/api/services/numServices');
+}
 
-      if (!req.ok) {
-        throw new Error('could not fetch number of services');
-      }
+const getNumSers = async() => {
+  try {
+    
+    const req = await fetch(`${process.env.API_URL}/api/services/numServices`);
 
-      const jsonData = await req.json();
-
-      setNumSer(jsonData);
-
-      
-
-
-    } catch (error) {
-      console.error(error);
+    if (!req.ok) {
+      throw new Error('could not fetch number of services');
     }
-  }
 
-  const getAboutUs = async() => {
+    const jsonData = await req.json();
+
+    return jsonData;
+
+    
+
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const getAboutUs = async() => {
 
     try {
       
-      const req = await fetch('/api/globals/about/AboutUs');
+      const req = await fetch(`${process.env.API_URL}/api/globals/about/AboutUs`);
 
       if (!req.ok) {
         throw new Error('Could not fetch about us information');
@@ -67,28 +56,22 @@ const AboutUs = () => {
       }
 
       const jsonData = await req.json();
-      setAboutUsBlock(jsonData);
+      return jsonData;
 
     } catch (error) {
       console.error(error);
     }
   }
 
-  useEffect(() => {
+const AboutUs = async() => {
 
-    const load = async() => {
 
-      await getAboutUs();
-      await getNumDocs();
-      await getNumSers();
-      setLoading(false);
-    }
 
-    load();
-
-  },[]);
-
-  if (loading) return <p style={{color:'black'}}>Loading...</p>
+  const [aboutUsBlock, numDocs, numSer] = await Promise.all([
+    getAboutUs(),
+    getNumDocs(),
+    getNumSers()
+  ]);
 
   return (
     <div>

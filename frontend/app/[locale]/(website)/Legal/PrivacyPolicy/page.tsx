@@ -1,37 +1,24 @@
-"use client"
 import React from 'react'
-import { useState, useEffect } from 'react';
 import LegalPage from '@/components/Legal/LegalPage'
 
-const PrivacyPolicy = () => {
-    const [pp, setPP] = useState();
-    const [loading, setLoading] = useState(true);
+async function getPP() {
 
-    const getPP = async() => {
-        try {
+    try {
 
-            const req = await fetch('/api/globals/legal/pp');
-            const jsonData = await req.json();
+        const req = await fetch(`${process.env.API_URL}/api/globals/legal/pp`);
+        const jsonData = await req.json();
 
-            setPP(jsonData);
-            
-        } catch (error) {
-            console.error(error);
-        }
+        return jsonData;
+        
+    } catch (error) {
+        console.error(error);
     }
 
-    useEffect(() => {
+}
 
-        const load = async() => {
-            await getPP();
-            setLoading(false);
-        }
-
-        load();
-
-    },[]);
-
-    if (loading) return <p style={{color:'black'}}>Loading...</p>
+const PrivacyPolicy = async() => {
+    
+    const pp = await getPP();
 
 
 

@@ -1,46 +1,32 @@
-"use client"
-import React, { useState, useEffect } from 'react'
 import PatientExperienceGrid from '@/components/About/PatientExperienceGrid'
 import ComponentSubheader from '@/components/Misc/ComponentSubheader'
 
-const PatientExperience = () => {
+async function getTestimonials() {
 
-  const [testimonials, setTestimonials] = useState();
-  const [loading, setLoading] = useState(true);
+  try {
 
-  const getTestimonials = async() => {
+    const res = await fetch(`${process.env.API_URL}/api/testimonials`);
 
-    try {
-
-      const res = await fetch('/api/testimonials');
-
-      if (!res.ok) {
-        throw new Error('could not fetch testimonials');
+    if (!res.ok) {
+      throw new Error('could not fetch testimonials');
 
 
-      }
-      
-      const jsonData = await res.json();
-      setTestimonials(jsonData.docs);
-      
-    } catch (error) {
-      console.error(error);
     }
+    
+    const jsonData = await res.json();
+    return jsonData.docs;
+    
+  } catch (error) {
+    console.error(error);
   }
+  
+}
 
-  useEffect(() => {
 
-    const load = async() => {
+const PatientExperience = async() => {
 
-      await getTestimonials();
-      setLoading(false);
-    }
-
-    load();
-
-  },[]);
-
-  if (loading) return <p>Loading...</p>
+  
+  const testimonials = await getTestimonials();
 
   
 

@@ -130,7 +130,7 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
                 "message": message
             };
 
-            const res = await fetch('/api/contact-queries/add-contact', {
+            const res = await fetch(`${process.env.API_URL}/api/contact-queries/add-contact`, {
 
                 method:'post',
                 headers: {

@@ -1,73 +1,69 @@
-"use client"
 import Header from "@/components/Navbar/Header";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/Navbar";
 import { useState, useEffect } from "react";
 
-export default function WebsiteLayout({
+
+async function getSocials () {
+
+	try {
+
+		try {
+			
+			const req = await fetch(`${process.env.API_URL}/api/globals/social`);
+
+			if (!req.ok) {
+				throw new Error("Unable to fetch socials");
+			}
+
+			const jsonData = await req.json();
+			
+			return jsonData;
+
+		} catch (error) {
+			console.error(error);
+		}
+		
+	} catch (error) {
+		console.error(error);
+	}
+}
+
+async function getGenDetails () {
+
+	try {
+			
+		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information`);
+
+		if (!req.ok) {
+			throw new Error("Unable to fetch socials");
+		}
+
+		const jsonData = await req.json();
+		
+		return jsonData;
+
+
+	} catch (error) {
+		console.error(error);
+	}
+
+
+}
+
+
+export default async function WebsiteLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
 
-	const [socials, setSocials] = useState();
-	const [genDetails, setGenDetails] = useState();
+	
 
-	const [loading, setLoading] = useState(true);
-
-
-	const getSocials = async() => {
-	  
-		try {
-			
-			const req = await fetch('/api/globals/social');
-
-			if (!req.ok) {
-				throw new Error("Unable to fetch socials");
-			}
-
-			const jsonData = await req.json();
-			setSocials(jsonData);
-
-		} catch (error) {
-			console.error(error);
-		}
-	}
-
-	const getGenDetails = async() => {
-		try {
-			
-			const req = await fetch('/api/globals/clinic-general-information');
-
-			if (!req.ok) {
-				throw new Error("Unable to fetch socials");
-			}
-
-			const jsonData = await req.json();
-			setGenDetails(jsonData);
-
-
-		} catch (error) {
-			console.error(error);
-		}
-	}
-
-	useEffect(() => {
-
-		const load = async() => {
-			await getSocials();
-			await getGenDetails();
-			
-			setLoading(false);
-
-
-		}
-
-		load();
-
-	},[]);
-
-	if (loading) return <p style={{color:'black'}}>Loading...</p>
+	const [socials, genDetails] = await Promise.all([
+		getSocials(),
+		getGenDetails()
+	]);
 
 
 	return (

@@ -1,49 +1,35 @@
-"use client"
 import React from 'react'
 import ComponentSubheader from '@/components/Misc/ComponentSubheader'
 import OurLaboratory from '@/components/About/OurLaboratory'
-import { useState, useEffect } from 'react'
-
-const Laboratory = () => {
 
 
-  const [lab, setLab] = useState();
-  const [loading, setLoading] = useState(true);
+async function getLab() {
 
-  const getLab = async() => {
+  try {
 
-    try {
+    const res = await fetch(`${process.env.API_URL}/api/globals/about/lab`);
 
-      const res = await fetch('/api/globals/about/lab');
-
-      if (!res.ok) {
-        throw new Error('could not fetch lab page');
-      }
-
-      const jsonData = await res.json();
-
-      setLab(jsonData.text);
-      console.log(jsonData);
-      
-    } catch (error) {
-      console.error(error);
+    if (!res.ok) {
+      throw new Error('could not fetch lab page');
     }
+
+    const jsonData = await res.json();
+
+    return jsonData.text;
+    
+    
+  } catch (error) {
+    console.error(error);
   }
 
-  useEffect(() => {
 
-    const load = async() => {
-      console.log("A");
-      await getLab();
-      setLoading(false);
+}
 
-    }
+const Laboratory = async() => {
 
-    load();
 
-  },[]);
-
-  if (loading) return <p style={{color:'black'}}>Loading...</p>
+  
+  const lab = await getLab();
 
   return (
     <div>
