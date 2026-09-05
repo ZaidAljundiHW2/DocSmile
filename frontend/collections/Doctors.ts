@@ -90,7 +90,13 @@ export const Doctors: CollectionConfig = {
     {
         label:'Education',
         name:'education',
-        type:'text',
+        type:'array',
+        fields: [
+            {
+                name:'Certification',
+                type:'text'
+            }
+        ],
         localized:true
     },
 

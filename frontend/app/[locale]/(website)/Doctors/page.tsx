@@ -1,13 +1,14 @@
 import React from 'react'
 import DoctorGrid from '@/components/Doctors/DoctorGrid'
 import DoctorHero from '@/components/Doctors/DoctorHero'
+import { getLocalizedPrefix } from '@/utils/getLocalizedPrefix';
+import { getLocale } from 'next-intl/server';
 
-
-async function getDoctors() {
+async function getDoctors(locale : string) {
 
 	try {
 
-		const req = await fetch(`${process.env.API_URL}/api/doctors`);
+		const req = await fetch(`${process.env.API_URL}/api/doctors?locale=${locale}`);
 
 		if (!req.ok) {
 
@@ -31,14 +32,21 @@ async function getDoctors() {
 
 const Doctors = async() => {
 
+	const locale = await getLocale();
+
 	
-	const doctors = await getDoctors();
+	const doctors = await getDoctors(locale);
+
+	const localizedDoctors = doctors?.map((doctor: any) => ({
+		...doctor,
+		prefix: getLocalizedPrefix(doctor.prefix, locale),
+	})) ?? [];
 
   return (
     <div>
         <DoctorHero /> 
 
-        <DoctorGrid doctors={doctors}/>
+        <DoctorGrid doctors={localizedDoctors}/>
 
 
         

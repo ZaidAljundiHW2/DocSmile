@@ -1,19 +1,40 @@
 "use client"
-import { useState } from "react"
 import { Flex, Box } from "@chakra-ui/react"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { useLocale } from "next-intl"
 
 const LanguageSwitch = () => {
-    const [isArabic, setIsArabic] = useState(false)
+    const locale = useLocale()
+    const isArabic = locale === "ar"
+
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
+    const router = useRouter()
+
+    const switchLocale = () => {
+        const newLocale = isArabic ? "en" : "ar"
+
+        // pathname looks like "/en/Services/some-slug" -> segments[0] is "",
+        // segments[1] is the locale prefix.
+        const segments = pathname.split("/")
+        segments[1] = newLocale
+        const newPath = segments.join("/") || "/"
+
+        const query = searchParams.toString()
+
+        router.push(query ? `${newPath}?${query}` : newPath)
+    }
 
     return (
         <Flex
+            dir="ltr"
             className="
                 relative
                 items-center
                 cursor-pointer
                 select-none
             "
-            onClick={() => setIsArabic(!isArabic)}
+            onClick={switchLocale}
             style={{
                 width: '90px',
                 height: '36px',

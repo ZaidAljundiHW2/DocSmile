@@ -13,7 +13,7 @@ const DoctorInfo = async({doctor} : { doctor : Doctor}) => {
 
     const biographyBlocks = doctor.biography.split('\n');
     const qualifications = doctor.qualifications.map((item) => item.Qualification);
-    const educationBlocks = doctor.education?.split(',');
+    const educationString = doctor.education.map((item) => item.Certification).join(" - ")
     const languagesString = doctor.languages.map((item) => item.language).join(" ");
     const interestsString = doctor.clinicalInterests.map((item) => item.clinicalInterest).join(' - ');
 
@@ -21,42 +21,62 @@ const DoctorInfo = async({doctor} : { doctor : Doctor}) => {
 
     const doctorInfo = t.raw('doctorInfo.headers');
 
+    // isList: whether `value` is an array that should be rendered line-by-line
+    // (Biography / Qualifications) vs a plain string rendered inline
+    // (Specialty / Languages / Clinical Interests / Education).
+    // stackHeader: whether the header+icon row stacks above its value (Clinical Interests only).
+    // These are explicit flags rather than comparisons against `item.header` because
+    // `header` comes from translations — in the ar locale it's Arabic text and will
+    // never equal an English literal like "Biography", so branching on it breaks
+    // per-locale.
     const infoBlocks = [
 
         {
             "header": doctorInfo[0],
             "value": doctor.specialty,
-            "icon": GrUserExpert
+            "icon": GrUserExpert,
+            "isList": false,
+            "stackHeader": false
         },
 
         {
             "header": doctorInfo[1],
             "value": languagesString,
-            "icon": FaLanguage
+            "icon": FaLanguage,
+            "isList": false,
+            "stackHeader": false
         },
 
         {
             "header": doctorInfo[2],
             "value": interestsString,
-            "icon": FaMagnifyingGlass
+            "icon": FaMagnifyingGlass,
+            "isList": false,
+            "stackHeader": true
         },
 
         {
             "header": doctorInfo[3],
             "value": biographyBlocks,
-            "icon": BsBook
+            "icon": BsBook,
+            "isList": true,
+            "stackHeader": false
         },
 
         {
             "header": doctorInfo[4],
             "value": qualifications,
-            "icon": RiVerifiedBadgeFill
+            "icon": RiVerifiedBadgeFill,
+            "isList": true,
+            "stackHeader": false
         },
 
         {
             "header": doctorInfo[5],
-            "value": educationBlocks,
-            "icon": RiGraduationCapFill
+            "value": educationString,
+            "icon": RiGraduationCapFill,
+            "isList": false,
+            "stackHeader": false
         },
 
         
@@ -104,8 +124,8 @@ const DoctorInfo = async({doctor} : { doctor : Doctor}) => {
                             items-start
                         '
                         style={{
-                            flexDirection: item.header === "Clinical Interests" ? 'column' : 'row',
-                            gap: item.header === "Clinical Interests" ? 0 : 20
+                            flexDirection: item.stackHeader ? 'column' : 'row',
+                            gap: item.stackHeader ? 0 : 20
                         }}
                     >
                         <Flex
@@ -126,7 +146,7 @@ const DoctorInfo = async({doctor} : { doctor : Doctor}) => {
                         </Flex>
                         
 
-                        {item.header !== "Biography" && item.header !== "Qualifications" && item.header !== "Education" && (
+                        {!item.isList && (
                             <h2 className='secondary_header'>
                                 {item.value}
                             </h2>
@@ -134,7 +154,7 @@ const DoctorInfo = async({doctor} : { doctor : Doctor}) => {
 
                     </Flex>
 
-                    {item.header !== "Specialty" && item.header !== "Languages" && item.header !== "Clinical Interests" && (
+                    {item.isList && (
                         <Flex
                             className='
                                 md:pl-10

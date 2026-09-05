@@ -4,7 +4,7 @@ import { Flex, SimpleGrid } from '@chakra-ui/react'
 import { ButtonGroup, IconButton, Pagination } from "@chakra-ui/react"
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu"
 import { useState } from 'react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import TestimonialCard from './TestimonialCard'
 import { Testimonial } from '@/payload-types'
 import { useTranslations } from 'next-intl'

@@ -366,6 +366,7 @@ export const Legal: GlobalConfig = {
       handler: async (req) => {
         const legal = await req.payload.findGlobal({
           slug: 'legal',
+          locale: req.locale,
         })
 
         return Response.json({ tos: legal.tos })
@@ -378,7 +379,8 @@ export const Legal: GlobalConfig = {
       path:'/pp',
       handler: async(req) => {
         const legal = await req.payload.findGlobal({
-          slug:'legal'
+          slug:'legal',
+          locale: req.locale,
         })
 
         return Response.json({ pp: legal.privacyPolicy })
@@ -390,7 +392,8 @@ export const Legal: GlobalConfig = {
       path:'/cookies',
       handler: async(req) => {
         const legal = await req.payload.findGlobal({
-          slug:'legal'
+          slug:'legal',
+          locale: req.locale,
         })
 
         return Response.json({ cookies: legal.cookiePolicy })
@@ -494,8 +497,8 @@ export const About: GlobalConfig = {
       handler: async(req) => {
 
         const aboutUs = await req.payload.findGlobal({
-
-          slug:'about'
+          slug:'about',
+          locale: req.locale,
         });
 
         return Response.json({
@@ -516,7 +519,8 @@ export const About: GlobalConfig = {
       handler: async(req) => {
 
         const ourLab = await req.payload.findGlobal({
-          slug:'about'
+          slug:'about',
+          locale: req.locale,
         });
 
         return Response.json({ text: ourLab.laboratory });

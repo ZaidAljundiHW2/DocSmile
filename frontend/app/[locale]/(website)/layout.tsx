@@ -2,7 +2,7 @@ import Header from "@/components/Navbar/Header";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/Navbar";
 import { useState, useEffect } from "react";
-
+import { getLocale } from "next-intl/server";
 
 async function getSocials () {
 
@@ -29,11 +29,11 @@ async function getSocials () {
 	}
 }
 
-async function getGenDetails () {
+async function getGenDetails (locale : string) {
 
 	try {
 			
-		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information`);
+		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information?locale=${locale}`);
 
 		if (!req.ok) {
 			throw new Error("Unable to fetch socials");
@@ -58,11 +58,12 @@ export default async function WebsiteLayout({
   children: React.ReactNode;
 }) {
 
+	const locale = await getLocale();
 	
 
 	const [socials, genDetails] = await Promise.all([
 		getSocials(),
-		getGenDetails()
+		getGenDetails(locale)
 	]);
 
 

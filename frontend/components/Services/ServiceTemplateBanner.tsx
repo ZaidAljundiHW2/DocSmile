@@ -21,7 +21,7 @@ const ServiceTemplateBanner = ({ bannerurl, name, intro } : {bannerurl : string,
             gap-5
             md:p-10
             p-5
-            
+            nonhero            
         '
     >
 

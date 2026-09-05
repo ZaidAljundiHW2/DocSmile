@@ -1,13 +1,13 @@
 import React from 'react'
 import ComponentSubheader from '@/components/Misc/ComponentSubheader'
 import OurLaboratory from '@/components/About/OurLaboratory'
+import { getLocale } from 'next-intl/server';
 
-
-async function getLab() {
+async function getLab(locale : string) {
 
   try {
 
-    const res = await fetch(`${process.env.API_URL}/api/globals/about/lab`);
+    const res = await fetch(`${process.env.API_URL}/api/globals/about/lab?locale=${locale}`);
 
     if (!res.ok) {
       throw new Error('could not fetch lab page');
@@ -28,8 +28,8 @@ async function getLab() {
 const Laboratory = async() => {
 
 
-  
-  const lab = await getLab();
+  const locale = await getLocale();
+  const lab = await getLab(locale);
 
   return (
     <div>

@@ -1,5 +1,5 @@
 import { Flex, Box } from "@chakra-ui/react"
-import Link from "next/link"
+import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server';
 
 const FooterBot = async () => {

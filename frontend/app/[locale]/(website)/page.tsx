@@ -9,13 +9,14 @@ import Journey from '@/components/Home/Journey'
 import PatientInfo from '@/components/Home/PatientInfo'
 import Location from '@/components/Home/Location'
 import Contact from '@/components/Misc/ContactOptions'
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
+import { getLocalizedPrefix } from '@/utils/getLocalizedPrefix'
 
-async function getDoctors() {
+async function getDoctors(locale: string) {
 
 	try {
 
-		const req = await fetch(`${process.env.API_URL}/api/doctors`);
+		const req = await fetch(`${process.env.API_URL}/api/doctors?locale=${locale}`);
 
 		if (!req.ok) {
 
@@ -38,11 +39,11 @@ async function getDoctors() {
 }
 
 
-async function getServices() {
+async function getServices(locale: string) {
 
 	try {
 
-		const req = await fetch(`${process.env.API_URL}/api/services`);
+		const req = await fetch(`${process.env.API_URL}/api/services?locale=${locale}`);
 
 		if (!req.ok) {
 
@@ -60,11 +61,11 @@ async function getServices() {
 
 }
 
-async function getGenDetails() {
+async function getGenDetails(locale: string) {
 
 	try {
 			
-		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information`);
+		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information?locale=${locale}`);
 
 		if (!req.ok) {
 			throw new Error("Unable to fetch socials");
@@ -84,16 +85,21 @@ async function getGenDetails() {
 
 
 export default async function Home() {
-  
-	
+
+	const locale = await getLocale();
 
 	const [doctors, services, genDetails] = await Promise.all([
-		getDoctors(),
-		getServices(),
-		getGenDetails()
+		getDoctors(locale),
+		getServices(locale),
+		getGenDetails(locale)
 	]);
 
 	const t = await getTranslations('home');
+
+	const localizedDoctors = doctors?.map((doctor: any) => ({
+		...doctor,
+		prefix: getLocalizedPrefix(doctor.prefix, locale),
+	})) ?? [];
 
 
   return (
@@ -105,7 +111,7 @@ export default async function Home() {
 
         <Services services={services} header={t('servicesPreview.header')} showMore={true}/>
 
-        <Doctors doctors={doctors} header={t('doctors.header')}/>
+        <Doctors doctors={localizedDoctors} header={t('doctors.header')}/>
 
         <Trust />
 

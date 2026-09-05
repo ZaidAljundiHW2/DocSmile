@@ -74,7 +74,7 @@ const TestimonialCard = ({ test = {} }) => {
                     </p>
 
                     <p className='main_text'>
-                        {test.date}
+                        {test.date?.split('T')[0]}
                     </p>
 
                     <Button

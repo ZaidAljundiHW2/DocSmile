@@ -2,7 +2,7 @@ import React from 'react'
 import AboutHero from '@/components/About/AboutHero'
 import OurMission from '@/components/About/OurMission'
 import OurCenter from '@/components/About/OurCenter'
-
+import { getLocale } from 'next-intl/server'
 
 async function getNumDocs() {
 
@@ -44,11 +44,11 @@ const getNumSers = async() => {
   }
 }
 
-const getAboutUs = async() => {
+const getAboutUs = async(locale : string) => {
 
     try {
       
-      const req = await fetch(`${process.env.API_URL}/api/globals/about/AboutUs`);
+      const req = await fetch(`${process.env.API_URL}/api/globals/about/AboutUs?locale=${locale}`);
 
       if (!req.ok) {
         throw new Error('Could not fetch about us information');
@@ -65,13 +65,16 @@ const getAboutUs = async() => {
 
 const AboutUs = async() => {
 
+  const locale = await getLocale();
 
 
   const [aboutUsBlock, numDocs, numSer] = await Promise.all([
-    getAboutUs(),
+    getAboutUs(locale),
     getNumDocs(),
     getNumSers()
   ]);
+
+  
 
   return (
     <div>

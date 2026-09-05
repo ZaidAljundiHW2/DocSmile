@@ -5,12 +5,13 @@ import PatientFAQs from '@/components/PatientInformation/PatientFAQs'
 import UrgentCTA from '@/components/Home/UrgentCTA'
 import Location from '@/components/Home/Location'
 import { getTranslations } from 'next-intl/server'
+import { getLocale } from 'next-intl/server'
 
-async function getGenDetails() {
+async function getGenDetails(locale : string) {
 
 	try {
 			
-		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information`);
+		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information?locale=${locale}`);
 
 		if (!req.ok) {
 			throw new Error("Unable to fetch socials");
@@ -29,12 +30,12 @@ async function getGenDetails() {
 }
 
 
-async function getPatientInfo() {
+async function getPatientInfo(locale : string) {
   
 
 	try {
 
-      const res = await fetch(`${process.env.API_URL}/api/globals/patient-information`);
+      const res = await fetch(`${process.env.API_URL}/api/globals/patient-information?locale=${locale}`);
 
       if (!res.ok) {
         throw new Error('could not fetch patient information');
@@ -52,11 +53,13 @@ async function getPatientInfo() {
 
 const PatientInformation = async() => {
 
+  const locale = await getLocale();
+
   const t = await getTranslations('patientInformation')
 
   const [genDetails, patientInfo] = await Promise.all([
-    getGenDetails(),
-    getPatientInfo()
+    getGenDetails(locale),
+    getPatientInfo(locale)
   ])
   
 

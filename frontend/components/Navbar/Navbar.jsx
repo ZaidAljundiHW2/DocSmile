@@ -3,7 +3,7 @@ import React from 'react'
 import { Flex, Box, Button } from '@chakra-ui/react'
 import './Navbar.css'
 import { FaUserDoctor } from "react-icons/fa6";
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import { Menu, Portal } from "@chakra-ui/react"
 import { FaCaretDown } from "react-icons/fa";

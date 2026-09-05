@@ -1,12 +1,14 @@
 import React from 'react'
 import ComponentSubheader from '@/components/Misc/ComponentSubheader'
 import ContactMain from '@/components/Contact/ContactMain'
+import { getLocale } from 'next-intl/server';
+import { getLocalizedPrefix } from '@/utils/getLocalizedPrefix';
 
-async function getDoctors() {
+async function getDoctors(locale : string) {
 
 	try {
 
-		const req = await fetch(`${process.env.API_URL}/api/doctors`);
+		const req = await fetch(`${process.env.API_URL}/api/doctors?locale=${locale}`);
 
 		if (!req.ok) {
 
@@ -30,14 +32,21 @@ async function getDoctors() {
 
 const Contact = async() => {
 
-  const doctors = await getDoctors();
+	const locale = await getLocale();
+
+  const doctors = await getDoctors(locale);
+
+  const localizedDoctors = doctors?.map((doctor: any) => ({
+		...doctor,
+		prefix: getLocalizedPrefix(doctor.prefix, locale),
+	})) ?? [];
 
   return (
     <div>
 
         <ComponentSubheader heading={'Contact Us'}/>
 
-        <ContactMain doctors={doctors}/>
+        <ContactMain doctors={localizedDoctors}/>
         
     </div>
   )

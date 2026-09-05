@@ -1,12 +1,14 @@
 import React from 'react'
 import ComponentSubheader from '@/components/Misc/ComponentSubheader'
 import BookingMain from '@/components/Booking/BookingMain'
+import { getLocale } from 'next-intl/server';
+import { getLocalizedPrefix } from '@/utils/getLocalizedPrefix';
 
-async function getDoctors() {
+async function getDoctors(locale : string) {
 
 	try {
 
-		const req = await fetch(`${process.env.API_URL}/api/doctors`);
+		const req = await fetch(`${process.env.API_URL}/api/doctors?locale=${locale}`);
 
 		if (!req.ok) {
 
@@ -28,11 +30,11 @@ async function getDoctors() {
 
 }
 
-async function getGenDetails() {
+async function getGenDetails(locale : string) {
 
 	try {
 			
-		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information`);
+		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information?locale=${locale}`);
 
 		if (!req.ok) {
 			throw new Error("Unable to fetch socials");
@@ -52,16 +54,23 @@ async function getGenDetails() {
 
 const Booking = async() => {
 
+	const locale = await getLocale();
+
 	
   const [doctors, genDetails] = await Promise.all([
-    getDoctors(),
-    getGenDetails(),
+    getDoctors(locale),
+    getGenDetails(locale),
   ]);
+
+  const localizedDoctors = doctors?.map((doctor: any) => ({
+		...doctor,
+		prefix: getLocalizedPrefix(doctor.prefix, locale),
+	})) ?? [];
 
   return (
     <div>
         <ComponentSubheader heading={'Book an Appointment'}/>
-        <BookingMain doctors={doctors} address={genDetails.address}/>
+        <BookingMain doctors={localizedDoctors} address={genDetails.address}/>
         
     </div>
   )

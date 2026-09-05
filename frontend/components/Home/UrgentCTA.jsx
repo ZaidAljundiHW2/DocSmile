@@ -20,6 +20,8 @@ const UrgentCTA = async({ footerHours }) => {
             items-center
 
         '
+
+        dir='ltr'
     >
 
         <div
@@ -42,6 +44,7 @@ const UrgentCTA = async({ footerHours }) => {
                 backgroundSize:"100% 100%",
             }}
 
+            
 
         />
 

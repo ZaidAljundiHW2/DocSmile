@@ -1,6 +1,6 @@
 import React from 'react'
 import { Flex, Button } from '@chakra-ui/react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server';
 
 const ThankYouPage = async () => {

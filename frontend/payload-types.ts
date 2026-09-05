@@ -208,7 +208,12 @@ export interface Doctor {
       }[]
     | null;
   biography?: string | null;
-  education?: string | null;
+  education?:
+    | {
+        Certification?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   qualifications?:
     | {
         Qualification?: string | null;
@@ -539,7 +544,12 @@ export interface DoctorsSelect<T extends boolean = true> {
         id?: T;
       };
   biography?: T;
-  education?: T;
+  education?:
+    | T
+    | {
+        Certification?: T;
+        id?: T;
+      };
   qualifications?:
     | T
     | {

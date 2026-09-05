@@ -4,7 +4,7 @@ import ComponentSubheader from '@/components/Misc/ComponentSubheader';
 import TestimonialTemplate from '@/components/About/TestimonialTemplate';
 import { getPayload } from 'payload'
 import config from '@payload-config'
-
+import { getLocale } from 'next-intl/server';
 
 
 
@@ -14,6 +14,8 @@ const PatientExperiencePage = async({ params } : { params: Promise<{ patient: st
     const patientslug = decodeURIComponent((await params).patient);
     
     const payload = await getPayload({ config });
+
+    const locale = await getLocale();
 
     const res = await payload.find({
 
@@ -36,7 +38,8 @@ const PatientExperiencePage = async({ params } : { params: Promise<{ patient: st
         },
         
         limit:1,
-        depth:2
+        depth:2,
+        locale
     });
 
     const test = testRes.docs[0];

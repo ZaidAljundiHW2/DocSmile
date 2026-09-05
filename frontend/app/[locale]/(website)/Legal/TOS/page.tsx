@@ -1,12 +1,12 @@
 import React from 'react'
 import LegalPage from '@/components/Legal/LegalPage'
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 
-async function getTOS() {
+async function getTOS(locale : string) {
 
     try {
 
-        const req = await fetch(`${process.env.API_URL}/api/globals/legal/tos`);
+        const req = await fetch(`${process.env.API_URL}/api/globals/legal/tos?locale=${locale}`);
         const jsonData = await req.json();
 
         return jsonData;
@@ -18,8 +18,10 @@ async function getTOS() {
 }
 
 const TOS = async() => {
+
+    const locale = await getLocale();
     
-    const tos = await getTOS();
+    const tos = await getTOS(locale);
 
     const t = await getTranslations('legal.tos');
 

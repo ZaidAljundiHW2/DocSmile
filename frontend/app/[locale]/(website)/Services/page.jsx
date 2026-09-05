@@ -2,12 +2,13 @@ import ComponentSubheader from '@/components/Misc/ComponentSubheader'
 import ServicesGrid from '@/components/Services/ServicesGrid'
 // import Breadcrumbs from '../../components/Misc/Breadcrumbs'
 import { getTranslations } from 'next-intl/server';
+import { getLocale } from 'next-intl/server';
 
-async function getServices() {
+async function getServices(locale) {
 
 	try {
 
-		const req = await fetch(`${process.env.API_URL}/api/services`);
+		const req = await fetch(`${process.env.API_URL}/api/services?locale=${locale}`);
 
 		if (!req.ok) {
 
@@ -24,26 +25,26 @@ async function getServices() {
 	}
 
 }
-
 const Services = async() => {
 
 	// const [routes, setRoutes] = useState(["Services"])
 
   
+	const locale = await getLocale();
 
 	const t = await getTranslations('services');
   
-  const services = await getServices();
+  	const services = await getServices(locale);
 
-  return (
-    <div>
-        <ComponentSubheader heading={t('header')}/>
-		{/* <Breadcrumbs pages={routes}/> */}
-		
-        <ServicesGrid services={services} />
+	return (
+		<div>
+			<ComponentSubheader heading={t('header')}/>
+			{/* <Breadcrumbs pages={routes}/> */}
+			
+			<ServicesGrid services={services} />
 
-    </div>
-  )
+		</div>
+  	)
 }
 
 export default Services

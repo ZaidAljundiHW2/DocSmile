@@ -1,6 +1,6 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { Testimonial } from '@/payload-types'
 
 const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collection : Testimonial[]}) => {
@@ -43,7 +43,7 @@ const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collec
                     {test.name}
                 </h1>
                 
-                {test.profileImage.url && (
+                {/* {test.profileImage.url && (
                     <img 
                         src={test.profileImage.url}
                         className='
@@ -54,7 +54,7 @@ const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collec
                         '
                     />
 
-                )}
+                )} */}
                 
             </Flex>
             
@@ -83,7 +83,7 @@ const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collec
                     <p
                         style={{color:'black'}}
                     >
-                        {test.date}
+                        {test.date?.split('T')[0]}
                     </p>
 
                     <p
