@@ -6,6 +6,7 @@ import CallButton from "../Misc/CallButton";
 
 const Location = async ({ genDetails }) => {
 
+
     const formatTime = (iso) => {
         if (!iso) return '';
 
@@ -22,22 +23,25 @@ const Location = async ({ genDetails }) => {
         return `${hour12}:${minutes} ${period}`;
     };
 
+    const t = await getTranslations('home');
+    const t2 = await getTranslations('misc');
+    const days = t2.raw('days');
+
     const operationHours = [
-        { day: 'Sunday', ...genDetails.operationHours.sunday },
-        { day: 'Monday', ...genDetails.operationHours.monday },
-        { day: 'Tuesday', ...genDetails.operationHours.tuesday },
-        { day: 'Wednesday', ...genDetails.operationHours.wednesday },
-        { day: 'Thursday', ...genDetails.operationHours.thursday },
-        { day: 'Friday', ...genDetails.operationHours.friday },
-        { day: 'Saturday', ...genDetails.operationHours.saturday },
+        { day: days[0], ...genDetails.operationHours.sunday },
+        { day: days[1], ...genDetails.operationHours.monday },
+        { day: days[2], ...genDetails.operationHours.tuesday },
+        { day: days[3], ...genDetails.operationHours.wednesday },
+        { day: days[4], ...genDetails.operationHours.thursday },
+        { day: days[5], ...genDetails.operationHours.friday },
+        { day: days[6], ...genDetails.operationHours.saturday },
     ].map(d => ({
         day: d.day,
         time: d.closed
-            ? 'Closed'
+            ? t2('closed')
             : `${formatTime(d.openTime)} - ${formatTime(d.closeTime)}`
     }));
 
-    const t = await getTranslations('home');
 
     return (
         <div
@@ -77,9 +81,13 @@ const Location = async ({ genDetails }) => {
                         {t('location.address')}: {genDetails.address}
                     </p>
 
-                    <p>
-                        {t('location.number')}: +965 {genDetails.phoneNumber}
-                    </p>
+                    <Flex>
+                        <p>{t('location.number')}:&nbsp;</p>
+
+                        <p dir="ltr">
+                            +965 {genDetails.phoneNumber}
+                        </p>
+                    </Flex>
 
                     <p style={{ fontWeight: 'bold' }}>
                         {t('location.hop')}:

@@ -410,7 +410,19 @@
             "book":"Book an Appointment" 
         },
 
-        "viewMore": "View More"
+        "viewMore": "View More",
+
+        "days": [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+
+        "closed": "Closed"
     }
 
     
