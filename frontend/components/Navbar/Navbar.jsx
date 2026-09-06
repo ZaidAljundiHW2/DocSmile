@@ -155,23 +155,25 @@ const Navbar = () => {
     <>
         <div
             className={`
+                desktop-navbar
+                ${isVisible ? 'navbar-scrolled' : ''}
 
-                bg-${isVisible ? 'white' : 'transparent'}
-                transition-color
+                ${isVisible ? 'bg-white shadow' : 'bg-transparent shadow-none'}
+
+                transition-colors
                 duration-300
-                shadow-${isVisible ? 'shadow' : 'none'}
+
                 w-full
                 flex
                 items-center
                 hidden
                 md:flex
                 fixed
-                z-999
-            
+                top-0
+                left-0
+                z-[999]
             `}
-            
             ref={headerRef}
-
         >
 
             <Flex
