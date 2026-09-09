@@ -11,11 +11,11 @@ import { getTranslations } from 'next-intl/server';
 
 const DoctorInfo = async({doctor} : { doctor : Doctor}) => {
 
-    const biographyBlocks = doctor.biography.split('\n');
-    const qualifications = doctor.qualifications.map((item) => item.Qualification);
-    const educationString = doctor.education.map((item) => item.Certification).join(" - ")
-    const languagesString = doctor.languages.map((item) => item.language).join(" ");
-    const interestsString = doctor.clinicalInterests.map((item) => item.clinicalInterest).join(' - ');
+    const biographyBlocks = (doctor.biography ?? '').split('\n');
+    const qualifications = (doctor.qualifications ?? []).map((item) => item.Qualification ?? '');
+    const educationString = (doctor.education ?? []).map((item) => item.Certification ?? '').join(" - ");
+    const languagesString = (doctor.languages ?? []).map((item) => item.language).join(" ");
+    const interestsString = (doctor.clinicalInterests ?? []).map((item) => item.clinicalInterest).join(' - ');
 
     const t = await getTranslations('doctors.doctorTemplate');
 
