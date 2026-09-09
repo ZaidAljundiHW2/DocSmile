@@ -7,7 +7,7 @@ import Doctors from '@/components/Misc/Doctors'
 import Trust from '@/components/Home/Trust'
 import Journey from '@/components/Home/Journey'
 import PatientInfo from '@/components/Home/PatientInfo'
-import Location from '@/components/Home/Location'
+import Location from '@/components/Misc/Location'
 import Contact from '@/components/Misc/ContactOptions'
 import { getTranslations, getLocale } from "next-intl/server";
 import { getLocalizedPrefix } from '@/utils/getLocalizedPrefix'

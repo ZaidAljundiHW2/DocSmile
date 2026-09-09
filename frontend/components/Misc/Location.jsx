@@ -1,8 +1,8 @@
 import { Flex, Box } from "@chakra-ui/react"
-import './Home.css'
+import '../Home/Home.css'
 import { getTranslations } from "next-intl/server";
-import WhatsappButton from "../Misc/WhatsappButton";
-import CallButton from "../Misc/CallButton";
+import WhatsappButton from "./WhatsappButton";
+import CallButton from "./CallButton";
 
 const Location = async ({ genDetails }) => {
 

@@ -1,8 +1,9 @@
 import React from 'react'
-import AboutHero from '@/components/About/AboutHero'
-import OurMission from '@/components/About/OurMission'
-import OurCenter from '@/components/About/OurCenter'
-import { getLocale } from 'next-intl/server'
+import CampaignPageTemplate from '@/components/Campaign/CampaignPageTemplate'
+import { getLocale } from 'next-intl/server';
+import { getPayload } from 'payload'
+import config from '@payload-config'
+
 
 async function getNumDocs() {
 
@@ -63,36 +64,93 @@ const getAboutUs = async(locale : string) => {
     }
   }
 
-const AboutUs = async() => {
+
+
+
+async function getGenDetails(locale: string) {
+
+	try {
+			
+		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information?locale=${locale}`);
+
+		if (!req.ok) {
+			throw new Error("Unable to fetch socials");
+		}
+
+		const jsonData = await req.json();
+		
+		return jsonData;
+
+
+	} catch (error) {
+		console.error(error);
+	}
+
+
+}
+
+
+const Campaign = async({
+  params
+} : {
+  params : Promise<{ campaign : string }>
+}) => {
+
+
+  const campaignSlug = decodeURIComponent((await params).campaign);
 
   const locale = await getLocale();
 
+  const payload = await getPayload({ config });
 
-  const [aboutUsBlock, numDocs, numSer] = await Promise.all([
+  const result = await payload.find({
+
+    collection:'campaigns',
+
+    where: {
+
+      slug: {
+
+        equals: campaignSlug
+      }
+    },
+
+    limit:1,
+    depth:2,
+    locale,
+
+    
+  });
+
+  const campaign = result.docs[0];
+
+  const [aboutUsBlock, genDetails, numDocs, numSer] = await Promise.all([
     getAboutUs(locale),
+    getGenDetails(locale),
     getNumDocs(),
     getNumSers()
   ]);
-
   
+
+
+
+
 
   return (
     <div>
-      <AboutHero />
 
-      <OurMission mission={aboutUsBlock.mission} />
-
-      <OurCenter 
-        doctors={numDocs}
-        ser={numSer}
+      <CampaignPageTemplate 
+        campaign={campaign} 
+        numDocs={numDocs}
+        numSer={numSer}
         visitors={aboutUsBlock.visitors}
         exp={aboutUsBlock.exp}
-        showCenter={true}
-        center={aboutUsBlock.center}
+        mission={aboutUsBlock.mission}
+        genDetails={genDetails}
       />
-        
+      
     </div>
   )
 }
 
-export default AboutUs
+export default Campaign

@@ -75,6 +75,7 @@ export interface Config {
     'contact-queries': ContactQuery;
     'appointment-requests': AppointmentRequest;
     appointments: Appointment;
+    campaigns: Campaign;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -90,6 +91,7 @@ export interface Config {
     'contact-queries': ContactQueriesSelect<false> | ContactQueriesSelect<true>;
     'appointment-requests': AppointmentRequestsSelect<false> | AppointmentRequestsSelect<true>;
     appointments: AppointmentsSelect<false> | AppointmentsSelect<true>;
+    campaigns: CampaignsSelect<false> | CampaignsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -389,6 +391,45 @@ export interface Appointment {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "campaigns".
+ */
+export interface Campaign {
+  id: number;
+  image?: (number | null) | Media;
+  mainHeader?: string | null;
+  secondaryHeader?: string | null;
+  startDate?: string | null;
+  endDate?: string | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  content?: {
+    header?: string | null;
+    text?: string | null;
+    originalPrice?: string | null;
+    newPrice?: string | null;
+    privileges?:
+      | {
+          privilege?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    coveredServices?: (number | Service)[] | null;
+    FAQs?:
+      | {
+          question?: string | null;
+          answer?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -442,6 +483,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'appointments';
         value: number | Appointment;
+      } | null)
+    | ({
+        relationTo: 'campaigns';
+        value: number | Campaign;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -707,6 +752,43 @@ export interface AppointmentsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "campaigns_select".
+ */
+export interface CampaignsSelect<T extends boolean = true> {
+  image?: T;
+  mainHeader?: T;
+  secondaryHeader?: T;
+  startDate?: T;
+  endDate?: T;
+  generateSlug?: T;
+  slug?: T;
+  content?:
+    | T
+    | {
+        header?: T;
+        text?: T;
+        originalPrice?: T;
+        newPrice?: T;
+        privileges?:
+          | T
+          | {
+              privilege?: T;
+              id?: T;
+            };
+        coveredServices?: T;
+        FAQs?:
+          | T
+          | {
+              question?: T;
+              answer?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -818,9 +900,39 @@ export interface Social {
  */
 export interface Legal {
   id: number;
-  privacyPolicy?: string | null;
-  tos?: string | null;
-  cookiePolicy?: string | null;
+  privacyPolicy?:
+    | {
+        level?: ('0' | '1' | '2' | '3' | '4') | null;
+        /**
+         * Only shown/used when a heading level is selected above.
+         */
+        heading?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  tos?:
+    | {
+        level?: ('0' | '1' | '2' | '3' | '4') | null;
+        /**
+         * Only shown/used when a heading level is selected above.
+         */
+        heading?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  cookiePolicy?:
+    | {
+        level?: ('0' | '1' | '2' | '3' | '4') | null;
+        /**
+         * Only shown/used when a heading level is selected above.
+         */
+        heading?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -943,9 +1055,30 @@ export interface SocialSelect<T extends boolean = true> {
  * via the `definition` "legal_select".
  */
 export interface LegalSelect<T extends boolean = true> {
-  privacyPolicy?: T;
-  tos?: T;
-  cookiePolicy?: T;
+  privacyPolicy?:
+    | T
+    | {
+        level?: T;
+        heading?: T;
+        text?: T;
+        id?: T;
+      };
+  tos?:
+    | T
+    | {
+        level?: T;
+        heading?: T;
+        text?: T;
+        id?: T;
+      };
+  cookiePolicy?:
+    | T
+    | {
+        level?: T;
+        heading?: T;
+        text?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

@@ -18,6 +18,7 @@ import { Testimonials } from "./collections/Testimonials";
 import { ContactQueries } from "./collections/ContactQueries";
 import { AppointmentRequests } from "./collections/AppointmentRequests";
 import { Appointments } from "./collections/Appointments";
+import { Campaigns } from "./collections/Campaigns";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -33,7 +34,7 @@ export default buildConfig({
     locales: ['en', 'ar'],
     defaultLocale: 'en'
   },
-  collections: [Users, Media, Doctors, Services, Testimonials, ContactQueries, AppointmentRequests, Appointments],
+  collections: [Users, Media, Doctors, Services, Testimonials, ContactQueries, AppointmentRequests, Appointments, Campaigns],
   globals: [ClinicGeneralInformation, Social, Legal, About, PatientInformation],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",

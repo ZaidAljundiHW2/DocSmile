@@ -3,7 +3,7 @@ import ComponentSubheader from '@/components/Misc/ComponentSubheader'
 import FirstVisit from '@/components/PatientInformation/FirstVisit'
 import PatientFAQs from '@/components/PatientInformation/PatientFAQs'
 import UrgentCTA from '@/components/Home/UrgentCTA'
-import Location from '@/components/Home/Location'
+import Location from '@/components/Misc/Location'
 import { getTranslations } from 'next-intl/server'
 import { getLocale } from 'next-intl/server'
 

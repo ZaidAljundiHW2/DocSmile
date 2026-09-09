@@ -1,4 +1,37 @@
-import type { GlobalConfig } from 'payload'
+import type { GlobalConfig, Field } from 'payload'
+
+
+const legalSectionFields: Field[] = [
+  {
+    name: 'level',
+    label: 'Heading Level',
+    type: 'select',
+    defaultValue: '0',
+    options: [
+      { label: 'No heading (body text only)', value: '0' },
+      { label: 'Level 1  —  e.g. 1.', value: '1' },
+      { label: 'Level 2  —  e.g. 1.1', value: '2' },
+      { label: 'Level 3  —  e.g. 1.1.1', value: '3' },
+      { label: 'Level 4  —  e.g. 1.1.1.1', value: '4' },
+    ],
+  },
+  {
+    name: 'heading',
+    label: 'Heading Text',
+    type: 'text',
+    localized: true,
+    admin: {
+      condition: (_, siblingData) => siblingData?.level !== '0',
+      description: 'Only shown/used when a heading level is selected above.',
+    },
+  },
+  {
+    name: 'text',
+    label: 'Body Text',
+    type: 'textarea',
+    localized: true,
+  },
+]
 
 export const ClinicGeneralInformation: GlobalConfig = {
   slug: 'clinic-general-information',
@@ -333,73 +366,57 @@ export const ClinicGeneralInformation: GlobalConfig = {
 }
 
 export const Legal: GlobalConfig = {
-
-  slug:'legal',
+  slug: 'legal',
   fields: [
     {
-      label:'Privacy Policy',
-      name:'privacyPolicy',
-      type:'textarea',
-      localized:true
+      label: 'Privacy Policy',
+      name: 'privacyPolicy',
+      type: 'array',
+      labels: { singular: 'Section', plural: 'Sections' },
+      fields: legalSectionFields,
     },
-
     {
-      label:'Terms of Service',
-      name:'tos',
-      type:'textarea',
-      localized:true
+      label: 'Terms of Service',
+      name: 'tos',
+      type: 'array',
+      labels: { singular: 'Section', plural: 'Sections' },
+      fields: legalSectionFields,
     },
-
     {
-      label:'Cookie Policy',
-      name:'cookiePolicy',
-      type:'textarea',
-      localized:true
-    }
+      label: 'Cookie Policy',
+      name: 'cookiePolicy',
+      type: 'array',
+      labels: { singular: 'Section', plural: 'Sections' },
+      fields: legalSectionFields,
+    },
   ],
 
   endpoints: [
-
     {
-      method:'get',
-      path:'/tos',
+      method: 'get',
+      path: '/tos',
       handler: async (req) => {
-        const legal = await req.payload.findGlobal({
-          slug: 'legal',
-          locale: req.locale,
-        })
-
+        const legal = await req.payload.findGlobal({ slug: 'legal', locale: req.locale })
         return Response.json({ tos: legal.tos })
-      }
-
+      },
     },
-
     {
-      method:'get',
-      path:'/pp',
-      handler: async(req) => {
-        const legal = await req.payload.findGlobal({
-          slug:'legal',
-          locale: req.locale,
-        })
-
+      method: 'get',
+      path: '/pp',
+      handler: async (req) => {
+        const legal = await req.payload.findGlobal({ slug: 'legal', locale: req.locale })
         return Response.json({ pp: legal.privacyPolicy })
-      }
+      },
     },
-
     {
-      method:'get',
-      path:'/cookies',
-      handler: async(req) => {
-        const legal = await req.payload.findGlobal({
-          slug:'legal',
-          locale: req.locale,
-        })
-
+      method: 'get',
+      path: '/cookies',
+      handler: async (req) => {
+        const legal = await req.payload.findGlobal({ slug: 'legal', locale: req.locale })
         return Response.json({ cookies: legal.cookiePolicy })
-      }
-    }
-  ]
+      },
+    },
+  ],
 }
 
 export const Social: GlobalConfig = {

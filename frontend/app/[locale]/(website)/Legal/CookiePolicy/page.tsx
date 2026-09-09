@@ -28,7 +28,7 @@ const CookiePolicy = async() => {
 	return (
 		<div>
 
-			<LegalPage heading={t('header')} text={cookies.cookies}/>
+			<LegalPage heading={t('header')} legalObj={cookies.cookies}/>
 		
 		</div>
 	)

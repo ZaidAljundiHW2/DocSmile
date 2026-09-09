@@ -11,14 +11,16 @@ const OurCenter = async({
 	ser, 
 	center, 
 	exp, 
-	visitors 
+	visitors,
+	showCenter
 } : 
 { 
 	doctors : number, 
 	ser : number,
 	center : string,
 	exp : string,
-	visitors : string  
+	visitors : string,
+	showCenter : boolean 
 }) => {
 
 
@@ -65,53 +67,77 @@ const OurCenter = async({
 
       	'
     >
-		<Flex
-			className='
-				flex-col
-				gap-5
-				p-10
-				
-			'
-		>
-			<h1
+
+
+		{showCenter && (
+
+			<Flex
 				className='
-					main_header
+					flex-col
+					gap-5
+					p-10
+					
 				'
-				style={{
-					color:'black'
-				}}
 			>
-				{t('header')}
+				<h1
+					className='
+						main_header
+					'
+					style={{
+						color:'black'
+					}}
+				>
+					{t('header')}
 
-			</h1>
+				</h1>
 
-			<p className='secondary_text'>
-				{center}
-			</p>
+				<p className='secondary_text'>
+					{center}
+				</p>
 
-		</Flex>
+			</Flex>
+
+		)}
+		
 		
 		{/* stats grid */}
 		<Flex
 			style={{
-				backgroundImage:`url(${'/img/Backgrounds/banner_placeholder.jpg'})`,
-				backgroundSize:'cover'
+				backgroundImage:`url(${'/img/Backgrounds/placeholderstats.webp'})`,
+				backgroundSize:'cover',
+				backgroundPosition:'center',
+				backgroundAttachment: 'fixed'
 			}}
 
 			className='
+				relative
+				overflow-hidden
 				items-center
 			'
 		>
-			
+
+			<img 
+				src={'/img/Backgrounds/HeaderBack.jpg'}
+				className='
+					absolute
+					inset-0
+					opacity-50
+					w-full
+					h-full
+					z-0
+					object-cover
+				'
+			/>
 
 			{centerstats.map((item,i) => (
 				<Flex
 					className='
+						relative
+						z-1
 						items-center
 						flex-col
 						p-5
 						flex-1
-						
 					'
 					key={i}
 				>
@@ -139,15 +165,8 @@ const OurCenter = async({
 					>
 						{item.val}
 					</h2>
-					
-					
-
 				</Flex>
-
 			))}
-
-				
-
 
 		</Flex>
         
