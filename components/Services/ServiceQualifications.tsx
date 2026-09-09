@@ -9,7 +9,9 @@ import { getTranslations } from 'next-intl/server';
 
 const ServiceQualifications = async({ service } : {service : Service}) => {
 
-	const qualBlocks = service.content?.qualificationsParagraphs.split('\n');
+	const qualBlocks = service.content?.qualificationsParagraphs?.split('\n') ?? [];
+	const qualifiers = service.content?.qualifiers ?? [];
+	const qualificationsImages = service.content?.qualificationsImages ?? [];
 	const t = await getTranslations('services.serviceTemplate.serviceQualifications');
 
   return (
@@ -67,8 +69,12 @@ const ServiceQualifications = async({ service } : {service : Service}) => {
 						rounded-xl
 						absolute
 					'
-					src={service.content?.qualificationsImages[0].image.url}
-					// alt={`${ServiceQualificationsObj.section} illustration 1`}
+					src={
+						typeof qualificationsImages[0]?.image === 'object' &&
+						qualificationsImages[0]?.image
+							? qualificationsImages[0].image.url!
+							: ''
+					}
 					loading='lazy'
 				/>
 
@@ -81,8 +87,12 @@ const ServiceQualifications = async({ service } : {service : Service}) => {
 						rounded-xl
 						absolute
 					'
-					src={service.content?.qualificationsImages[1].image.url}
-					// alt={`${ServiceQualificationsObj.section} illustration 2`}
+					src={
+						typeof qualificationsImages[1]?.image === 'object' &&
+						qualificationsImages[1]?.image
+							? qualificationsImages[1].image.url!
+							: ''
+					}
 					loading='lazy'
 				/>
 
@@ -108,7 +118,7 @@ const ServiceQualifications = async({ service } : {service : Service}) => {
 					{service.content?.qualificationsHeader}
 				</h1>
 
-				{service.content?.qualifiers.map((item,i) => (
+				{qualifiers.map((item,i) => (
 
 					<Flex 
 						key={i}
