@@ -66,8 +66,7 @@ const Navbar = () => {
 
 
     const [isVisible, setIsVisible] = useState(false);
-    const [isMobileOpen, setIsMobileOpen] = useState(false);
-    const pathName = usePathname();
+    
 
     useEffect(() => {
 
@@ -217,7 +216,6 @@ const Navbar = () => {
                     
 
                 
-                {/* Navbar */}
                 <Flex 
                     className='
                         navbaroptions 
@@ -406,184 +404,208 @@ const Navbar = () => {
         </div>
 
         <div
-            className={`
-                w-full
-                flex
-                items-center
-                justify-center
-                md:hidden
-                bg-white
-            `}
+          className={`
+              w-full
+              flex
+              items-center
+              justify-center
+              md:hidden
+              bg-white
+          `}
+      >
+          <Flex
+              className='
+                  w-full
+                  px-10
+                  items-center
+              '
+          >
+              <div
+                  className='relative z-[120]'
+              >
+                  <input
+                      id="checkbox"
+                      type="checkbox"
+                      onClick={() => setMenuOpen(prev => !prev)}
+                  />
 
-            
-        >
-            <Flex
-                
-                
-                className='
-                    w-full
-                    px-10
-                    items-center
-                '
+                  <label
+                      className="toggle"
+                      htmlFor="checkbox"
+                  >
+                      <div id="bar1" className="bars"></div>
+                      <div id="bar2" className="bars"></div>
+                      <div id="bar3" className="bars"></div>
+                  </label>
+              </div>
+
+              {menuOpen ? (
+
+                  <img
+                      src={'/icons/company-logo-white.webp'}
+                      alt='doctor smile company logo'
+                      className='
+                          ml-auto
+                          h-[100px]
+                          w-auto
+                          relative
+                          z-[120]
+                      '
+                  />
+
+              ) : (
+
+                  <img
+                      src={'/icons/company-logo.png'}
+                      alt='doctor smile company logo'
+                      className='
+                          ml-auto
+                          h-[100px]
+                          w-auto
+                          relative
+                          z-[120]
+                      '
+                  />
+
+              )}
+
+              <div
+                className={`
+                    inset-0
+                    fixed
+                    bg-[#124ddc]/95
+                    p-10
+                    z-[100]
+                    overflow-hidden
+                    transition-opacity
+                    duration-300
+                    ease-in-out
+                    ${
+                        menuOpen
+                            ? 'opacity-100 pointer-events-auto'
+                            : 'opacity-0 pointer-events-none'
+                    }
+                `}
             >
                 <div
-                    
-                    className='z-120'
+                    className='
+                        absolute
+                        top-[15vh]
+                        bottom-10
+                        left-10
+                        right-10
+                        overflow-y-auto
+                        overscroll-contain
+                        divide-y-4
+                        divide-white
+                        flex
+                        flex-col
+                        overflow-x-hidden
+                    '
                 >
-                    <input id="checkbox" type="checkbox" onClick={() => setMenuOpen(prev => !prev)} />
-                    <label className="toggle" htmlFor="checkbox">
-                        <div id="bar1" className="bars"></div>
-                        <div id="bar2" className="bars"></div>
-                        <div id="bar3" className="bars"></div>
-                    </label>
 
+                    {options.map((item, i) => (
 
-                </div>
-                
-                {menuOpen ? (
-
-                        <img 
-                            src={'/icons/company-logo-white.webp'}
-                            alt='doctor smile company logo'
-                            className='
-                                ml-auto
-                                h-[100px]
-                                w-auto
-                                z-120
-                            '
-
-                        />
-
-                    )
-                    
-                    :
-
-                    (
-                        <img 
-                            src={'/icons/company-logo.png'}
-                            alt='doctor smile company logo'
-                            className='
-                                ml-auto
-                                h-[100px]
-                                w-auto
-                                z-120
-                            '
-
-                        />
-
-                    )
-                }
-                
-
-                {menuOpen && (
-
-                    <div
-                        className='
-                            inset-0
-                            fixed
-                            bg-[#124ddc]/95
-                            p-10
-                            
-                        '
-                    >
                         <div
                             className='
-                                h-full
+                                py-5
                                 w-full
-                                overflow-y-scroll
-                                divide-y-4
-                                divide-white
-                                flex
-                                flex-col
-                                mt-[15vh]
-                                overflow-x-hidden
+                                flex-shrink-0
                             '
+                            key={i}
                         >
 
-                            {options.map((item, i) => (
-                                
-                                
-
-                                    
-                                <div
-                                    className='
-                                        p-2
-                                        w-full
-                                    '
-                                    key={i}
+                            {!item.hasChildren && (
+                                <Link
+                                    href={item.link}
+                                    onClick={() => setMenuOpen(false)}
                                 >
-                                    {!item.hasChildren && (
-                                        <Link href={item.link}>
-                                            <h1
-                                                className='
-                                                    main_header
-                                                '
-                                                style={{
-                                                    color:'white'
-                                                }}
-                                            >
-                                                {item.name}
-                                            </h1>
-                                        </Link>
+                                    <h1
+                                        className='
+                                            main_header
+                                        '
+                                        style={{
+                                            color: 'white'
+                                        }}
+                                    >
+                                        {item.name}
+                                    </h1>
+                                </Link>
+                            )}
 
-                                        
+                            {item.hasChildren && (
+                                <div>
 
-                                    )}
+                                    <Flex
+                                        className='items-center'
+                                        onClick={() =>
+                                            setOpenIndex(
+                                                openIndex === i ? null : i
+                                            )
+                                        }
+                                    >
+                                        <h1
+                                            className='main_header'
+                                            style={{
+                                                color: 'white'
+                                            }}
+                                        >
+                                            {item.name}
+                                        </h1>
 
-                                    {item.hasChildren && (
-                                        <div>
-                                            <Flex
-                                                className='items-center'
-                                                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                                            >
-                                                <h1
-                                                    className='main_header'
-                                                    style={{ color: 'white' }}
+                                        <FaCaretRight
+                                            color='white'
+                                            className={`
+                                                ml-auto
+                                                main_header
+                                                transition-transform
+                                                ${openIndex === i ? 'rotate-90' : ''}
+                                            `}
+                                        />
+                                    </Flex>
+
+                                    {openIndex === i && (
+                                        <>
+                                            {item.children.map((child, j) => (
+                                                <div
+                                                    key={j}
+                                                    className='
+                                                        w-full
+                                                        ml-10
+                                                        p-2
+                                                    '
                                                 >
-                                                    {item.name}
-                                                </h1>
-
-                                                <FaCaretRight
-                                                    color='white'
-                                                    className={`ml-auto main_header transition-transform ${openIndex === i ? 'rotate-90' : ''}`}
-                                                />
-                                            </Flex>
-
-                                            {openIndex === i && (
-                                                <>
-                                                    {item.children.map((child, j) => (
-                                                        <div key={j} className='w-full ml-10 p-2'>
-                                                            <Link href={child.link}>
-                                                                <h1
-                                                                    className='secondary_header'
-                                                                    style={{ color: 'white', fontWeight: 'bold' }}
-                                                                >
-                                                                    {child.name}
-                                                                </h1>
-                                                            </Link>
-                                                        </div>
-                                                    ))}
-                                                </>
-                                            )}
-                                        </div>
+                                                    <Link
+                                                        href={child.link}
+                                                        onClick={() => setMenuOpen(false)}
+                                                    >
+                                                        <h1
+                                                            className='secondary_header'
+                                                            style={{
+                                                                color: 'white',
+                                                                fontWeight: 'bold'
+                                                            }}
+                                                        >
+                                                            {child.name}
+                                                        </h1>
+                                                    </Link>
+                                                </div>
+                                            ))}
+                                        </>
                                     )}
-                                    
-
 
                                 </div>
-                                
-                                
-                            ))}
+                            )}
 
                         </div>
 
-                    </div>
-                )}
-            </Flex>
-            
-            
-            
-        </div>
+                    ))}
+
+                </div>
+            </div>
+
+          </Flex>
+      </div>
     
     </>
     

@@ -67,6 +67,10 @@
     transition-duration: .3s;
 }
 
+#checkbox:checked + .toggle .bars {
+    background-color: white;
+}
+
 #checkbox:checked + .toggle #bar2 {
     transform: translateY(14px) rotate(60deg);
     margin-left: 0;
