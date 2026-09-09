@@ -3,7 +3,6 @@ import CampaignHero from './CampaignHero'
 import CampaignOffer from './CampaignOffer'
 import WhyUs from './WhyUs'
 import ServicesPrev from '../Misc/ServicesPrev'
-import TestimonialCarousel from '../Misc/TestimonialCarousel'
 import CampainFAQs from './CampaignFAQs'
 import Location from '../Misc/Location'
 import ContactOptions from '../Misc/ContactOptions'
@@ -43,8 +42,6 @@ const CampaignPageTemplate = ({
       />
 
       <ServicesPrev services={campaign.content?.coveredServices} header={'Covered Services'} showMore={false}/>
-
-      <TestimonialCarousel />
 
       <CampainFAQs FAQObj={campaign.content?.FAQs} />
 
