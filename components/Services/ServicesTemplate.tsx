@@ -11,38 +11,49 @@ import ServiceAlts from "./ServiceAlts";
 import { Service } from '@/payload-types'
 import { getTranslations } from "next-intl/server";
 
+const ServicesTemplate = async ({ service }: { service: Service }) => {
 
+    const t = await getTranslations('services.serviceTemplate.doctors')
 
-const ServicesTemplate = async({ service } : { service : Service }) => {
-  
-  const t = await getTranslations('services.serviceTemplate.doctors')
+    return (
+        <div>
 
-  return (
+            <ServiceTemplateBanner
+                bannerurl={service.banner.url!}
+                name={service.name!}
+                intro={service.introduction!}
+            />
 
-    <div>
+            <AboutService service={service}/>
 
-        <ServiceTemplateBanner bannerurl={service.banner.url} name={service.name} intro={service.introduction}/>
+            <ServiceQualifications service={service}/>
 
-        <AboutService service={service}/>
-        
-        <ServiceQualifications service={service}/>
+            <ServiceBenefits service={service}/>
 
-        <ServiceBenefits service={service}/>
+            <ServiceProcess service={service}/>
 
-        <ServiceProcess service={service}/>
-		
-		    <ServiceAlts service={service}/>
+            <ServiceAlts service={service}/>
 
-        <Doctors doctors={service.relevantDoctors} header={service.name + " " + t('header')}/>
+            <Doctors
+                doctors={service.relevantDoctors}
+                header={service.name! + " " + t('header')}
+            />
 
-        <ServiceFAQs FAQObj={service.FAQs}/>
+            <ServiceFAQs FAQObj={service.FAQs ?? []}/>
 
-        <Contact isEnquire={false}/>
+            <Contact isEnquire={false}/>
 
-        <ServiceMiscInfo doctor={service.reviewer.fullName} date={service.lastReviewDate}/>
+            <ServiceMiscInfo
+                doctor={
+                    typeof service.reviewer === 'object' && service.reviewer
+                        ? service.reviewer.fullName!
+                        : ''
+                }
+                date={service.lastReviewDate!}
+            />
 
-    </div>
-  )
+        </div>
+    )
 }
 
 export default ServicesTemplate
