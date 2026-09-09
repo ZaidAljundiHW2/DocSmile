@@ -10,10 +10,14 @@ import { getTranslations } from 'next-intl/server'
 
 const AboutService = async({ service } : {service : Service}) => {
 
-	const aboutBlocks = service.content?.aboutParagraphs.split('\n');
+	
+	const content = service.content;
+    const aboutBlocks = content?.aboutParagraphs?.split('\n') ?? [];
+    const aboutImages = content?.aboutImages ?? [];
 
 	const t = await getTranslations('services.serviceTemplate.aboutService');
 	
+
   return (
     <div
         className='
@@ -70,7 +74,11 @@ const AboutService = async({ service } : {service : Service}) => {
 						rounded-xl
 						absolute
 					'
-					src={service.content.aboutImages[0].image.url}
+					src={
+						typeof aboutImages[0]?.image === 'object' && aboutImages[0]?.image
+							? aboutImages[0].image.url ?? ''
+							: ''
+					}
 					loading='lazy'
 				/>
 
@@ -85,7 +93,11 @@ const AboutService = async({ service } : {service : Service}) => {
 						rounded-xl
 						absolute
 					'
-					src={service.content.aboutImages[1].image.url}
+					src={
+						typeof aboutImages[1]?.image === 'object' && aboutImages[1]?.image
+							? aboutImages[1].image.url ?? ''
+							: ''
+					}
 					loading='lazy'
 				/>
 
@@ -107,7 +119,7 @@ const AboutService = async({ service } : {service : Service}) => {
 				</h2>
 
 				<h1 className='main_header' style={{color:'black'}}>
-					{service.content.aboutHeader}
+					{content?.aboutHeader}
 				</h1>
 
 				{aboutBlocks.map((item,i) => (

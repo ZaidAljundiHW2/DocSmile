@@ -7,6 +7,8 @@ const ServiceAlts = async({ service } : { service : Service}) => {
 
     const t = await getTranslations('services.serviceTemplate.alt');
 
+    const treatments = service.content?.treatments ?? [];
+
   return (
     <div
         className='
@@ -44,7 +46,7 @@ const ServiceAlts = async({ service } : { service : Service}) => {
         <Flex className='w-full justify-center items-center'>
             <Flex className='flex-col w-full md:w-2/3 gap-8 md:gap-5'>
 
-                {service.content?.treatments.map((item,i) => (
+                {treatments.map((item,i) => (
 
                     <Flex
                         key={i}
@@ -86,8 +88,12 @@ const ServiceAlts = async({ service } : { service : Service}) => {
                         </Flex>
 
                         <img 
-                            src={item.image.url} 
-                            alt={item.header}
+                            src={
+                                typeof item.image === 'object' && item.image
+                                    ? item.image.url ?? ''
+                                    : ''
+                            }
+                            alt={item.header ?? ''}
                             loading='lazy'
                             className={`
                                 rounded-lg

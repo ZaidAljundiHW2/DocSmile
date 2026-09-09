@@ -23,7 +23,13 @@ const ServiceBenefits = async({ service } : {service : Service }) => {
         return [leftHalf, rightHalf];
     }
 
-    const [leftHalf, rightHalf] = await splitArray(service.content?.benefits);
+    const benefits = (service.content?.benefits ?? []).map(item => ({
+        id: item.id ?? '',
+        header: item.header ?? '',
+        benefit: item.benefit ?? ''
+    }));
+
+    const [leftHalf, rightHalf] = await splitArray(benefits);
 
     const t = await getTranslations('services.serviceTemplate.benefits');
 
@@ -110,7 +116,11 @@ const ServiceBenefits = async({ service } : {service : Service }) => {
                 '
             >
                 <video 
-                    src={service.content?.video?.url}
+                    src={
+                        typeof service.content?.video === 'object' && service.content.video
+                            ? service.content.video.url ?? ''
+                            : ''
+                    }
                     autoPlay
                     loop
                     muted

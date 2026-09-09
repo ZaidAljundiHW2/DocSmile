@@ -5,6 +5,8 @@ import { getTranslations } from 'next-intl/server'
 
 const ServiceProcess = async({ service } : { service : Service} ) => {
 
+    const steps = service.content?.steps ?? [];
+
     const t = await getTranslations('services.serviceTemplate.process');
 
   return (
@@ -42,7 +44,7 @@ const ServiceProcess = async({ service } : { service : Service} ) => {
             '
         >
 
-            {service.content?.steps.map((item,i) => (
+            {steps.map((item,i) => (
 
                 <React.Fragment
                     key={i}
@@ -59,7 +61,11 @@ const ServiceProcess = async({ service } : { service : Service} ) => {
                     >
                         <img 
 
-                            src={item.image.url}
+                            src={
+                                typeof item.image === 'object' && item.image
+                                    ? item.image.url ?? ''
+                                    : ''
+                            }
                             className='
                                 w-40
                                 md:w-full
