@@ -99,7 +99,7 @@ const Campaign = async({
 
   const campaignSlug = decodeURIComponent((await params).campaign);
 
-  const locale = await getLocale();
+  const locale = await getLocale() as 'en' | 'ar' | 'all';
 
   const payload = await getPayload({ config });
 

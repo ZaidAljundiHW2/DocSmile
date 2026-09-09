@@ -167,7 +167,7 @@ export const Doctors: CollectionConfig = {
         method:'get',
         handler: async (req) => {
             
-            const doctor_slug = req.routeParams.slug;
+            const doctor_slug = await (req.routeParams?.slug);
 
             if (!doctor_slug) {
                 return Response.json({ error: 'not found' }, { status: 404 })

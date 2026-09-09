@@ -32,7 +32,7 @@ const ServicesPrev = async({services, showMore, header} : {services : Service[],
         <SimpleGrid 
             columns={3} 
             w={{base:'100%', md:'50%'}}
-            spacing={4}
+            gap={4}
         >
             {services.map((service, i) => (
                 <Flex 
@@ -54,16 +54,19 @@ const ServicesPrev = async({services, showMore, header} : {services : Service[],
                     
                     key={i}
                 >
-                    <img 
-                        src={service.image.url}
-                        className='
-                            absolute
-                            inset-0
-                            w-full
-                            h-full
-                            z-0
-                        '
-                    />
+                    {typeof service.image === 'object' && service.image && (
+                        <img 
+                            src={service.image.url ?? ''}
+                            alt={service.name ?? ''}
+                            className='
+                                absolute
+                                inset-0
+                                w-full
+                                h-full
+                                z-0
+                            '
+                        />
+                )}
                     <Box className='absolute bg-black/70 inset-0 z-1' />
                     <h2 className='secondary_header z-2' style={{ color: 'white' }}>
                         {service.name}

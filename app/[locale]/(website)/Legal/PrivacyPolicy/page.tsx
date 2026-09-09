@@ -32,7 +32,7 @@ const PrivacyPolicy = async() => {
 return (
     <div>
 
-        <LegalPage heading={t('header')} text={pp.pp}/>
+        <LegalPage heading={t('header')} legalObj={pp.pp}/>
     
     </div>
   )

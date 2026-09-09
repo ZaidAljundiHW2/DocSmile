@@ -2,7 +2,17 @@ import React from 'react'
 import FAQComp from '../Misc/FAQComp'
 import { getTranslations } from 'next-intl/server'
 
-const PatientFAQs = async({FAQs}) => {
+interface FQAItem {
+    id:string,
+  	question: string,
+	answer: string
+}
+
+interface FAQCompProps {
+	FAQObj: FQAItem[]
+}
+
+const PatientFAQs = async({FAQs} : {FAQs : FAQCompProps}) => {
 
 	const t = await getTranslations('patientInformation.FAQs');
 
@@ -31,7 +41,7 @@ const PatientFAQs = async({FAQs}) => {
 		</h1>
 
 		<div className='w-full h-full mt-10'>
-			<FAQComp FAQObj={FAQs}/>
+			<FAQComp FAQObj={FAQs.FAQObj}/>
 		</div>
 
         

@@ -15,7 +15,7 @@ const PatientExperiencePage = async({ params } : { params: Promise<{ patient: st
     
     const payload = await getPayload({ config });
 
-    const locale = await getLocale();
+    const locale = await getLocale() as 'en' | 'ar' | 'all';
 
     const res = await payload.find({
 

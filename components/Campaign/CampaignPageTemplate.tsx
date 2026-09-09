@@ -6,7 +6,7 @@ import ServicesPrev from '../Misc/ServicesPrev'
 import CampainFAQs from './CampaignFAQs'
 import Location from '../Misc/Location'
 import ContactOptions from '../Misc/ContactOptions'
-import { Campaign, ClinicGeneralInformation } from '@/payload-types'
+import { Campaign, ClinicGeneralInformation, Service } from '@/payload-types'
 
 const CampaignPageTemplate = ({ 
   campaign,
@@ -41,19 +41,26 @@ const CampaignPageTemplate = ({
         exp={exp}
       />
 
-      <ServicesPrev services={campaign.content?.coveredServices} header={'Covered Services'} showMore={false}/>
+      <ServicesPrev 
+        services={(campaign.content?.coveredServices ?? []).filter(
+          (service): service is Service => typeof service !== 'number'
+        )}
+        header={'Covered Services'} 
+        showMore={false}
+      />
 
-      <CampainFAQs FAQObj={campaign.content?.FAQs} />
+      <CampainFAQs
+        FAQObj={(campaign.content?.FAQs ?? []).map(faq => ({
+          id: faq.id ?? '',
+          question: faq.question ?? '',
+          answer: faq.answer ?? ''
+        }))}
+      />
 
       <Location genDetails={genDetails} />
 
       <ContactOptions />
 
-
-
-
-        
-      
     </div>
   )
 }

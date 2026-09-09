@@ -11,7 +11,6 @@ const CampaignOffer = ({ campaign } : { campaign : Campaign }) => {
         gap={{ base: '10', md: '16' }}
       >
 
-        {/* Left: headline + description */}
         <div className="flex-1 flex flex-col gap-4 text-center md:text-start">
           <h2 className="main_header !text-[2.5rem] md:!text-[3.5rem]">
             {campaign.content?.header}
@@ -22,7 +21,6 @@ const CampaignOffer = ({ campaign } : { campaign : Campaign }) => {
           </p>
         </div>
 
-        {/* Right: offer card */}
         <div
           className="
             flex-1
@@ -55,7 +53,7 @@ const CampaignOffer = ({ campaign } : { campaign : Campaign }) => {
           </div>
 
           <ul className="flex flex-col gap-3">
-            {campaign.content?.privileges.map((item, i) => (
+            {(campaign.content?.privileges ?? []).map((item, i) => (
               <li key={i} className="flex items-start gap-2">
                 <span className="text-[#071f97] font-bold">✓</span>
                 <span className="text-black text-sm md:text-base">{item.privilege}</span>

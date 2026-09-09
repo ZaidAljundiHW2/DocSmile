@@ -127,7 +127,9 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
         required: false,
         isError: false,
         disabled: false,
-        options: doctors.map((d) => d.fullName)
+        options: doctors
+            .map((d) => d.fullName)
+            .filter((name): name is string => name != null)
     }
 
     // preferred day (optional)
@@ -137,7 +139,7 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
     // const [timePeriod, setTimePeriod] = useState("");
 
     // const timePeriodSelect = {
-    //     label: "Preferred Time Period",
+    //     label: t("preferredTimePeriod.label"),
     //     value: timePeriod,
     //     setSelect: setTimePeriod,
     //     required: false,
@@ -173,7 +175,6 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
 
             if (hasError) return;
 
-            // resolve the selected fullName back to its slug from the fetched doctors
             const selectedDoctor = doctors.find((d) => d.fullName === doctor);
 
             const data = {

@@ -28,7 +28,7 @@ const TOS = async() => {
   return (
     <div>
 
-        <LegalPage heading={t('header')} text={tos.tos}/>
+        <LegalPage heading={t('header')} legalObj={tos.tos}/>
       
     </div>
   )

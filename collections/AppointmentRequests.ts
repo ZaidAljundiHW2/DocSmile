@@ -30,22 +30,29 @@ export const AppointmentRequests: CollectionConfig = {
       method: 'post',
       path: '/add-appointment-request',
       handler: async (req) => {
-        const data = await req.json()
+        const data = await req.json!()
 
-        let preferredDoctorId: string | null = null
+        let preferredDoctorId: number | null = null
 
         if (data.preferredDoctor) {
           const match = await req.payload.find({
             collection: 'doctors',
-            where: { slug: { equals: data.preferredDoctor } },
+            where: {
+              slug: {
+                equals: data.preferredDoctor,
+              },
+            },
             limit: 1,
           })
+
           preferredDoctorId = match.docs[0]?.id ?? null
         }
 
         await req.payload.create({
           collection: 'appointment-requests',
+          draft: false,
           data: {
+            slug: data.name,
             name: data.name,
             phoneNumber: data.phoneNumber,
             preferredDoctor: preferredDoctorId,
@@ -56,6 +63,7 @@ export const AppointmentRequests: CollectionConfig = {
         return Response.json('Appointment request added successfully')
       },
     },
+
     {
       // POST /api/appointment-requests/:id/convert
       method: 'post',
@@ -70,7 +78,9 @@ export const AppointmentRequests: CollectionConfig = {
 
         const appointment = await req.payload.create({
           collection: 'appointments',
+          draft: false,
           data: {
+            slug: `appointment-${request.id}`,
             name: request.name,
             phoneNumber: request.phoneNumber,
             assignedDoctor:

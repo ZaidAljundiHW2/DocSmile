@@ -10,7 +10,9 @@ const CampaignHero = async ({ campaign }: { campaign: Campaign }) => {
 
     const locale = await getLocale()
 
-    const formatDate = (date: string) => {
+    const formatDate = (date: string | null | undefined) => {
+        if (!date) return ''
+
         const parsedDate = new Date(date)
 
         return new Intl.DateTimeFormat(locale === 'ar' ? 'ar' : 'en', {
@@ -30,20 +32,23 @@ const CampaignHero = async ({ campaign }: { campaign: Campaign }) => {
                 h-[100vh]
                 w-full
                 flex-col
-            '   
+            '
         >
 
-            <img 
-                src={campaign.image.url}
-                className='
-                    absolute
-                    inset-0
-                    w-full
-                    h-full
-                    z-0
-                    object-cover
-                '
-            />
+            {typeof campaign.image === 'object' && campaign.image && (
+                <img 
+                    src={campaign.image.url ?? ''}
+                    alt={campaign.mainHeader ?? ''}
+                    className='
+                        absolute
+                        inset-0
+                        w-full
+                        h-full
+                        z-0
+                        object-cover
+                    '
+                />
+            )}
 
             <div
                 className='

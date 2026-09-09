@@ -5,7 +5,6 @@ import { Testimonial } from '@/payload-types'
 
 const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collection : Testimonial[]}) => {
 
-
   return (
     <div
         className='
@@ -31,7 +30,6 @@ const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collec
         >
             <Flex className='w-full items-center'>
 
-            
                 <h1
                     className='
                         main_header
@@ -43,19 +41,6 @@ const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collec
                     {test.name}
                 </h1>
                 
-                {/* {test.profileImage.url && (
-                    <img 
-                        src={test.profileImage.url}
-                        className='
-                            rounded-full
-                            ml-auto
-                            h-[100px]
-                            rounded-full
-                        '
-                    />
-
-                )} */}
-                
             </Flex>
             
             <Flex
@@ -64,16 +49,17 @@ const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collec
                     base:'column',
                     md:'row'
                 }}
-                    
-                
             >
-                <img 
-                    src={test.testimonialImage.url}
-                    className='
-                        w-[400px]
-                        h-auto
-                    '
-                />
+                {typeof test.testimonialImage === 'object' && test.testimonialImage && (
+                    <img 
+                        src={test.testimonialImage.url ?? ''}
+                        alt={test.name ?? ''}
+                        className='
+                            w-[400px]
+                            h-auto
+                        '
+                    />
+                )}
 
                 <Flex
                     className='
@@ -89,18 +75,14 @@ const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collec
                     <p
                         style={{color:'black'}}
                     >
-                        {test.testimonial}
+                        {test.testimonial ?? ''}
                     </p>
                 </Flex>
 
             </Flex>
-            
-
-
 
         </Flex>
         
-        {/* select */}
         <Flex className='divide-y-2 divide-gray-200 flex-col md:ml-auto md:h-full h-[150px] overflow-y-scroll'>
 
             {collection.map((item,i) => (
@@ -118,13 +100,16 @@ const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collec
                             gap-5
                         '
                     >
-                        <img 
-                            src={item.testimonialImage.url}
-                            className='
-                                h-[100px]
-                                w-[100px]
-                            '
-                        />
+                        {typeof item.testimonialImage === 'object' && item.testimonialImage && (
+                            <img 
+                                src={item.testimonialImage.url ?? ''}
+                                alt={item.name ?? ''}
+                                className='
+                                    h-[100px]
+                                    w-[100px]
+                                '
+                            />
+                        )}
 
                         <Flex
                             style={{
@@ -139,7 +124,7 @@ const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collec
                             </p>
 
                             <p>
-                                {item.testimonial.slice(0,20)} ...
+                                {(item.testimonial ?? '').slice(0,20)} ...
                             </p>
                         </Flex>
                     
@@ -148,8 +133,6 @@ const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collec
 
             ))}
 
-
-
         </Flex>
         
     </div>
@@ -157,3 +140,4 @@ const TestimonialTemplate = ({ test, collection } : { test : Testimonial, collec
 }
 
 export default TestimonialTemplate
+

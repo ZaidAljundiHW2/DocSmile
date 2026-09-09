@@ -81,7 +81,9 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
         required: false,
         isError: false,
         disabled: false,
-        options: doctors.map(item => item.fullName)
+        options: doctors
+            .map(item => item.fullName)
+            .filter((name): name is string => name != null)
     }
 
     // message

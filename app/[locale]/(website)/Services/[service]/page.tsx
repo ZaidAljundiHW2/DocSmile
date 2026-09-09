@@ -15,7 +15,7 @@ const Service = async ({
 
     const payload = await getPayload({ config });
 
-    const locale = await getLocale();
+    const locale = await getLocale() as 'en' | 'ar' | 'all';
 
     const result = await payload.find({
         collection:'services',
@@ -39,14 +39,23 @@ const Service = async ({
         rawService.reviewer && typeof rawService.reviewer === 'object'
             ? {
                   ...rawService.reviewer,
-                  prefix: getLocalizedPrefix(rawService.reviewer.prefix, locale),
+                  prefix: getLocalizedPrefix(
+                      rawService.reviewer.prefix,
+                      locale
+                  ) as 'Dr.' | 'Mr.' | 'Ms.' | 'Mrs.' | 'Nurse',
               }
             : rawService.reviewer
 
     const relevantDoctors = Array.isArray(rawService.relevantDoctors)
-        ? rawService.relevantDoctors.map((doctor: any) =>
+        ? rawService.relevantDoctors.map((doctor) =>
               doctor && typeof doctor === 'object'
-                  ? { ...doctor, prefix: getLocalizedPrefix(doctor.prefix, locale) }
+                  ? {
+                        ...doctor,
+                        prefix: getLocalizedPrefix(
+                            doctor.prefix,
+                            locale
+                        ) as 'Dr.' | 'Mr.' | 'Ms.' | 'Mrs.' | 'Nurse',
+                    }
                   : doctor
           )
         : rawService.relevantDoctors

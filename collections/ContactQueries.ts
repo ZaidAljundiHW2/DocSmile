@@ -47,9 +47,9 @@ export const ContactQueries: CollectionConfig = {
 
             handler: async (req) => {
 
-                const data = await req.json();
+                const data = await req.json!();
 
-                let relevantDoctorId: string | null = null;
+                let relevantDoctorId: number | null = null;
 
                 if (data.relevantDoctor) {
                     const match = await req.payload.find({
@@ -57,6 +57,7 @@ export const ContactQueries: CollectionConfig = {
                         where: { slug: { equals: data.relevantDoctor } },
                         limit: 1,
                     });
+
                     relevantDoctorId = match.docs[0]?.id ?? null;
                 }
 
@@ -64,10 +65,11 @@ export const ContactQueries: CollectionConfig = {
                     collection: 'contact-queries',
 
                     data: {
-                        "name": data.name,
-                        "phoneNumber": data.phoneNumber,
-                        "relevantDoctor": relevantDoctorId,
-                        "message": data.message
+                        slug: data.name,
+                        name: data.name,
+                        phoneNumber: data.phoneNumber,
+                        relevantDoctor: relevantDoctorId,
+                        message: data.message
                     }
                 });
 

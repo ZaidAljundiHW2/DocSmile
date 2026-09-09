@@ -2,7 +2,7 @@ import React from 'react'
 import ComponentSubheader from '../Misc/ComponentSubheader'
 import { Legal } from '@/payload-types'
 
-type LegalSection = Legal['privacyPolicy'][number]
+type LegalSection = NonNullable<Legal['privacyPolicy']>[number]
 
 const headingClasses: Record<number, string> = {
   1: 'text-2xl md:text-4xl font-bold text-black',

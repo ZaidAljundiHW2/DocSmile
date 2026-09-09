@@ -14,7 +14,7 @@ const Doctor = async ({
 
     const doctorslug = decodeURIComponent((await params).doctor)
 
-    const locale = await getLocale()
+    const locale = await getLocale() as 'en' | 'ar' | 'all';
 
     const payload = await getPayload({ config })
 
@@ -38,14 +38,20 @@ const Doctor = async ({
     const reviewer =
         rawDoctor.profileReviewer && typeof rawDoctor.profileReviewer === 'object'
             ? {
-                  ...rawDoctor.profileReviewer,
-                  prefix: getLocalizedPrefix(rawDoctor.profileReviewer.prefix, locale),
-              }
+                ...rawDoctor.profileReviewer,
+                prefix: getLocalizedPrefix(
+                    rawDoctor.profileReviewer.prefix,
+                    locale
+                ) as 'Dr.' | 'Mr.' | 'Ms.' | 'Mrs.' | 'Nurse',
+            }
             : rawDoctor.profileReviewer
 
     const doctor = {
         ...rawDoctor,
-        prefix: getLocalizedPrefix(rawDoctor.prefix, locale),
+        prefix: getLocalizedPrefix(
+            rawDoctor.prefix,
+            locale
+        ) as 'Dr.' | 'Mr.' | 'Ms.' | 'Mrs.' | 'Nurse',
         profileReviewer: reviewer,
     }
      
