@@ -6,6 +6,7 @@ import SelectTag from '../Misc/SelectTag';
 import { redirect, RedirectType } from 'next/navigation'
 import { Doctor } from '@/payload-types';
 import { useTranslations } from 'next-intl';
+import { createAppointmentRequest } from '@/lib/appointments';
 
 const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
 
@@ -184,16 +185,7 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
                 "reason": note
             }
 
-            const res = await fetch('/api/appointment-requests/add-appointment-request', {
-                method: 'POST',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
-
-            if (!res.ok) {
-                redr = false;
-                throw new Error('could not post appointment request');
-            }
+            await createAppointmentRequest(data);
 
         } catch (error) {
             console.error(error);

@@ -6,6 +6,7 @@ import SelectTag from '../Misc/SelectTag';
 import { redirect, RedirectType } from 'next/navigation'
 import { Doctor } from '@/payload-types';
 import { useTranslations } from 'next-intl';
+import { createContactQuery } from '@/lib/contacts';
 
 const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
 
@@ -137,20 +138,7 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
                 "message": message
             };
 
-            const res = await fetch('/api/contact-queries/add-contact', {
-
-                method:'post',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-
-            });
-
-            if (!res.ok) {
-                redr = false;
-                throw new Error('could not post contact query');
-            }
+            await createContactQuery(data);
 
             
             

@@ -106,3 +106,15 @@ export const getPatientInformation = async(locale: 'en' | 'ar' | 'all') => {
 
     return result;
 }
+
+export const getSocials = async() => {
+
+    const payload = await getPayload({ config });
+
+    const result = await payload.findGlobal({
+        slug:'social'
+    });
+
+    return result;
+
+}

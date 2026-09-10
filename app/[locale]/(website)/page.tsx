@@ -12,82 +12,12 @@ import Contact from '@/components/Misc/ContactOptions'
 import { getTranslations, getLocale } from "next-intl/server";
 import { getLocalizedPrefix } from '@/utils/getLocalizedPrefix'
 import { Doctor } from '@/payload-types'
-
-async function getDoctors(locale: string) {
-
-	try {
-
-		const req = await fetch(`/api/doctors?locale=${locale}`);
-
-		if (!req.ok) {
-
-			throw new Error('Could not fetch doctors');
-
-		}
-
-		const jsonData = await req.json();
-		
-		return jsonData.docs;
-	
-
-
-	
-	} catch (error) {
-		console.error(error);
-	}
-
-
-}
-
-
-async function getServices(locale: string) {
-
-	try {
-
-		const req = await fetch(`/api/services?locale=${locale}`);
-
-		if (!req.ok) {
-
-			throw new Error("Could not fetch services");
-		}
-
-		const jsonData = await req.json();
-		
-		return jsonData.docs;
-
-	
-	} catch (error) {
-		console.error(error);
-	}
-
-}
-
-async function getGenDetails(locale: string) {
-
-	try {
-			
-		const req = await fetch(`/api/globals/clinic-general-information?locale=${locale}`);
-
-		if (!req.ok) {
-			throw new Error("Unable to fetch socials");
-		}
-
-		const jsonData = await req.json();
-		
-		return jsonData;
-
-
-	} catch (error) {
-		console.error(error);
-	}
-
-
-}
+import { getDoctors, getServices, getGenDetails } from "@/lib/payloadFetches";
 
 
 export default async function Home() {
 
-	const locale = await getLocale();
+	const locale = await getLocale() as 'en' | 'ar' | 'all';
 
 	const [doctors, services, genDetails] = await Promise.all([
 		getDoctors(locale),
