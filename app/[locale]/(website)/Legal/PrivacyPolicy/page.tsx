@@ -7,7 +7,7 @@ async function getPP(locale : string) {
 
     try {
 
-        const req = await fetch(`${process.env.API_URL}/api/globals/legal/pp?locale=${locale}`);
+        const req = await fetch(`/api/globals/legal/pp?locale=${locale}`);
         const jsonData = await req.json();
 
         return jsonData;

@@ -6,7 +6,7 @@ async function getTestimonials(locale : string) {
 
   try {
 
-    const res = await fetch(`${process.env.API_URL}/api/testimonials?locale=${locale}`);
+    const res = await fetch(`/api/testimonials?locale=${locale}`);
 
     if (!res.ok) {
       throw new Error('could not fetch testimonials');

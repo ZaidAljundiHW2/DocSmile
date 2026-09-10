@@ -11,12 +11,13 @@ import Location from '@/components/Misc/Location'
 import Contact from '@/components/Misc/ContactOptions'
 import { getTranslations, getLocale } from "next-intl/server";
 import { getLocalizedPrefix } from '@/utils/getLocalizedPrefix'
+import { Doctor } from '@/payload-types'
 
 async function getDoctors(locale: string) {
 
 	try {
 
-		const req = await fetch(`${process.env.API_URL}/api/doctors?locale=${locale}`);
+		const req = await fetch(`/api/doctors?locale=${locale}`);
 
 		if (!req.ok) {
 
@@ -43,7 +44,7 @@ async function getServices(locale: string) {
 
 	try {
 
-		const req = await fetch(`${process.env.API_URL}/api/services?locale=${locale}`);
+		const req = await fetch(`/api/services?locale=${locale}`);
 
 		if (!req.ok) {
 
@@ -65,7 +66,7 @@ async function getGenDetails(locale: string) {
 
 	try {
 			
-		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information?locale=${locale}`);
+		const req = await fetch(`/api/globals/clinic-general-information?locale=${locale}`);
 
 		if (!req.ok) {
 			throw new Error("Unable to fetch socials");
@@ -96,8 +97,8 @@ export default async function Home() {
 
 	const t = await getTranslations('home');
 
-	const localizedDoctors = doctors?.map((doctor: any) => ({
-		...doctor,
+	const localizedDoctors = doctors?.map((doctor: Doctor) => ({
+			...doctor,
 		prefix: getLocalizedPrefix(doctor.prefix, locale),
 	})) ?? [];
 

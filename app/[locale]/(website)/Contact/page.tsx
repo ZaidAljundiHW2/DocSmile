@@ -8,7 +8,7 @@ async function getDoctors(locale : string) {
 
 	try {
 
-		const req = await fetch(`${process.env.API_URL}/api/doctors?locale=${locale}`);
+		const req = await fetch(`/api/doctors?locale=${locale}`);
 
 		if (!req.ok) {
 

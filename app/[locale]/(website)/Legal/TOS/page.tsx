@@ -6,7 +6,7 @@ async function getTOS(locale : string) {
 
     try {
 
-        const req = await fetch(`${process.env.API_URL}/api/globals/legal/tos?locale=${locale}`);
+        const req = await fetch(`/api/globals/legal/tos?locale=${locale}`);
         const jsonData = await req.json();
 
         return jsonData;

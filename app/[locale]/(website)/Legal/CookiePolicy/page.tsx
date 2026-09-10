@@ -6,7 +6,7 @@ async function getCookiesPolicy(locale : string) {
 
 	try {
 
-		const req = await fetch(`${process.env.API_URL}/api/globals/legal/cookies?locale=${locale}`);
+		const req = await fetch(`/api/globals/legal/cookies?locale=${locale}`);
 		const jsonData = await req.json();
 
 		return jsonData;

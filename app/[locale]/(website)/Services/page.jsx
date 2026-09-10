@@ -8,7 +8,7 @@ async function getServices(locale) {
 
 	try {
 
-		const req = await fetch(`${process.env.API_URL}/api/services?locale=${locale}`);
+		const req = await fetch(`/api/services?locale=${locale}`);
 
 		if (!req.ok) {
 

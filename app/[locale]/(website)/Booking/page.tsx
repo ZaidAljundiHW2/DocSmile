@@ -8,7 +8,7 @@ async function getDoctors(locale : string) {
 
 	try {
 
-		const req = await fetch(`${process.env.API_URL}/api/doctors?locale=${locale}`);
+		const req = await fetch(`/api/doctors?locale=${locale}`);
 
 		if (!req.ok) {
 
@@ -34,7 +34,7 @@ async function getGenDetails(locale : string) {
 
 	try {
 			
-		const req = await fetch(`${process.env.API_URL}/api/globals/clinic-general-information?locale=${locale}`);
+		const req = await fetch(`/api/globals/clinic-general-information?locale=${locale}`);
 
 		if (!req.ok) {
 			throw new Error("Unable to fetch socials");

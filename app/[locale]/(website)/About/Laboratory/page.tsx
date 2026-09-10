@@ -7,7 +7,7 @@ async function getLab(locale : string) {
 
   try {
 
-    const res = await fetch(`${process.env.API_URL}/api/globals/about/lab?locale=${locale}`);
+    const res = await fetch(`/api/globals/about/lab?locale=${locale}`);
 
     if (!res.ok) {
       throw new Error('could not fetch lab page');

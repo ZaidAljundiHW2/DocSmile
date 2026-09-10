@@ -8,7 +8,7 @@ async function getNumDocs() {
 
   try {
       
-    const req = await fetch(`${process.env.API_URL}/api/doctors/numDoctors`);
+    const req = await fetch('/api/doctors/numDoctors');
 
     if (!req.ok) {
       throw new Error('could not fetch number of doctors');
@@ -26,7 +26,7 @@ async function getNumDocs() {
 const getNumSers = async() => {
   try {
     
-    const req = await fetch(`${process.env.API_URL}/api/services/numServices`);
+    const req = await fetch('/api/services/numServices');
 
     if (!req.ok) {
       throw new Error('could not fetch number of services');
@@ -48,7 +48,7 @@ const getAboutUs = async(locale : string) => {
 
     try {
       
-      const req = await fetch(`${process.env.API_URL}/api/globals/about/AboutUs?locale=${locale}`);
+      const req = await fetch(`/api/globals/about/AboutUs?locale=${locale}`);
 
       if (!req.ok) {
         throw new Error('Could not fetch about us information');
