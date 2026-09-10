@@ -2,27 +2,14 @@ import React from 'react'
 import LegalPage from '@/components/Legal/LegalPage'
 import { getTranslations } from 'next-intl/server';
 import { getLocale } from 'next-intl/server';
+import { getLegal } from '@/lib/payloadFetches';
 
-async function getPP(locale : string) {
-
-    try {
-
-        const req = await fetch(`/api/globals/legal/pp?locale=${locale}`);
-        const jsonData = await req.json();
-
-        return jsonData;
-        
-    } catch (error) {
-        console.error(error);
-    }
-
-}
 
 const PrivacyPolicy = async() => {
 
-    const locale = await getLocale();
+    const locale = await getLocale() as 'en' | 'ar' | 'all';
     
-    const pp = await getPP(locale);
+    const pp = await getLegal(locale, 'privacyPolicy');
 
     const t = await getTranslations('legal.pp');
 
@@ -32,7 +19,7 @@ const PrivacyPolicy = async() => {
 return (
     <div>
 
-        <LegalPage heading={t('header')} legalObj={pp.pp}/>
+        <LegalPage heading={t('header')} legalObj={pp ?? []}/>
     
     </div>
   )

@@ -1,32 +1,13 @@
 import PatientExperienceGrid from '@/components/About/PatientExperienceGrid'
 import ComponentSubheader from '@/components/Misc/ComponentSubheader'
 import { getLocale } from 'next-intl/server';
+import { getTestimonials } from '@/lib/payloadFetches';
 
-async function getTestimonials(locale : string) {
-
-  try {
-
-    const res = await fetch(`/api/testimonials?locale=${locale}`);
-
-    if (!res.ok) {
-      throw new Error('could not fetch testimonials');
-
-
-    }
-    
-    const jsonData = await res.json();
-    return jsonData.docs;
-    
-  } catch (error) {
-    console.error(error);
-  }
-  
-}
 
 
 const PatientExperience = async() => {
 
-  const locale = await getLocale();
+  const locale = await getLocale() as 'en' | 'ar' | 'all';
 
   const testimonials = await getTestimonials(locale);
 

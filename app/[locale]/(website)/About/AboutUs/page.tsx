@@ -3,69 +3,11 @@ import AboutHero from '@/components/About/AboutHero'
 import OurMission from '@/components/About/OurMission'
 import OurCenter from '@/components/About/OurCenter'
 import { getLocale } from 'next-intl/server'
-
-async function getNumDocs() {
-
-  try {
-      
-    const req = await fetch('/api/doctors/numDoctors');
-
-    if (!req.ok) {
-      throw new Error('could not fetch number of doctors');
-    }
-
-    const jsonData = await req.json();
-
-    return jsonData;
-    } catch (error) {
-      console.error(error);
-    }
-
-}
-
-const getNumSers = async() => {
-  try {
-    
-    const req = await fetch('/api/services/numServices');
-
-    if (!req.ok) {
-      throw new Error('could not fetch number of services');
-    }
-
-    const jsonData = await req.json();
-
-    return jsonData;
-
-    
-
-
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-const getAboutUs = async(locale : string) => {
-
-    try {
-      
-      const req = await fetch(`/api/globals/about/AboutUs?locale=${locale}`);
-
-      if (!req.ok) {
-        throw new Error('Could not fetch about us information');
-
-      }
-
-      const jsonData = await req.json();
-      return jsonData;
-
-    } catch (error) {
-      console.error(error);
-    }
-  }
+import { getNumDocs, getNumSers, getAboutUs } from '@/lib/payloadFetches'
 
 const AboutUs = async() => {
 
-  const locale = await getLocale();
+  const locale = await getLocale() as 'en' | 'ar' | 'all';
 
 
   const [aboutUsBlock, numDocs, numSer] = await Promise.all([
@@ -80,16 +22,16 @@ const AboutUs = async() => {
     <div>
       <AboutHero />
 
-      <OurMission mission={aboutUsBlock.mission} />
+      <OurMission mission={aboutUsBlock.missionStatement ?? ''} />
 
       <OurCenter 
         doctors={numDocs}
         ser={numSer}
-        visitors={aboutUsBlock.visitors}
-        exp={aboutUsBlock.exp}
+        visitors={aboutUsBlock.visitors ?? ''}
+        exp={aboutUsBlock.expYears ?? ''}
         showCenter={true}
-        center={aboutUsBlock.center}
-      />
+        center={aboutUsBlock.ourCenter ?? ''}
+    />
         
     </div>
   )

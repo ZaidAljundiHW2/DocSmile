@@ -6,60 +6,18 @@ import UrgentCTA from '@/components/Home/UrgentCTA'
 import Location from '@/components/Misc/Location'
 import { getTranslations } from 'next-intl/server'
 import { getLocale } from 'next-intl/server'
+import { getGenDetails, getPatientInformation } from '@/lib/payloadFetches'
 
-async function getGenDetails(locale : string) {
-
-	try {
-			
-		const req = await fetch(`/api/globals/clinic-general-information?locale=${locale}`);
-
-		if (!req.ok) {
-			throw new Error("Unable to fetch socials");
-		}
-
-		const jsonData = await req.json();
-		
-		return jsonData;
-
-
-	} catch (error) {
-		console.error(error);
-	}
-
-
-}
-
-
-async function getPatientInfo(locale : string) {
-  
-
-	try {
-
-      const res = await fetch(`/api/globals/patient-information?locale=${locale}`);
-
-      if (!res.ok) {
-        throw new Error('could not fetch patient information');
-      }
-
-      const jsonData = await res.json();
-      return jsonData;
-      
-    } catch (error) {
-      console.error(error);
-    }
-
-
-}
 
 const PatientInformation = async() => {
 
-  const locale = await getLocale();
+  const locale = await getLocale() as 'en' | 'ar' | 'all';
 
   const t = await getTranslations('patientInformation')
 
   const [genDetails, patientInfo] = await Promise.all([
     getGenDetails(locale),
-    getPatientInfo(locale)
+    getPatientInformation(locale)
   ])
   
 
@@ -67,9 +25,17 @@ const PatientInformation = async() => {
     <div>
         <ComponentSubheader heading={t('header')}/>
 
-        <FirstVisit text={patientInfo.firstVisit}/>
+        <FirstVisit text={patientInfo.firstVisit ?? ''}/>
 
-        <PatientFAQs FAQs={patientInfo.FAQs} />
+        <PatientFAQs
+            FAQs={{
+                FAQObj: (patientInfo.FAQs ?? []).map(faq => ({
+                    id: faq.id ?? '',
+                    question: faq.question ?? '',
+                    answer: faq.answer ?? ''
+                }))
+            }}
+        />
 
         <UrgentCTA footerHours={genDetails.footerHours} />
 
