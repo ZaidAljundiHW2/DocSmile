@@ -13,7 +13,6 @@ const ContactOptions = async({ isEnquire = true }) => {
         className='
             flex
             flex-row
-            bg-[#CCE0FF]
             p-2
             md:p-5
             gap-2

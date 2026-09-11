@@ -181,6 +181,10 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
         <Button bg={'#0071e3'} color={'white'} onClick={handleSubmit}>
             {t('submit')}
         </Button>
+
+        <h1 className='text-xs'>
+            By clicking submit, you agree to Doctor Smile&apos;s Terms of Service
+        </h1>
     </div>
   )
 }

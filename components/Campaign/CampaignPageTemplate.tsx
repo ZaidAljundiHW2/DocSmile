@@ -7,8 +7,9 @@ import CampainFAQs from './CampaignFAQs'
 import Location from '../Misc/Location'
 import ContactOptions from '../Misc/ContactOptions'
 import { Campaign, ClinicGeneralInformation, Service } from '@/payload-types'
+import { getTranslations } from 'next-intl/server'
 
-const CampaignPageTemplate = ({ 
+const CampaignPageTemplate = async({ 
   campaign,
   numDocs,
   numSer,
@@ -26,6 +27,9 @@ const CampaignPageTemplate = ({
   genDetails : ClinicGeneralInformation
 
 }) => {
+
+  const t = await getTranslations('campaign');
+
   return (
     <div>
 
@@ -45,7 +49,7 @@ const CampaignPageTemplate = ({
         services={(campaign.content?.coveredServices ?? []).filter(
           (service): service is Service => typeof service !== 'number'
         )}
-        header={'Covered Services'} 
+        header={t('coveredServices.header')} 
         showMore={false}
       />
 

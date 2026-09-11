@@ -5,10 +5,14 @@ import WhatsappButton from '../Misc/WhatsappButton'
 import CallButton from '../Misc/CallButton'
 import { Campaign } from '@/payload-types'
 import { getLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 
 const CampaignHero = async ({ campaign }: { campaign: Campaign }) => {
 
     const locale = await getLocale()
+
+      const t = await getTranslations('campaign');
+
 
     const formatDate = (date: string | null | undefined) => {
         if (!date) return ''
@@ -108,7 +112,7 @@ const CampaignHero = async ({ campaign }: { campaign: Campaign }) => {
                             color:'white'
                         }}
                     >
-                        Book now
+                        {t('hero.book')}
                     </h2>
 
                     <Flex gap={{base:'5'}} className='md:flex-row flex-col'>

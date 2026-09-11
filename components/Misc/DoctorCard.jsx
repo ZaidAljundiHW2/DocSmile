@@ -46,7 +46,14 @@ const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false }) 
                         rounded-lg
                     '
                 >
-                    <img src={doctor.photo.url}/>
+                    <img 
+                        src={doctor.photo.url}
+                        // src={'/img/doctor2.jpg'}
+                        className='
+                            w-full
+                            aspect-2/2.5
+                        '
+                    />
 
                     <Flex
                         className='

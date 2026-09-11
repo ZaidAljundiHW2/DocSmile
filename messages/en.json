@@ -399,6 +399,30 @@
         "header": "Something went wrong. Please try again later or head back to our home page."
     },
 
+    "campaign": {
+
+        "hero": {
+            "book": "Book Now"
+        },
+
+        "offer": {
+
+            "header": "CAMPAIGN PRICE",
+            "regular": "Regular"
+        },
+
+        "WhyUs": {
+
+            "header": "Why Choose Us",
+            "subheader": "Trusted care backed by experience, expertise, and results."
+        },
+
+        "coveredServices": {
+            "header": "Covered Services"
+        }
+
+    },
+
     "misc": {
 
         "errorText": "This field is required",

@@ -1,8 +1,9 @@
 import React from 'react'
 import OurMission from '../About/OurMission'
 import OurCenter from '../About/OurCenter'
+import { getTranslations } from 'next-intl/server'
 
-const WhyUs = ({
+const WhyUs = async({
 
     mission,
     numDocs,
@@ -19,6 +20,8 @@ const WhyUs = ({
     exp : string
 
 }) => {
+    
+    const t = await getTranslations('campaign.WhyUs')
   return (
     <div className="flex flex-col py-5">
 
@@ -26,11 +29,11 @@ const WhyUs = ({
             <h2
                 className="main_header"
             >
-                Why Choose Us
+                {t('header')}
             </h2>
 
             <p className="secondary_text max-w-xl">
-                Trusted care backed by experience, expertise, and results.
+                {t('subheader')}
             </p>
         </div>
 

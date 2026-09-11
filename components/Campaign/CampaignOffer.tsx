@@ -2,8 +2,12 @@ import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import BookButton from '../Misc/BookButton'
 import { Campaign } from '@/payload-types'
+import { getTranslations } from 'next-intl/server'
 
-const CampaignOffer = ({ campaign } : { campaign : Campaign }) => {
+const CampaignOffer = async({ campaign } : { campaign : Campaign }) => {
+
+  const t = await getTranslations('campaign');
+
   return (
     <div className="w-full p-5 py-10 bg-white">
       <Flex
@@ -39,7 +43,7 @@ const CampaignOffer = ({ campaign } : { campaign : Campaign }) => {
         >
           <div className="flex flex-col items-center gap-1">
             <span className="text-sm uppercase tracking-wide text-gray-400">
-              Campaign Price
+              {t('offer.header')}
             </span>
             <span
               className="text-5xl font-bold"
@@ -48,7 +52,7 @@ const CampaignOffer = ({ campaign } : { campaign : Campaign }) => {
               ${campaign.content?.newPrice}
             </span>
             <span className="text-sm text-gray-400 line-through">
-              Regular ${campaign.content?.originalPrice}
+              {t('offer.regular')} ${campaign.content?.originalPrice}
             </span>
           </div>
 
