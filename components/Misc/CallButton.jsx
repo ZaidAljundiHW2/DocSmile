@@ -1,10 +1,11 @@
 import { Button } from "@chakra-ui/react"
 import { FaPhoneAlt } from "react-icons/fa";
 import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
-const CallButton = async() => {
+const CallButton = () => {
 
-  const t = await getTranslations('buttons');
+  const t = useTranslations('buttons');
 
   return (
     <div>

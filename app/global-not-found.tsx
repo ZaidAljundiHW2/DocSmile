@@ -1,5 +1,4 @@
 // app/global-not-found.tsx
-'use client'
 import NotFound from '@/app/[locale]/not-found'
 import { Provider } from '@/components/ui/provider'
 import { NextIntlClientProvider } from 'next-intl'

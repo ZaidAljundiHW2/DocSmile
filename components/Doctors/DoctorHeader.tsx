@@ -37,6 +37,7 @@ const DoctorHeader = ({img, name, title} : {img:string, name:string, title:strin
                     src={img}
                     className='
                         rounded-full
+                        aspect-square
                         md:w-[200px]
                         w-[100px]
                         h-auto

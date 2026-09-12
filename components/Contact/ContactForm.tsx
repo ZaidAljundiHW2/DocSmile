@@ -229,6 +229,7 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
 
             if (!response.ok) {
                 redr = false;
+                alert('Something went wrong in the submission of your appointment request.');
                 throw new Error('Failed to submit contact form');
                 
             } 

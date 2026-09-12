@@ -272,6 +272,8 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
             });
 
             if (!response.ok) {
+                redr = false;
+                alert('Something went wrong in the submission of your appointment request.');
                 throw new Error('Network response was not ok');
             }
 

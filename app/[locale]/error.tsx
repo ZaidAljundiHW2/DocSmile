@@ -1,12 +1,16 @@
+
 'use client'
 import { Flex, Button } from '@chakra-ui/react'
 import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl';
+import WhatsappButton from '@/components/Misc/WhatsappButton';
+import CallButton from '@/components/Misc/CallButton';
 
 const ErrorPage = () => {
 
   const t = useTranslations('error');
   const tButtons = useTranslations('buttons');
+  const tMisc = useTranslations('misc');
 
   return (
     <div
@@ -49,6 +53,18 @@ const ErrorPage = () => {
             >
                 {t('header')}
             </h2>
+
+            <p className='text-xs text-[#808080]'>
+				{tMisc('confPages.more')}
+			</p>
+
+            <Flex className='gap-5'>
+
+                <WhatsappButton />
+
+                <CallButton />
+
+            </Flex>
 
             <Link href={'/'}>
             

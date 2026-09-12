@@ -1,13 +1,15 @@
-'use client'
 import React from 'react'
 import { Flex, Button } from '@chakra-ui/react'
 import { Link } from '@/i18n/navigation'
-import { useTranslations } from 'next-intl';
+import WhatsappButton from '@/components/Misc/WhatsappButton';
+import CallButton from '@/components/Misc/CallButton';
+import { getTranslations } from 'next-intl/server';
 
-const NotFound = () => {
+const NotFound = async() => {
 
-	const t = useTranslations('notfound');
-	const tButtons = useTranslations('buttons');
+	const t = await getTranslations('notfound');
+	const tButtons = await getTranslations('buttons');
+	const tMisc = await getTranslations('misc');
 
   return (
     <div
@@ -50,17 +52,32 @@ const NotFound = () => {
 				{t('subheader')}
 			</h2>
 
-			<Link href={'/'}>
+			<p className='text-xs text-[#808080]'>
+				{tMisc('confPages.more')}
+			</p>
+
+			<Flex className='gap-5'>
+
+                <WhatsappButton />
+
+                <CallButton />
+
+            </Flex>
+
+			<Link href={'/'} className='self-start'>
 			
 				<Button
 					className='button'
 					style={{
 						"--button-bg": "#071f97",
 					} as React.CSSProperties}
+					
 				>
 					{tButtons('home')}
 				</Button>
 			</Link>
+
+			
 
 		</Flex>
 

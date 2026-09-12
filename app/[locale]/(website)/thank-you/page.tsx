@@ -2,11 +2,14 @@ import React from 'react'
 import { Flex, Button } from '@chakra-ui/react'
 import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server';
+import WhatsappButton from '@/components/Misc/WhatsappButton';
+import CallButton from '@/components/Misc/CallButton';
 
 const ThankYouPage = async () => {
 
   const t = await getTranslations('thankYou');
   const tButtons = await getTranslations('buttons');
+  const tMisc = await getTranslations('misc');
 
   return (
     <div
@@ -28,7 +31,8 @@ const ThankYouPage = async () => {
         <Flex
             className='
                 flex-col
-                md:order-none order-2
+                md:order-1 
+                order-2
                 gap-5
             '
         >
@@ -49,7 +53,23 @@ const ThankYouPage = async () => {
                 {t('subheader')}
             </h2>
 
-            <Link href={'/'}>
+            <p className='text-xs text-[#808080]'>
+				{tMisc('confPages.reception')}
+			</p>
+
+            <p className='text-xs text-[#808080]'>
+				{tMisc('confPages.more')}
+			</p>
+
+            <Flex className='gap-5'>
+
+                <WhatsappButton />
+
+                <CallButton />
+
+            </Flex>
+
+            <Link href={'/'} className='self-start'>
             
                 <Button
                     className='button'
@@ -61,9 +81,13 @@ const ThankYouPage = async () => {
                 </Button>
             </Link>
 
-        </Flex>
+            
 
-        <Flex className='md:order-none order-1'>
+        </Flex>
+        
+        
+
+        <Flex className='md:order-2 order-1'>
             <img src={'/icons/company-logo.png'}/>
         </Flex>
     </div>

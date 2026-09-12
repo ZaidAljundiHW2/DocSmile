@@ -425,6 +425,11 @@
 
     "misc": {
 
+        "confPages": {
+            "reception":"Our reception will contact you shortly.",
+            "more": "If you believe you are dealing with a problem that requires further contact, call ur or send us a message on Whatsapp"
+        },
+
         "contact": {
             "call": "Call Us",
             "whatsapp": "Whatsapp",
