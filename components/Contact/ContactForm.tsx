@@ -6,7 +6,6 @@ import SelectTag from '../Misc/SelectTag';
 import { redirect, RedirectType } from 'next/navigation'
 import { Doctor } from '@/payload-types';
 import { useTranslations } from 'next-intl';
-import { createContactQuery } from '@/lib/contacts';
 
 const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
 
@@ -214,7 +213,20 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
                 "message": message
             };
 
-            await createContactQuery(data);
+            
+            const response = await fetch('/api/postContactForm', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                redr = false;
+                throw new Error('Failed to submit contact form');
+                
+            } 
 
             
             

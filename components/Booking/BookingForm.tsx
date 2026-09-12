@@ -258,7 +258,17 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
                 "reason": note
             }
 
-            await createAppointmentRequest(data);
+            const response = await fetch('/api/postBookingForm', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
 
         } catch (error) {
             console.error(error);

@@ -3,12 +3,12 @@
 import { getPayload } from 'payload'
 import config from '@/payload.config'
 
-export const createContactQuery = async (data: {
+export default async function createContactQuery (data: {
     name: string
     phoneNumber: string
     relevantDoctor: string | null
     message: string
-}) => {
+}) {
 
     const payload = await getPayload({ config })
 

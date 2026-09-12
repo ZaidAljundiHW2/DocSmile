@@ -7,8 +7,6 @@ export const Appointments: CollectionConfig = {
 
     fields: [
 
-        slugField({ useAsSlug: 'name' }),
-
         {
             label:'Patient Name',
             name:'name',

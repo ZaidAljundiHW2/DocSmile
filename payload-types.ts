@@ -339,11 +339,6 @@ export interface Testimonial {
  */
 export interface ContactQuery {
   id: number;
-  /**
-   * When enabled, the slug will auto-generate from the title field on save and autosave.
-   */
-  generateSlug?: boolean | null;
-  slug: string;
   name?: string | null;
   phoneNumber?: string | null;
   relevantDoctor?: (number | null) | Doctor;
@@ -357,11 +352,6 @@ export interface ContactQuery {
  */
 export interface AppointmentRequest {
   id: number;
-  /**
-   * When enabled, the slug will auto-generate from the title field on save and autosave.
-   */
-  generateSlug?: boolean | null;
-  slug: string;
   name?: string | null;
   phoneNumber?: string | null;
   preferredDoctor?: (number | null) | Doctor;
@@ -375,11 +365,6 @@ export interface AppointmentRequest {
  */
 export interface Appointment {
   id: number;
-  /**
-   * When enabled, the slug will auto-generate from the title field on save and autosave.
-   */
-  generateSlug?: boolean | null;
-  slug: string;
   name?: string | null;
   phoneNumber?: string | null;
   assignedDoctor?: (number | null) | Doctor;
@@ -711,8 +696,6 @@ export interface TestimonialsSelect<T extends boolean = true> {
  * via the `definition` "contact-queries_select".
  */
 export interface ContactQueriesSelect<T extends boolean = true> {
-  generateSlug?: T;
-  slug?: T;
   name?: T;
   phoneNumber?: T;
   relevantDoctor?: T;
@@ -725,8 +708,6 @@ export interface ContactQueriesSelect<T extends boolean = true> {
  * via the `definition` "appointment-requests_select".
  */
 export interface AppointmentRequestsSelect<T extends boolean = true> {
-  generateSlug?: T;
-  slug?: T;
   name?: T;
   phoneNumber?: T;
   preferredDoctor?: T;
@@ -739,8 +720,6 @@ export interface AppointmentRequestsSelect<T extends boolean = true> {
  * via the `definition` "appointments_select".
  */
 export interface AppointmentsSelect<T extends boolean = true> {
-  generateSlug?: T;
-  slug?: T;
   name?: T;
   phoneNumber?: T;
   assignedDoctor?: T;

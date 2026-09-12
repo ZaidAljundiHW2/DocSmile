@@ -11,7 +11,7 @@ export const ContactQueries: CollectionConfig = {
 
     fields: [
 
-        slugField({ useAsSlug: 'name' }),
+        
 
         {
             label: 'Submitter Name',

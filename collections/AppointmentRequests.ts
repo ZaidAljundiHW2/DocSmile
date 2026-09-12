@@ -13,7 +13,7 @@ export const AppointmentRequests: CollectionConfig = {
   },
 
   fields: [
-    slugField({ useAsSlug: 'name' }),
+    
     { label: 'Submitter Name', name: 'name', type: 'text' },
     { label: 'Submitter Phone Number', name: 'phoneNumber', type: 'text' },
     {
