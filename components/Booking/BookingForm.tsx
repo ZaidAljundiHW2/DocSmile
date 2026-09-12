@@ -299,6 +299,7 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
                 color={'white'} 
                 onClick={handleSubmit}
                 loading={buttonLoading}
+                disabled={buttonLoading}
             >
                 {t('submit')}
             </Button>
