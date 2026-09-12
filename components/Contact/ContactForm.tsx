@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { Field, Textarea, Button } from "@chakra-ui/react"
+import { Field, Textarea, Button, Input } from "@chakra-ui/react"
 import InputTag from '../Misc/InputTag';
 import SelectTag from '../Misc/SelectTag';
 import { redirect, RedirectType } from 'next/navigation'
@@ -12,6 +12,10 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
     const t = useTranslations('contact.contactForm');
     
     const tMisc = useTranslations('misc');
+
+
+    //honeypot
+    const [honeypot, setHoneypot] = useState("");
 
     // name
     const [name, setName] = useState("");
@@ -210,7 +214,8 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
                 "name": name,
                 "phoneNumber": number,
                 "relevantDoctor": selectedDoctor?.slug ?? null, 
-                "message": message
+                "message": message,
+                "honeypot": honeypot
             };
 
             
@@ -268,6 +273,17 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
                 <Field.ErrorIcon />
                 {messageErrorText}
             </Field.ErrorText>
+        </Field.Root>
+
+        {/* honeypot field */}
+        <Field.Root>
+
+            <Input 
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                style={{ display: 'none' }}
+            />  
+
         </Field.Root>
 
         <Button 

@@ -1,12 +1,13 @@
 "use client"
 import React, { useState } from 'react'
-import { Field, Textarea, Button } from "@chakra-ui/react"
+import { Field, Textarea, Button, Input } from "@chakra-ui/react"
 import InputTag from '../Misc/InputTag';
 import SelectTag from '../Misc/SelectTag';
 import { redirect, RedirectType } from 'next/navigation'
 import { Doctor } from '@/payload-types';
 import { useTranslations } from 'next-intl';
 import { createAppointmentRequest } from '@/lib/appointments';
+
 
 const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
 
@@ -26,6 +27,9 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
 
     const t = useTranslations('booking.bookingForm');
     const tMisc = useTranslations('misc');
+
+    //honeypot
+    const [honeypot, setHoneypot] = useState("");
 
     // full name
     const [name, setName] = useState("");
@@ -255,7 +259,8 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
                 "name": name,
                 "phoneNumber": number,
                 "preferredDoctor": selectedDoctor?.slug ?? null,
-                "reason": note
+                "reason": note,
+                "honeypot": honeypot
             }
 
             const response = await fetch('/api/postBookingForm', {
@@ -301,6 +306,17 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
                     <Field.ErrorIcon />
                     {noteErrorText}
                 </Field.ErrorText>
+            </Field.Root>
+
+            {/* honeypot field */}
+            <Field.Root>
+    
+                <Input 
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    style={{ display: 'none' }}
+                />  
+    
             </Field.Root>
 
             <Button 

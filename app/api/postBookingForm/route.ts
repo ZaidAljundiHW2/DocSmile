@@ -33,6 +33,10 @@ export async function POST(request: Request) {
 
         const data = await request.json();
 
+        if (data.honeypot) {
+            return Response.json({ message: "Spam detected." }, { status: 400 });
+        }
+
         await createAppointmentRequest(data);
 
         return NextResponse.json({ message: "Booking form submitted successfully." }, { status: 200 });

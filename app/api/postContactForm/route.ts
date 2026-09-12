@@ -33,6 +33,10 @@ export async function POST(request: Request) {
 
         const data = await request.json();
 
+        if (data.honeypot) {
+            return Response.json({ message: "Spam detected." }, { status: 400 });
+        }
+
         await createContactQuery(data);
 
         return NextResponse.json({ message: "Contact form submitted successfully." }, { status: 200 });
