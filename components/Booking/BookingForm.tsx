@@ -100,9 +100,8 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
             nationalNumber = cleanNumber.substring(5);
         }
 
-        for (const type in patterns) {
-            if (patterns[type].test(nationalNumber)) {
-                
+        for (const pattern of Object.values(patterns)) {
+            if (pattern.test(nationalNumber)) {
                 setNumberError(false);
                 return;
             }
@@ -217,7 +216,12 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
         }
     }
 
+
+    const [buttonLoading, setButtonLoading] = useState(false);
+
     const handleSubmit = async () => {
+        
+        setButtonLoading(true);
         let redr = true;
 
         try {
@@ -240,8 +244,10 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
 
             if (hasError) {
                 redr = false;
+                setButtonLoading(false);
                 return;
             };
+
 
             const selectedDoctor = doctors.find((d) => d.fullName === doctor);
 
@@ -260,6 +266,8 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
 
         if (redr) redirect('/thank-you', RedirectType.replace);
     }
+
+    
 
     return (
         <div className='flex flex-col gap-3'>
@@ -285,7 +293,13 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
                 </Field.ErrorText>
             </Field.Root>
 
-            <Button bg={'#0071e3'} color={'white'} onClick={handleSubmit}>
+            <Button 
+            
+                bg={'#0071e3'} 
+                color={'white'} 
+                onClick={handleSubmit}
+                loading={buttonLoading}
+            >
                 {t('submit')}
             </Button>
         </div>
