@@ -10,7 +10,9 @@ interface ReqInputContent {
     isError: boolean,
     label: string,
     disabled?: boolean,
-    number?: boolean
+    number?: boolean,
+    errorMessage: string,
+    validateFunction?: () => void
 }
 
 interface ReqInputProps {
@@ -44,6 +46,7 @@ const InputTag = ({ inputObj }: ReqInputProps) => {
                     value={inputObj.value}
                     onChange={(e) => inputObj.setInput(e.target.value)}
                     disabled={inputObj.disabled}
+                    onBlur={inputObj.validateFunction}
                 />
             </InputGroup>
         ) : (
@@ -55,10 +58,14 @@ const InputTag = ({ inputObj }: ReqInputProps) => {
                 value={inputObj.value}
                 onChange={(e) => inputObj.setInput(e.target.value)}
                 disabled={inputObj.disabled}
+                onBlur={inputObj.validateFunction}
             />
         )}
 
-        <Field.ErrorText>This field is required</Field.ErrorText>
+        <Field.ErrorText width={'100%'}>
+            <Field.ErrorIcon />
+            {inputObj.errorMessage}
+        </Field.ErrorText>
     </Field.Root>
   )
 }

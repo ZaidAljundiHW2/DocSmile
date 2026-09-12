@@ -11,11 +11,23 @@ import { createContactQuery } from '@/lib/contacts';
 const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
 
     const t = useTranslations('contact.contactForm');
+    
     const tMisc = useTranslations('misc');
 
     // name
     const [name, setName] = useState("");
     const [nameError, setNameError] = useState(false);
+    const [nameErrorText, setNameErrorText] = useState(tMisc('errorText.missingInput'));
+
+
+    const validateName = async() => {
+
+        if (name.trim().length === 0) {
+            setNameError(true);
+        } else {
+            setNameError(false);
+        }
+    }
 
     const nameInput = {
         placeholder: t('name.placeholder'),
@@ -23,9 +35,10 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
         setInput: setName,
         required: true,
         isError: nameError,
-        errorText: tMisc('errorText'),
+        errorMessage: nameErrorText,
         label: t('name.label'),
         disabled: false,
+        validateFunction: validateName
     }
 
     // email
@@ -45,6 +58,48 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
     // number
     const [number, setNumber] = useState("");
     const [numberError, setNumberError] = useState(false);
+    const [numberErrorText, setNumberErrorText] = useState(tMisc('errorText.missingInput'));
+
+    const validateNumber = async() => {
+
+        if (number.trim().length === 0) {
+            setNumberError(true);
+        } else {
+            setNumberError(false);
+        }
+
+        const cleanNumber = number.replace(/[\s\-\(\)]/g, '');
+
+        // Validation patterns per CITRA numbering plan (effective April 17, 2009)
+        const patterns = {
+            landline: /^2[0-9]{7}$/,                // 2XXXXXXX (8 digits)
+            mobileVirgin: /^41[0-9]{6}$/,           // 41XXXXXX (8 digits, Virgin Mobile)
+            mobile: /^[569][0-9]{7}$/,              // 5XXXXXXX, 6XXXXXXX, or 9XXXXXXX
+            corporate: /^18[0-9]{5}$/,              // 18XXXXX (7 digits total)
+            tollFree: /^180[0-9]{5}$/,              // 180XXXXX (8 digits total)
+            emergency: /^1[0-9]{2}$/,               // 1XX (3 digits total)
+            governmentHotline: /^159$/,             // 159 (citizens abroad, effective Sept 2022)
+        };
+
+        let nationalNumber = cleanNumber;
+        if (cleanNumber.startsWith('+965')) {
+            nationalNumber = cleanNumber.substring(4);
+        } else if (cleanNumber.startsWith('00965')) {
+            nationalNumber = cleanNumber.substring(5);
+        }
+
+        for (const type in patterns) {
+            if (patterns[type].test(nationalNumber)) {
+                
+                setNumberError(false);
+                return;
+            }
+        }
+
+        setNumberError(true);
+        setNumberErrorText(tMisc('errorText.phoneNumber'));
+        return;
+    }
 
     const numberInput = {
         placeholder: t('phoneNumber.placeholder'),
@@ -52,10 +107,12 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
         setInput: setNumber,
         required: true,
         isError: numberError,
-        errorText: tMisc('errorText'),
+        errorMessage: numberErrorText,
         label: t('phoneNumber.label'),
         disabled: false,
         number: true,
+
+        validateFunction: validateNumber
     }
 
     // preferred contact method
@@ -84,12 +141,24 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
         disabled: false,
         options: doctors
             .map(item => item.fullName)
-            .filter((name): name is string => name != null)
+            .filter((name): name is string => name != null),
+        
+        
     }
 
     // message
     const [message, setMessage] = useState("");
     const [messageError, setMessageError] = useState(false);
+    const [messageErrorText, setMessageErrorText] = useState(tMisc('errorText.missingInput'));
+
+    const validateMessage = async() => {
+
+        if (message.trim().length === 0) {
+            setMessageError(true);
+        } else {
+            setMessageError(false);
+        }
+    }
 
     const handleSubmit = async() => {
 
@@ -124,7 +193,11 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
                 hasError = true;
             } else setMessageError(false);
 
-            if (hasError) return;
+            if (hasError) {
+                redr = false;
+                return;
+
+            } 
 
             // submit logic goes here
 
@@ -173,9 +246,13 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
                 bg={'white'}
                 maxLength={800}
                 style={{ height: '100px' }}
+                onBlur={validateMessage}
             />
 
-            <Field.ErrorText>{tMisc('errorText')}</Field.ErrorText>
+            <Field.ErrorText>
+                <Field.ErrorIcon />
+                {messageErrorText}
+            </Field.ErrorText>
         </Field.Root>
 
         <Button bg={'#0071e3'} color={'white'} onClick={handleSubmit}>
@@ -183,7 +260,7 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
         </Button>
 
         <h1 className='text-xs'>
-            By clicking submit, you agree to Doctor Smile&apos;s Terms of Service
+            {tMisc('tosAgree')}
         </h1>
     </div>
   )

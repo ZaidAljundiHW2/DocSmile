@@ -30,6 +30,16 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
     // full name
     const [name, setName] = useState("");
     const [nameError, setNameError] = useState(false);
+    const [nameErrorText, setNameErrorText] = useState(tMisc('errorText.missingInput'));
+
+    const validateName = async() => {
+
+        if (name.trim().length === 0) {
+            setNameError(true);
+        } else {
+            setNameError(false);
+        }
+    }
 
     const nameInput = {
         placeholder: t("fullName.placeholder"),
@@ -37,9 +47,10 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
         setInput: setName,
         required: true,
         isError: nameError,
-        errorText: tMisc('errorText'),
+        errorMessage: nameErrorText,
         label: t("fullName.label"),
         disabled: false,
+        validateFunction: validateName
     }
 
     // email
@@ -59,6 +70,48 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
     // Kuwait mobile number
     const [number, setNumber] = useState("");
     const [numberError, setNumberError] = useState(false);
+    const [numberErrorText, setNumberErrorText] = useState(tMisc('errorText.missingInput'));
+
+    const validateNumber = async() => {
+
+        if (number.trim().length === 0) {
+            setNumberError(true);
+        } else {
+            setNumberError(false);
+        }
+
+        const cleanNumber = number.replace(/[\s\-\(\)]/g, '');
+
+        // Validation patterns per CITRA numbering plan (effective April 17, 2009)
+        const patterns = {
+            landline: /^2[0-9]{7}$/,                // 2XXXXXXX (8 digits)
+            mobileVirgin: /^41[0-9]{6}$/,           // 41XXXXXX (8 digits, Virgin Mobile)
+            mobile: /^[569][0-9]{7}$/,              // 5XXXXXXX, 6XXXXXXX, or 9XXXXXXX
+            corporate: /^18[0-9]{5}$/,              // 18XXXXX (7 digits total)
+            tollFree: /^180[0-9]{5}$/,              // 180XXXXX (8 digits total)
+            emergency: /^1[0-9]{2}$/,               // 1XX (3 digits total)
+            governmentHotline: /^159$/,             // 159 (citizens abroad, effective Sept 2022)
+        };
+
+        let nationalNumber = cleanNumber;
+        if (cleanNumber.startsWith('+965')) {
+            nationalNumber = cleanNumber.substring(4);
+        } else if (cleanNumber.startsWith('00965')) {
+            nationalNumber = cleanNumber.substring(5);
+        }
+
+        for (const type in patterns) {
+            if (patterns[type].test(nationalNumber)) {
+                
+                setNumberError(false);
+                return;
+            }
+        }
+
+        setNumberError(true);
+        setNumberErrorText(tMisc('errorText.phoneNumber'));
+        return;
+    }
 
     const numberInput = {
         placeholder: t("mobileNumber.placeholder"),
@@ -66,10 +119,11 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
         setInput: setNumber,
         required: true,
         isError: numberError,
-        errorText: tMisc('errorText'),
+        errorMessage: numberErrorText,
         label: t("mobileNumber.label"),
         disabled: false,
         number: true,
+        validateFunction: validateNumber
     }
 
     // new or existing patient
@@ -152,6 +206,16 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
     // short non-clinical note (optional)
     const [note, setNote] = useState("");
     const [noteError, setNoteError] = useState(false);
+    const [noteErrorText, setNoteErrorText] = useState(tMisc('errorText.missingInput'));
+
+    const validateNote = async() => {
+
+        if (note.trim().length === 0) {
+            setNoteError(true);
+        } else {
+            setNoteError(false);
+        }
+    }
 
     const handleSubmit = async () => {
         let redr = true;
@@ -174,7 +238,10 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
                 hasError = true;
             } else setNoteError(false);
 
-            if (hasError) return;
+            if (hasError) {
+                redr = false;
+                return;
+            };
 
             const selectedDoctor = doctors.find((d) => d.fullName === doctor);
 
@@ -209,10 +276,12 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
                     bg={'white'}
                     maxLength={500}
                     style={{ height: '80px' }}
+                    onBlur={validateNote}
                 />
 
                 <Field.ErrorText>
-                    {tMisc('errorText')}
+                    <Field.ErrorIcon />
+                    {noteErrorText}
                 </Field.ErrorText>
             </Field.Root>
 

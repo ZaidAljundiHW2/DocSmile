@@ -425,8 +425,6 @@
 
     "misc": {
 
-        "errorText": "This field is required",
-
         "contact": {
             "call": "Call Us",
             "whatsapp": "Whatsapp",
@@ -446,7 +444,15 @@
             "Saturday"
         ],
 
-        "closed": "Closed"
+        "closed": "Closed",
+
+        "errorText": {
+
+            "missingInput": "This field is required",
+            "phoneNumber": "Please input a valid phone number"
+        },
+
+        "tosAgree": "By clicking submit, you agree to Doctor Smile's Terms of Service"
     }
 
     
