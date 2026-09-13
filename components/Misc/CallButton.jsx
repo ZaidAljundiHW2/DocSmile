@@ -18,7 +18,7 @@ const CallButton = ({ number }) => {
 
 			<a href={`tel:+965${cleanNum}`}>
 
-				<Button className="button" style={{"--button-bg": "black"}}>
+				<Button className="button" dir="ltr" style={{"--button-bg": "black"}}>
 					+965 {cleanNum}
 					<FaPhoneAlt />
 				</Button>

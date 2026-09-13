@@ -12,9 +12,15 @@
     src: url('/HelveticaNeueLight.otf');
 }
 
+@font-face {
+    font-family: NotoSansArabic;
+    src: url('/NotoSansArabic-Regular.ttf');
+}
+
 html {
   overflow-x: hidden;
 }
+
 
 body {
   overflow-x: hidden;
@@ -57,10 +63,11 @@ h1 {
 
 }
 
-p {
+p, h2 {
     font-family: HelveticaNeue;
     font-size: clamp(.8rem, 1vw, 1.2rem);
 }
+
 
 .button {
     color: white;
@@ -86,4 +93,15 @@ p {
 
 .scroll-target {
     scroll-margin-top: var(--header-height, 0px);
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] p,
+html[lang="ar"] .main_header,
+html[lang="ar"] .secondary_header,
+html[lang="ar"] .main_text,
+html[lang="ar"] .secondary_text,
+html[lang="ar"] .button {
+    font-family: NotoSansArabic;
 }

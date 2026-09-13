@@ -111,7 +111,7 @@ const Hero = async() => {
 
             {/* Name */}
 
-            <h1 className='main_header'>
+            <h1 className='main_header font-bold'>
                 {t('hero.header')}
             </h1>
 
