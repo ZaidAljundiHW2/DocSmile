@@ -51,7 +51,6 @@ export const AppointmentRequests: CollectionConfig = {
           collection: 'appointment-requests',
           draft: false,
           data: {
-            slug: data.name,
             name: data.name,
             phoneNumber: data.phoneNumber,
             preferredDoctor: preferredDoctorId,
@@ -79,7 +78,6 @@ export const AppointmentRequests: CollectionConfig = {
           collection: 'appointments',
           draft: false,
           data: {
-            slug: `appointment-${request.id}`,
             name: request.name,
             phoneNumber: request.phoneNumber,
             assignedDoctor:

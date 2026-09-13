@@ -64,7 +64,6 @@ export const ContactQueries: CollectionConfig = {
                     collection: 'contact-queries',
 
                     data: {
-                        slug: data.name,
                         name: data.name,
                         phoneNumber: data.phoneNumber,
                         relevantDoctor: relevantDoctorId,
