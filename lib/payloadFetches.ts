@@ -118,3 +118,27 @@ export const getSocials = async() => {
     return result;
 
 }
+
+export const getTelNumber = async() => {
+
+    const payload = await getPayload({ config });
+
+    const result = await payload.findGlobal({
+
+        slug:'clinic-general-information'
+    });
+
+    return result.phoneNumber;
+}
+
+export const getWhatsAppNumber = async() => {
+
+    const payload = await getPayload({ config });
+
+    const result = await payload.findGlobal({
+
+        slug:'clinic-general-information'
+    });
+
+    return result.whatsapp;
+}

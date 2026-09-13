@@ -6,13 +6,17 @@ import CallButton from '../Misc/CallButton'
 import { Campaign } from '@/payload-types'
 import { getLocale } from 'next-intl/server'
 import { getTranslations } from 'next-intl/server'
+import { getTelNumber, getWhatsAppNumber } from '@/lib/payloadFetches'
 
 const CampaignHero = async ({ campaign }: { campaign: Campaign }) => {
 
     const locale = await getLocale()
 
-      const t = await getTranslations('campaign');
+    const t = await getTranslations('campaign');
 
+    const telNum = await getTelNumber();
+
+    const wNum = await getWhatsAppNumber();
 
     const formatDate = (date: string | null | undefined) => {
         if (!date) return ''
@@ -119,9 +123,9 @@ const CampaignHero = async ({ campaign }: { campaign: Campaign }) => {
 
                         <BookButton />
 
-                        <WhatsappButton />
+                        <WhatsappButton number={wNum}/>
 
-                        <CallButton />
+                        <CallButton number={telNum}/>
 
                     </Flex>
                     

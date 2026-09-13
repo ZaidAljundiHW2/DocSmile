@@ -3,8 +3,12 @@ import '../Home/Home.css'
 import { getTranslations } from "next-intl/server";
 import WhatsappButton from "./WhatsappButton";
 import CallButton from "./CallButton";
+import { getTelNumber, getWhatsAppNumber } from "@/lib/payloadFetches";
 
 const Location = async ({ genDetails }) => {
+
+    const telNum = await getTelNumber();
+    const wNum = await getWhatsAppNumber();
 
 
     const formatTime = (iso) => {
@@ -122,9 +126,9 @@ const Location = async ({ genDetails }) => {
 
                     <Flex className="md:justify-end justify-center items-center gap-5">
 
-                        <CallButton />
+                        <CallButton number={telNum}/>
 
-                        <WhatsappButton />
+                        <WhatsappButton number={wNum}/>
 
                     </Flex>
 

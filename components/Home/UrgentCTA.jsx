@@ -3,10 +3,12 @@ import { Flex } from '@chakra-ui/react'
 import { FaRegClock } from "react-icons/fa";
 import CallButton from '../Misc/CallButton';
 import { getTranslations } from 'next-intl/server';
+import { getTelNumber } from '@/lib/payloadFetches';
 
 const UrgentCTA = async({ footerHours }) => {
 
     const t = await getTranslations('home');
+    const telNum = await getTelNumber();
 
   return (
 
@@ -65,7 +67,7 @@ const UrgentCTA = async({ footerHours }) => {
                 
             </Flex>
 
-            <CallButton />
+            <CallButton number={telNum}/>
 
 
 

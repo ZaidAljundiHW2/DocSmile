@@ -6,13 +6,17 @@ import CallButton from '../Misc/CallButton';
 import WhatsappButton from '../Misc/WhatsappButton';
 import { Service } from '@/payload-types'
 import { getTranslations } from 'next-intl/server';
+import { getTelNumber, getWhatsAppNumber } from '@/lib/payloadFetches';
 
 const ServiceQualifications = async({ service } : {service : Service}) => {
+
+	const telNum = await getTelNumber();
 
 	const qualBlocks = service.content?.qualificationsParagraphs?.split('\n') ?? [];
 	const qualifiers = service.content?.qualifiers ?? [];
 	const qualificationsImages = service.content?.qualificationsImages ?? [];
 	const t = await getTranslations('services.serviceTemplate.serviceQualifications');
+	const wNum = await getWhatsAppNumber();
 
   return (
     <div
@@ -157,9 +161,9 @@ const ServiceQualifications = async({ service } : {service : Service}) => {
 				<Flex gap={{base:2, md:5}} className='md:flex-row flex-col'>
 					<BookButton />
 					
-					<CallButton />
+					<CallButton number={telNum}/>
 
-					<WhatsappButton />
+					<WhatsappButton number={wNum}/>
 				</Flex>
 
 			</Flex>

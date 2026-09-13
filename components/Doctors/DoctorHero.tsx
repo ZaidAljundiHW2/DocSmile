@@ -3,11 +3,14 @@ import { Flex } from '@chakra-ui/react'
 import CallButton from '../Misc/CallButton'
 import BookButton from '../Misc/BookButton'
 import { getTranslations } from 'next-intl/server'
+import { getTelNumber } from '@/lib/payloadFetches'
 
 const DoctorHero = async() => {
 
 
     const t = await getTranslations('doctors.hero');
+
+    const telNum = await getTelNumber();
 
   return (
     <div
@@ -82,7 +85,7 @@ const DoctorHero = async() => {
             </h2>
 
             <Flex gap={5}>
-                <CallButton />
+                <CallButton number={telNum}/>
 
                 <BookButton />
 

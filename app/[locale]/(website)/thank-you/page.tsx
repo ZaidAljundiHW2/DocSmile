@@ -4,12 +4,15 @@ import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server';
 import WhatsappButton from '@/components/Misc/WhatsappButton';
 import CallButton from '@/components/Misc/CallButton';
+import { getTelNumber, getWhatsAppNumber } from '@/lib/payloadFetches';
 
 const ThankYouPage = async () => {
 
   const t = await getTranslations('thankYou');
   const tButtons = await getTranslations('buttons');
   const tMisc = await getTranslations('misc');
+  const telNum = await getTelNumber();
+  const wNum = await getWhatsAppNumber();
 
   return (
     <div
@@ -63,9 +66,9 @@ const ThankYouPage = async () => {
 
             <Flex className='gap-5'>
 
-                <WhatsappButton />
+                <WhatsappButton number={wNum}/>
 
-                <CallButton />
+                <CallButton number={telNum}/>
 
             </Flex>
 

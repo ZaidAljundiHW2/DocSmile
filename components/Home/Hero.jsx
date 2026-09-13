@@ -3,12 +3,15 @@ import BookButton from '../Misc/BookButton'
 import WhatsappButton from '../Misc/WhatsappButton';
 import Image from 'next/image';
 import CallButton from '../Misc/CallButton';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
+import { getTelNumber, getWhatsAppNumber } from '@/lib/payloadFetches';
 
 const Hero = async() => {
 
     const t = await getTranslations('home');
-    
+    const telNum = await getTelNumber();
+    const wNum = await getWhatsAppNumber();
+    const locale = await getLocale();
    
 
   return (
@@ -135,9 +138,9 @@ const Hero = async() => {
 
                     <BookButton />
 
-                    <WhatsappButton />
+                    <WhatsappButton number={wNum} locale={locale}/>
 
-                    <CallButton />
+                    <CallButton number={telNum}/>
 
                 </Flex>
               

@@ -5,12 +5,24 @@ import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl';
 import WhatsappButton from '@/components/Misc/WhatsappButton';
 import CallButton from '@/components/Misc/CallButton';
+import { useEffect, useState } from 'react';
+import { getTelNumberAction, getWhatsappNumberAction } from '@/lib/actions'
 
 const ErrorPage = () => {
 
-  const t = useTranslations('error');
-  const tButtons = useTranslations('buttons');
-  const tMisc = useTranslations('misc');
+  
+
+    const t = useTranslations('error')
+    const tButtons = useTranslations('buttons')
+    const tMisc = useTranslations('misc')
+
+    const [telNum, setTelNum] = useState<string | null | undefined>()
+    const [wNum, setWNum] = useState<string | null | undefined>()
+
+    useEffect(() => {
+        getTelNumberAction().then(setTelNum).catch(() => {});
+        getWhatsappNumberAction().then(setTelNum).catch(() => {})
+    }, [])
 
   return (
     <div
@@ -60,9 +72,9 @@ const ErrorPage = () => {
 
             <Flex className='gap-5'>
 
-                <WhatsappButton />
+                <WhatsappButton number={wNum}/>
 
-                <CallButton />
+                <CallButton number={telNum}/>
 
             </Flex>
 

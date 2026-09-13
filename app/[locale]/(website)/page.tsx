@@ -32,6 +32,8 @@ export default async function Home() {
 		prefix: getLocalizedPrefix(doctor.prefix, locale),
 	})) ?? [];
 
+  
+
 
   return (
     <div>

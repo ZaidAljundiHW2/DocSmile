@@ -1,20 +1,32 @@
 import { Button } from "@chakra-ui/react"
 import { FaPhoneAlt } from "react-icons/fa";
-import { getTranslations } from "next-intl/server";
-import { useTranslations } from "next-intl";
 
-const CallButton = () => {
+const CallButton = ({ number }) => {
 
-  const t = useTranslations('buttons');
+	const telNumber = number;
 
-  return (
-    <div>
-        <Button className="button" style={{"--button-bg": "black"}}>
-            {t('call')}
-            <FaPhoneAlt />
-        </Button>
-        
-    </div>
+	let cleanNum = telNumber.replace(/\s/g, "");
+
+	if (cleanNum.includes('+965')) {
+
+		cleanNum = cleanNum.replace('+965', "");
+	}
+
+
+	return (
+		<div>
+
+			<a href={`tel:+965${cleanNum}`}>
+
+				<Button className="button" style={{"--button-bg": "black"}}>
+					+965 {cleanNum}
+					<FaPhoneAlt />
+				</Button>
+
+			</a>
+			
+			
+		</div>
   )
 }
 
