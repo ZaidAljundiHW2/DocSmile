@@ -34,7 +34,6 @@ export const createAppointmentRequest = async (data: {
         collection: 'appointment-requests',
         draft: false,
         data: {
-            slug: data.name,
             name: data.name,
             phoneNumber: data.phoneNumber,
             preferredDoctor: preferredDoctorId,

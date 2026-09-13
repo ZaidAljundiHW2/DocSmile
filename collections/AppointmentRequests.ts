@@ -1,5 +1,4 @@
 import type { CollectionConfig } from 'payload'
-import { slugField } from 'payload'
 
 export const AppointmentRequests: CollectionConfig = {
   slug: 'appointment-requests',

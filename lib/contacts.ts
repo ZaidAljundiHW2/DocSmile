@@ -31,7 +31,6 @@ export default async function createContactQuery (data: {
     await payload.create({
         collection: 'contact-queries',
         data: {
-            slug: data.name,
             name: data.name,
             phoneNumber: data.phoneNumber,
             relevantDoctor: relevantDoctorId,
