@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Carousel, useCarousel, useBreakpointValue } from "@chakra-ui/react"
 import DoctorCard from './DoctorCard'
+import Link from 'next/link'
 
 const Doctors = ({ doctors, header }) => {
     const router = useRouter()
@@ -78,19 +79,25 @@ const Doctors = ({ doctors, header }) => {
                 )}
 
                 {doctors.length === 1 && (
-                    <div className="w-full flex p-5 justify-center gap-4">
-                        <div className="hidden md:block md:w-1/3">
-                            <DoctorCard isFillerCard={true} />
-                        </div>
 
-                        <div className="w-full md:w-1/3 md:py-10 py-5">
-                            <DoctorCard doctor={doctors[0]} isMiddleDoc={true} />
-                        </div>
+                        <div className="w-full flex p-5 justify-center gap-4">
+                            <div className="hidden md:block md:w-1/3">
+                                <DoctorCard isFillerCard={true} />
+                            </div>
 
-                        <div className="hidden md:block md:w-1/3">
-                            <DoctorCard isFillerCard={true} />
+                            <Link
+                                href={`/Doctors/${doctors[0].slug}`}
+                                className="w-full md:w-1/3 md:py-10 py-5"
+                            >
+                                <DoctorCard doctor={doctors[0]} isMiddleDoc={true} />
+                            </Link>
+
+                            <div className="hidden md:block md:w-1/3">
+                                <DoctorCard isFillerCard={true} />
+                            </div>
                         </div>
-                    </div>
+                    
+                    
                 )}
 
             </div>

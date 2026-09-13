@@ -2,13 +2,14 @@ import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import { FaRegClock } from "react-icons/fa";
 import CallButton from '../Misc/CallButton';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { getTelNumber } from '@/lib/payloadFetches';
 
 const UrgentCTA = async({ footerHours }) => {
 
     const t = await getTranslations('home');
     const telNum = await getTelNumber();
+    const locale = await getLocale();
 
   return (
 
@@ -52,16 +53,24 @@ const UrgentCTA = async({ footerHours }) => {
 
        
 
-        <Flex className='md:w-1/2 w-full flex-col gap-5'>
+        <Flex className='md:w-1/2 w-full flex-col gap-5' dir={locale === 'ar' ? 'rtl' : 'ltr'}>
 
-            <h1 className='main_header'>
+            <h1 className='main_header' dir={locale === 'ar' ? 'rtl' : 'ltr'}>
                 {t('urgentCTA.header')}
             </h1>
 
-            <Flex className='items-center gap-5'>
+            <Flex 
+                className='
+                    items-center 
+                    gap-5'
+                    dir={locale === 'ar' ? 'rtl' : 'ltr'}
+                >
                 <FaRegClock color='#071f97' className='secondary_header'/>
 
-                <h2 className='secondary_header'>
+                <h2 
+                    className='secondary_header'
+                    
+                >
                     {footerHours}
                 </h2>
                 

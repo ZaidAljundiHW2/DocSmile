@@ -1,5 +1,4 @@
-"use client"
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import './MapsPrev.css'
 import { FaLocationArrow } from "react-icons/fa";
@@ -12,11 +11,11 @@ import { FaYoutube } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaSnapchat } from "react-icons/fa";
 import LanguageSwitch from '../Misc/LanguageSwitch';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
-const MapsPrev = ({ socials, genDetails }) => {
+const MapsPrev = async({ socials, genDetails }) => {
 
-    const t = useTranslations('footer');
+    const t = await getTranslations('footer');
 
     
 
