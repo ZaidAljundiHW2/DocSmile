@@ -123,7 +123,7 @@ const CampaignHero = async ({ campaign }: { campaign: Campaign }) => {
 
                         <BookButton />
 
-                        <WhatsappButton number={wNum}/>
+                        <WhatsappButton number={wNum} locale={locale}/>
 
                         <CallButton number={telNum}/>
 

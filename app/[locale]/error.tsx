@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import WhatsappButton from '@/components/Misc/WhatsappButton';
 import CallButton from '@/components/Misc/CallButton';
 import { useEffect, useState } from 'react';
-import { getTelNumberAction, getWhatsappNumberAction } from '@/lib/actions'
+import { getLocaleAction, getTelNumberAction, getWhatsappNumberAction } from '@/lib/actions'
 
 const ErrorPage = () => {
 
@@ -18,10 +18,12 @@ const ErrorPage = () => {
 
     const [telNum, setTelNum] = useState<string | null | undefined>()
     const [wNum, setWNum] = useState<string | null | undefined>()
+    const [locale, setLocale] = useState<string | null | undefined>();
 
     useEffect(() => {
         getTelNumberAction().then(setTelNum).catch(() => {});
         getWhatsappNumberAction().then(setTelNum).catch(() => {})
+        getLocaleAction().then(setLocale).catch(() => {});
     }, [])
 
   return (
@@ -72,7 +74,7 @@ const ErrorPage = () => {
 
             <Flex className='gap-5'>
 
-                <WhatsappButton number={wNum}/>
+                <WhatsappButton number={wNum} locale={locale}/>
 
                 <CallButton number={telNum}/>
 

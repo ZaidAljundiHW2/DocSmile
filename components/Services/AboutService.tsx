@@ -5,7 +5,7 @@ import BookButton from '../Misc/BookButton'
 import CallButton from '../Misc/CallButton'
 import WhatsappButton from '../Misc/WhatsappButton'
 import { Service } from '@/payload-types'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import { getTelNumber, getWhatsAppNumber } from '@/lib/payloadFetches'
 
 const AboutService = async({ service } : {service : Service}) => {
@@ -18,6 +18,8 @@ const AboutService = async({ service } : {service : Service}) => {
 	const wNum = await getWhatsAppNumber();
 
 	const t = await getTranslations('services.serviceTemplate.aboutService');
+
+	const locale = await getLocale();
 	
 
   return (
@@ -139,7 +141,7 @@ const AboutService = async({ service } : {service : Service}) => {
 					
 					<CallButton number={telNum}/>
 
-					<WhatsappButton number={wNum} />
+					<WhatsappButton number={wNum} locale={locale}/>
 				</Flex>
 
             </Flex>

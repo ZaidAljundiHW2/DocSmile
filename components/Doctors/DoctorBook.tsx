@@ -3,7 +3,7 @@ import { Flex, Box } from '@chakra-ui/react'
 import BookButton from '../Misc/BookButton'
 import CallButton from '../Misc/CallButton'
 import WhatsappButton from '../Misc/WhatsappButton'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import { getTelNumber, getWhatsAppNumber } from '@/lib/payloadFetches'
 
 const DoctorBook = async({name} : {name:string}) => {
@@ -12,6 +12,8 @@ const DoctorBook = async({name} : {name:string}) => {
 
     const telNum = await getTelNumber();
     const wNum = await getWhatsAppNumber();
+
+    const locale = await getLocale();
 
 
   return (
@@ -76,7 +78,7 @@ const DoctorBook = async({name} : {name:string}) => {
         <Flex className='gap-5 flex-1 items-center z-1 justify-center'>
             <BookButton />
             <CallButton number={telNum}/>
-            <WhatsappButton number={wNum}/>
+            <WhatsappButton number={wNum} locale={locale}/>
 
         </Flex>
             

@@ -7,6 +7,7 @@ import WhatsappButton from '../Misc/WhatsappButton';
 import { Service } from '@/payload-types'
 import { getTranslations } from 'next-intl/server';
 import { getTelNumber, getWhatsAppNumber } from '@/lib/payloadFetches';
+import { getLocale } from 'next-intl/server';
 
 const ServiceQualifications = async({ service } : {service : Service}) => {
 
@@ -17,6 +18,7 @@ const ServiceQualifications = async({ service } : {service : Service}) => {
 	const qualificationsImages = service.content?.qualificationsImages ?? [];
 	const t = await getTranslations('services.serviceTemplate.serviceQualifications');
 	const wNum = await getWhatsAppNumber();
+	const locale = await getLocale();
 
   return (
     <div
@@ -163,7 +165,7 @@ const ServiceQualifications = async({ service } : {service : Service}) => {
 					
 					<CallButton number={telNum}/>
 
-					<WhatsappButton number={wNum}/>
+					<WhatsappButton number={wNum} locale={locale}/>
 				</Flex>
 
 			</Flex>

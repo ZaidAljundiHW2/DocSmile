@@ -1,6 +1,6 @@
 import { Flex, Box } from "@chakra-ui/react"
 import '../Home/Home.css'
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import WhatsappButton from "./WhatsappButton";
 import CallButton from "./CallButton";
 import { getTelNumber, getWhatsAppNumber } from "@/lib/payloadFetches";
@@ -9,6 +9,8 @@ const Location = async ({ genDetails }) => {
 
     const telNum = await getTelNumber();
     const wNum = await getWhatsAppNumber();
+    
+    const locale = await getLocale();
 
 
     const formatTime = (iso) => {
@@ -128,7 +130,7 @@ const Location = async ({ genDetails }) => {
 
                         <CallButton number={telNum}/>
 
-                        <WhatsappButton number={wNum}/>
+                        <WhatsappButton number={wNum} locale={locale}/>
 
                     </Flex>
 

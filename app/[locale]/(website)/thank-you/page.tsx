@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flex, Button } from '@chakra-ui/react'
 import { Link } from '@/i18n/navigation'
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import WhatsappButton from '@/components/Misc/WhatsappButton';
 import CallButton from '@/components/Misc/CallButton';
 import { getTelNumber, getWhatsAppNumber } from '@/lib/payloadFetches';
@@ -13,6 +13,7 @@ const ThankYouPage = async () => {
   const tMisc = await getTranslations('misc');
   const telNum = await getTelNumber();
   const wNum = await getWhatsAppNumber();
+  const locale = await getLocale();
 
   return (
     <div
@@ -66,7 +67,7 @@ const ThankYouPage = async () => {
 
             <Flex className='gap-5'>
 
-                <WhatsappButton number={wNum}/>
+                <WhatsappButton number={wNum} locale={locale}/>
 
                 <CallButton number={telNum}/>
 
