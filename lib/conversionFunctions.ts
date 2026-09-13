@@ -15,7 +15,6 @@ export const convertAppointmentRequest = async (id: string) => {
         collection: 'appointments',
         draft: false,
         data: {
-            slug: `appointment-${request.id}`,
             name: request.name,
             phoneNumber: request.phoneNumber,
             assignedDoctor:
