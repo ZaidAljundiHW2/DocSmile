@@ -1,10 +1,11 @@
 "use client"
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Carousel, useCarousel, useBreakpointValue } from "@chakra-ui/react"
 import DoctorCard from './DoctorCard'
 
 const Doctors = ({ doctors, header }) => {
-
+    const router = useRouter()
     const [middleDocIndex, setMiddleDocIndex] = useState(doctors.length > 2 ? 1 : 0);
 
     const slidesPerPage = useBreakpointValue({ base: 1, md: 3 }, { fallback: "md" });
@@ -27,8 +28,12 @@ const Doctors = ({ doctors, header }) => {
         },
     });
 
-    const goToDoctor = (index) => {
-        setMiddleDocIndex(index);
+    const handleItemClick = (index, doctor) => {
+        if (middleDocIndex === index) {
+            router.push(`/Doctors/${doctor.slug}`);
+        } else {
+            setMiddleDocIndex(index);
+        }
     };
 
     return (
@@ -51,7 +56,10 @@ const Doctors = ({ doctors, header }) => {
                                     key={index}
                                     index={index + 1}
                                     className="h-full w-full md:py-10 py-5"
-                                    onClick={() => goToDoctor(index)}
+                                    onClick={() => handleItemClick(index, doctor)}
+                                    draggable={false}
+                                    onDragStart={(e) => e.preventDefault()}
+                                    style={{ touchAction: 'pan-y' }}
                                 >
                                     <DoctorCard
                                         doctor={doctor}

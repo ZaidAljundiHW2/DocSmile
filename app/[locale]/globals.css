@@ -2,8 +2,6 @@
 
 @import "tailwindcss";
 
-
-
 @font-face {
     font-family: CGB;
     src: url('/Century Gothic Bold.ttf');
@@ -26,43 +24,33 @@ body {
 h1 {
     color: #808080;
     font-family: HelveticaNeue;
-
 }
 
 .nonhero {
   padding-top: var(--header-height, 0px);
-
 }
 
 .main_header {
-
     font-size: clamp(2.5rem, 4.2vw, 7.5rem);
     color:#071f97;
     line-height: 1;
     font-family: CGB;
-
 }
 
 .secondary_header {
-
     font-size: clamp(1.2rem, 2vw, 2.5rem);
     color: #808080;
     font-family: HelveticaNeue;
-    
-
-
 }
 
 .main_text {
     color:'white';
     font-family: HelveticaNeue;
-
 }
 
 .secondary_text {
     color:#808080;
     font-family: HelveticaNeue;
-
 }
 
 .icon {
@@ -70,13 +58,11 @@ h1 {
 }
 
 p {
-    
     font-family: HelveticaNeue;
     font-size: clamp(.8rem, 1vw, 1.2rem);
 }
 
 .button {
-
     color: white;
     border-radius: 20px;
     border-width: 2px;
@@ -86,7 +72,6 @@ p {
     padding:1.5rem;
     font-size: clamp(1rem, 1.2vw, 1.6rem);
     align-self: start;
-
 }
 
 .button:hover {
@@ -97,4 +82,8 @@ p {
 
 .paddedwrapper {
     padding:20px
+}
+
+.scroll-target {
+    scroll-margin-top: var(--header-height, 0px);
 }

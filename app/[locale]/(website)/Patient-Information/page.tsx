@@ -4,6 +4,7 @@ import FirstVisit from '@/components/PatientInformation/FirstVisit'
 import PatientFAQs from '@/components/PatientInformation/PatientFAQs'
 import UrgentCTA from '@/components/Home/UrgentCTA'
 import Location from '@/components/Misc/Location'
+import HashScroll from '@/utils/HashScroll'
 import { getTranslations } from 'next-intl/server'
 import { getLocale } from 'next-intl/server'
 import { getGenDetails, getPatientInformation } from '@/lib/payloadFetches'
@@ -19,28 +20,38 @@ const PatientInformation = async() => {
     getGenDetails(locale),
     getPatientInformation(locale)
   ])
-  
+
 
   return (
     <div>
+        <HashScroll />
+
         <ComponentSubheader heading={t('header')}/>
 
-        <FirstVisit text={patientInfo.firstVisit ?? ''}/>
+		<section id='PIFV' className='scroll-target'>
+	        <FirstVisit text={patientInfo.firstVisit ?? ''}/>
+		</section>
 
-        <PatientFAQs
-            FAQs={{
-                FAQObj: (patientInfo.FAQs ?? []).map(faq => ({
-                    id: faq.id ?? '',
-                    question: faq.question ?? '',
-                    answer: faq.answer ?? ''
-                }))
-            }}
-        />
+		<section id='PIFAQ' className='scroll-target'>
+			<PatientFAQs
+				FAQs={{
+					FAQObj: (patientInfo.FAQs ?? []).map(faq => ({
+						id: faq.id ?? '',
+						question: faq.question ?? '',
+						answer: faq.answer ?? ''
+					}))
+				}}
+			/>
+		</section>
 
-        <UrgentCTA footerHours={genDetails.footerHours} />
+        <section id='PIUCTA' className='scroll-target'>
+			<UrgentCTA footerHours={genDetails.footerHours} />
+		</section>
 
-        <Location genDetails={genDetails}/>
-        
+		<section id='PIL' className='scroll-target'>
+	        <Location genDetails={genDetails}/>
+		</section>
+
     </div>
   )
 }
