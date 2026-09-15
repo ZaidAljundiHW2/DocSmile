@@ -58,7 +58,6 @@ const InputTag = ({ inputObj }: ReqInputProps) => {
                 borderColor={'gray.300'}
                 _focus={{ borderColor: 'gray.500' }}
                 color={'black'}
-                bg={'white'}
                 value={inputObj.value}
                 onChange={(e) => inputObj.setInput(e.target.value)}
                 disabled={inputObj.disabled}
