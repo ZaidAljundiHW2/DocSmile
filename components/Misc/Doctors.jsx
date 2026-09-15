@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Carousel, useCarousel, useBreakpointValue } from "@chakra-ui/react"
 import DoctorCard from './DoctorCard'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation';
 
 const Doctors = ({ doctors, header }) => {
     const router = useRouter()

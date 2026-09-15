@@ -3,11 +3,12 @@ import { Flex, Button } from '@chakra-ui/react'
 import ContactOptions from '../Misc/ContactOptions'
 import BookingForm from './BookingForm'
 import { Doctor } from '@/payload-types'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 const BookingMain = async({ doctors, address } : { doctors : Doctor[], address : string }) => {
 
     const t = await getTranslations('booking');
+    const locale = await getLocale();
 
   return (
     <div
@@ -17,7 +18,19 @@ const BookingMain = async({ doctors, address } : { doctors : Doctor[], address :
             bg-white
         '
     >
-        <Flex className='md:p-10 p-5 gap-5 md:flex-row flex-col'>
+        <Flex 
+            className={`
+                pt-5 
+                pb-5 
+                md:pt-10
+                md:pb-10
+                ${locale === 'en' ? 'md:pl-10' : 'md:pr-10'}
+                ${locale === 'en' ? 'pl-5' : 'pr-5'} 
+                gap-5 
+                md:flex-row 
+                flex-col
+            `}
+        >
             <Flex
                 className='
                     flex-1
@@ -33,15 +46,15 @@ const BookingMain = async({ doctors, address } : { doctors : Doctor[], address :
                         src={'/img/placeholder.jpg'}
                         alt='Clinic location'
                         loading='lazy'
-                        className='
+                        className={`
                             absolute
                             inset-0
                             h-full
                             w-full
                             object-cover
-                            rounded-l-full
+                            ${locale === 'en' ? 'rounded-l-full' : 'rounded-r-full'}
                             
-                        '
+                        `}
                     />
 
                 </Flex>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flex } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 const DoctorCard = ({ doctor = {}, isMiddleDoc = false, isFillerCard = false, href = null }) => {
 

@@ -2,7 +2,7 @@ import { SimpleGrid, Flex, Box } from '@chakra-ui/react'
 import { FaChevronDown } from "react-icons/fa";
 import { Service } from '@/payload-types';
 import { getTranslations } from 'next-intl/server';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 const ServicesPrev = async({services, showMore, header} : {services : Service[], showMore : boolean, header : string }) => {
 

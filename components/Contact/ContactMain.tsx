@@ -3,11 +3,12 @@ import { Flex } from '@chakra-ui/react'
 import ContactForm from './ContactForm'
 import ContactOptions from '../Misc/ContactOptions'
 import { Doctor } from '@/payload-types'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 const ContactMain = async({ doctors } : { doctors : Doctor[]}) => {
 
     const t = await getTranslations('contact');
+    const locale = await getLocale();
 
   return (
     <div
@@ -39,16 +40,16 @@ const ContactMain = async({ doctors } : { doctors : Doctor[]}) => {
                     src={'/img/placeholder.jpg'}
                     alt='Contact us'
                     loading='lazy'
-                    className='
+                    className={`
                         absolute
                         inset-0
                         h-full
                         w-full
                         object-cover
-                        md:rounded-r-full
+                        ${locale === 'en' ? 'md:rounded-r-full' : 'md:rounded-l-full'}
                         md:rounded-t-none
                         rounded-t-full
-                    '
+                    `}
                 />
 
             </Flex>

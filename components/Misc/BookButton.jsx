@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from "@chakra-ui/react"
 import { FaCalendar } from "react-icons/fa";
 import { getTranslations } from 'next-intl/server';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 const BookButton = async() => {
 

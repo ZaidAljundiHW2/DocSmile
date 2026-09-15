@@ -374,6 +374,7 @@ export const Legal: GlobalConfig = {
       type: 'array',
       labels: { singular: 'Section', plural: 'Sections' },
       fields: legalSectionFields,
+      localized:true
     },
     {
       label: 'Terms of Service',
@@ -381,6 +382,7 @@ export const Legal: GlobalConfig = {
       type: 'array',
       labels: { singular: 'Section', plural: 'Sections' },
       fields: legalSectionFields,
+      localized:true
     },
     {
       label: 'Cookie Policy',
@@ -388,6 +390,7 @@ export const Legal: GlobalConfig = {
       type: 'array',
       labels: { singular: 'Section', plural: 'Sections' },
       fields: legalSectionFields,
+      localized:true
     },
   ],
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import ComponentSubheader from '@/components/Misc/ComponentSubheader'
 import BookingMain from '@/components/Booking/BookingMain'
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { getLocalizedPrefix } from '@/utils/getLocalizedPrefix';
 import { getDoctors } from '@/lib/payloadFetches';
 import { getGenDetails } from '@/lib/payloadFetches';
@@ -10,6 +10,7 @@ import { getGenDetails } from '@/lib/payloadFetches';
 const Booking = async() => {
 
 	const locale = await getLocale() as 'en' | 'ar' | 'all';
+  const t = await getTranslations('booking');
 
 	
   const [doctors, genDetails] = await Promise.all([
@@ -24,7 +25,7 @@ const Booking = async() => {
 
   return (
     <div>
-        <ComponentSubheader heading={'Book an Appointment'}/>
+        <ComponentSubheader heading={t('header')}/>
         <BookingMain doctors={localizedDoctors} address={genDetails.address ?? ''}/>
         
     </div>
