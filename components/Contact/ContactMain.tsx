@@ -62,24 +62,41 @@ const ContactMain = async({ doctors } : { doctors : Doctor[]}) => {
                     p-5
                     md:order-2
                     order-1
+                    
                 '
 
 
             >
-                <h2
+                <div
                     className='
-                        secondary_header
-                        
+                        p-5
+                        rounded-lg
+                        shadow-lg
+                        bg-[#f7f7f7]
+                        flex
+                        flex-col
+                        w-full
+                        h-full
                     '
-                    style={{
-                        color:'black',
-                        fontWeight:'bold'
-                    }}
                 >
-                    {t('header')}
-                </h2>
+                    <h2
+                        className='
+                            secondary_header
+                            
+                        '
+                        style={{
+                            color:'black',
+                            fontWeight:'bold'
+                        }}
+                    >
+                        {t('header')}
+                    </h2>
 
-                <ContactForm doctors={doctors}/>
+                    <ContactForm doctors={doctors}/>
+
+
+                </div>
+                
 
             </Flex>
 

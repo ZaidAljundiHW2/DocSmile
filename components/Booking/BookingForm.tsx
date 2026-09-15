@@ -302,6 +302,8 @@ const BookingForm = ({ doctors } : { doctors : Doctor[] }) => {
                     maxLength={500}
                     style={{ height: '80px' }}
                     onBlur={validateNote}
+                    borderColor={'gray.300'}
+                    _focus={{ borderColor: 'gray.500' }}
                 />
 
                 <Field.ErrorText>

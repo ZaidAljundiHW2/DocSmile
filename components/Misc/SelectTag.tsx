@@ -23,7 +23,6 @@ const SelectTag = ({ selectObj }: ReqSelectProps) => {
         disabled={selectObj.disabled} 
         invalid={selectObj.isError} 
         color={'black'} 
-        bg={'white'}
     >
         <Field.Label>
             {selectObj.label} <Field.RequiredIndicator />
@@ -36,6 +35,8 @@ const SelectTag = ({ selectObj }: ReqSelectProps) => {
                 style={{ colorScheme: 'light' }}
                 value={selectObj.value}
                 onChange={(e) => selectObj.setSelect(e.target.value)}
+                borderColor={'gray.300'}
+                _focus={{ borderColor: 'gray.500' }}
             >
                 <option value="" style={{ color: 'black', background: 'white' }}>
                     {selectObj.placeholder ?? "Select option"}

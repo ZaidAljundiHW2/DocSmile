@@ -25,7 +25,6 @@ const InputTag = ({ inputObj }: ReqInputProps) => {
         required={inputObj.required} 
         invalid={inputObj.isError} 
         color={'black'} 
-        bg={'white'}
     >
         <Field.Label>
             {inputObj.label} <Field.RequiredIndicator />
@@ -42,17 +41,22 @@ const InputTag = ({ inputObj }: ReqInputProps) => {
                 <Input 
                     placeholder={inputObj.placeholder ?? ""}
                     color={'black'}
+                    colorPalette={'gray'}
                     bg={'white'}
                     value={inputObj.value}
                     onChange={(e) => inputObj.setInput(e.target.value)}
                     disabled={inputObj.disabled}
                     onBlur={inputObj.validateFunction}
+                    borderColor={'gray.300'}
+                    _focus={{ borderColor: 'gray.500' }}
                 />
             </InputGroup>
         ) : (
             <Input 
                 placeholder={inputObj.placeholder ?? ""}
                 variant={'flushed'}
+                borderColor={'gray.300'}
+                _focus={{ borderColor: 'gray.500' }}
                 color={'black'}
                 bg={'white'}
                 value={inputObj.value}

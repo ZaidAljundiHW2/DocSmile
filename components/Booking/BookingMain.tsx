@@ -53,10 +53,8 @@ const BookingMain = async({ doctors, address } : { doctors : Doctor[], address :
                             w-full
                             object-cover
                             ${locale === 'en' ? 'rounded-l-full' : 'rounded-r-full'}
-                            
                         `}
                     />
-
                 </Flex>
 
                 <h1 
@@ -84,37 +82,39 @@ const BookingMain = async({ doctors, address } : { doctors : Doctor[], address :
                     } as React.CSSProperties}
                 >
                     {t('dirHeader')}
-
                 </Button>
-                
-
             </Flex>
 
             <Flex
                 className='
                     flex-1
                     flex-col
-                    order-1
                 '
-
-
             >
-                <h2
+                <div
                     className='
-                        secondary_header
-                        
+                        p-5
+                        rounded-lg
+                        shadow-lg
+                        bg-[#f7f7f7]
+                        flex
+                        flex-col
+                        w-full
+                        h-full
                     '
-                    style={{
-                        color:'black',
-                        fontWeight:'bold',
-                    }}
                 >
-                    {t('header')}
-                </h2>
-                
-                <BookingForm doctors={doctors} />
-                
+                    <h2
+                        className='secondary_header'
+                        style={{
+                            color:'black',
+                            fontWeight:'bold'
+                        }}
+                    >
+                        {t('header')}
+                    </h2>
 
+                    <BookingForm doctors={doctors}/>
+                </div>
             </Flex>
 
         </Flex>

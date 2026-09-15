@@ -268,6 +268,8 @@ const ContactForm = ({ doctors } : { doctors : Doctor[] }) => {
                 maxLength={800}
                 style={{ height: '100px' }}
                 onBlur={validateMessage}
+                borderColor={'gray.300'}
+                _focus={{ borderColor: 'gray.500' }}
             />
 
             <Field.ErrorText>
